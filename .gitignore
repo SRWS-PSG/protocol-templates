@@ -1,0 +1,12 @@
+templates/*/build/
+templates/*/_raw_from_docx.md
+templates/*/media/
+templates/*/vancouver.csl
+
+# OS
+.DS_Store
+Thumbs.db
+
+# editors
+*.swp
+*~

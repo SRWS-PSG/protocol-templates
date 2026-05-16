@@ -1,0 +1,41 @@
+{
+  "title": "SRWS-PSG protocol templates",
+  "description": "A collection of Markdown-based systematic review protocol templates, maintained by SRWS-PSG (Scientific Research WorkS Peer Support Group). Each GitHub release is automatically deposited to Zenodo with a version-specific DOI. The intervention-review template is the successor to the protocols.io V.2 template (DOI 10.17504/protocols.io.81wgbpb41vpk/v2).",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "CC-BY-4.0",
+  "language": "eng",
+  "keywords": [
+    "systematic review",
+    "protocol template",
+    "intervention review",
+    "PRISMA 2020",
+    "Cochrane Handbook",
+    "SRWS-PSG"
+  ],
+  "creators": [
+    {
+      "name": "Kataoka, Yuki"
+    },
+    {
+      "name": "So, Ryuhei"
+    },
+    {
+      "name": "Banno, Masahiro"
+    },
+    {
+      "name": "Tsujimoto, Yasushi"
+    },
+    {
+      "name": "SRWS-PSG Mentors",
+      "affiliation": "Scientific Research WorkS Peer Support Group"
+    }
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.17504/protocols.io.81wgbpb41vpk/v2",
+      "relation": "isNewVersionOf",
+      "resource_type": "publication-other"
+    }
+  ]
+}

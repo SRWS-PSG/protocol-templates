@@ -1,195 +1,242 @@
-# Protocol template update and Google Scholar indexing plan
+# Protocol template — GitHub + Zenodo 公開計画
 
 作成日: 2026-05-16
-目的: 既存のprotocols.io上のプロトコルテンプレートをアップデートし、その更新を契機に、Google Scholarで文献・引用として拾われやすい形に整える。
+最終更新: 2026-05-16
+目的: 既存の protocols.io ベースのプロトコルテンプレートを **GitHub + Zenodo** に移行し、バージョン管理・citability・Google Scholar 収録のすべてを改善する。
 
-## 1. 基本方針
+## 1. 全体方針
 
-今回の目的は、査読論文として出版することではなく、以下を満たすこと。
+**役割分担（新アーキテクチャ）:**
 
-- 実際にチームが使うテンプレートを最新版として公開する
-- SR執筆時に引用しやすい形にする
-- Google Scholarで文献として認識されやすい形にする
-- 将来の更新・version管理ができるようにする
-
-役割分担は以下のようにする。
-
-| 役割                                 | 置き場所                           | 目的                                    |
-| ------------------------------------ | ---------------------------------- | --------------------------------------- |
-| 実際に使う最新版テンプレート         | protocols.io                       | 手順・テンプレート本体・version管理     |
-| Google Scholarで拾わせたい引用用文献 | ZenodoのArticleまたはPreprint      | DOI付きPDFとして文献化                  |
-| 補助ファイル置き場                   | ZenodoまたはOSF Project            | Word版、Markdown版、使用例、更新履歴    |
-| 必要に応じたpreprint置き場           | OSF系community preprint serverなど | 分野に合うpreprint serverがある場合のみ |
-
-protocols.ioは公開プロトコルにDOIを付けられるため、実際に使うテンプレートの置き場として有用である。一方、Google Scholar対策としては、検索可能なPDF、タイトル、著者、出版日、メタデータが重要なので、ZenodoにArticleまたはPreprintとして短い説明文献を置く。Google Scholarの収録には著者・出版日などのメタデータが必要とされている。Zenodo側も、Google Scholarは主にtext content、つまりarticle系を対象にしやすいと説明している。
-参考: https://www.protocols.io/
-参考: https://scholar.google.com/intl/en/scholar/inclusion.html
-参考: https://support.zenodo.org/help/en-gb/18-general/61-is-zenodo-indexed-by-google-scholar
-
-## 2. Step 1: 既存のprotocols.ioテンプレートをアップデートする
-
-最初に、すでに使っているprotocols.io上のテンプレートを更新する。今回更新対象は以下の2つで、両方を整合させる必要がある。
-
-- protocols.io上の公開テンプレート（ライブ版・DOI付与の対象）
-  - URL: https://www.protocols.io/view/protocol-template-for-intervention-review-cft4tnqw
-  - 既知のバージョン表記: V.2
-- 原本のdocxファイル（チームが編集している実体）
-  - OneDrive上の原本: [protocol_template_for_intervention_review.docx](https://onedrive.live.com/:w:/g/personal/c48886b82268c3f3/UQDzw2giuIaIIIDEoh8AAAAAAOh7dYJ7YmFOrqE)（要認証）
-  - リポジトリ内に同梱されたdocx: [resources/protocol_template_for_intervention_review.docx](resources/protocol_template_for_intervention_review.docx)
-  - 内容確認用PDF: [resources/protocol_template_for_intervention_review-onedrive.pdf](resources/protocol_template_for_intervention_review-onedrive.pdf)
-- protocols.io V.2 のPDFバックアップ: [resources/protocol-template-for-intervention-review-protocolio.pdf](resources/protocol-template-for-intervention-review-protocolio.pdf)
-
-### 2.1 現在版の確認（自動取得済み）
-
-protocols.io V.2 のPDFバックアップから抽出したメタデータ:
-
-```text
-Current title:              protocol_template_for_intervention_review V.2
-Current protocols.io URL:   https://www.protocols.io/view/protocol-template-for-intervention-review-cft4tnqw
-Current DOI:                https://dx.doi.org/10.17504/protocols.io.81wgbpb41vpk/v2
-External link (DOI):        https://doi.org/10.2490/prm.20260012   # Progress in Rehabilitation Medicine 掲載論文へ
-Current version:            V.2  (Version 2)
-Created:                    2022-08-26
-Last Modified:              2022-08-26
-Document Integer ID:        69212
-License:                    Creative Commons Attribution (CC BY)
-Journal association:        Progress in Rehabilitation Medicine
-Authors:                    Yuki Kataoka(1), Yasushi Tsujimoto(2), Masahiro Banno(3), Shunsuke Taito(2), Ryuhei So(2), Jun Watanabe(2), Akihiro Shiroshita(2)
-Affiliations:               (1) Department of Internal Medicine, Kyoto Min-Iren Asukai Hospital
-                            (2) Systematic Review Work Shop-Peer Support Group
-                            (3) Department of Psychiatry, Seichiryo Hospital
-Keywords:                   protocol template-for-intervention review, procol template   # "procol" は誤字（V.3で修正対象）
-Abstract:                   "This is a procol template."                                  # 同上、極端に短い・誤字あり
-```
-
-公式citation（protocols.io上の "Document Citation"）:
-
-> Yuki Kataoka, Yasushi Tsujimoto, Masahiro Banno, Shunsuke Taito, Ryuhei So, Jun Watanabe, Akihiro Shiroshita 2022. protocol_template_for_intervention_review. protocols.io https://dx.doi.org/10.17504/protocols.io.81wgbpb41vpk/v2
-
-紐づけられているmanuscript citation（使用例として記載されている論文）:
-
-> Okamura M, Shirado K, Shirai N, Yagi T, Inoue T, Ogawa M, Sullivan ES, haehling SV, Springer J, Anker SD, Momosaki R. 2026. Combined Nutritional and Exercise Interventions for Cachexia in Chronic Diseases: A Systematic Review and Meta-analysis Limited to Cancer Cachexia. Progress in Rehabilitation Medicine 11. doi:10.2490/prm.20260012
-
-ユーザー側で追記が必要な項目:
-
-```text
-SRs already using this template (網羅的):    # 上記Okamura 2026以外で把握しているもの。なければ「Okamura 2026のみ把握」と記入
-```
-
-### 2.2 docx原本と公開版 V.2 の差分（自動取得済み）
-
-両PDFを比較した結果のサマリ。
-
-**メタデータ・形式の違い:**
-
-| 項目                     | OneDrive docx                                          | protocols.io V.2                                        |
-| ------------------------ | ------------------------------------------------------ | ------------------------------------------------------- |
-| 内部に書かれた最終更新日 | 2021/10/30                                             | 2022/08/26 (Created/Last Modified)                      |
-| 構成                     | 本文のみ（メタデータブロックなし）                     | protocols.ioによる表紙＋著者・DOI・citationブロック付き |
-| 公開状態                 | OneDrive個人領域（チーム編集用の "ワーキング" コピー） | 公開・CC BY・DOI付与済み                                |
-
-**本文の構成（章立て）は両者ほぼ一致**: Title → Last updated → メンターaffiliation案内 → Corresponding author → Author contributions → 1.Introduction → 2.Research question → 3.Method (3.1〜3.14) → 4.Summary of findings table → 5.Conflict of Interest → 6.Support → References → Appendix 1〜5。章番号レベルの相違はない。
-
-**重要な内容差分（V.3で必ず取り扱う必要があるもの）:**
-
-1. **Section 3.1 Protocol の自己引用URLが食い違う**
-   - docx: `https://www.protocols.io/view/protocol-template-for-intervention-review-cft4tnqw`（現行URL）
-   - protocols.io V.2: `dx.doi.org/10.17504/protocols.io.biqrkdv6`（**旧バージョンのDOI**を指している。V.2 自身の中で古い参照が残っている状態）
-   - → **V.3 では V.2 自身のDOI（`10.17504/protocols.io.81wgbpb41vpk/v2`）または `https://www.protocols.io/view/protocol-template-for-intervention-review-cft4tnqw` を指すよう統一する必要がある。**
-2. **Appendix 3: EMBASE search strategy の中身**
-   - docx: S1〜S35の検索式が完全に記入されている
-   - protocols.io V.2: 見出しのみで中身が空
-   - → **V.3 では docx 側のS1-S35検索式を取り込んで公開版にも反映する。**
-3. **Introduction のサンプル本文**
-   - docx: 緑内障 + VEGF を題材にしたサンプル記述が残っている（"緑内障は眼科領域で最も失明に寄与する疾患である。"等）
-   - protocols.io V.2: Introduction は空（プレースホルダのみ）
-   - → サンプル本文はテンプレートとしてはノイズなので、**V.3 では削除 or "例:" として明示する**。
-4. **メンターコメント（[片岡4][片岡5][片岡6]）の取扱い**
-   - protocols.io V.2: 本文中に `[片岡4]` 等のWord校正コメントが残ったまま公開されている（GRADE評価担当・資金・CENTRALフィルターの注記）
-   - docx: コメントマーカーは見当たらない（コメントとしてWord側に保持されている可能性あり）
-   - → **V.3 では本文に混入している `[片岡N]` 記号を、注釈ブロックに切り出すか削除する。**
-5. **Footnote脚注番号の混入（タイポ）**
-   - V.2: "the eligibility based on the full texts.**[2]**We will contact original authors..." のように脚注番号が本文に挿入されてしまっている箇所が3.5.1, 3.5.2, 3.6 など複数あり
-   - docx: 同等のテキストに脚注番号が混入していない
-   - → **V.3 で番号を正しい上付き脚注に直すか削除する。**
-6. **Abstract と Keywords の誤字**
-   - V.2: Abstract が "This is a procol template." (procol → protocol)、Keywords も "procol template"
-   - docx: Abstract / Keywords の指定なし
-   - → **V.3 で Abstract と Keywords を書き直す（Google Scholar向けにも重要）。**
-7. **Address / E-mail フィールドのプレースホルダ**
-   - docx: "E-mail: yyy" のような明らかな埋め忘れ
-   - V.2: Address/E-mail 自体が記載されていない
-   - → これはテンプレート利用者が埋める前提なので、**V.3 でも空欄でよいが、注意書きを1行入れる**。
-
-**結論（どちらを起点にするか）:**
-
-- docxの方が本文・Appendix（特にEMBASE検索式）の完成度が高い箇所がある一方、protocols.io V.2 はメタデータ／DOI／公開citationを既に持っている。
-- したがって **「docxを編集ベースとして使い、必要部分を反映した最終文書をprotocols.io V.3 として再公開」** という流れを推奨。
-
-### 2.3 V.3 で取り込んだ変更点（ユーザー判断を反映済み）
-
-| 項目 | 判断 | V.3 での扱い |
+| 役割 | 置き場所 | 目的 |
 |---|---|---|
-| Abstract を新規執筆 | **不要**。 別の Article として書く方が筋がよい | Abstract セクションは置くが、本文ではなく **PRISMA 2020 abstract checklist の項目（Item 2）をサブセクション**として並べる構造に変更 |
-| Keywords 整理 | **やる** | "systematic review protocol", "intervention review", "PRISMA 2020", "Cochrane Handbook" に差し替え |
-| Section 3.1 自己引用URL | **やる** | `10.17504/protocols.io.81wgbpb41vpk/v3` に統一 |
-| Appendix 3 EMBASE 検索式 | **空欄でよい** | 見出しのみ、本文 `??????` |
-| `[片岡4][片岡5][片岡6]` | **脚注化** | pandocフットノートに変換（mentor 関連注記をすべて footnote へ） |
-| 脚注番号の本文行内混入 | やる | pandoc citeproc が `[@key]` を正しい番号引用に展開するので解決 |
-| Intro のサンプル本文（緑内障+VEGF） | **削除** | 削除済み、`??????` のプレースホルダのみ |
-| Address/E-mail プレースホルダ | やる | "テンプレ利用者が記入してください" を併記 |
-| References フォーマット統一 | やる | BibTeX + Vancouver CSL（pandoc citeproc）で一元化 |
-| Cochrane Handbook | **最新版に更新** | v6.5 (Aug 2024) に差し替え |
-| PRISMA 2020 citation 追加 | やる | Page MJ et al. BMJ 2021;372:n71 を追加 |
-| RevMan 5.4.2 | **PMA tools に動線変更** | `https://yukifurukawa.jp/pmatools/` を 3.12 で参照 |
-| 著者欄の所属確認 | **テンプレートには入れない** | YAML front-matter に著者名のみ。JMIR 2025 ([PMID:41263436](https://pubmed.ncbi.nlm.nih.gov/41263436/)) と同形式: Yuki Kataoka / Ryuhei So / Masahiro Banno / Yasushi Tsujimoto / SRWS-PSG Mentors |
+| テンプレート本体（編集対象） | **GitHub repository** (Markdown + BibTeX) | 単一の真実、フルバージョン管理、PR/Issueによる共同編集 |
+| バージョンごとのDOI | **Zenodo (GitHub連携)** | release を切るたびに version DOI が自動発行、concept DOI が "latest" を常に指す |
+| テンプレートの解説論文 | **Zenodo Article/Preprint** | Google Scholar に拾わせる citable な解説文献 |
+| 旧テンプレートの凍結アーカイブ | **protocols.io V.2** (既存) | 既存引用（Okamura 2026）を死なせない。概要欄に GitHub への redirect 1行追記 |
 
-### 2.4 V.3 ドラフト成果物（リポジトリ内）
+**この構成のメリット:**
 
-ユーザー判断に基づいて、V.3 ドラフトを Pandoc + BibTeX 構成で生成済み。
+- GitHub は完全無料・ロックインなし
+- Zenodo の GitHub 連携は研究ソフトウェア公開の事実上の標準
+- pandoc + BibTeX 構成がそのまま生かせる
+- バージョン管理は git に任せられる
+- protocols.io 上の既存引用は壊さない
 
-- ソース: [template/protocol_template_for_intervention_review.md](template/protocol_template_for_intervention_review.md)
-- 文献データ: [template/references.bib](template/references.bib)
-- ビルドスクリプト: [template/build.ps1](template/build.ps1) — `pwsh template/build.ps1 -Target docx|html|pdf`
-- 自動生成（gitignore対象）: `template/build/` および `template/vancouver.csl`（初回ビルド時に Zotero スタイルリポジトリから取得）
+参考:
+- https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content
+- https://support.zenodo.org/help/en-gb/19-uploading/65-how-do-i-link-my-github-repository-to-zenodo
+- https://scholar.google.com/intl/en/scholar/inclusion.html
+- https://support.zenodo.org/help/en-gb/18-general/61-is-zenodo-indexed-by-google-scholar
 
-ビルド済みdocx の例: [template/build/protocol_template_for_intervention_review.docx](template/build/protocol_template_for_intervention_review.docx)
+### 1.1 Step 4 (Zenodo Article preprint) を残す根拠
 
-レンダリング確認結果:
+Zenodo の **GitHub 自動 deposit は software-type** で deposit される。Zenodo 公式 FAQ にて以下が明記されている:
 
-- 引用 `[@page2021prisma]` 等は Vancouver スタイルで `(1)`, `(2)` のように正しく番号付与
-- 脚注（メンター注記）は文末にまとめて出力
-- References 8件すべて整形済み
+> "Google Scholar only indexes text content (articles) and thus other resource types in Zenodo is out of scope for Google Scholar."
+> ([source](https://support.zenodo.org/help/en-gb/18-general/61-is-zenodo-indexed-by-google-scholar))
 
-### 2.5 V.3 ドラフトに対するレビュー依頼
+つまり GitHub-Zenodo 連携で発行される DOI は permanent citation の役には立つが、**Scholar での discoverability には寄与しない**。Scholar に拾わせたい場合は別途 publication-type の deposit （Article / Preprint）が必要。これが Step 4 を残す唯一の理由。
 
-[template/build/protocol_template_for_intervention_review.docx](template/build/protocol_template_for_intervention_review.docx) を一度Wordで開いて、以下の3点を確認してください。
+## 2. リポジトリ構成（現状）
 
-1. **著者リストは "Kataoka / So / Banno / Tsujimoto / SRWS-PSG Mentors" でOKか**（V.2 にあった Taito / Watanabe / Shiroshita を外し、JMIR 2025 と揃えた）
-2. **PRISMA 2020 abstract checklist のサブセクションの粒度**が想定通りか（Methods/Results/Discussion/Other 各2項目ずつ並べている）
-3. **Cochrane Handbook v6.5 (Aug 2024) で確定でよいか**（バージョン番号は念のため公式サイトで最新確認した方が安全）
+GitHub では `srws-psg/protocol-templates` に置く前提。ローカルディレクトリ名 `protocol-srwspsg` のままだが GitHub 上のリポジトリ名は `protocol-templates`。
 
-修正点があれば Markdown 側 ([template/protocol_template_for_intervention_review.md](template/protocol_template_for_intervention_review.md)) を直接編集するか、Claude に指示してください。
+```
+protocol-templates/                     (local dir: protocol-srwspsg/)
+├── README.md                  # プロジェクトの顔。GitHub上で最初に表示される
+├── LICENSE                    # CC BY 4.0
+├── CHANGELOG.md               # バージョン履歴（リポジトリ全体で1つに統一）
+├── CITATION.cff               # GitHubの "Cite this repository" ボタン用
+├── .zenodo.json               # Zenodo連携メタデータ（GitHub release時にZenodoが参照）
+├── .gitignore
+├── CLAUDE.md                  # Claude Code 用作業メモ（リポジトリ固有指示）
+├── plan.md                    # この計画書
+├── resources/                 # 歴史的参照（V.2 PDF, 元docx）。リポジトリには含めるが編集はしない
+│   ├── protocol_template_for_intervention_review.docx
+│   ├── protocol_template_for_intervention_review-onedrive.pdf
+│   └── protocol-template-for-intervention-review-protocolio.pdf
+└── templates/
+    └── intervention-review/                                  # ★ V.3 本体
+        ├── protocol_template_for_intervention_review.md     # 編集対象 Markdown
+        ├── references.bib                                   # BibTeX
+        ├── build.ps1                                        # Pandocビルドスクリプト
+        └── build/                                           # 生成物（gitignore）
+```
+
+将来 `templates/scoping-review/`, `templates/dta-review/` などを追加する想定。
+
+## 3. Step 1: テンプレート本体の Markdown 化（完了）
+
+V.2 docx + protocols.io V.2 PDF を起点に、Markdown ベースの V.3 を作成し、Pandoc レンダリングが通ることを検証済み。
+
+### 3.1 V.3 で取り込んだ変更点
+
+| 項目 | V.2 の状態 | V.3 での扱い |
+|---|---|---|
+| Abstract | 誤字あり ("procol template") | PRISMA 2020 abstract checklist (Item 2) のサブセクションに置換 |
+| Keywords | "procol template" 誤字 | "systematic review protocol", "intervention review", "PRISMA 2020", "Cochrane Handbook" |
+| Section 3.1 自己引用URL | 旧DOI `biqrkdv6` が残存 | **GitHub URL + Zenodo concept DOI** に変更 |
+| Appendix 3 EMBASE 検索式 | V.2では空、docxでは S1-S35 | V.3では空欄でよい（ユーザーが埋める） |
+| `[片岡4][片岡5][片岡6]` の本文混入 | V.2本文に校正コメントが残存 | Pandoc footnoteに切り出し |
+| 本文行内の脚注番号 `[2][3]` | mis-rendered | citeproc が `[@key]` を正しく番号付与 |
+| Introduction の緑内障+VEGF サンプル | docxに残存 | 削除、`??????` のみ |
+| Address/E-mail プレースホルダ | 埋め忘れ ("yyy") | 「テンプレ利用者が記入してください」明記 |
+| References フォーマット | docx/V.2でばらつき | BibTeX + Vancouver CSL で一元化 |
+| Cochrane Handbook | v6.0 (2019) | **v6.5 (Aug 2024)** |
+| PRISMA 2020 citation | なし | Page MJ et al. BMJ 2021;372:n71 を追加 |
+| RevMan 5.4.2 | 古い | **PMA tools** (<https://yukifurukawa.jp/pmatools/>) に変更 |
+| 著者リスト・所属 | 7名+所属付き | JMIR 2025 ([PMID:41263436](https://pubmed.ncbi.nlm.nih.gov/41263436/)) と同形式: Kataoka / So / Banno / Tsujimoto / SRWS-PSG Mentors。所属はテンプレに入れない |
+
+### 3.2 ドラフト成果物（リポジトリ内）
+
+- ソース: [templates/intervention-review/protocol_template_for_intervention_review.md](templates/intervention-review/protocol_template_for_intervention_review.md)
+- 文献データ: [templates/intervention-review/references.bib](templates/intervention-review/references.bib)
+- ビルドスクリプト: [templates/intervention-review/build.ps1](templates/intervention-review/build.ps1)
+- 生成docx例: [templates/intervention-review/build/protocol_template_for_intervention_review.docx](templates/intervention-review/build/protocol_template_for_intervention_review.docx)
+
+### 3.3 V.3 ドラフトに対するレビュー依頼
+
+[templates/intervention-review/build/protocol_template_for_intervention_review.docx](templates/intervention-review/build/protocol_template_for_intervention_review.docx) を Word で開いて以下を確認してください。
+
+1. **著者リスト** が "Kataoka / So / Banno / Tsujimoto / SRWS-PSG Mentors" でよいか
+2. **PRISMA 2020 abstract サブセクション** の粒度
+3. **Cochrane Handbook v6.5 (Aug 2024)** が現時点で最新であることの確認（[公式](https://training.cochrane.org/handbook)で要再確認）
+
+## 4. Step 2: GitHub リポジトリの公開
+
+リポジトリ scaffolding（LICENSE / README / CITATION.cff / .zenodo.json / CHANGELOG / .gitignore）は作成済み。残りはユーザー作業。
+
+### 4.1 ユーザー側で実施
+
+リポジトリ名 `srws-psg/protocol-templates` で確定済み。scaffolding ファイル内の URL は反映済み。
+
+1. **git init して GitHub に push**
+    ```powershell
+    git init
+    git add .
+    git commit -m "Initial commit: v3.0.0 draft"
+    git branch -M main
+    git remote add origin https://github.com/srws-psg/protocol-templates.git
+    git push -u origin main
+    ```
+2. **著者の ORCID を [CITATION.cff](CITATION.cff) に追記**（各自の ORCID iD を埋めるとZenodo側でも著者プロファイルが正しく紐づく）
+3. **必要なら GitHub repo の Description / Topics / About を整える**（Topics 例: `systematic-review`, `protocol`, `template`, `cochrane`, `prisma`）
+
+## 5. Step 3: Zenodo GitHub連携と初回 release
+
+### 5.1 ユーザー側で実施
+
+1. **Zenodo にログイン**（<https://zenodo.org/login>）→ ORCIDかGitHubでサインイン
+2. **GitHub連携を有効化**: Zenodo の「GitHub」設定画面で該当 repository のトグルを ON
+3. **GitHub で v3.0.0 release を作成**
+   - tag: `v3.0.0`
+   - title: "SRWS-PSG protocol templates v3.0.0"
+   - description: CHANGELOG.md の `[Unreleased]` セクションをコピー
+4. **release が作られた瞬間に Zenodo が snapshot + version DOI を自動発行**
+5. **発行された DOI を反映**:
+   - [.zenodo.json](.zenodo.json) は次回以降の release 用にもう更新不要
+   - [README.md](README.md) の `10.5281/zenodo.<TBD>` を **concept DOI** に置換
+   - [CITATION.cff](CITATION.cff) の identifiers にも concept DOI を記入
+   - [CHANGELOG.md](CHANGELOG.md) の `[Unreleased]` を `[3.0.0] – 2026-MM-DD` に書き換え、version DOI も併記
+   - [templates/intervention-review/protocol_template_for_intervention_review.md](templates/intervention-review/protocol_template_for_intervention_review.md) の YAML `zenodo-concept-doi:` と Section 3.1 のテキストを置換
+6. **DOI 反映の commit を main に push（release本体は v3.0.0 のままで OK。次に v3.0.1 等を切るのは大きな修正時のみ）**
+
+### 5.2 Concept DOI vs Version DOI
+
+Zenodoは2種類のDOIを発行する:
+
+- **Version DOI**: 各 release 専用。`10.5281/zenodo.1234567` のような形。論文等で「使った版」を引用するときに使う。
+- **Concept DOI**: リポジトリ単位の "umbrella" DOI。常に最新版 release に resolve する。`10.5281/zenodo.1234566` のような形（version DOI と1違いになることが多い）。READMEや一般的な「このテンプレートを使った」の引用に使う。
+
+テンプレ内の自己引用は **version DOI** を SR 著者が選んで埋める前提。READMEは **concept DOI** で十分。
+
+## 6. Step 4: Zenodo Article（テンプレ解説論文）
+
+**目的**: Google Scholar に拾わせる。GitHub-Zenodo の自動 deposit は software-type で出るため Scholar 対象外（[§1.1](#11-step-4-zenodo-article-preprint-を残す根拠)）。Scholar に載るためにはpublication-type の deposit が必要なので、**解説文献を Zenodo Article として別途出す**。
+
+### 6.1 内容構成（案）
+
+- Background: 既存のSR protocol templateの状況、なぜ独自テンプレートを作ったか
+- Design principles: PRISMA 2020 + Cochrane Handbook ベース、SRWS-PSG メンタリング flow での使用想定
+- Section-by-section guide: テンプレ各セクションの意図と典型的な書き方
+- How to cite: version DOI を使う運用の説明
+- Versioning policy: SemVerの解釈、breaking change の定義
+- Acknowledgements / Funding / COI
+
+### 6.2 制作フロー
+
+1. `article/` ディレクトリを新設、Markdownで原稿執筆
+2. 同じ pandoc + BibTeX 構成でPDFに変換
+3. Zenodo に **upload_type=publication, publication_type=article** で手動デポジット（GitHub連携経由ではなく手動 upload）
+4. 解説論文側はテンプレ本体の concept DOI を引用、テンプレ本体（READMEと CHANGELOG）から解説論文の DOI を相互参照
+
+### 6.3 メンテナンス方針
+
+- 解説論文は **頻繁な版上げは不要**。テンプレ本体は SemVer で v3.x.x → v4.x.x と進めるが、解説論文は構造的な大改変（major bump）のときだけ更新を検討する。
+- 細かな改訂は GitHub の README/CHANGELOG で吸収する。
+
+### 6.4 ユーザー側で実施
+
+- 筆頭著者の確定（推奨: 片岡先生）
+- 共著者リストの確定（テンプレ本体と同じ Kataoka / So / Banno / Tsujimoto / SRWS-PSG Mentors でよい想定）
+- 執筆開始のタイミング（Step 3 完了後、concept DOI が確定してから書き出すのが楽）
+
+## 7. Step 5: protocols.io V.2 への redirect 追記
+
+新しい GitHub repo + Zenodo concept DOI が確定したら、protocols.io V.2 の概要欄に redirect 案内を追記して凍結する。
+
+### 7.1 ユーザー側で実施
+
+1. **protocols.io にログイン**
+2. **V.2 ページの "Description / Abstract" を編集**して、以下のような1行を末尾に追記:
+   ```
+   NOTE: This template is now maintained on GitHub at <REPO_URL>.
+   The Zenodo DOI for the latest release is 10.5281/zenodo.<CONCEPT_DOI>.
+   Versions on protocols.io are no longer updated.
+   ```
+3. **V.3 を protocols.io 上では作らない**（V.2 のまま凍結。version 履歴は GitHub + Zenodo 側で管理）
+4. **既存引用への影響**: Okamura 2026 が引用している `/v2` はそのまま resolve するので **影響なし**
+
+## 8. ユーザー側で残っているタスク（一覧）
+
+優先度順:
+
+1. **V.3 ドラフトのレビュー** ([§3.3](#33-v3-ドラフトに対するレビュー依頼))
+2. **git init + GitHub push** ([§4.1](#41-ユーザー側で実施)) — repo は `srws-psg/protocol-templates` で確定
+3. **ORCID を CITATION.cff に追記** ([§4.1](#41-ユーザー側で実施))
+4. **Zenodo GitHub 連携 + v3.0.0 release** ([§5.1](#51-ユーザー側で実施))
+5. **DOI が確定したら scaffolding ファイル内の `<TBD>` を置換** ([§5.1-5](#51-ユーザー側で実施))
+6. **解説論文の執筆方針確定** ([§6.4](#64-ユーザー側で実施))
+7. **protocols.io V.2 への redirect 追記** ([§7.1](#71-ユーザー側で実施))
 
 ---
 
-## 3. Step 2 以降（次にやる）
+## 付録 A: V.2 メタデータ（凍結アーカイブ）
 
-V.3 ドラフトのレビューが終わり次第:
+protocols.io V.2 のPDFバックアップから抽出（[resources/protocol-template-for-intervention-review-protocolio.pdf](resources/protocol-template-for-intervention-review-protocolio.pdf)）。今後も resolvable。
 
-1. **Step 1 完了**: protocols.io 上に V.3 を発行（既存引用は V.2 のまま残す方針確定済み）。
-2. **Step 2: Zenodo article 化**
-    - Markdown ベースで「テンプレートの説明」と「使い方ガイド」を書き、PDFを Zenodo にデポジット。
-    - これが Google Scholar に拾われる引用用ドキュメントになる。
-3. **Step 3: 補助ファイル置き場**（OSF or Zenodo に Word/Markdown/changelog をまとめる）。
+```text
+Title:                      protocol_template_for_intervention_review V.2
+URL:                        https://www.protocols.io/view/protocol-template-for-intervention-review-cft4tnqw
+DOI:                        https://dx.doi.org/10.17504/protocols.io.81wgbpb41vpk/v2
+External link:              https://doi.org/10.2490/prm.20260012  (Okamura M 2026)
+Created / Last Modified:    2022-08-26
+License:                    CC BY
+Authors (V.2):              Kataoka(1), Tsujimoto(2), Banno(3), Taito(2), So(2), Watanabe(2), Shiroshita(2)
+Affiliations (V.2):         (1) Department of Internal Medicine, Kyoto Min-Iren Asukai Hospital
+                            (2) Systematic Review Work Shop-Peer Support Group
+                            (3) Department of Psychiatry, Seichiryo Hospital
+```
 
-## ユーザー側で残っている作業
+公式 citation (V.2, 凍結):
 
-1. ~~既存SRでの引用状況の追加確認~~ → 「Okamura 2026 のみ確実、他は記載はあるが実引用は実質ゼロ」で確定。
-2. ~~V.3 変更点リストのレビュー~~ → 反映済み（[2.3](#23-v3-で取り込んだ変更点ユーザー判断を反映済み)）。
-3. **新規: V.3 ドラフトのレビュー** → [2.5](#25-v3-ドラフトに対するレビュー依頼) の3点を確認してください。
-4. **新規: protocols.io への V.3 アップロード手順の希望確認**
-   - V.3 docx をそのまま protocols.io にインポート → 自動的に手順化される
-   - または各セクションを protocols.io エディタで手動入力
-   - protocols.io はdocxインポート機能を持つので前者推奨。ユーザー側で実際に試して見え方を確認してください。
-5. ~~V.3 公開時のDOI運用~~ → 既存引用 `/v2` を残し V.3 は新DOIで発行、で確定。
+> Yuki Kataoka, Yasushi Tsujimoto, Masahiro Banno, Shunsuke Taito, Ryuhei So, Jun Watanabe, Akihiro Shiroshita 2022. protocol_template_for_intervention_review. protocols.io https://dx.doi.org/10.17504/protocols.io.81wgbpb41vpk/v2
+
+## 付録 B: V.2 と docx 原本の差分（参考）
+
+詳細な差分は git 履歴に残るのでここでは要点のみ。
+
+- docx (最終更新 2021-10-30) は protocols.io V.2 (2022-08-26) より古いが、Appendix 3 EMBASE 検索式や Introduction サンプル本文を含んでいた。
+- protocols.io V.2 は表紙メタデータ・DOI・公開citationを持つが、本文に `[片岡4][片岡5][片岡6]` の校正コメントや脚注番号の混入などの問題があった。
+- V.3 では両者の良い部分を統合し、上記すべてを Markdown + BibTeX に整理し直した。

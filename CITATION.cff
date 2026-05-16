@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: "If you use these templates, please cite them using the metadata below."
+title: "SRWS-PSG protocol templates"
+abstract: >-
+  A collection of Markdown-based systematic review protocol
+  templates, maintained by SRWS-PSG (Scientific Research WorkS
+  Peer Support Group). The intervention-review template is the
+  successor to the protocols.io V.2 deposit
+  (DOI 10.17504/protocols.io.81wgbpb41vpk/v2).
+type: software
+authors:
+  - given-names: Yuki
+    family-names: Kataoka
+    # orcid: "https://orcid.org/0000-0000-0000-0000"   # TODO: fill ORCID
+  - given-names: Ryuhei
+    family-names: So
+    # orcid: "https://orcid.org/0000-0000-0000-0000"   # TODO
+  - given-names: Masahiro
+    family-names: Banno
+    # orcid: "https://orcid.org/0000-0000-0000-0000"   # TODO
+  - given-names: Yasushi
+    family-names: Tsujimoto
+    # orcid: "https://orcid.org/0000-0000-0000-0000"   # TODO
+  - name: "SRWS-PSG Mentors"
+license: CC-BY-4.0
+keywords:
+  - systematic review
+  - protocol template
+  - intervention review
+  - PRISMA 2020
+  - Cochrane Handbook
+version: 3.0.0
+date-released: "2026-05-16"
+repository-code: "https://github.com/srws-psg/protocol-templates"
+url: "https://github.com/srws-psg/protocol-templates"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.<TBD>"   # concept DOI from Zenodo (fill after first release)
+    description: "Concept DOI (always resolves to the latest version)"
