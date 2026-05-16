@@ -31,8 +31,8 @@ keywords:
   - Cochrane Handbook
 version: 3.0.0
 date-released: "2026-05-16"
-repository-code: "https://github.com/srws-psg/protocol-templates"
-url: "https://github.com/srws-psg/protocol-templates"
+repository-code: "https://github.com/SRWS-PSG/protocol-templates"
+url: "https://github.com/SRWS-PSG/protocol-templates"
 identifiers:
   - type: doi
     value: "10.5281/zenodo.<TBD>"   # concept DOI from Zenodo (fill after first release)

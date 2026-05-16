@@ -14,7 +14,7 @@ keywords:
   - PRISMA 2020
   - Cochrane Handbook
 license: CC BY 4.0
-repository: https://github.com/srws-psg/protocol-templates
+repository: https://github.com/SRWS-PSG/protocol-templates
 template-path: templates/intervention-review
 zenodo-concept-doi: 10.5281/zenodo.<TBD>
 bibliography: references.bib
@@ -104,7 +104,7 @@ Author contributions:
 
 ## 3.1 Protocol
 
-We used a systematic review protocol template maintained by SRWS-PSG (repository: <https://github.com/srws-psg/protocol-templates>, template path: `templates/intervention-review/`, Zenodo concept DOI: 10.5281/zenodo.&lt;TBD&gt;). When citing this protocol, please use the **version DOI** corresponding to the GitHub release you downloaded. We followed the Preferred Reporting Items for Systematic Reviews and Meta-Analyses 2020 (PRISMA 2020) statement [@page2021prisma] for the eventual systematic review report, and PRISMA-P 2015 [@shamseer2015] for this protocol. We will publish this protocol on OSF.io (<https://osf.io/>).
+We used a systematic review protocol template maintained by SRWS-PSG (repository: <https://github.com/SRWS-PSG/protocol-templates>, template path: `templates/intervention-review/`, Zenodo concept DOI: 10.5281/zenodo.&lt;TBD&gt;). When citing this protocol, please use the **version DOI** corresponding to the GitHub release you downloaded. We followed the Preferred Reporting Items for Systematic Reviews and Meta-Analyses 2020 (PRISMA 2020) statement [@page2021prisma] for the eventual systematic review report, and PRISMA-P 2015 [@shamseer2015] for this protocol. We will publish this protocol on OSF.io (<https://osf.io/>).
 
 ## 3.2 Inclusion criteria of the articles for the review
 

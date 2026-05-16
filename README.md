@@ -28,7 +28,7 @@ For the rationale and design of each template, see the companion explanation art
 ## Quick start
 
 ```bash
-git clone https://github.com/srws-psg/protocol-templates
+git clone https://github.com/SRWS-PSG/protocol-templates
 cd protocol-templates
 pwsh ./templates/intervention-review/build.ps1 -Target docx     # or html, or pdf
 ```
