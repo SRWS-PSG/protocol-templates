@@ -1,0 +1,306 @@
+---
+title: "Protocol template for intervention review"
+author:
+  - Yuki Kataoka
+  - Ryuhei So
+  - Masahiro Banno
+  - Yasushi Tsujimoto
+  - SRWS-PSG Mentors
+date: 2026-05-16
+version: V.3 (draft)
+keywords:
+  - systematic review protocol
+  - intervention review
+  - PRISMA 2020
+  - Cochrane Handbook
+license: CC BY 4.0
+template-doi: 10.17504/protocols.io.81wgbpb41vpk/v3
+bibliography: references.bib
+csl: vancouver.csl
+link-citations: true
+notes-after-punctuation: true
+---
+
+> **このテンプレートの使い方**: 以下は介入レビューの SR プロトコルテンプレートです。`??????` や `[ ]` で示された箇所は SR を実施する研究者が自身の内容で置き換えてください。メンターの所属は `https://docs.google.com/document/d/1v3R5iXCcbCAtpSlzbRUL09VJAFqseUaaiO61AQdxugA/edit?usp=sharing` を参照してください。
+
+# Title
+
+Title: ??????: a systematic review and meta-analysis protocol
+
+> Note: 介入のレビューで RCT のみを組み入れる場合は、タイトルに *efficacy* を使ってください（理由: <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC351867/>）。
+
+Corresponding author: ?????? *（テンプレ利用者が記入してください）*
+
+Address: ?????? *（テンプレ利用者が記入してください）*
+
+E-mail: ?????? *（テンプレ利用者が記入してください）*
+
+Author contributions:
+
+?? is the guarantor. ?? drafted the manuscript. All authors contributed to the development of the selection criteria, the risk of bias assessment strategy and data extraction criteria. ?? developed the search strategy. ?? provided statistical expertise. ?? provided expertise on ??. All authors read, provided feedback and approved the final manuscript.
+
+# Abstract
+
+> *Note*: 本文書はプロトコルであるため、Abstract 本文は SR 完了時に PRISMA 2020 [@page2021prisma] の Abstract 項目（PRISMA 2020 abstract checklist, Item 2）に従って記入してください。下位項目を以下のサブセクションとして用意しています。
+
+## Background — Objectives
+
+??????
+
+## Methods — Eligibility criteria
+
+??????
+
+## Methods — Information sources
+
+??????
+
+## Methods — Risk of bias
+
+??????
+
+## Methods — Synthesis of results
+
+??????
+
+## Results — Included studies
+
+??????
+
+## Results — Synthesis of results
+
+??????
+
+## Discussion — Limitations of evidence
+
+??????
+
+## Discussion — Interpretation
+
+??????
+
+## Other — Funding
+
+??????
+
+## Other — Registration
+
+??????
+
+# 1. Introduction
+
+??????
+
+# 2. Research question
+
+- P:
+- I:
+- C:
+- O:
+
+# 3. Method
+
+## 3.1 Protocol
+
+We used a systematic review protocol template (<https://www.protocols.io/view/protocol-template-for-intervention-review-cft4tnqw>, DOI: 10.17504/protocols.io.81wgbpb41vpk/v3). We followed the Preferred Reporting Items for Systematic Reviews and Meta-Analyses 2020 (PRISMA 2020) statement [@page2021prisma] for preparing the eventual systematic review report, and PRISMA-P 2015 [@shamseer2015] for this protocol. We will publish this protocol on OSF.io (<https://osf.io/>).
+
+## 3.2 Inclusion criteria of the articles for the review
+
+### 3.2.1 Type of studies
+
+We will include randomized controlled trials that assess ??????. We will not apply language or country restrictions. We will include all papers including published, unpublished articles, abstract of conference and letter. We will exclude ??????. We will not exclude studies based on the observation period or publication year.
+
+### 3.2.2 Study participants
+
+??????
+
+Inclusion criteria: ??????
+
+Exclusion criteria: ??????
+
+### 3.2.3 Intervention
+
+??????
+
+### 3.2.4 Control
+
+??????
+
+## 3.3 Type of outcomes
+
+### 3.3.1 Primary outcomes
+
+1. ??????
+    - Definition:
+    - Period:
+2. ??????
+    - Definition:
+    - Period:
+3. ??????
+    - Definition:
+    - Period:
+
+### 3.3.2 Secondary outcomes
+
+1. ??????
+    - Definition:
+    - Period:
+2. ??????
+    - Definition:
+    - Period:
+3. All adverse events
+    - Definition: definition of adverse events are set by original authors. Incidence proportion of all adverse events.
+    - Period: during follow-up period
+
+## 3.4 Search method
+
+### 3.4.1 Electronic search
+
+We will search the following databases:
+
+1. MEDLINE (PubMed)
+2. the Cochrane Central Register of Controlled Trials (Cochrane Library)
+3. EMBASE (Dialog)
+
+See Appendix 1, 2, and 3 for the search strategies.
+
+### 3.4.2 Other resources
+
+We will also search the following databases for ongoing or unpublished trials:
+
+1. the World Health Organization International Clinical Trials Platform Search Portal (ICTRP)
+2. ClinicalTrials.gov
+
+See Appendix 4 and 5 for the search strategies.
+
+We will check the reference lists of studies, including international guidelines ??????, as well as the reference lists of eligible studies and articles citing eligible studies. We will ask the authors of original studies for unpublished or additional data.
+
+## 3.5 Data collection and analysis
+
+### 3.5.1 Selection of the studies
+
+Two independent reviewers (??????) will screen titles and abstracts, followed by the assessment of the eligibility based on the full texts.[^reviewers-three] We will contact original authors if relevant data is missing. Disagreements between the two reviewers will be resolved by discussion, and if this fails, a third reviewer will act as an arbiter (??????).
+
+[^reviewers-three]: 3 人以上で screening を行う場合は "two of three independent reviewers..." と記載してください。
+
+### 3.5.2 Data extraction and management
+
+Two reviewers (??????) will perform independent data extraction of the included studies using a standardized data collection form. We will use a pre-checked form using 10 randomly selected studies. The form will include the information on study design, study population, interventions, and outcomes.[^data-extraction-table] Any disagreements will be resolved by discussion, and if this fails, a third reviewer will act as an arbiter (??????).
+
+[^data-extraction-table]: ここは表を作るつもりで、すべての変数名を書いてください。
+
+## 3.6 Assessment of risk of bias in included studies
+
+Two reviewers (??????) will evaluate the risk of bias independently using the Risk of Bias 2 tool [@sterne2019rob2]. Disagreements between the two reviewers will be discussed, and if this fails, a third reviewer (??????) will be acting as an arbiter, if necessary.
+
+## 3.7 Measures of treatment effects
+
+We will pool the relative risk ratios and the 95% confidence intervals (CIs) for the following binary variables: ??????.
+
+We will pool the mean differences and the 95% CIs for the following continuous variables: ??????.
+
+If several different scales have been used in the included studies, we will pool the effect estimates using standardized mean differences (SMDs).
+
+We will summarize adverse events based on the definition by the original article, but we will not perform meta-analysis.
+
+## 3.8 Unit of analysis issues
+
+**Clustering at the level of the enrolled units in cluster randomised studies.** In dealing with cluster-RCTs, for dichotomous data, we will apply the design effect and calculate effective sample size and number of events using the intra-cluster correlation coefficient (ICC) among each unit and the average cluster size, as described in Chapter 16.3.5 of the Cochrane Handbook [@higgins2024cochrane]. If the ICC has not been reported, we will use the ICC of a similar study as a substitute. For continuous data, only the sample size will be reduced; means and standard deviation will remain unchanged [@higgins2024cochrane].
+
+**Randomized cross-over studies.** For dichotomous outcomes, we will use the data from the first period of the cross-over trial. If it is not available, we will deal with the data from both periods as if the trial is a parallel trial.
+
+For continuous outcomes we will use the data according to the following hierarchy:
+
+1. First-period data
+2. Mean difference between intervention and control periods, and its SD
+3. If the SD above is not available, we will use 95% CI, t-statistic, or p-value for the t-test to calculate it
+4. If none of the statistics above is available, we will perform approximate analyses to impute the SD of the mean difference between intervention and control periods according to the Cochrane Handbook Chapter 23.2.7
+
+**Multiple comparisons.** All intervention groups that are relevant to this review will be included.
+
+## 3.9 Handling of missing data
+
+We will ask not-presented data to the original authors.
+
+### 3.9.1 Missing outcomes
+
+We will perform the intention-to-treat (ITT) analysis for all dichotomous data as much as possible. For continuous data, we will not impute missing data based on the recommendation by the Cochrane Handbook [@higgins2024cochrane]. We will perform meta-analysis with the available data in the original study.
+
+### 3.9.2 Missing statistics
+
+When original studies only report standard error or p-value, we will calculate the standard deviation based on the method by Altman [@altman1996skewness]. If we do not know these values when we contact the authors, the standard deviation will be calculated using confidence interval and t-value based on the method described in the Cochrane Handbook [@higgins2024cochrane], or by validated methods [@furukawa2006imputing; @higgins2008imputation]. The validity of these methods will be assessed by sensitivity analysis.
+
+## 3.10 Assessment of heterogeneity
+
+We will evaluate statistical heterogeneity by visual inspection of the forest plots and by calculating the *I*² statistic (*I*² of 0–40%: might not be important; 30–60%: may represent moderate heterogeneity; 50–90%: may represent substantial heterogeneity; 75–100%: considerable heterogeneity). When there is substantial heterogeneity (*I*² > 50%), we will assess the source of the heterogeneity. The Cochran χ² test (Q-test) will be performed for the *I*² statistic, and a P value less than 0.10 will be defined as statistically significant.
+
+## 3.11 Assessment of reporting bias
+
+We will search the clinical trial registry system (ClinicalTrials.gov and ICTRP) and perform an extensive literature search for unpublished trials. To assess outcome reporting bias, we will compare the outcomes defined in the trial protocols with the outcomes reported in the publications. We will assess potential publication bias by visual inspection of the funnel plot. We will conduct the Egger test to assess publication bias. We will not conduct the test when we find fewer than 10 trials or trials of similar sample size.
+
+## 3.12 Meta-analysis
+
+Meta-analysis will be performed using PMA tools (<https://yukifurukawa.jp/pmatools/>). We will use a random-effects model.
+
+## 3.13 Subgroup analysis
+
+To elucidate the influence of effect modifiers on results, we will evaluate the subgroup analyses of the primary outcomes on the following factors when sufficient data are available.
+
+1. (For participants) ??????
+2. (For intervention) ??????
+
+## 3.14 Sensitivity analysis
+
+We will undertake the following sensitivity analyses for the primary outcomes to assess whether the results of the review are robust to the decisions made during the review process.
+
+1. Exclusion of studies using imputed statistics.
+2. Missing participants: verify the robustness of the results by seeking informative missingness odds ratios [@furukawa2006imputing].
+3. Only the participants who complete the study with complete data.
+
+# 4. Summary of findings table
+
+Two reviewers (??????)[^sof-mentor] will evaluate the certainty of evidence based on the GRADE (Grading of Recommendations Assessment, Development and Evaluation) approach [@guyatt2011grade]. Disagreements between the two reviewers will be discussed, and if this fails, a third reviewer (??????) will be acting as an arbiter, if necessary. The Summary of Findings table will be made for the following outcome based on the Cochrane Handbook [@higgins2024cochrane]: ??????.
+
+[^sof-mentor]: ここの一人はメンターがやります。
+
+# 5. Conflict of Interest
+
+The authors declare no conflicts of interest.
+
+# 6. Support
+
+Self-funding.[^funding-note]
+
+[^funding-note]: 英文校正等に何らかの資金を使う場合はその旨を記載してください。資金を使わない場合は "Self-funding." のままでよいです。
+
+# References
+
+::: {#refs}
+:::
+
+# Appendices
+
+## Appendix 1: MEDLINE (PubMed) search strategy
+
+> 03_06、03_07 の検索式の課題については、フォームに入力し、その旨を URL とともに Slack でメンターに伝えてください。
+
+??????
+
+## Appendix 2: CENTRAL (Cochrane Library) search strategy[^central-rct-filter]
+
+??????
+
+[^central-rct-filter]: CENTRAL では RCT フィルター不要です。
+
+## Appendix 3: EMBASE (Dialog) search strategy
+
+??????
+
+## Appendix 4: ICTRP search strategy
+
+??????
+
+## Appendix 5: ClinicalTrials.gov search strategy
+
+- Condition or disease: ??????
+- Intervention: ??????
