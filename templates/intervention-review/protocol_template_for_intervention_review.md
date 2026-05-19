@@ -147,12 +147,18 @@ We will check the reference lists of studies, including international guidelines
 
 ### 3.5.1 Selection of the studies
 
-Two independent reviewers (??????) will screen titles and abstracts using the Tiab Review plugin [@Kataoka2026-tb].  Disagreements between the two reviewers will be resolved by discussion, and if this fails, a third reviewer will act as an arbiter (??????).
-followed by the assessment of the eligibility based on the full texts. We will contact original authors if relevant data is missing. Disagreements between the two reviewers will be resolved by discussion, and if this fails, a third reviewer will act as an arbiter (??????).
+Two independent reviewers (??????) will screen titles and abstracts using the Tiab Review plugin [@Kataoka2026-tb], followed by the assessment of eligibility based on the full texts. We will contact original authors if relevant data is missing. Disagreements between the two reviewers will be resolved by discussion, and if this fails, a third reviewer will act as an arbiter (??????).
+
+> note: 3 人以上で screening を行う場合は "two of three independent reviewers..." と記載してください。
 
 ### 3.5.2 Data extraction and management
 
-Two reviewers (??????) will perform independent data extraction of the included studies using a standardized data collection form. We will use a pre-checked form using 10 randomly selected studies. The form will include the information on study design, study population, interventions, and outcomes.[^data-extraction-table] Any disagreements will be resolved by discussion, and if this fails, a third reviewer will act as an arbiter (??????).
+Two reviewers (??????) will perform independent data extraction of the included studies using a standardized data collection form. 
+The form will include the information on study design, study population, interventions, and outcomes.
+
+> Note: ここは表を作るつもりで、すべての変数名を書いてください。
+ Any disagreements will be resolved by discussion, and if this fails, a third reviewer will act as an arbiter (??????).
+To improve efficiency, we will use AI to assist with data extraction as needed [@Gartlehner2025-cm;@Kataoka2025-kq]. We will report how AI was actually used in accordance with the Position Statement on Artificial Intelligence (AI) Use in Evidence Synthesis Across Cochrane, the Campbell Collaboration, JBI, and the Collaboration for Environmental Evidence 2025 [@Flemyng2025-ru].
 
 ## 3.6 Assessment of risk of bias in included studies
 
@@ -224,7 +230,9 @@ We will undertake the following sensitivity analyses for the primary outcomes to
 
 # 4. Summary of findings table
 
-Two reviewers (??????)[^sof-mentor] will evaluate the certainty of evidence based on the GRADE (Grading of Recommendations Assessment, Development and Evaluation) approach [@Guyatt2011-qq]. Disagreements between the two reviewers will be discussed, and if this fails, a third reviewer (??????) will be acting as an arbiter, if necessary. The Summary of Findings table will be made for the following outcome based on the Cochrane Handbook [@Higgins2008-oj]: ??????.
+Two reviewers (??????) will evaluate the certainty of evidence based on the GRADE (Grading of Recommendations Assessment, Development and Evaluation) approach [@Guyatt2011-qq]. Disagreements between the two reviewers will be discussed, and if this fails, a third reviewer (??????) will be acting as an arbiter, if necessary. The Summary of Findings table will be made for the following outcome based on the Cochrane Handbook [@higgins2024cochrane]: ??????.
+
+> Note: ここの一人はメンターがやります。
 
 # 5. Conflict of Interest
 
@@ -232,7 +240,9 @@ The authors declare no conflicts of interest.
 
 # 6. Support
 
-Self-funding.[^funding-note]
+Self-funding.
+
+> Note: 英文校正等に何らかの資金を使う場合はその旨を記載してください。資金を使わない場合は "Self-funding." のままでよいです。
 
 # References
 
@@ -247,13 +257,54 @@ Self-funding.[^funding-note]
 
 ??????
 
-## Appendix 2: CENTRAL (Cochrane Library) search strategy[^central-rct-filter]
+## Appendix 2: CENTRAL (Cochrane Library) search strategy
+
+> Note: CENTRAL では RCT フィルター不要です。
 
 ??????
 
 ## Appendix 3: EMBASE (Dialog) search strategy
 
 ??????
+
+> Note: DialogのRCTフィルター
+> Cochrane high sensitivity filerの転用です
+> S1 EMB.EXACT.EXPLODE("randomized controlled trial")
+S2 EMB.EXACT.EXACT("controlled clinical trial")
+S3 TI(random*) OR AB(random*)
+S4 EMB.EXACT.EXACT("randomization")
+S5 EMB.EXACT.EXACT("intermethod comparison")
+S6 TI(placebo) OR AB(placebo)
+S7 TI(compare) OR TI(compared) OR TI(comparison) OR AB(compare) OR AB(compared) OR AB(comparison)
+S8 (AB(evaluated) OR AB(evaluate) OR AB(evaluating) OR AB(assessed) OR AB(assess)) AND (AB(compare) OR AB(compared) OR AB(comparing) OR AB(comparison))
+S9 TI(open NEAR/1 label) OR AB(open NEAR/1 label)
+S10 TI(double NEAR/1 blind) OR TI(single NEAR/1 blind) OR TI(doubly NEAR/1 blind) OR TI(singly NEAR/1 blind) OR AB(double NEAR/1 blind) OR AB(single NEAR/1 blind) OR AB(doubly NEAR/1 blind) OR AB(singly NEAR/1 blind)
+S11 EMB.EXACT.EXACT("double blind procedure")
+S12 TI(parallel NEAR/1 group*) OR AB(parallel NEAR/1 group*)
+S13 TI(crossover) OR TI(cross over) OR AB(crossover) OR AB("cross over")
+S14 (TI(assign* OR match OR matched OR allocation) NEAR/6 TI(alternate OR group OR groups OR intervention OR interventions OR patient OR patients OR subject OR subjects OR participant OR participants)) OR (AB(assign* OR match OR matched OR allocation) NEAR/6 AB(alternate OR group OR groups OR intervention OR interventions OR patient OR patients OR subject OR subjects OR participant OR participants))
+S15 TI(assigned) OR TI(allocated) OR AB(assigned) OR AB(allocated)
+S16 TI(controlled NEAR/8 (study OR design OR trial)) OR AB(controlled NEAR/8 (study OR design OR trial))
+S17 TI(volunteer) OR TI(volunteers) OR AB(volunteer) OR AB(volunteers)
+S18 EMB.EXACT.EXACT("human experiment")
+S19 TI(trial)
+S20 S1 OR S2 OR S3 OR S4 OR S5 OR S6 OR S7 OR S8 OR S9 OR S10 OR S11 OR S12 OR S13 OR S14 OR S15 OR S16 OR S17 OR S18 OR S19
+S21 TI(random* NEAR/1 sampl* NEAR/8 ("cross section*" OR questionnaire* OR survey OR surveys OR database OR databases)) OR AB(random* NEAR/1 sampl* NEAR/8 ("cross section*" OR questionnaire* OR survey OR surveys OR database OR databases)) NOT (EMB.EXACT.EXACT("comparative study") OR EMB.EXACT.EXACT("controlled study") OR TI(randomised controlled) OR TI(randomized controlled) OR TI(randomly assigned))
+S22 EMB.EXACT.EXACT("cross-sectional study") NOT (EMB.EXACT.EXPLODE("randomized controlled trial") OR EMB.EXACT.EXACT("controlled clinical study") OR EMB.EXACT.EXACT("controlled study") OR TI(randomised controlled) OR TI(randomized controlled) OR TI(control group) OR TI(control groups))
+S23 TI(case control*) OR AB(case control*) AND TI(random*) OR AB(random*) NOT (TI(randomised controlled) OR TI(randomized controlled))
+S24 TI(systematic review) NOT (TI(trial) OR TI(study))
+S25 TI(nonrandom*) OR AB(nonrandom*) NOT TI(random*) OR AB(random*)
+S26 TI(random field*) OR AB(random field*)
+S27 TI('random cluster' NEAR/4 sampl*) OR AB('random cluster' NEAR/4 sampl*)
+S28 AB(review) AND RTYPE(review) NOT TI(trial)
+S29 AB('we searched') AND (TI(review) OR RTYPE(review))
+S30 AB('update review')
+S31 AB(databases NEAR/5 searched)
+S32 (TI(rat) OR TI(rats) OR TI(mouse) OR TI(mice) OR TI(swine) OR TI(porcine) OR TI(murine) OR TI(sheep) OR TI(lambs) OR TI(pigs) OR TI(piglets) OR TI(rabbit) OR TI(rabbits) OR TI(cat) OR TI(cats) OR TI(dog) OR TI(dogs) OR TI(cattle) OR TI(bovine) OR TI(monkey) OR TI(monkeys) OR TI(trout) OR TI(marmoset*)) AND EMB.EXACT.EXACT('animal experiment')
+S33 EMB.EXACT.EXACT('animal experiment') NOT (EMB.EXACT.EXACT('human experiment') OR EMB.EXACT.EXACT('human'))
+S34 S21 OR S22 OR S23 OR S24 OR S25 OR S26 OR S27 OR S28 OR S29 OR S30 OR S31 OR S32 OR S33
+S35 S20 NOT S34
+
 
 ## Appendix 4: ICTRP search strategy
 
@@ -263,13 +314,3 @@ Self-funding.[^funding-note]
 
 - Condition or disease: ??????
 - Intervention: ??????
-
-[^reviewers-three]: 3 人以上で screening を行う場合は "two of three independent reviewers..." と記載してください。
-    
-[^data-extraction-table]: ここは表を作るつもりで、すべての変数名を書いてください。
-    
-[^sof-mentor]: ここの一人はメンターがやります。
-    
-[^funding-note]: 英文校正等に何らかの資金を使う場合はその旨を記載してください。資金を使わない場合は "Self-funding." のままでよいです。
-    
-[^central-rct-filter]: CENTRAL では RCT フィルター不要です。
