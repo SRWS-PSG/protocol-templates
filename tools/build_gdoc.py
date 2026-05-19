@@ -26,12 +26,21 @@ Usage:
   python tools/build_gdoc.py --lang en --folder-id <Drive folder id>
   python tools/build_gdoc.py --lang ja --dry-run     # build docx only, skip upload
   python tools/build_gdoc.py --lang ja --share-with someone@example.com
+  python tools/build_gdoc.py --lang ja --new         # force new Doc (ignore saved ID)
+  python tools/build_gdoc.py --lang ja --doc-id <id> # overwrite a specific Doc
+
+By default, the document ID returned by the first upload is cached in
+tools/.gcp/upload_state.json keyed by language, and subsequent runs
+overwrite the same Doc (preserving its URL/ID). Use --new to force a
+fresh document, or --doc-id to target an explicit existing Doc.
 """
 
 from __future__ import annotations
 
 import argparse
+import json
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -77,6 +86,28 @@ def load_env() -> None:
 GCP_DIR = ROOT / "tools" / ".gcp"
 CREDENTIALS_FILE = GCP_DIR / "credentials.json"
 TOKEN_FILE = GCP_DIR / "token.json"
+UPLOAD_STATE_FILE = GCP_DIR / "upload_state.json"
+
+DOCX_MIME = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+
+
+def load_upload_state() -> dict:
+    """Return mapping {key: documentId} of previously uploaded Docs."""
+    if not UPLOAD_STATE_FILE.exists():
+        return {}
+    try:
+        return json.loads(UPLOAD_STATE_FILE.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as e:
+        print(f"  WARN could not read {UPLOAD_STATE_FILE}: {e}; ignoring")
+        return {}
+
+
+def save_upload_state(state: dict) -> None:
+    GCP_DIR.mkdir(parents=True, exist_ok=True)
+    UPLOAD_STATE_FILE.write_text(
+        json.dumps(state, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
 
 SCOPES = [
     "https://www.googleapis.com/auth/drive.file",
@@ -141,6 +172,66 @@ def build_docx(src: Path, out: Path) -> None:
         cmd.insert(-2, f"--reference-doc={REFERENCE_DOCX}")
     print("$", " ".join(cmd))
     subprocess.run(cmd, check=True)
+    _retag_note_list_items(out)
+
+
+def _retag_note_list_items(docx_path: Path) -> int:
+    """Swap pStyle of list-item paragraphs inside Note blocks.
+
+    Pandoc's docx writer overrides any Div custom-style with the built-in
+    "Compact" style on list items, so the Lua filter alone can't give list
+    paragraphs the cyan left border or keepNext. Instead, the Lua filter
+    marks every run inside a Note (incl. list items) with the NoteInline
+    character style. Here we rewrite any paragraph that:
+
+      - has pStyle = "Compact", and
+      - contains at least one run with rStyle = "NoteInline"
+
+    to pStyle = "NoteListParagraph". That style (defined in reference.docx)
+    is based on Compact, so list numbering / spacing survive, but it adds
+    the left border and keepNext.
+
+    Returns the number of paragraphs updated.
+    """
+    import shutil
+    import zipfile
+
+    DOC_PATH = "word/document.xml"
+    PARA_RE = re.compile(r"<w:p\b[^>]*>.*?</w:p>", flags=re.DOTALL)
+    PSTYLE_RE = re.compile(r'(<w:pStyle\s+w:val=")Compact(")')
+    HAS_NOTEINLINE_RE = re.compile(r'<w:rStyle\s+w:val="NoteInline"')
+
+    with zipfile.ZipFile(docx_path) as zin:
+        members = [(item, zin.read(item.filename)) for item in zin.infolist()]
+
+    count = 0
+
+    def _swap(match: "re.Match[str]") -> str:
+        nonlocal count
+        para = match.group(0)
+        if not HAS_NOTEINLINE_RE.search(para):
+            return para
+        new_para, n = PSTYLE_RE.subn(r"\1NoteListParagraph\2", para, count=1)
+        if n:
+            count += 1
+        return new_para
+
+    new_members: list[tuple[zipfile.ZipInfo, bytes]] = []
+    for item, data in members:
+        if item.filename == DOC_PATH:
+            xml = data.decode("utf-8")
+            xml = PARA_RE.sub(_swap, xml)
+            data = xml.encode("utf-8")
+        new_members.append((item, data))
+
+    tmp = docx_path.with_suffix(".docx.tmp")
+    with zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as zout:
+        for item, data in new_members:
+            zout.writestr(item, data)
+    shutil.move(tmp, docx_path)
+    if count:
+        print(f"  retagged {count} list paragraph(s) -> NoteListParagraph")
+    return count
 
 
 # --------------------------------------------------------------------------- #
@@ -214,7 +305,7 @@ def _build_drive(creds):
 
 
 def upload_to_drive(creds, docx: Path, name: str, folder_id: str | None) -> str:
-    """Upload docx as a Google Doc (auto-converted). Returns documentId."""
+    """Upload docx as a new Google Doc (auto-converted). Returns documentId."""
     import time
 
     from googleapiclient.errors import HttpError
@@ -230,11 +321,7 @@ def upload_to_drive(creds, docx: Path, name: str, folder_id: str | None) -> str:
 
     last_err: Exception | None = None
     for attempt in range(1, 4):
-        media = MediaFileUpload(
-            str(docx),
-            mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-            resumable=True,
-        )
+        media = MediaFileUpload(str(docx), mimetype=DOCX_MIME, resumable=True)
         try:
             request = drive.files().create(body=body, media_body=media, fields="id")
             response = None
@@ -250,6 +337,48 @@ def upload_to_drive(creds, docx: Path, name: str, folder_id: str | None) -> str:
                 continue
             raise
     raise RuntimeError(f"upload failed after retries: {last_err}")
+
+
+def update_drive(creds, docx: Path, document_id: str, name: str | None) -> str:
+    """Overwrite the content of an existing Google Doc with a new docx.
+
+    Google reconverts the docx and replaces the Doc body; the file ID and
+    URL stay the same. Returns documentId on success. Raises HttpError on
+    failure (callers may fall back to create on 404).
+    """
+    import time
+
+    from googleapiclient.errors import HttpError
+    from googleapiclient.http import MediaFileUpload
+
+    drive = _build_drive(creds)
+    body: dict = {"mimeType": "application/vnd.google-apps.document"}
+    if name:
+        body["name"] = name
+
+    last_err: Exception | None = None
+    for attempt in range(1, 4):
+        media = MediaFileUpload(str(docx), mimetype=DOCX_MIME, resumable=True)
+        try:
+            request = drive.files().update(
+                fileId=document_id,
+                body=body,
+                media_body=media,
+                fields="id",
+            )
+            response = None
+            while response is None:
+                _, response = request.next_chunk()
+            return response["id"]
+        except HttpError as e:
+            last_err = e
+            if e.resp.status in (500, 502, 503, 504) and attempt < 3:
+                wait = 2 ** attempt
+                print(f"  update attempt {attempt} failed ({e.resp.status}); retry in {wait}s")
+                time.sleep(wait)
+                continue
+            raise
+    raise RuntimeError(f"update failed after retries: {last_err}")
 
 
 def share_with(creds, document_id: str, email: str) -> None:
@@ -280,6 +409,21 @@ def main() -> int:
     p.add_argument("--share-with", default=None, help="Grant writer access to this email")
     p.add_argument("--dry-run", action="store_true", help="Build docx (with comments) only; skip upload")
     p.add_argument("--author", default="SRWS-PSG", help="Author shown in Word/Docs comments")
+    p.add_argument(
+        "--doc-id",
+        default=None,
+        help="Overwrite this specific existing Google Doc ID (overrides cached ID)",
+    )
+    p.add_argument(
+        "--new",
+        action="store_true",
+        help="Force creating a new Doc and overwrite the cached ID for this lang",
+    )
+    p.add_argument(
+        "--no-save-id",
+        action="store_true",
+        help="Do not write the resulting Doc ID to tools/.gcp/upload_state.json",
+    )
     args = p.parse_args()
 
     src = master_path(args.lang)
@@ -307,9 +451,40 @@ def main() -> int:
 
     creds = get_credentials()
     name = args.name or f"{src.stem} ({args.lang})"
-    print(f"uploading to Drive as {name!r} ...")
-    document_id = upload_to_drive(creds, annotated_docx, name=name, folder_id=args.folder_id)
+
+    state = load_upload_state()
+    state_key = args.lang  # one cached Doc per language for this template
+
+    target_id: str | None = None
+    if args.doc_id:  # explicit --doc-id wins
+        target_id = args.doc_id
+    elif not args.new:
+        target_id = state.get(state_key)
+
+    document_id: str
+    if target_id:
+        print(f"updating existing Doc {target_id} ({name!r}) ...")
+        try:
+            document_id = update_drive(creds, annotated_docx, target_id, name=name)
+        except Exception as e:
+            # Fall back to create if the cached/explicit ID is gone (404)
+            from googleapiclient.errors import HttpError
+
+            is_missing = isinstance(e, HttpError) and getattr(e.resp, "status", None) in (404, 410)
+            if not is_missing:
+                raise
+            print(f"  cached Doc {target_id} not found; creating a new one")
+            document_id = upload_to_drive(creds, annotated_docx, name=name, folder_id=args.folder_id)
+    else:
+        print(f"uploading to Drive as {name!r} ...")
+        document_id = upload_to_drive(creds, annotated_docx, name=name, folder_id=args.folder_id)
+
     print(f"uploaded: https://docs.google.com/document/d/{document_id}/edit")
+
+    if not args.no_save_id and state.get(state_key) != document_id:
+        state[state_key] = document_id
+        save_upload_state(state)
+        print(f"saved Doc ID for lang={args.lang} -> {UPLOAD_STATE_FILE}")
 
     if args.share_with:
         share_with(creds, document_id, args.share_with)

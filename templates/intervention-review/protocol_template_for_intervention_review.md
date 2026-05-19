@@ -18,19 +18,26 @@ csl: vancouver.csl
 link-citations: true
 notes-after-punctuation: true
 ---
-> **このテンプレートの使い方**
+
+> このテンプレートの使い方
 >
 > この文書は介入レビューの SR プロトコルテンプレートです。`[English label / 日本語ラベル: 記入する内容]` で示した箇所を、自分たちのレビュー内容に置き換えてください。
 >
 > まず `2. Research question` で PICO を決め、次に `3.2 Inclusion criteria`、`3.3 Type of outcomes`、`Appendices` の検索式、`3.7` 以降の解析計画を埋めると進めやすいです。固定文は原則そのまま使えますが、研究疑問や組み入れる研究デザインに合わない場合はメンターに確認して修正してください。
 >
-> `>` で始まる Note は作成中の補助説明です。提出版や登録版では、必要に応じて削除するか、メンターに確認してください。メンターの所属は `https://docs.google.com/document/d/1v3R5iXCcbCAtpSlzbRUL09VJAFqseUaaiO61AQdxugA/edit?usp=sharing` を参照してください。
+> Note は作成中の補助説明です。提出版や登録版では、必要に応じて削除してください。
+メンターの所属は `https://docs.google.com/document/d/1v3R5iXCcbCAtpSlzbRUL09VJAFqseUaaiO61AQdxugA/edit?usp=sharing` を参照してください。
 
 # Title
 
 Title: [review title / レビュータイトル: 対象者、介入、比較対照、主要アウトカムが分かる短い英語表現]: a systematic review and meta-analysis protocol
 
 > Note: 介入のレビューで RCT のみを組み入れる場合は、タイトルに *efficacy* を使ってください（理由: [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC351867/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC351867/)）。
+
+
+## Authors:
+
+> メンターの名前もお忘れなく
 
 Corresponding author: [corresponding author / 連絡著者: full name]
 
@@ -44,34 +51,37 @@ Author contributions:
 
 
 > *Note*: プロトコルであるため、Abstract は必須ではありません。もし書きたい場合は、PRISMA 2020 [@page2021prisma] の Abstract 項目（PRISMA 2020 abstract checklist）を参考に、必要に応じて以下の見出しを修正して使用してください。
+>
 > # Abstract
-> ## Background — Objectives
-> ## Methods
-> ### Eligibility criteria
-> ### Information sources
-> ### Risk of bias
-> ### Synthesis of results
-> ## Discussion
-> ## Other
-> ### Funding
-> ### Registration
+>
+> - Background — Objectives
+> - Methods
+> - Eligibility criteria
+> - Information sources
+> - Risk of bias
+> - Synthesis of results
+> - Discussion
+> - Other
+> - Funding
+> - Registration
 
+\newpage
 
 # 1. Introduction
 
-> **Note: 背景の書き方**
+> Note: 背景の書き方
 >
 > すべての記述にリファレンスを付けてください。3 パラグラフ構成を推奨します。
 >
-> 第一パラグラフ — P（対象疾患）について 4–5 文。例:
->
+> 第一パラグラフ — P（対象疾患）について 4–5 文。
+> 例:
 > 1. P の疾患は世界的な問題である
 > 2. P の疾患の頻度・治療を要する患者数
 > 3. P の疾患の標準的な治療法の説明
 > 4. 標準的な治療法では不十分である点
 >
-> 第二パラグラフ — I（介入）について 4–5 文。例:
->
+> 第二パラグラフ — I（介入）について 4–5 文。
+> 例:
 > 1. I が有用であるという報告がいくつかある
 > 2. 臨床現場で P に対して I を使っている割合は xx くらいあると報告がある
 >    3–4. I は yy という機序で改善する可能性が示唆されている
@@ -84,8 +94,7 @@ Author contributions:
 > 3. そのため本研究ではこのトピックにおける SR&MA を行う
 >
 > 背景を対話で指導してくれる GPTs: [https://chatgpt.com/g/g-YF7pcAKdG-background-editor](https://chatgpt.com/g/g-YF7pcAKdG-background-editor)
-
-[background and rationale / 背景と根拠: 対象疾患・介入の臨床的重要性、既存レビューの不足、なぜこのレビューが必要かを記入。すべての記述にリファレンスを付ける]
+> すべての記述に必要に応じてリファレンスを付ける
 
 # 2. Research question
 
@@ -185,7 +194,8 @@ Two reviewers ([data extraction reviewers / データ抽出担当者のイニシ
 The form will include the information on study design, study population, interventions, and outcomes.
 
 > Note: ここは表を作るつもりで、すべての変数名を書いてください。
- Any disagreements will be resolved by discussion, and if this fails, a third reviewer will act as an arbiter ([third reviewer / 第三レビュアーのイニシャル: initials]).
+
+Any disagreements will be resolved by discussion, and if this fails, a third reviewer will act as an arbiter ([third reviewer / 第三レビュアーのイニシャル: initials]).
 To improve efficiency, we will use AI to assist with data extraction as needed [@Gartlehner2025-cm;@Kataoka2025-kq]. We will report how AI was actually used in accordance with the Position Statement on Artificial Intelligence (AI) Use in Evidence Synthesis Across Cochrane, the Campbell Collaboration, JBI, and the Collaboration for Environmental Evidence 2025 [@Flemyng2025-ru].
 
 ## 3.6 Assessment of risk of bias in included studies
@@ -204,9 +214,9 @@ We will summarize adverse events based on the definition by the original article
 
 ## 3.8 Unit of analysis issues
 
-**Clustering at the level of the enrolled units in cluster randomised studies.** In dealing with cluster-RCTs, for dichotomous data, we will apply the design effect and calculate effective sample size and number of events using the intra-cluster correlation coefficient (ICC) among each unit and the average cluster size, as described in Chapter 16.3.5 of the Cochrane Handbook [@higgins2024cochrane]. If the ICC has not been reported, we will use the ICC of a similar study as a substitute. For continuous data, only the sample size will be reduced; means and standard deviation will remain unchanged [@higgins2024cochrane].
+Clustering at the level of the enrolled units in cluster randomised studies. In dealing with cluster-RCTs, for dichotomous data, we will apply the design effect and calculate effective sample size and number of events using the intra-cluster correlation coefficient (ICC) among each unit and the average cluster size, as described in Chapter 16.3.5 of the Cochrane Handbook [@higgins2024cochrane]. If the ICC has not been reported, we will use the ICC of a similar study as a substitute. For continuous data, only the sample size will be reduced; means and standard deviation will remain unchanged [@higgins2024cochrane].
 
-**Randomized cross-over studies.** For dichotomous outcomes, we will use the data from the first period of the cross-over trial. If it is not available, we will deal with the data from both periods as if the trial is a parallel trial.
+Randomized cross-over studies. For dichotomous outcomes, we will use the data from the first period of the cross-over trial. If it is not available, we will deal with the data from both periods as if the trial is a parallel trial.
 
 For continuous outcomes we will use the data according to the following hierarchy:
 
@@ -215,7 +225,7 @@ For continuous outcomes we will use the data according to the following hierarch
 3. If the SD above is not available, we will use 95% CI, t-statistic, or p-value for the t-test to calculate it
 4. If none of the statistics above is available, we will perform approximate analyses to impute the SD of the mean difference between intervention and control periods according to the Cochrane Handbook Chapter 23.2.7
 
-**Multiple comparisons.** All intervention groups that are relevant to this review will be included.
+Multiple comparisons. All intervention groups that are relevant to this review will be included.
 
 ## 3.9 Handling of missing data
 
@@ -275,6 +285,8 @@ Self-funding.
 
 ::: {#refs}
 :::
+
+\newpage
 
 # Appendices
 

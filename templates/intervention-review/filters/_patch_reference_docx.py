@@ -32,7 +32,6 @@ NOTE_STYLE = f'''  <w:style w:type="paragraph" w:customStyle="1" w:styleId="Note
       <w:pBdr>
         <w:left w:val="single" w:sz="18" w:space="6" w:color="{COLOR}" />
       </w:pBdr>
-      <w:ind w:left="240" />
     </w:pPr>
     <w:rPr>
       <w:color w:val="{COLOR}" />
@@ -45,6 +44,35 @@ PLACEHOLDER_STYLE = f'''  <w:style w:type="character" w:customStyle="1" w:styleI
     <w:qFormat />
     <w:rPr>
       <w:b />
+      <w:color w:val="{COLOR}" />
+    </w:rPr>
+  </w:style>
+'''
+
+NOTE_INLINE_STYLE = f'''  <w:style w:type="character" w:customStyle="1" w:styleId="NoteInline">
+    <w:name w:val="NoteInline" />
+    <w:qFormat />
+    <w:rPr>
+      <w:color w:val="{COLOR}" />
+    </w:rPr>
+  </w:style>
+'''
+
+# Paragraph style for list items inside a Note blockquote.
+# Inherits from Compact so list-item spacing stays tight, but adds the
+# same left border as Note (so the cyan bar continues through the list)
+# and keepNext so consecutive items try to avoid splitting at page breaks.
+NOTE_LIST_PARAGRAPH_STYLE = f'''  <w:style w:type="paragraph" w:customStyle="1" w:styleId="NoteListParagraph">
+    <w:name w:val="NoteListParagraph" />
+    <w:basedOn w:val="Compact" />
+    <w:qFormat />
+    <w:pPr>
+      <w:pBdr>
+        <w:left w:val="single" w:sz="18" w:space="6" w:color="{COLOR}" />
+      </w:pBdr>
+      <w:keepNext />
+    </w:pPr>
+    <w:rPr>
       <w:color w:val="{COLOR}" />
     </w:rPr>
   </w:style>
@@ -96,9 +124,17 @@ def _patch_styles_xml(xml: str) -> str:
             f"<w:pPrDefault><w:pPr>{spacing_tag}</w:pPr></w:pPrDefault></w:docDefaults>",
         )
 
-    # 3. Append Note / Placeholder styles if not already present.
+    # 3. Append Note / Placeholder / NoteInline / NoteListParagraph styles
+    #    if not already present.
     if 'w:styleId="Note"' not in xml:
-        xml = xml.replace("</w:styles>", NOTE_STYLE + PLACEHOLDER_STYLE + "</w:styles>")
+        xml = xml.replace(
+            "</w:styles>",
+            NOTE_STYLE
+            + PLACEHOLDER_STYLE
+            + NOTE_INLINE_STYLE
+            + NOTE_LIST_PARAGRAPH_STYLE
+            + "</w:styles>",
+        )
     return xml
 
 
