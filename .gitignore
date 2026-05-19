@@ -2,6 +2,12 @@ templates/*/build/
 templates/*/_raw_from_docx.md
 templates/*/media/
 
+# Google API credentials (OAuth client + cached user token)
+tools/.gcp/
+
+# Extracted reference artifacts
+resources/legacy_comments_extracted.json
+
 
 # OS
 .DS_Store

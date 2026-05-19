@@ -1,0 +1,334 @@
+# Comments to be attached to the rendered Google Doc.
+#
+# One body (Japanese) is attached to BOTH the ja and en Google Docs, using
+# language-specific anchor strings to locate the insertion point in each master.
+#
+# Schema (one entry per comment):
+#   - id:          stable identifier (kebab-case). Required.
+#     legacy_id:   (optional) numeric id of the corresponding comment in the
+#                  2022-04-30 legacy Doc (resources/legacy_comments_extracted.json).
+#     anchor:      text the comment is anchored to. Must appear verbatim in the body.
+#       ja:        Japanese anchor string (matched against the ja master).
+#       en:        English anchor string (matched against the en master). Omit to
+#                  attach the comment only to the ja Doc.
+#     occurrence:  (optional, default 1) which occurrence of the anchor string to attach to.
+#     body: |
+#       Japanese comment text shown in both ja and en Google Docs.
+#     audience:    (optional) free-form tags, e.g. [author, mentor, reference].
+#
+# Notes:
+#   - Keep anchor strings short and unique within a section to minimise mis-matches.
+#   - The build script strips no markup from anchors; whitespace and punctuation must match.
+#   - Multiple comments can share the same anchor; each becomes a separate thread
+#     in the Google Doc.
+#   - Anchors here target SECTION HEADINGS rather than the inline mentoring-session
+#     codes (e.g. 03_04, 14) that the 2022 Doc used, because those codes were
+#     removed in the v3 template.
+
+comments:
+  # --- Title ------------------------------------------------------------
+  - id: c-title-efficacy
+    legacy_id: 0
+    anchor:
+      ja: "*efficacy*"
+      en: "*efficacy*"
+    body: |
+      介入のレビューで、RCT のみを組み入れる場合は "efficacy" をタイトルで使ってください。
+      理由:
+      https://www.ncbi.nlm.nih.gov/pmc/articles/PMC351867/
+    audience: [author]
+
+  # --- 1. Introduction --------------------------------------------------
+  - id: c-background-structure
+    legacy_id: 1
+    anchor:
+      ja: "[background and rationale / 背景と根拠"
+      en: "[background and rationale / 背景と根拠"
+    body: |
+      背景の書き方の参考
+
+      第一パラグラフ
+      P の疾患について、わかっていることを 4-5 文でまとめてください。
+      一例
+      1 文目: P の疾患は世界的な問題である
+      2 文目: P の疾患の頻度や治療している患者数はどれくらいか
+      3 文目: P の疾患の標準的な治療法の説明
+      4 文目: 標準的な治療法では不十分なこと
+
+      第二パラグラフ
+      I の介入についてわかっていることを 4-5 文でまとめてください。
+      一例
+      1 文目: I が有用であるという報告がいくつかある
+      2 文目: 臨床現場で P に対して I を使っている割合は xx くらいあると報告がある。
+      3, 4 文目: I は yy という機序で改善する可能性が示唆されている
+      5 文目: 一方、I は zz という害がある
+
+      第三パラグラフ
+      なぜ SR をするべきなのかについて 3-4 文でまとめてください。
+      一例
+      1 文目: このトピックに関して、益と害の available evidence をまとめたものはなく、効果についても先行研究でばらつきがある。
+      2 文目: 臨床で広く使われている P における I に関してエビデンスの確実性評価は重要である。
+      3 文目: そのため、本研究ではこのトピックにおける SR&MA を行う。
+    audience: [author]
+
+  - id: c-background-ref-3-04
+    legacy_id: 2
+    anchor:
+      ja: "[background and rationale / 背景と根拠"
+      en: "[background and rationale / 背景と根拠"
+    body: |
+      https://www.facebook.com/groups/339218557733680/posts/345687800420089/
+    audience: [reference]
+
+  - id: c-background-ref-14
+    legacy_id: 3
+    anchor:
+      ja: "[background and rationale / 背景と根拠"
+      en: "[background and rationale / 背景と根拠"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345764713745731/
+    audience: [reference]
+
+  # --- 2. Research question --------------------------------------------
+  - id: c-rq-ref-01-03
+    legacy_id: 4
+    anchor:
+      ja: "# 2. Research question"
+      en: "# 2. Research question"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/339349757720560/
+    audience: [reference]
+
+  - id: c-rq-ref-03-03
+    legacy_id: 5
+    anchor:
+      ja: "# 2. Research question"
+      en: "# 2. Research question"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345686130420256/
+    audience: [reference]
+
+  # --- 3.2 Inclusion criteria ------------------------------------------
+  - id: c-inclusion-ref-03-05
+    legacy_id: 6
+    anchor:
+      ja: "## 3.2 Inclusion criteria of the articles for the review"
+      en: "## 3.2 Inclusion criteria of the articles for the review"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345690497086486/
+    audience: [reference]
+
+  # --- 3.4 Search method ------------------------------------------------
+  - id: c-search-ref-03-06
+    legacy_id: 7
+    anchor:
+      ja: "## 3.4 Search method"
+      en: "## 3.4 Search method"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345691060419763/
+    audience: [reference]
+
+  - id: c-search-ref-07
+    legacy_id: 8
+    anchor:
+      ja: "## 3.4 Search method"
+      en: "## 3.4 Search method"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345693490419520/
+      https://www.facebook.com/groups/339218557733680/permalink/345693750419494/
+    audience: [reference]
+
+  - id: c-search-medline-only-first
+    legacy_id: 9
+    anchor:
+      ja: "## 3.4 Search method"
+      en: "## 3.4 Search method"
+    body: |
+      最初、プロトコルを書くとき、MEDLINE 以外はとばしてください。
+    audience: [author]
+
+  # --- 3.5 Data collection and analysis --------------------------------
+  - id: c-data-collection-ref-03-05
+    legacy_id: 10
+    anchor:
+      ja: "## 3.5 Data collection and analysis"
+      en: "## 3.5 Data collection and analysis"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345690497086486/
+    audience: [reference]
+
+  - id: c-data-collection-ref-07
+    legacy_id: 11
+    anchor:
+      ja: "## 3.5 Data collection and analysis"
+      en: "## 3.5 Data collection and analysis"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345693490419520/
+      https://www.facebook.com/groups/339218557733680/permalink/345693750419494/
+    audience: [reference]
+
+  # --- 3.6 Risk of bias -------------------------------------------------
+  - id: c-rob-ref-03-09
+    legacy_id: 12
+    anchor:
+      ja: "## 3.6 Assessment of risk of bias in included studies"
+      en: "## 3.6 Assessment of risk of bias in included studies"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345693927086143/
+      https://www.facebook.com/groups/339218557733680/permalink/345696600419209/
+    audience: [reference]
+
+  # --- 3.7 Measures of treatment effects --------------------------------
+  - id: c-effects-ref-03-10
+    legacy_id: 13
+    anchor:
+      ja: "## 3.7 Measures of treatment effects"
+      en: "## 3.7 Measures of treatment effects"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345697577085778/
+    audience: [reference]
+
+  # --- 3.8 Unit of analysis issues --------------------------------------
+  - id: c-unit-analysis-ref-03-05
+    legacy_id: 14
+    anchor:
+      ja: "## 3.8 Unit of analysis issues"
+      en: "## 3.8 Unit of analysis issues"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345690497086486/
+    audience: [reference]
+
+  - id: c-unit-analysis-ref-10
+    legacy_id: 15
+    anchor:
+      ja: "## 3.8 Unit of analysis issues"
+      en: "## 3.8 Unit of analysis issues"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345697577085778/
+    audience: [reference]
+
+  # --- 3.9 Handling of missing data -------------------------------------
+  - id: c-missing-data-ref-03-12
+    legacy_id: 16
+    anchor:
+      ja: "## 3.9 Handling of missing data"
+      en: "## 3.9 Handling of missing data"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345698817085654/
+      https://www.facebook.com/groups/339218557733680/permalink/345756053746597/
+    audience: [reference]
+
+  # --- 3.10 Heterogeneity -----------------------------------------------
+  - id: c-heterogeneity-ref-03-11
+    legacy_id: 17
+    anchor:
+      ja: "## 3.10 Assessment of heterogeneity"
+      en: "## 3.10 Assessment of heterogeneity"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345698470419022/
+    audience: [reference]
+
+  # --- 3.11 Reporting bias ----------------------------------------------
+  - id: c-reporting-bias-ref-03-11
+    legacy_id: 18
+    anchor:
+      ja: "## 3.11 Assessment of reporting bias"
+      en: "## 3.11 Assessment of reporting bias"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345698470419022/
+    audience: [reference]
+
+  # --- 3.12 Meta-analysis -----------------------------------------------
+  - id: c-meta-analysis-ref-03-10
+    legacy_id: 19
+    anchor:
+      ja: "## 3.12 Meta-analysis"
+      en: "## 3.12 Meta-analysis"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345697577085778/
+    audience: [reference]
+
+  # --- 3.13 Subgroup analysis -------------------------------------------
+  - id: c-subgroup-ref-03-12
+    legacy_id: 20
+    anchor:
+      ja: "## 3.13 Subgroup analysis"
+      en: "## 3.13 Subgroup analysis"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345698817085654/
+      https://www.facebook.com/groups/339218557733680/permalink/345756053746597/
+    audience: [reference]
+
+  # --- 3.14 Sensitivity analysis ----------------------------------------
+  - id: c-sensitivity-ref-03-12
+    legacy_id: 21
+    anchor:
+      ja: "## 3.14 Sensitivity analysis"
+      en: "## 3.14 Sensitivity analysis"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345698817085654/
+      https://www.facebook.com/groups/339218557733680/permalink/345756053746597/
+    audience: [reference]
+
+  # --- 4. Summary of findings -------------------------------------------
+  - id: c-sof-ref-03-13
+    legacy_id: 22
+    anchor:
+      ja: "# 4. Summary of findings table"
+      en: "# 4. Summary of findings table"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345759547079581/
+      https://www.facebook.com/groups/339218557733680/permalink/345763087079227/
+      https://www.facebook.com/groups/339218557733680/permalink/345763773745825/
+    audience: [reference]
+
+  - id: c-sof-mentor-reviewer
+    legacy_id: 23
+    anchor:
+      ja: "[GRADE reviewers / GRADE 評価担当者のイニシャル"
+      en: "[GRADE reviewers / GRADE 評価担当者のイニシャル"
+    body: |
+      ここはメンティーと、メンター一人がやります。
+    audience: [author, mentor]
+
+  # --- Appendix 1: MEDLINE ----------------------------------------------
+  - id: c-appendix1-ref-03-06
+    legacy_id: 24
+    anchor:
+      ja: "## Appendix 1: MEDLINE (PubMed) search strategy"
+      en: "## Appendix 1: MEDLINE (PubMed) search strategy"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345691060419763/
+    audience: [reference]
+
+  - id: c-appendix1-gemini-app
+    legacy_id: 26
+    anchor:
+      ja: "## Appendix 1: MEDLINE (PubMed) search strategy"
+      en: "## Appendix 1: MEDLINE (PubMed) search strategy"
+    body: |
+      どういう検索ブロックにしたいか、各ブロックの統制語として何を使うか、までを考えて作ってみましょう。
+      要無料登録ですが、こちらに組み入れ基準を入れると下書きをしてくれます。
+      https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221xiXk7Zidc9bEyN__EPPIN3AbgpVRWo5A%22%5D,%22action%22:%22open%22,%22userId%22:%22107122855205791560725%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing
+    audience: [author]
+
+  # --- Appendix 2: CENTRAL ----------------------------------------------
+  - id: c-appendix2-central-no-rct-filter
+    legacy_id: 27
+    anchor:
+      ja: "## Appendix 2: CENTRAL (Cochrane Library) search strategy"
+      en: "## Appendix 2: CENTRAL (Cochrane Library) search strategy"
+    body: |
+      CENTRAL は RCT フィルター不要です。
+    audience: [author]
+
+  # --- Appendix 3: EMBASE -----------------------------------------------
+  - id: c-appendix3-ref-03-07
+    legacy_id: 25
+    anchor:
+      ja: "## Appendix 3: EMBASE (Dialog) search strategy"
+      en: "## Appendix 3: EMBASE (Dialog) search strategy"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345693490419520/
+      https://www.facebook.com/groups/339218557733680/permalink/345693750419494/
+    audience: [reference]
