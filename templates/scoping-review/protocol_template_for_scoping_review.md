@@ -98,7 +98,7 @@ Review questions:
 
 1. [research question 1 / リサーチクエスチョン 1: a specific question phrased using PCC]
 2. [research question 2 / リサーチクエスチョン 2: list more questions if needed]
-3. [research question 3 / リサーチクエスチョン 3]
+3. [research question 3 / リサーチクエスチョン 3: add as needed]
 
 ## Keywords
 

@@ -1,11 +1,16 @@
 """Patch reference.docx with:
-  - default fonts: Times New Roman (ASCII) + MS Mincho (East Asian)
+  - default body fonts: Times New Roman (ASCII) + MS Mincho (East Asian)
+  - heading fonts (H1-H9): Arial (ASCII) + Yu Gothic (East Asian)
+  - default East Asian language: ja-JP (so Word treats body text as Japanese)
   - default line spacing 1.5
   - 'Note' (paragraph) and 'Placeholder' (character) styles in light blue
     (#4FC3F7) — matching the HTML CSS.
 
 Idempotent: re-running on an already patched file will overwrite cleanly
 because we regenerate from the bundled default each time via pandoc.
+
+This reference.docx is shared by both intervention-review and
+scoping-review templates (their build.ps1 scripts both point here).
 """
 from __future__ import annotations
 
@@ -20,6 +25,9 @@ REF = HERE / "reference.docx"
 COLOR = "4FC3F7"  # light blue
 ASCII_FONT = "Times New Roman"
 EA_FONT = "MS Mincho"
+HEADING_ASCII_FONT = "Arial"
+HEADING_EA_FONT = "Yu Gothic"
+EA_LANG = "ja-JP"
 # Word stores line spacing in 240ths of a line for "auto" lineRule.
 # 1.5 lines = 360.
 LINE_SPACING = "360"
@@ -100,6 +108,52 @@ def _patch_styles_xml(xml: str) -> str:
         count=1,
     )
 
+    # 1b. Set default East Asian language to ja-JP so Word treats body text
+    #     as Japanese (pandoc's default is zh-CN).
+    xml = re.sub(
+        r'(<w:lang\b[^/]*?\bw:eastAsia=")[^"]*(")',
+        rf'\g<1>{EA_LANG}\g<2>',
+        xml,
+        count=1,
+    )
+
+    # 1c. Override heading fonts (H1-H9) to gothic (Arial / Yu Gothic).
+    #     Pandoc's default headings use majorHAnsi / majorEastAsia themes,
+    #     which fall back to body fonts (Times New Roman / MS Mincho).
+    #     For Japanese protocol documents we want headings in gothic.
+    heading_fonts_tag = (
+        f'<w:rFonts w:ascii="{HEADING_ASCII_FONT}" '
+        f'w:hAnsi="{HEADING_ASCII_FONT}" '
+        f'w:eastAsia="{HEADING_EA_FONT}" '
+        f'w:cs="{HEADING_ASCII_FONT}"/>'
+    )
+    for level in range(1, 10):
+        # Replace the first <w:rFonts .../> inside this Heading style block.
+        # Use \s+ instead of literal spaces because the opening <w:style ...>
+        # tag may be wrapped onto multiple lines in the source XML.
+        xml = re.sub(
+            (
+                r'(<w:style\s+w:type="paragraph"\s+w:styleId="Heading'
+                + str(level) + r'".*?<w:rPr>\s*)<w:rFonts\b[^/]*/>'
+            ),
+            r'\1' + heading_fonts_tag,
+            xml,
+            count=1,
+            flags=re.S,
+        )
+        # Same for the linked HeadingNChar character style.
+        xml = re.sub(
+            (
+                r'(<w:style\s+w:type="character"\s+w:customStyle="1"\s+'
+                r'w:styleId="Heading' + str(level)
+                + r'Char".*?<w:rPr>\s*)<w:rFonts\b[^/]*/>'
+            ),
+            r'\1' + heading_fonts_tag,
+            xml,
+            count=1,
+            flags=re.S,
+        )
+
     # 2. Add / replace default paragraph spacing (1.5 line spacing).
     spacing_tag = (
         f'<w:spacing w:line="{LINE_SPACING}" w:lineRule="auto" '
@@ -151,8 +205,10 @@ def patch() -> None:
 
     shutil.move(tmp, REF)
     print(
-        f"Patched {REF}: fonts={ASCII_FONT}/{EA_FONT}, "
-        f"line-spacing=1.5, Note/Placeholder color=#{COLOR}."
+        f"Patched {REF}: body fonts={ASCII_FONT}/{EA_FONT}, "
+        f"heading fonts={HEADING_ASCII_FONT}/{HEADING_EA_FONT}, "
+        f"ea-lang={EA_LANG}, line-spacing=1.5, "
+        f"Note/Placeholder color=#{COLOR}."
     )
 
 

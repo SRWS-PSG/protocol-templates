@@ -22,7 +22,9 @@ $cslPath = Join-Path $here 'vancouver.csl'
 $outdir  = Join-Path $here 'build'
 $luaFilt = Join-Path $here 'filters/highlight.lua'
 $css     = Join-Path $here 'filters/style.css'
-$refDocx = Join-Path $here 'filters/reference.docx'
+# reference.docx is shared with intervention-review (patched by
+# templates/intervention-review/filters/_patch_reference_docx.py).
+$refDocx = Join-Path $here '../intervention-review/filters/reference.docx'
 
 $sources = @{
     en = @{
