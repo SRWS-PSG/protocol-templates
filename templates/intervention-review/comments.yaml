@@ -45,8 +45,8 @@ comments:
   - id: c-background-ref-3-04
     legacy_id: 2
     anchor:
-      ja: "[background and rationale / 背景と根拠"
-      en: "[background and rationale / 背景と根拠"
+      ja: "# 1. Introduction"
+      en: "# 1. Introduction"
     body: |
       https://www.facebook.com/groups/339218557733680/posts/345687800420089/
     audience: [reference]
@@ -54,8 +54,8 @@ comments:
   - id: c-background-ref-14
     legacy_id: 3
     anchor:
-      ja: "[background and rationale / 背景と根拠"
-      en: "[background and rationale / 背景と根拠"
+      ja: "# 1. Introduction"
+      en: "# 1. Introduction"
     body: |
       https://www.facebook.com/groups/339218557733680/permalink/345764713745731/
     audience: [reference]
@@ -252,15 +252,6 @@ comments:
       https://www.facebook.com/groups/339218557733680/permalink/345763087079227/
       https://www.facebook.com/groups/339218557733680/permalink/345763773745825/
     audience: [reference]
-
-  - id: c-sof-mentor-reviewer
-    legacy_id: 23
-    anchor:
-      ja: "[GRADE reviewers / GRADE 評価担当者のイニシャル"
-      en: "[GRADE reviewers / GRADE 評価担当者のイニシャル"
-    body: |
-      ここはメンティーと、メンター一人がやります。
-    audience: [author, mentor]
 
   # --- Appendix 1: MEDLINE ----------------------------------------------
   - id: c-appendix1-ref-03-06

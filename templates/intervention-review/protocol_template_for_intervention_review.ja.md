@@ -92,8 +92,7 @@ Author contributions:
 > 3. そのため本研究ではこのトピックにおける SR&MA を行う
 >
 > 背景を対話で指導してくれる GPTs: [https://chatgpt.com/g/g-YF7pcAKdG-background-editor](https://chatgpt.com/g/g-YF7pcAKdG-background-editor)
-
-[background and rationale / 背景と根拠: 対象疾患・介入の臨床的重要性、既存レビューの不足、なぜこのレビューが必要かを記入。すべての記述にリファレンスを付ける]
+> すべての記述に必要に応じてリファレンスを付ける
 
 # 2. Research question
 

@@ -237,7 +237,7 @@ We will perform the intention-to-treat (ITT) analysis for all dichotomous data a
 
 ### 3.9.2 Missing statistics
 
-When original studies only report standard error or p-value, we will calculate the standard deviation based on the method by Altman [@altman1996skewness]. If we do not know these values when we contact the authors, the standard deviation will be calculated using confidence interval and t-value based on the method described in the Cochrane Handbook [@higgins2024cochrane], or by validated methods [@furukawa2006imputing; @higgins2008imputation]. The validity of these methods will be assessed by sensitivity analysis.
+When original studies only report standard error or p-value, we will calculate the standard deviation based on the method by Altman [@altman1996skewness]. If we do not know these values when we contact the authors, the standard deviation will be calculated using confidence interval and t-value based on the method described in the Cochrane Handbook [@higgins2024cochrane], or by validated methods [@furukawa2006imputing]. The validity of these methods will be assessed by sensitivity analysis.
 
 ## 3.10 Assessment of heterogeneity
 
