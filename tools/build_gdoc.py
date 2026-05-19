@@ -55,13 +55,40 @@ from docx_comments import inject_comments
 
 
 ROOT = Path(__file__).resolve().parents[1]
-TEMPLATE_DIR = ROOT / "templates" / "intervention-review"
-COMMENTS_YAML = TEMPLATE_DIR / "comments.yaml"
-BIB = TEMPLATE_DIR / "references.bib"
-CSL = TEMPLATE_DIR / "vancouver.csl"
-BUILD_DIR = TEMPLATE_DIR / "build"
-LUA_FILTER = TEMPLATE_DIR / "filters" / "highlight.lua"
-REFERENCE_DOCX = TEMPLATE_DIR / "filters" / "reference.docx"
+
+# Per-template metadata. Each template has its own directory under templates/,
+# its own references.bib, its own comments.yaml, and a master-file naming
+# convention configured here. Do NOT consolidate across templates: each must
+# stand alone so changes to one never silently affect another.
+TEMPLATES: dict[str, dict[str, str]] = {
+    "intervention-review": {
+        "subdir": "intervention-review",
+        "master_stem": "protocol_template_for_intervention_review",
+    },
+    "scoping-review": {
+        "subdir": "scoping-review",
+        "master_stem": "protocol_template_for_scoping_review",
+    },
+}
+
+
+def _template_paths(template: str) -> dict[str, Path]:
+    if template not in TEMPLATES:
+        raise SystemExit(
+            f"unknown template {template!r}; choose from {sorted(TEMPLATES)}"
+        )
+    cfg = TEMPLATES[template]
+    tdir = ROOT / "templates" / cfg["subdir"]
+    return {
+        "template_dir": tdir,
+        "comments_yaml": tdir / "comments.yaml",
+        "bib": tdir / "references.bib",
+        "csl": tdir / "vancouver.csl",
+        "build_dir": tdir / "build",
+        "lua_filter": tdir / "filters" / "highlight.lua",
+        "reference_docx": tdir / "filters" / "reference.docx",
+        "master_stem": cfg["master_stem"],
+    }
 
 ENV_FILES = [ROOT / ".env", ROOT / "tools" / ".env"]
 
@@ -92,14 +119,22 @@ DOCX_MIME = "application/vnd.openxmlformats-officedocument.wordprocessingml.docu
 
 
 def load_upload_state() -> dict:
-    """Return mapping {key: documentId} of previously uploaded Docs."""
+    """Return mapping {key: documentId} of previously uploaded Docs.
+
+    Keys are of the form "<template>:<lang>". Bare-lang keys ("ja"/"en") from
+    the pre-multi-template version are migrated to "intervention-review:<lang>".
+    """
     if not UPLOAD_STATE_FILE.exists():
         return {}
     try:
-        return json.loads(UPLOAD_STATE_FILE.read_text(encoding="utf-8"))
+        state = json.loads(UPLOAD_STATE_FILE.read_text(encoding="utf-8"))
     except (json.JSONDecodeError, OSError) as e:
         print(f"  WARN could not read {UPLOAD_STATE_FILE}: {e}; ignoring")
         return {}
+    for legacy in ("ja", "en"):
+        if legacy in state and f"intervention-review:{legacy}" not in state:
+            state[f"intervention-review:{legacy}"] = state.pop(legacy)
+    return state
 
 
 def save_upload_state(state: dict) -> None:
@@ -120,13 +155,15 @@ SCOPES = [
 # --------------------------------------------------------------------------- #
 
 
-def master_path(lang: str) -> Path:
+def master_path(paths: dict[str, Path], lang: str) -> Path:
+    tdir = paths["template_dir"]
+    stem = paths["master_stem"]
     if lang == "en":
-        return TEMPLATE_DIR / "protocol_template_for_intervention_review.md"
-    return TEMPLATE_DIR / f"protocol_template_for_intervention_review.{lang}.md"
+        return tdir / f"{stem}.md"
+    return tdir / f"{stem}.{lang}.md"
 
 
-def load_comments(lang: str) -> list[dict]:
+def load_comments(paths: dict[str, Path], lang: str) -> list[dict]:
     """Load comments applicable to the given language as plain dicts.
 
     Returns dicts with keys: id, anchor (str), body (str), occurrence (int).
@@ -135,7 +172,7 @@ def load_comments(lang: str) -> list[dict]:
     """
     if yaml is None:
         raise RuntimeError("PyYAML is required: pip install -r tools/requirements.txt")
-    data = yaml.safe_load(COMMENTS_YAML.read_text(encoding="utf-8"))
+    data = yaml.safe_load(paths["comments_yaml"].read_text(encoding="utf-8"))
     out: list[dict] = []
     for entry in data.get("comments", []):
         anchor = (entry.get("anchor") or {}).get(lang)
@@ -153,7 +190,7 @@ def load_comments(lang: str) -> list[dict]:
     return out
 
 
-def build_docx(src: Path, out: Path) -> None:
+def build_docx(paths: dict[str, Path], src: Path, out: Path) -> None:
     out.parent.mkdir(parents=True, exist_ok=True)
     cmd = [
         "pandoc",
@@ -161,15 +198,16 @@ def build_docx(src: Path, out: Path) -> None:
         "--from=markdown",
         "--to=docx",
         "--citeproc",
-        f"--bibliography={BIB}",
-        f"--csl={CSL}",
-        f"--lua-filter={LUA_FILTER}",
+        f"--bibliography={paths['bib']}",
+        f"--csl={paths['csl']}",
+        f"--lua-filter={paths['lua_filter']}",
+        f"--resource-path={paths['template_dir']}",
         "--standalone",
         "-o",
         str(out),
     ]
-    if REFERENCE_DOCX.exists():
-        cmd.insert(-2, f"--reference-doc={REFERENCE_DOCX}")
+    if paths["reference_docx"].exists():
+        cmd.insert(-2, f"--reference-doc={paths['reference_docx']}")
     print("$", " ".join(cmd))
     subprocess.run(cmd, check=True)
     _retag_note_list_items(out)
@@ -399,6 +437,12 @@ def share_with(creds, document_id: str, email: str) -> None:
 def main() -> int:
     load_env()
     p = argparse.ArgumentParser()
+    p.add_argument(
+        "--template",
+        default="intervention-review",
+        choices=sorted(TEMPLATES.keys()),
+        help="Which protocol template under templates/ to build (default: intervention-review)",
+    )
     p.add_argument("--lang", required=True, choices=["ja", "en"])
     p.add_argument(
         "--folder-id",
@@ -426,18 +470,20 @@ def main() -> int:
     )
     args = p.parse_args()
 
-    src = master_path(args.lang)
+    paths = _template_paths(args.template)
+    src = master_path(paths, args.lang)
     if not src.exists():
         print(f"missing master: {src}", file=sys.stderr)
         return 2
 
-    plain_docx = BUILD_DIR / f"{src.stem}.docx"
-    build_docx(src, plain_docx)
+    build_dir = paths["build_dir"]
+    plain_docx = build_dir / f"{src.stem}.docx"
+    build_docx(paths, src, plain_docx)
 
-    comments = load_comments(args.lang)
-    print(f"loaded {len(comments)} comment(s) for lang={args.lang}")
+    comments = load_comments(paths, args.lang)
+    print(f"loaded {len(comments)} comment(s) for template={args.template} lang={args.lang}")
 
-    annotated_docx = BUILD_DIR / f"{src.stem}.with-comments.docx"
+    annotated_docx = build_dir / f"{src.stem}.with-comments.docx"
     results = inject_comments(plain_docx, annotated_docx, comments, author=args.author)
     matched = sum(1 for _, m in results if m)
     unmatched = [spec["id"] for spec, m in results if not m]
@@ -453,7 +499,7 @@ def main() -> int:
     name = args.name or f"{src.stem} ({args.lang})"
 
     state = load_upload_state()
-    state_key = args.lang  # one cached Doc per language for this template
+    state_key = f"{args.template}:{args.lang}"  # cached Doc per (template, language)
 
     target_id: str | None = None
     if args.doc_id:  # explicit --doc-id wins
@@ -484,7 +530,7 @@ def main() -> int:
     if not args.no_save_id and state.get(state_key) != document_id:
         state[state_key] = document_id
         save_upload_state(state)
-        print(f"saved Doc ID for lang={args.lang} -> {UPLOAD_STATE_FILE}")
+        print(f"saved Doc ID for template={args.template} lang={args.lang} -> {UPLOAD_STATE_FILE}")
 
     if args.share_with:
         share_with(creds, document_id, args.share_with)

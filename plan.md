@@ -203,12 +203,54 @@ Zenodoは2種類のDOIを発行する:
 優先度順:
 
 1. **V.3 ドラフトのレビュー** ([§3.3](#33-v3-ドラフトに対するレビュー依頼))
-2. **git init + GitHub push** ([§4.1](#41-ユーザー側で実施)) — repo は `SRWS-PSG/protocol-templates` で確定
-3. **ORCID を CITATION.cff に追記** ([§4.1](#41-ユーザー側で実施))
-4. **Zenodo GitHub 連携 + v3.0.0 release** ([§5.1](#51-ユーザー側で実施))
-5. **DOI が確定したら scaffolding ファイル内の `<TBD>` を置換** ([§5.1-5](#51-ユーザー側で実施))
-6. **解説論文の執筆方針確定** ([§6.4](#64-ユーザー側で実施))
-7. **protocols.io V.2 への redirect 追記** ([§7.1](#71-ユーザー側で実施))
+2. **scoping-review v1.0 ドラフトのレビュー** ([§9](#9-step-6-scoping-review-template-v10))
+3. **git init + GitHub push** ([§4.1](#41-ユーザー側で実施)) — repo は `SRWS-PSG/protocol-templates` で確定
+4. **ORCID を CITATION.cff に追記** ([§4.1](#41-ユーザー側で実施))
+5. **Zenodo GitHub 連携 + v3.0.0 release** ([§5.1](#51-ユーザー側で実施))
+6. **DOI が確定したら scaffolding ファイル内の `<TBD>` を置換** ([§5.1-5](#51-ユーザー側で実施))
+7. **解説論文の執筆方針確定** ([§6.4](#64-ユーザー側で実施))
+8. **protocols.io V.2 への redirect 追記** ([§7.1](#71-ユーザー側で実施))
+
+---
+
+## 9. Step 6: Scoping review template (v1.0)
+
+### 9.1 スコープ
+
+scoping review 用プロトコルテンプレートを新規追加。元 docx は [resources/2025-12-29スコーピングレビューのプロトコルテンプレ.docx](resources/2025-12-29スコーピングレビューのプロトコルテンプレ.docx)。テンプレ内容は、Joanna Briggs Institute (JBI) の 5 ステージ実施方法を骨格とし、protocol 文書の構造は Peters らの best practice ガイダンス（[JBI Evid Synth 2022;20(4):953-968](https://doi.org/10.11124/JBIES-21-00242), Table 1 = 17 項目チェックリスト）を満たすように欠落項目を補った。レビューの報告は PRISMA-ScR ([Tricco et al. Ann Intern Med 2018;169:467-473](https://doi.org/10.7326/M18-0850)) に従う。
+
+intervention-review との重要な相違点:
+
+- **PCC** (Population / Concept / Context) を eligibility のフレームワークに（PICO ではない）
+- **CONCEPT FOCUS 図** ("terminology" vs "concept" の意思決定図) を §3.3.2 Concept に永続的に埋め込む — 元 docx の画像をそのまま流用 (`templates/scoping-review/media/scoping_concept_focus.png`)
+- **量的合成は行わない**（Stage 5 は質的統合、evidence and gap map 含む可視化 — [Fredlund et al. 2024](https://doi.org/10.1002/cesm.12096), [South & Rodgers 2023](https://doi.org/10.1186/s13643-023-02309-y) を参照）
+- **Risk of bias / Meta-bias / GRADE は optional**（行う場合のみ書く `> Note:` を当該位置に配置）
+- **登録先は OSF**（PROSPERO は scoping を受け付けないため [@peters2022bestpractice]）
+- **新規 Appendix 6**: Peters 2022 Table 2 ベースの charting form 例（Author/Year/Country/Population/Concept/Context/Methodology/Key findings）
+- **新規 Appendix 7**: Peters 2022 Table 1 全 17 項目のセルフチェックチェックリスト
+
+### 9.2 成果物（リポジトリ内）
+
+- ソース (ja): [templates/scoping-review/protocol_template_for_scoping_review.ja.md](templates/scoping-review/protocol_template_for_scoping_review.ja.md)
+- ソース (en): [templates/scoping-review/protocol_template_for_scoping_review.md](templates/scoping-review/protocol_template_for_scoping_review.md)
+- 文献データ: [templates/scoping-review/references.bib](templates/scoping-review/references.bib) — **intervention 版とは独立した別ファイル**。各エントリは PubMed/DOI 起点で検証済み。
+- ビルドスクリプト: [templates/scoping-review/build.ps1](templates/scoping-review/build.ps1)
+- Google Docs 投入用コメント定義: [templates/scoping-review/comments.yaml](templates/scoping-review/comments.yaml) — 元 docx の 15 件の Word コメントを section heading に再アンカリングし、新規スコーピング特有のコメント 2 件を追加（計 17 件）
+- CONCEPT FOCUS 図: [templates/scoping-review/media/scoping_concept_focus.png](templates/scoping-review/media/scoping_concept_focus.png)
+- 生成 docx 例: `templates/scoping-review/build/protocol_template_for_scoping_review.{ja,}.with-comments.docx` （gitignore、`pwsh templates/scoping-review/build.ps1` または `python tools/build_gdoc.py --template scoping-review --lang ja --dry-run` で再生成）
+
+### 9.3 共通ツールの汎用化
+
+[tools/build_gdoc.py](tools/build_gdoc.py) に `--template intervention-review|scoping-review` を追加し、テンプレ間で共有。アップロード state のキーは `<template>:<lang>` に変更（旧 `ja`/`en` キーは初回読み込み時に `intervention-review:<lang>` へ自動移行）。
+
+### 9.4 ユーザー側で実施
+
+1. 生成 docx を Word で開いて以下を確認:
+   - CONCEPT FOCUS 図が §3.3.2 Concept 直下に表示されているか
+   - Appendix 7 のチェックリスト表が崩れていないか
+   - 17 件の Word コメントが期待した見出し位置に付いているか
+2. 必要なら `comments.yaml` のアンカー文字列を修正
+3. Google Docs にアップロードしてレビュー: `python tools/build_gdoc.py --template scoping-review --lang ja`
 
 ---
 

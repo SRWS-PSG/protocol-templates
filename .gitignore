@@ -1,6 +1,9 @@
 templates/*/build/
 templates/*/_raw_from_docx.md
-templates/*/media/
+# Ignore extracted/temporary media but keep permanent template assets tracked:
+templates/*/media/*
+!templates/scoping-review/media/scoping_concept_focus.png
+templates/*/_plan.md
 resources/
 
 # Google API credentials (OAuth client + cached user token)

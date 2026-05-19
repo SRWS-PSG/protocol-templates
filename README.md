@@ -5,8 +5,9 @@ A collection of Markdown-based systematic review (SR) protocol templates, mainta
 Templates currently included:
 
 - [`templates/intervention-review/`](templates/intervention-review/) — SR protocol for **intervention reviews** (the V.3 successor of the protocols.io V.2 template).
+- [`templates/scoping-review/`](templates/scoping-review/) — protocol for **scoping reviews**, structured per the JBI five-stage methodology and the [Peters et al. 2022 best-practice checklist](https://doi.org/10.11124/JBIES-21-00242). Reporting follows [PRISMA-ScR](https://doi.org/10.7326/M18-0850).
 
-(More template types — scoping reviews, diagnostic test accuracy, etc. — will be added under `templates/` as separate sub-directories.)
+(More template types — diagnostic test accuracy, qualitative evidence synthesis, etc. — will be added under `templates/` as separate sub-directories.)
 
 The templates are designed to be:
 
@@ -31,9 +32,11 @@ For the rationale and design of each template, see the companion explanation art
 git clone https://github.com/SRWS-PSG/protocol-templates
 cd protocol-templates
 pwsh ./templates/intervention-review/build.ps1 -Target docx     # or html, or pdf
+# Scoping review template:
+pwsh ./templates/scoping-review/build.ps1     -Target docx
 ```
 
-Edit [templates/intervention-review/protocol_template_for_intervention_review.md](templates/intervention-review/protocol_template_for_intervention_review.md) and replace the `??????` placeholders with your own SR plan. Citations are managed in [templates/intervention-review/references.bib](templates/intervention-review/references.bib) (Vancouver style via Pandoc + citeproc).
+Edit [templates/intervention-review/protocol_template_for_intervention_review.md](templates/intervention-review/protocol_template_for_intervention_review.md) or [templates/scoping-review/protocol_template_for_scoping_review.md](templates/scoping-review/protocol_template_for_scoping_review.md) and replace the `[English label / 日本語ラベル: ...]` placeholders with your own SR plan. Each template owns its own `references.bib` (Vancouver style via Pandoc + citeproc) — do not consolidate across templates.
 
 ## Repository layout
 
@@ -48,9 +51,19 @@ Edit [templates/intervention-review/protocol_template_for_intervention_review.md
 ├── CLAUDE.md                       # Claude Code working notes
 ├── resources/                      # historical reference (protocols.io V.2 PDF, original docx)
 └── templates/
-    └── intervention-review/
-        ├── protocol_template_for_intervention_review.md   # the template (source)
-        ├── references.bib                                  # BibTeX for citations
+    ├── intervention-review/
+    │   ├── protocol_template_for_intervention_review.md   # the template (source, EN)
+    │   ├── protocol_template_for_intervention_review.ja.md # JA master
+    │   ├── references.bib                                  # BibTeX (intervention-only)
+    │   ├── comments.yaml                                   # mentoring comments injected to Google Doc
+    │   ├── build.ps1                                       # Pandoc build script
+    │   └── build/                                          # generated artifacts (gitignored)
+    └── scoping-review/
+        ├── protocol_template_for_scoping_review.md        # the template (source, EN)
+        ├── protocol_template_for_scoping_review.ja.md     # JA master
+        ├── references.bib                                  # BibTeX (scoping-only, INDEPENDENT)
+        ├── comments.yaml                                   # mentoring comments injected to Google Doc
+        ├── media/scoping_concept_focus.png                 # JBI Terminology-vs-Concept figure
         ├── build.ps1                                       # Pandoc build script
         └── build/                                          # generated artifacts (gitignored)
 ```

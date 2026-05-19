@@ -1,0 +1,199 @@
+# Comments to be attached to the rendered Google Doc for the scoping-review
+# protocol template.
+#
+# One body (Japanese) is attached to BOTH the ja and en Google Docs, using
+# language-specific anchor strings to locate the insertion point in each master.
+#
+# Schema (one entry per comment):
+#   - id:          stable identifier (kebab-case). Required.
+#     legacy_id:   (optional) numeric id of the corresponding comment in the
+#                  2025-12-29 source Doc (resources/2025-12-29スコーピングレビューのプロトコルテンプレ.docx).
+#     anchor:      text the comment is anchored to. Must appear verbatim in the body.
+#       ja:        Japanese anchor string (matched against the ja master).
+#       en:        English anchor string (matched against the en master). Omit to
+#                  attach the comment only to the ja Doc.
+#     occurrence:  (optional, default 1) which occurrence of the anchor string to attach to.
+#     body: |
+#       Japanese comment text shown in both ja and en Google Docs.
+#     audience:    (optional) free-form tags, e.g. [author, mentor, reference].
+#
+# Notes:
+#   - Anchors target SECTION HEADINGS (which are in English in both ja and en
+#     masters) so that ja_anchor == en_anchor for most entries.
+#   - The 2025-12-29 source Doc used inline mentoring-session codes (e.g. 03_04,
+#     14) as anchors; those codes were removed in this v1.0 template, so we
+#     re-anchor each surviving comment to the relevant section heading.
+
+comments:
+  # --- 1. Introduction --------------------------------------------------
+  - id: c-background-ref-03-04
+    legacy_id: 0
+    anchor:
+      ja: "# 1. Introduction"
+      en: "# 1. Introduction"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345687800420089/
+      https://www.facebook.com/groups/339218557733680/permalink/345688287086707/
+    audience: [reference]
+
+  - id: c-background-ref-14
+    legacy_id: 1
+    anchor:
+      ja: "# 1. Introduction"
+      en: "# 1. Introduction"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345764713745731/
+    audience: [reference]
+
+  # --- 2. Research question --------------------------------------------
+  - id: c-rq-ref-01-03
+    legacy_id: 2
+    anchor:
+      ja: "# 2. Research question"
+      en: "# 2. Research question"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/339349757720560/
+    audience: [reference]
+
+  - id: c-rq-ref-03-03
+    legacy_id: 3
+    anchor:
+      ja: "# 2. Research question"
+      en: "# 2. Research question"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345686130420256/
+      https://www.facebook.com/groups/339218557733680/permalink/345686383753564/
+    audience: [reference]
+
+  - id: c-rq-ref-10-06
+    legacy_id: 4
+    anchor:
+      ja: "# 2. Research question"
+      en: "# 2. Research question"
+    body: |
+      https://www.facebook.com/groups/339218557733680/posts/347111373611065/
+    audience: [reference]
+
+  # --- 3.1 Protocol -----------------------------------------------------
+  - id: c-protocol-prismascr-paper
+    legacy_id: 5
+    anchor:
+      ja: "## 3.1 Protocol"
+      en: "## 3.1 Protocol"
+    body: |
+      PRISMA-ScR (Tricco et al. 2018) の本文はこちら:
+      https://www.acpjournals.org/doi/10.7326/M18-0850
+    audience: [reference]
+
+  - id: c-protocol-jbi-manual-ch11
+    legacy_id: 6
+    anchor:
+      ja: "## 3.1 Protocol"
+      en: "## 3.1 Protocol"
+    body: |
+      JBI Manual for Evidence Synthesis, Chapter 11 (Scoping reviews):
+      https://jbi-global-wiki.refined.site/space/MANUAL/3283910770/Chapter+11%3A+Scoping+reviews
+    audience: [reference]
+
+  # --- 3.3 Stage 2 (eligibility) ----------------------------------------
+  - id: c-eligibility-ref-03-05
+    legacy_id: 7
+    anchor:
+      ja: "## 3.3 Stage 2: Identifying relevant studies (eligibility criteria)"
+      en: "## 3.3 Stage 2: Identifying relevant studies (eligibility criteria)"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345690497086486/
+    audience: [reference]
+
+  - id: c-eligibility-ref-10-06
+    legacy_id: 8
+    anchor:
+      ja: "## 3.3 Stage 2: Identifying relevant studies (eligibility criteria)"
+      en: "## 3.3 Stage 2: Identifying relevant studies (eligibility criteria)"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/347111373611065/
+    audience: [reference]
+
+  # --- 3.3.2 Concept ----------------------------------------------------
+  - id: c-concept-vs-terminology
+    anchor:
+      ja: "### 3.3.2 Concept"
+      en: "### 3.3.2 Concept"
+    body: |
+      Concept を定義するときは、**特定の用語 (terminology)** で線を引くか、**より広い概念 (concept)** として線を引くかを Stage 2 で必ず決めてください（添付の図参照）。
+      検索式の幅・組み入れ判定の幅がここで決まります。
+    audience: [author]
+
+  # --- 3.3.5 Search method ---------------------------------------------
+  - id: c-search-ref-03-06
+    legacy_id: 9
+    anchor:
+      ja: "### 3.3.5 Search method"
+      en: "### 3.3.5 Search method"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345691060419763/
+    audience: [reference]
+
+  - id: c-search-ref-07-a
+    legacy_id: 10
+    anchor:
+      ja: "### 3.3.5 Search method"
+      en: "### 3.3.5 Search method"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345693490419520/
+      https://www.facebook.com/groups/339218557733680/permalink/345693750419494/
+    audience: [reference]
+
+  - id: c-search-ref-07-b
+    legacy_id: 12
+    anchor:
+      ja: "### 3.3.5 Search method"
+      en: "### 3.3.5 Search method"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345693490419520/
+      https://www.facebook.com/groups/339218557733680/permalink/345693750419494/
+    audience: [reference]
+
+  # --- 3.4 Stage 3 (selection) -----------------------------------------
+  - id: c-selection-ref-03-05
+    legacy_id: 11
+    anchor:
+      ja: "## 3.4 Stage 3: Study selection"
+      en: "## 3.4 Stage 3: Study selection"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345690497086486/
+    audience: [reference]
+
+  # --- 3.6 Stage 5 (visualisation) -------------------------------------
+  - id: c-stage5-visualisation
+    legacy_id: 13
+    anchor:
+      ja: "## 3.6 Stage 5: Collating, summarizing, and reporting the results"
+      en: "## 3.6 Stage 5: Collating, summarizing, and reporting the results"
+    body: |
+      Fredlund et al. 2024 (DOI 10.1002/cesm.12096) の Table 3 を参考に、どのビジュアル化が読み手にわかりやすいかを考えて選んでください。
+      https://onlinelibrary.wiley.com/doi/10.1002/cesm.12096
+      実例: South & Rodgers 2023 (Syst Rev 12:142)
+      https://systematicreviewsjournal.biomedcentral.com/articles/10.1186/s13643-023-02309-y
+    audience: [reference]
+
+  # --- Appendix 1: MEDLINE ---------------------------------------------
+  - id: c-appendix1-aistudio
+    legacy_id: 14
+    anchor:
+      ja: "## Appendix 1: MEDLINE (PubMed) search strategy"
+      en: "## Appendix 1: MEDLINE (PubMed) search strategy"
+    body: |
+      どういう検索ブロックにしたいか、各ブロックの統制語として何を使うか、までを考えて作ってみましょう。
+      要無料登録ですが、こちらに組み入れ基準を入れると下書きをしてくれます。
+      https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221xiXk7Zidc9bEyN__EPPIN3AbgpVRWo5A%22%5D,%22action%22:%22open%22,%22userId%22:%22107122855205791560725%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing
+    audience: [author]
+
+  # --- Appendix 7: Peters 2022 checklist -------------------------------
+  - id: c-appendix7-peters2022
+    anchor:
+      ja: "## Appendix 7: Scoping review protocol checklist (Peters 2022 Table 1)"
+      en: "## Appendix 7: Scoping review protocol checklist (Peters 2022 Table 1)"
+    body: |
+      本表は Peters MDJ et al. *JBI Evid Synth*. 2022;20(4):953-968 (DOI: 10.11124/JBIES-21-00242) の Table 1 を再構成したものです。投稿前に各項目が本プロトコル内のどこで満たされているかを確認してください。
+    audience: [author, reference]
