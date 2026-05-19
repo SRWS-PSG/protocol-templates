@@ -22,49 +22,55 @@ csl: vancouver.csl
 link-citations: true
 notes-after-punctuation: true
 ---
-> **このテンプレートの使い方**: 以下は介入レビューの SR プロトコルテンプレートです。`??????` や `[ ]` で示された箇所は SR を実施する研究者が自身の内容で置き換えてください。メンターの所属は `https://docs.google.com/document/d/1v3R5iXCcbCAtpSlzbRUL09VJAFqseUaaiO61AQdxugA/edit?usp=sharing` を参照してください。
+> **このテンプレートの使い方**
+>
+> この文書は介入レビューの SR プロトコルテンプレートです。`[English label / 日本語ラベル: 記入する内容]` で示した箇所を、自分たちのレビュー内容に置き換えてください。
+>
+> まず `2. Research question` で PICO を決め、次に `3.2 Inclusion criteria`、`3.3 Type of outcomes`、`Appendices` の検索式、`3.7` 以降の解析計画を埋めると進めやすいです。固定文は原則そのまま使えますが、研究疑問や組み入れる研究デザインに合わない場合はメンターに確認して修正してください。
+>
+> `>` で始まる Note は作成中の補助説明です。提出版や登録版では、必要に応じて削除するか、メンターに確認してください。メンターの所属は `https://docs.google.com/document/d/1v3R5iXCcbCAtpSlzbRUL09VJAFqseUaaiO61AQdxugA/edit?usp=sharing` を参照してください。
 
 # Title
 
-Title: ??????: a systematic review and meta-analysis protocol
+Title: [review title / レビュータイトル: 対象者、介入、比較対照、主要アウトカムが分かる短い英語表現]: a systematic review and meta-analysis protocol
 
 > Note: 介入のレビューで RCT のみを組み入れる場合は、タイトルに *efficacy* を使ってください（理由: [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC351867/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC351867/)）。
 
-Corresponding author: ?????? *（テンプレ利用者が記入してください）*
+Corresponding author: [corresponding author / 連絡著者: full name]
 
-Address: ?????? *（テンプレ利用者が記入してください）*
+Address: [address / 連絡著者の所属先住所: department, institution, postal address]
 
-E-mail: ?????? *（テンプレ利用者が記入してください）*
+E-mail: [e-mail / 連絡著者の連絡先メールアドレス]
 
 Author contributions:
 
-?? is the guarantor. ?? drafted the manuscript. All authors contributed to the development of the selection criteria, the risk of bias assessment strategy and data extraction criteria. ?? developed the search strategy. ?? provided statistical expertise. ?? provided expertise on ??. All authors read, provided feedback and approved the final manuscript.
+[guarantor initials / 連絡責任者のイニシャル] is the guarantor. [drafting author initials / 原稿ドラフト担当者のイニシャル] drafted the manuscript. All authors contributed to the development of the selection criteria, the risk of bias assessment strategy and data extraction criteria. [search strategy author initials / 検索式担当者のイニシャル] developed the search strategy. [statistics author initials / 統計担当者のイニシャル] provided statistical expertise. [content expert initials / 臨床・方法論の専門家のイニシャル] provided expertise on [expertise area / 専門領域: 対象疾患、介入、方法論など]. All authors read, provided feedback and approved the final manuscript.
 
-# 
 
-> *Note*: プロトコルであるため、Abstractは必須ではありません。もし、書きたい場合は、PRISMA 2020 [@page2021prisma] の Abstract 項目（PRISMA 2020 abstract checklist, Item 2）にを参考に該当する項目のみを記入してください。下位項目を以下のサブセクションとして用意しています。
->## Background — Objectives
->## Methods 
->### Eligibility criteria
->### Information sources
->### Risk of bias
->### Synthesis of results
->## Discussion 
->## Other
->### Funding
->### Registration
+> *Note*: プロトコルであるため、Abstract は必須ではありません。もし書きたい場合は、PRISMA 2020 [@page2021prisma] の Abstract 項目（PRISMA 2020 abstract checklist）を参考に、必要に応じて以下の見出しを修正して使用してください。
+> # Abstract
+> ## Background — Objectives
+> ## Methods
+> ### Eligibility criteria
+> ### Information sources
+> ### Risk of bias
+> ### Synthesis of results
+> ## Discussion
+> ## Other
+> ### Funding
+> ### Registration
 
 
 # 1. Introduction
 
-?????? *（テンプレ利用者が記入してください）*
+[background and rationale / 背景と根拠: 対象疾患・介入の臨床的重要性、既存レビューの不足、なぜこのレビューが必要かを記入]
 
 # 2. Research question
 
-- P:
-- I:
-- C:
-- O:
+- P: [participants / 対象者: 疾患、状態、年齢層、診断基準、重症度、診療場面など]
+- I: [intervention / 介入: 介入名、用量、頻度、期間、実施方法など]
+- C: [comparator / 比較対照: placebo、usual care、無治療、他治療など]
+- O: [outcomes / アウトカム: 主要アウトカムを中心に]
 
 # 3. Method
 
@@ -76,48 +82,48 @@ We used a systematic review protocol template maintained by SRWS-PSG (repository
 
 ### 3.2.1 Type of studies
 
-We will include randomized controlled trials that assess ??????. We will not apply language or country restrictions. We will include all papers including published, unpublished articles, abstract of conference and letter. We will exclude ??????. We will not exclude studies based on the observation period or publication year.
+We will include randomized controlled trials that assess [intervention and target condition / 評価する介入と対象状態: 例, intervention for participants with condition]. We will not apply language or country restrictions. We will include all papers including published, unpublished articles, abstract of conference and letter. We will exclude [excluded study designs or records / 除外する研究デザイン・文献種別: 例, quasi-randomized trials, observational studies]. We will not exclude studies based on the observation period or publication year.
 
 ### 3.2.2 Study participants
 
-??????
+[participants overview / 対象者の概要: 疾患・状態、年齢層、診断基準、重症度、診療場面などを文章で記入]
 
-Inclusion criteria: ??????
+Inclusion criteria: [participant inclusion criteria / 対象者の組入基準: 対象疾患、診断基準、年齢、性別、重症度、セッティングなど]
 
-Exclusion criteria: ??????
+Exclusion criteria: [participant exclusion criteria / 対象者の除外基準: 除外する併存疾患、既治療、特定集団など]
 
 ### 3.2.3 Intervention
 
-??????
+[intervention details / 介入の詳細: 介入名、用量、頻度、期間、実施者、併用療法の扱いなど]
 
 ### 3.2.4 Control
 
-??????
+[comparator details / 比較対照の詳細: placebo、usual care、無治療、他治療、併用療法の扱いなど]
 
 ## 3.3 Type of outcomes
 
 ### 3.3.1 Primary outcomes
 
-1. ??????
-   - Definition:
-   - Period:
-2. ??????
-   - Definition:
-   - Period:
-3. ??????
-   - Definition:
-   - Period:
+1. [primary outcome name / 主要アウトカム名: 例, all-cause mortality]
+   - Definition: [outcome definition / アウトカム定義: 測定指標、判定基準、スコアの向き、イベントの定義など]
+   - Period: [time point / 評価時点: 例, closest to 12 weeks, during follow-up period]
+2. [primary outcome name / 主要アウトカム名]
+   - Definition: [outcome definition / アウトカム定義]
+   - Period: [time point / 評価時点]
+3. [primary outcome name / 主要アウトカム名]
+   - Definition: [outcome definition / アウトカム定義]
+   - Period: [time point / 評価時点]
 
 ### 3.3.2 Secondary outcomes
 
-1. ??????
-   - Definition:
-   - Period:
-2. ??????
-   - Definition:
-   - Period:
+1. [secondary outcome name / 副次アウトカム名]
+   - Definition: [outcome definition / アウトカム定義: 測定指標、判定基準、スコアの向き、イベントの定義など]
+   - Period: [time point / 評価時点]
+2. [secondary outcome name / 副次アウトカム名]
+   - Definition: [outcome definition / アウトカム定義]
+   - Period: [time point / 評価時点]
 3. All adverse events
-   - Definition: definition of adverse events are set by original authors. Incidence proportion of all adverse events.
+   - Definition: The definition of adverse events will be set by the original authors. Incidence proportion of all adverse events.
    - Period: during follow-up period
 
 ## 3.4 Search method
@@ -141,34 +147,34 @@ We will also search the following databases for ongoing or unpublished trials:
 
 See Appendix 4 and 5 for the search strategies.
 
-We will check the reference lists of studies, including international guidelines ??????, as well as the reference lists of eligible studies and articles citing eligible studies. We will ask the authors of original studies for unpublished or additional data.
+We will check the reference lists of studies, including international guidelines [guideline names or organizations / 確認する診療ガイドライン名・作成組織], as well as the reference lists of eligible studies and articles citing eligible studies. We will ask the authors of original studies for unpublished or additional data.
 
 ## 3.5 Data collection and analysis
 
 ### 3.5.1 Selection of the studies
 
-Two independent reviewers (??????) will screen titles and abstracts using the Tiab Review plugin [@Kataoka2026-tb], followed by the assessment of eligibility based on the full texts. We will contact original authors if relevant data is missing. Disagreements between the two reviewers will be resolved by discussion, and if this fails, a third reviewer will act as an arbiter (??????).
+Two independent reviewers ([screening reviewers / スクリーニング担当者のイニシャル: initials of two reviewers]) will screen titles and abstracts using the Tiab Review plugin [@Kataoka2026-tb], followed by the assessment of eligibility based on the full texts. We will contact original authors if relevant data is missing. Disagreements between the two reviewers will be resolved by discussion, and if this fails, a third reviewer will act as an arbiter ([third reviewer / 第三レビュアーのイニシャル: initials]).
 
 > note: 3 人以上で screening を行う場合は "two of three independent reviewers..." と記載してください。
 
 ### 3.5.2 Data extraction and management
 
-Two reviewers (??????) will perform independent data extraction of the included studies using a standardized data collection form. 
+Two reviewers ([data extraction reviewers / データ抽出担当者のイニシャル: initials of two reviewers]) will perform independent data extraction of the included studies using a standardized data collection form.
 The form will include the information on study design, study population, interventions, and outcomes.
 
 > Note: ここは表を作るつもりで、すべての変数名を書いてください。
- Any disagreements will be resolved by discussion, and if this fails, a third reviewer will act as an arbiter (??????).
+ Any disagreements will be resolved by discussion, and if this fails, a third reviewer will act as an arbiter ([third reviewer / 第三レビュアーのイニシャル: initials]).
 To improve efficiency, we will use AI to assist with data extraction as needed [@Gartlehner2025-cm;@Kataoka2025-kq]. We will report how AI was actually used in accordance with the Position Statement on Artificial Intelligence (AI) Use in Evidence Synthesis Across Cochrane, the Campbell Collaboration, JBI, and the Collaboration for Environmental Evidence 2025 [@Flemyng2025-ru].
 
 ## 3.6 Assessment of risk of bias in included studies
 
-Two reviewers (??????) will evaluate the risk of bias independently using the Risk of Bias 2 tool [@sterne2019rob2]. Disagreements between the two reviewers will be discussed, and if this fails, a third reviewer (??????) will be acting as an arbiter, if necessary.
+Two reviewers ([risk of bias reviewers / RoB 評価担当者: initials of two reviewers]) will evaluate the risk of bias independently using the Risk of Bias 2 tool [@sterne2019rob2]. Disagreements between the two reviewers will be discussed, and if this fails, a third reviewer ([third reviewer / 第三レビュアー: initials]) will be acting as an arbiter, if necessary.
 
 ## 3.7 Measures of treatment effects
 
-We will pool the relative risk ratios and the 95% confidence intervals (CIs) for the following binary variables: ??????.
+We will pool the relative risk ratios and the 95% confidence intervals (CIs) for the following binary variables: [binary outcomes / 二値アウトカム: 例, mortality, response, adverse events].
 
-We will pool the mean differences and the 95% CIs for the following continuous variables: ??????.
+We will pool the mean differences and the 95% CIs for the following continuous variables: [continuous outcomes / 連続アウトカム: 例, symptom score, quality-of-life score].
 
 If several different scales have been used in the included studies, we will pool the effect estimates using standardized mean differences (SMDs).
 
@@ -217,8 +223,8 @@ Meta-analysis will be performed using PMA tools ([https://yukifurukawa.jp/pmatoo
 
 To elucidate the influence of effect modifiers on results, we will evaluate the subgroup analyses of the primary outcomes on the following factors when sufficient data are available.
 
-1. (For participants) ??????
-2. (For intervention) ??????
+1. (For participants) [participant subgroup factor / 対象者に関するサブグループ因子: 例, age group, disease severity]
+2. (For intervention) [intervention subgroup factor / 介入に関するサブグループ因子: 例, dose, duration, delivery method]
 
 ## 3.14 Sensitivity analysis
 
@@ -230,9 +236,8 @@ We will undertake the following sensitivity analyses for the primary outcomes to
 
 # 4. Summary of findings table
 
-Two reviewers (??????) will evaluate the certainty of evidence based on the GRADE (Grading of Recommendations Assessment, Development and Evaluation) approach [@Guyatt2011-qq]. Disagreements between the two reviewers will be discussed, and if this fails, a third reviewer (??????) will be acting as an arbiter, if necessary. The Summary of Findings table will be made for the following outcome based on the Cochrane Handbook [@higgins2024cochrane]: ??????.
+Two reviewers ([GRADE reviewers / GRADE 評価担当者のイニシャル、一人はメンター: initials of two reviewers, including one mentor if applicable]) will evaluate the certainty of evidence based on the GRADE (Grading of Recommendations Assessment, Development and Evaluation) approach [@Guyatt2011-qq]. Disagreements between the two reviewers will be discussed, and if this fails, a third reviewer ([third reviewer / 第三レビュアーのイニシャル: initials]) will be acting as an arbiter, if necessary. The Summary of Findings table will be made for the following outcome based on the Cochrane Handbook [@higgins2024cochrane]: [outcomes for Summary of Findings table / SoF テーブルに含めるアウトカム: 主要アウトカムと重要な副次アウトカム].
 
-> Note: ここの一人はメンターがやります。
 
 # 5. Conflict of Interest
 
@@ -255,21 +260,22 @@ Self-funding.
 
 > 03_06、03_07 の検索式の課題については、フォームに入力し、その旨を URL とともに Slack でメンターに伝えてください。
 
-??????
+[MEDLINE search strategy / MEDLINE の検索式: participants と intervention の検索語、MeSH、RCT filter、組み合わせ式を記入]
 
 ## Appendix 2: CENTRAL (Cochrane Library) search strategy
 
 > Note: CENTRAL では RCT フィルター不要です。
 
-??????
+[CENTRAL search strategy / CENTRAL の検索式: participants と intervention の検索語、組み合わせ式を記入。RCT filter は不要]
 
 ## Appendix 3: EMBASE (Dialog) search strategy
 
-??????
+[EMBASE search strategy / EMBASE の検索式: participants と intervention の検索語、Emtree、下記 RCT filter との組み合わせ式を記入]
 
-> Note: DialogのRCTフィルター
-> Cochrane high sensitivity filerの転用です
-> S1 EMB.EXACT.EXPLODE("randomized controlled trial")
+> Note: Dialog の RCT filter です。Cochrane high sensitivity filter の転用です。以下は必要に応じて検索式に組み込んでください。
+
+```text
+S1 EMB.EXACT.EXPLODE("randomized controlled trial")
 S2 EMB.EXACT.EXACT("controlled clinical trial")
 S3 TI(random*) OR AB(random*)
 S4 EMB.EXACT.EXACT("randomization")
@@ -304,13 +310,14 @@ S32 (TI(rat) OR TI(rats) OR TI(mouse) OR TI(mice) OR TI(swine) OR TI(porcine) OR
 S33 EMB.EXACT.EXACT('animal experiment') NOT (EMB.EXACT.EXACT('human experiment') OR EMB.EXACT.EXACT('human'))
 S34 S21 OR S22 OR S23 OR S24 OR S25 OR S26 OR S27 OR S28 OR S29 OR S30 OR S31 OR S32 OR S33
 S35 S20 NOT S34
+```
 
 
 ## Appendix 4: ICTRP search strategy
 
-??????
+[ICTRP search strategy / ICTRP の検索式: condition、intervention、類義語、検索日を記入]
 
 ## Appendix 5: ClinicalTrials.gov search strategy
 
-- Condition or disease: ??????
-- Intervention: ??????
+- Condition or disease: [condition or disease / 対象疾患・状態: ClinicalTrials.gov に入力する疾患名や類義語]
+- Intervention: [intervention / 介入: ClinicalTrials.gov に入力する介入名や類義語]
