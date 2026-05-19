@@ -22,14 +22,13 @@ csl: vancouver.csl
 link-citations: true
 notes-after-punctuation: true
 ---
-
 > **このテンプレートの使い方**: 以下は介入レビューの SR プロトコルテンプレートです。`??????` や `[ ]` で示された箇所は SR を実施する研究者が自身の内容で置き換えてください。メンターの所属は `https://docs.google.com/document/d/1v3R5iXCcbCAtpSlzbRUL09VJAFqseUaaiO61AQdxugA/edit?usp=sharing` を参照してください。
 
 # Title
 
 Title: ??????: a systematic review and meta-analysis protocol
 
-> Note: 介入のレビューで RCT のみを組み入れる場合は、タイトルに *efficacy* を使ってください（理由: <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC351867/>）。
+> Note: 介入のレビューで RCT のみを組み入れる場合は、タイトルに *efficacy* を使ってください（理由: [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC351867/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC351867/)）。
 
 Corresponding author: ?????? *（テンプレ利用者が記入してください）*
 
@@ -41,57 +40,24 @@ Author contributions:
 
 ?? is the guarantor. ?? drafted the manuscript. All authors contributed to the development of the selection criteria, the risk of bias assessment strategy and data extraction criteria. ?? developed the search strategy. ?? provided statistical expertise. ?? provided expertise on ??. All authors read, provided feedback and approved the final manuscript.
 
-# Abstract
+# 
 
-> *Note*: 本文書はプロトコルであるため、Abstract 本文は SR 完了時に PRISMA 2020 [@page2021prisma] の Abstract 項目（PRISMA 2020 abstract checklist, Item 2）に従って記入してください。下位項目を以下のサブセクションとして用意しています。
+> *Note*: プロトコルであるため、Abstractは必須ではありません。もし、書きたい場合は、PRISMA 2020 [@page2021prisma] の Abstract 項目（PRISMA 2020 abstract checklist, Item 2）にを参考に該当する項目のみを記入してください。下位項目を以下のサブセクションとして用意しています。
+>## Background — Objectives
+>## Methods 
+>### Eligibility criteria
+>### Information sources
+>### Risk of bias
+>### Synthesis of results
+>## Discussion 
+>## Other
+>### Funding
+>### Registration
 
-## Background — Objectives
-
-??????
-
-## Methods — Eligibility criteria
-
-??????
-
-## Methods — Information sources
-
-??????
-
-## Methods — Risk of bias
-
-??????
-
-## Methods — Synthesis of results
-
-??????
-
-## Results — Included studies
-
-??????
-
-## Results — Synthesis of results
-
-??????
-
-## Discussion — Limitations of evidence
-
-??????
-
-## Discussion — Interpretation
-
-??????
-
-## Other — Funding
-
-??????
-
-## Other — Registration
-
-??????
 
 # 1. Introduction
 
-??????
+?????? *（テンプレ利用者が記入してください）*
 
 # 2. Research question
 
@@ -104,7 +70,7 @@ Author contributions:
 
 ## 3.1 Protocol
 
-We used a systematic review protocol template maintained by SRWS-PSG (repository: <https://github.com/SRWS-PSG/protocol-templates>, template path: `templates/intervention-review/`, Zenodo concept DOI: 10.5281/zenodo.&lt;TBD&gt;). When citing this protocol, please use the **version DOI** corresponding to the GitHub release you downloaded. We followed the Preferred Reporting Items for Systematic Reviews and Meta-Analyses 2020 (PRISMA 2020) statement [@page2021prisma] for the eventual systematic review report, and PRISMA-P 2015 [@shamseer2015] for this protocol. We will publish this protocol on OSF.io (<https://osf.io/>).
+We used a systematic review protocol template maintained by SRWS-PSG (repository: [https://github.com/SRWS-PSG/protocol-templates](https://github.com/SRWS-PSG/protocol-templates), Zenodo concept DOI: 10.5281/zenodo.&lt;TBD&gt;). We followed the Preferred Reporting Items for Systematic Reviews and Meta-Analyses 2020 (PRISMA 2020) statement [@page2021prisma], and PRISMA-P 2015 [@shamseer2015] for preparing this protocol. We will publish this protocol on OSF.io ([https://osf.io/](https://osf.io/)).
 
 ## 3.2 Inclusion criteria of the articles for the review
 
@@ -133,26 +99,26 @@ Exclusion criteria: ??????
 ### 3.3.1 Primary outcomes
 
 1. ??????
-    - Definition:
-    - Period:
+   - Definition:
+   - Period:
 2. ??????
-    - Definition:
-    - Period:
+   - Definition:
+   - Period:
 3. ??????
-    - Definition:
-    - Period:
+   - Definition:
+   - Period:
 
 ### 3.3.2 Secondary outcomes
 
 1. ??????
-    - Definition:
-    - Period:
+   - Definition:
+   - Period:
 2. ??????
-    - Definition:
-    - Period:
+   - Definition:
+   - Period:
 3. All adverse events
-    - Definition: definition of adverse events are set by original authors. Incidence proportion of all adverse events.
-    - Period: during follow-up period
+   - Definition: definition of adverse events are set by original authors. Incidence proportion of all adverse events.
+   - Period: during follow-up period
 
 ## 3.4 Search method
 
@@ -181,15 +147,12 @@ We will check the reference lists of studies, including international guidelines
 
 ### 3.5.1 Selection of the studies
 
-Two independent reviewers (??????) will screen titles and abstracts, followed by the assessment of the eligibility based on the full texts.[^reviewers-three] We will contact original authors if relevant data is missing. Disagreements between the two reviewers will be resolved by discussion, and if this fails, a third reviewer will act as an arbiter (??????).
-
-[^reviewers-three]: 3 人以上で screening を行う場合は "two of three independent reviewers..." と記載してください。
+Two independent reviewers (??????) will screen titles and abstracts using the Tiab Review plugin [@Kataoka2026-tb].  Disagreements between the two reviewers will be resolved by discussion, and if this fails, a third reviewer will act as an arbiter (??????).
+followed by the assessment of the eligibility based on the full texts. We will contact original authors if relevant data is missing. Disagreements between the two reviewers will be resolved by discussion, and if this fails, a third reviewer will act as an arbiter (??????).
 
 ### 3.5.2 Data extraction and management
 
 Two reviewers (??????) will perform independent data extraction of the included studies using a standardized data collection form. We will use a pre-checked form using 10 randomly selected studies. The form will include the information on study design, study population, interventions, and outcomes.[^data-extraction-table] Any disagreements will be resolved by discussion, and if this fails, a third reviewer will act as an arbiter (??????).
-
-[^data-extraction-table]: ここは表を作るつもりで、すべての変数名を書いてください。
 
 ## 3.6 Assessment of risk of bias in included studies
 
@@ -242,7 +205,7 @@ We will search the clinical trial registry system (ClinicalTrials.gov and ICTRP)
 
 ## 3.12 Meta-analysis
 
-Meta-analysis will be performed using PMA tools (<https://yukifurukawa.jp/pmatools/>). We will use a random-effects model.
+Meta-analysis will be performed using PMA tools ([https://yukifurukawa.jp/pmatools/](https://yukifurukawa.jp/pmatools/)). We will use a random-effects model.
 
 ## 3.13 Subgroup analysis
 
@@ -261,9 +224,7 @@ We will undertake the following sensitivity analyses for the primary outcomes to
 
 # 4. Summary of findings table
 
-Two reviewers (??????)[^sof-mentor] will evaluate the certainty of evidence based on the GRADE (Grading of Recommendations Assessment, Development and Evaluation) approach [@guyatt2011grade]. Disagreements between the two reviewers will be discussed, and if this fails, a third reviewer (??????) will be acting as an arbiter, if necessary. The Summary of Findings table will be made for the following outcome based on the Cochrane Handbook [@higgins2024cochrane]: ??????.
-
-[^sof-mentor]: ここの一人はメンターがやります。
+Two reviewers (??????)[^sof-mentor] will evaluate the certainty of evidence based on the GRADE (Grading of Recommendations Assessment, Development and Evaluation) approach [@Guyatt2011-qq]. Disagreements between the two reviewers will be discussed, and if this fails, a third reviewer (??????) will be acting as an arbiter, if necessary. The Summary of Findings table will be made for the following outcome based on the Cochrane Handbook [@Higgins2008-oj]: ??????.
 
 # 5. Conflict of Interest
 
@@ -272,8 +233,6 @@ The authors declare no conflicts of interest.
 # 6. Support
 
 Self-funding.[^funding-note]
-
-[^funding-note]: 英文校正等に何らかの資金を使う場合はその旨を記載してください。資金を使わない場合は "Self-funding." のままでよいです。
 
 # References
 
@@ -292,8 +251,6 @@ Self-funding.[^funding-note]
 
 ??????
 
-[^central-rct-filter]: CENTRAL では RCT フィルター不要です。
-
 ## Appendix 3: EMBASE (Dialog) search strategy
 
 ??????
@@ -306,3 +263,13 @@ Self-funding.[^funding-note]
 
 - Condition or disease: ??????
 - Intervention: ??????
+
+[^reviewers-three]: 3 人以上で screening を行う場合は "two of three independent reviewers..." と記載してください。
+    
+[^data-extraction-table]: ここは表を作るつもりで、すべての変数名を書いてください。
+    
+[^sof-mentor]: ここの一人はメンターがやります。
+    
+[^funding-note]: 英文校正等に何らかの資金を使う場合はその旨を記載してください。資金を使わない場合は "Self-funding." のままでよいです。
+    
+[^central-rct-filter]: CENTRAL では RCT フィルター不要です。
