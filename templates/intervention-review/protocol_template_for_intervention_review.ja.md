@@ -265,7 +265,7 @@ Author contributions:
 
 ### 3.9.2 Missing statistics
 
-原著で標準誤差または p 値のみが報告されている場合は、Altman の方法 [@altman1996skewness] に基づき標準偏差を計算する。原著者に問い合わせても得られない場合は、信頼区間および t 値から Cochrane Handbook [@higgins2024cochrane] の方法、または妥当性が検証された方法 [@furukawa2006imputing; @higgins2008imputation] に基づき標準偏差を算出する。これらの方法の妥当性は感度分析で検証する。
+原著で標準誤差または p 値のみが報告されている場合は、Altman の方法 [@altman1996skewness] に基づき標準偏差を計算する。原著者に問い合わせても得られない場合は、信頼区間および t 値から Cochrane Handbook [@higgins2024cochrane] の方法、または妥当性が検証された方法 [@furukawa2006imputing] に基づき標準偏差を算出する。これらの方法の妥当性は感度分析で検証する。
 
 ## 3.10 Assessment of heterogeneity
 

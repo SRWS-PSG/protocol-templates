@@ -20,7 +20,10 @@ import sys
 from pathlib import Path
 
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.*)$", re.MULTILINE)
-PLACEHOLDER_RE = re.compile(r"\[([^\[\]\n]+?/[^\[\]\n]+?:[^\[\]\n]*?)\]")
+# Bilingual placeholder `[english label / 日本語ラベル: ...]`. The negative
+# lookahead `(?!\()` excludes markdown links like `[url](url)` whose bracket
+# text incidentally contains `/` and `:`.
+PLACEHOLDER_RE = re.compile(r"\[([^\[\]\n]+?/[^\[\]\n]+?:[^\[\]\n]*?)\](?!\()")
 FENCE_RE = re.compile(r"^```", re.MULTILINE)
 CITATION_RE = re.compile(r"\[@([A-Za-z0-9_\-:]+(?:;\s*@[A-Za-z0-9_\-:]+)*)\]")
 FRONTMATTER_RE = re.compile(r"\A---\n(.*?)\n---\n", re.DOTALL)
