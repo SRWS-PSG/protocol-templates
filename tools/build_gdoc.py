@@ -31,6 +31,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -50,6 +51,28 @@ COMMENTS_YAML = TEMPLATE_DIR / "comments.yaml"
 BIB = TEMPLATE_DIR / "references.bib"
 CSL = TEMPLATE_DIR / "vancouver.csl"
 BUILD_DIR = TEMPLATE_DIR / "build"
+LUA_FILTER = TEMPLATE_DIR / "filters" / "highlight.lua"
+REFERENCE_DOCX = TEMPLATE_DIR / "filters" / "reference.docx"
+
+ENV_FILES = [ROOT / ".env", ROOT / "tools" / ".env"]
+
+
+def load_env() -> None:
+    """Lightweight KEY=VALUE loader for tools/.env and project .env.
+
+    Existing process env wins; we only fill in missing keys.
+    """
+    for path in ENV_FILES:
+        if not path.exists():
+            continue
+        for raw in path.read_text(encoding="utf-8").splitlines():
+            line = raw.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, _, val = line.partition("=")
+            key = key.strip()
+            val = val.strip().strip('"').strip("'")
+            os.environ.setdefault(key, val)
 
 GCP_DIR = ROOT / "tools" / ".gcp"
 CREDENTIALS_FILE = GCP_DIR / "credentials.json"
@@ -109,10 +132,13 @@ def build_docx(src: Path, out: Path) -> None:
         "--citeproc",
         f"--bibliography={BIB}",
         f"--csl={CSL}",
+        f"--lua-filter={LUA_FILTER}",
         "--standalone",
         "-o",
         str(out),
     ]
+    if REFERENCE_DOCX.exists():
+        cmd.insert(-2, f"--reference-doc={REFERENCE_DOCX}")
     print("$", " ".join(cmd))
     subprocess.run(cmd, check=True)
 
@@ -242,9 +268,14 @@ def share_with(creds, document_id: str, email: str) -> None:
 
 
 def main() -> int:
+    load_env()
     p = argparse.ArgumentParser()
     p.add_argument("--lang", required=True, choices=["ja", "en"])
-    p.add_argument("--folder-id", default=None, help="Drive folder to place the Doc in")
+    p.add_argument(
+        "--folder-id",
+        default=os.environ.get("DRIVE_FOLDER_ID"),
+        help="Drive folder to place the Doc in (defaults to $DRIVE_FOLDER_ID from .env)",
+    )
     p.add_argument("--name", default=None, help="Doc title (defaults to filename)")
     p.add_argument("--share-with", default=None, help="Grant writer access to this email")
     p.add_argument("--dry-run", action="store_true", help="Build docx (with comments) only; skip upload")

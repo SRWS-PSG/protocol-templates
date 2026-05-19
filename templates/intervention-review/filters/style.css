@@ -1,3 +1,10 @@
+/* Base typography: Times New Roman for Latin, MS Mincho for Japanese,
+   1.5 line spacing. Mirrors the reference.docx defaults. */
+html, body {
+  font-family: "Times New Roman", "MS Mincho", "ＭＳ 明朝", serif;
+  line-height: 1.5;
+}
+
 /* Editing aids — both notes and [ ... ] placeholders render in light blue,
    matching the legacy Google Doc convention. */
 :root {

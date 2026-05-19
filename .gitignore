@@ -5,6 +5,10 @@ templates/*/media/
 # Google API credentials (OAuth client + cached user token)
 tools/.gcp/
 
+# Local environment (DRIVE_FOLDER_ID, etc.)
+.env
+tools/.env
+
 # Extracted reference artifacts
 resources/legacy_comments_extracted.json
 
