@@ -1,23 +1,39 @@
 # Build script for the protocol template.
 # Usage:
-#   pwsh ./template/build.ps1               # build all targets (docx, pdf if LaTeX available, html)
+#   pwsh ./template/build.ps1               # build all targets (docx, html) for both EN and JA
 #   pwsh ./template/build.ps1 -Target docx  # build a specific target
+#   pwsh ./template/build.ps1 -Lang ja      # build a specific language only
 #
 # Outputs go to template/build/ which is gitignored.
 
 [CmdletBinding()]
 param(
     [ValidateSet('all','docx','html','pdf')]
-    [string]$Target = 'all'
+    [string]$Target = 'all',
+    [ValidateSet('all','en','ja')]
+    [string]$Lang = 'all'
 )
 
 $ErrorActionPreference = 'Stop'
 
 $here    = Split-Path -Parent $MyInvocation.MyCommand.Path
-$src     = Join-Path $here 'protocol_template_for_intervention_review.md'
 $bib     = Join-Path $here 'references.bib'
 $cslPath = Join-Path $here 'vancouver.csl'
 $outdir  = Join-Path $here 'build'
+$luaFilt = Join-Path $here 'filters/highlight.lua'
+$css     = Join-Path $here 'filters/style.css'
+$refDocx = Join-Path $here 'filters/reference.docx'
+
+$sources = @{
+    en = @{
+        Src  = Join-Path $here 'protocol_template_for_intervention_review.md'
+        Base = 'protocol_template_for_intervention_review'
+    }
+    ja = @{
+        Src  = Join-Path $here 'protocol_template_for_intervention_review.ja.md'
+        Base = 'protocol_template_for_intervention_review.ja'
+    }
+}
 
 if (-not (Test-Path $outdir)) { New-Item -ItemType Directory -Path $outdir | Out-Null }
 
@@ -27,35 +43,48 @@ if (-not (Test-Path $cslPath)) {
     Invoke-WebRequest -Uri 'https://www.zotero.org/styles/vancouver' -OutFile $cslPath
 }
 
-$commonArgs = @(
-    $src,
-    '--from=markdown',
-    '--citeproc',
-    "--bibliography=$bib",
-    "--csl=$cslPath",
-    '--standalone'
-)
-
 function Invoke-Pandoc {
-    param([string[]]$ExtraArgs, [string]$Out)
-    $args = $commonArgs + $ExtraArgs + @('-o', $Out)
-    Write-Host "pandoc $($args -join ' ')"
-    & pandoc @args
+    param([string]$Src, [string[]]$ExtraArgs, [string]$Out)
+    $commonArgs = @(
+        $Src,
+        '--from=markdown',
+        '--citeproc',
+        "--bibliography=$bib",
+        "--csl=$cslPath",
+        "--lua-filter=$luaFilt",
+        '--standalone'
+    )
+    $pandocArgs = $commonArgs + $ExtraArgs + @('-o', $Out)
+    Write-Host "pandoc $($pandocArgs -join ' ')"
+    & pandoc @pandocArgs
 }
 
-switch ($Target) {
-    'docx' {
-        Invoke-Pandoc -ExtraArgs @('--to=docx') -Out (Join-Path $outdir 'protocol_template_for_intervention_review.docx')
+$docxArgs = @('--to=docx')
+if (Test-Path $refDocx) { $docxArgs += "--reference-doc=$refDocx" }
+
+$htmlArgs = @('--to=html5','--toc','--embed-resources')
+if (Test-Path $css) { $htmlArgs += "--css=$css" }
+
+$pdfArgs = @('--pdf-engine=xelatex','-V','CJKmainfont=Yu Gothic')
+
+$langs = if ($Lang -eq 'all') { @('en','ja') } else { @($Lang) }
+
+foreach ($lng in $langs) {
+    $cfg  = $sources[$lng]
+    if (-not (Test-Path $cfg.Src)) {
+        Write-Host "Skip $lng — source not found: $($cfg.Src)"
+        continue
     }
-    'html' {
-        Invoke-Pandoc -ExtraArgs @('--to=html5','--toc') -Out (Join-Path $outdir 'protocol_template_for_intervention_review.html')
-    }
-    'pdf' {
-        Invoke-Pandoc -ExtraArgs @('--pdf-engine=xelatex','-V','CJKmainfont=Yu Gothic') -Out (Join-Path $outdir 'protocol_template_for_intervention_review.pdf')
-    }
-    'all' {
-        Invoke-Pandoc -ExtraArgs @('--to=docx') -Out (Join-Path $outdir 'protocol_template_for_intervention_review.docx')
-        Invoke-Pandoc -ExtraArgs @('--to=html5','--toc') -Out (Join-Path $outdir 'protocol_template_for_intervention_review.html')
+    $base = $cfg.Base
+
+    switch ($Target) {
+        'docx' { Invoke-Pandoc -Src $cfg.Src -ExtraArgs $docxArgs -Out (Join-Path $outdir "$base.docx") }
+        'html' { Invoke-Pandoc -Src $cfg.Src -ExtraArgs $htmlArgs -Out (Join-Path $outdir "$base.html") }
+        'pdf'  { Invoke-Pandoc -Src $cfg.Src -ExtraArgs $pdfArgs  -Out (Join-Path $outdir "$base.pdf")  }
+        'all'  {
+            Invoke-Pandoc -Src $cfg.Src -ExtraArgs $docxArgs -Out (Join-Path $outdir "$base.docx")
+            Invoke-Pandoc -Src $cfg.Src -ExtraArgs $htmlArgs -Out (Join-Path $outdir "$base.html")
+        }
     }
 }
 
