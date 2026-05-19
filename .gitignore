@@ -1,6 +1,7 @@
 templates/*/build/
 templates/*/_raw_from_docx.md
 templates/*/media/
+resources/
 
 # Google API credentials (OAuth client + cached user token)
 tools/.gcp/
