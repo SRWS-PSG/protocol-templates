@@ -1,24 +1,26 @@
 # Protocol template — GitHub + Zenodo 公開計画
 
 作成日: 2026-05-16
-最終更新: 2026-05-16
-目的: 既存の protocols.io ベースのプロトコルテンプレートを **GitHub + Zenodo** に移行し、バージョン管理・citability・Google Scholar 収録のすべてを改善する。
+最終更新: 2026-05-20
+目的: 既存の protocols.io ベースのプロトコルテンプレートを **GitHub + Zenodo (version DOI) + MetaArXiv (Scholar 入口)** に移行し、バージョン管理・citability・Google Scholar 収録のすべてを改善する。
 
 ## 1. 全体方針
 
 **役割分担（新アーキテクチャ）:**
 
-| 役割 | 置き場所 | 目的 |
-|---|---|---|
-| テンプレート本体（編集対象） | **GitHub repository** (Markdown + BibTeX) | 単一の真実、フルバージョン管理、PR/Issueによる共同編集 |
-| バージョンごとのDOI | **Zenodo (GitHub連携)** | release を切るたびに version DOI が自動発行、concept DOI が "latest" を常に指す |
-| テンプレートの解説論文 | **Zenodo Article/Preprint** | Google Scholar に拾わせる citable な解説文献 |
-| 旧テンプレートの凍結アーカイブ | **protocols.io V.2** (既存) | 既存引用（Okamura 2026）を死なせない。概要欄に GitHub への redirect 1行追記 |
+| 役割 | 置き場所 | DOI | 自動化 | 目的 |
+|---|---|---|---|---|
+| テンプレート本体（編集対象） | **GitHub repository** (Markdown + BibTeX) | – | – | 単一の真実、フルバージョン管理、PR/Issueによる共同編集 |
+| バージョンごとのDOI | **Zenodo (GitHub連携、`software`)** | `10.5281/zenodo.<n>` per release + concept DOI | ✅ 自動 | release を切るたびに version DOI が自動発行、concept DOI が "latest" を常に指す |
+| テンプレートの解説論文 (Scholar 入口) | **MetaArXiv (OSF Preprints)** | `10.31222/osf.io/<id>` (+ `_v2`/`_v3` で版上げ) | ❌ 手動 | Google Scholar に確実にクロールされる publication-type preprint。引用可能・Scholar indexed |
+| 旧テンプレートの凍結アーカイブ | **protocols.io V.2** (既存) | 既存 | – | 既存引用（Okamura 2026）を死なせない。概要欄に GitHub + MetaArXiv DOI への redirect 追記 |
 
 **この構成のメリット:**
 
 - GitHub は完全無料・ロックインなし
-- Zenodo の GitHub 連携は研究ソフトウェア公開の事実上の標準
+- Zenodo の GitHub 連携は研究ソフトウェア公開の事実上の標準、release毎の version DOI が手作業なく出る
+- MetaArXiv は SR 方法論 preprint の専用サーバで、Scholar indexing 実績が大量にある（§1.1 参照）
+- 役割分離：Zenodo は software / version DOI を担当、MetaArXiv は publication / Scholar 入口を担当。混線しない
 - pandoc + BibTeX 構成がそのまま生かせる
 - バージョン管理は git に任せられる
 - protocols.io 上の既存引用は壊さない
@@ -28,15 +30,38 @@
 - https://support.zenodo.org/help/en-gb/19-uploading/65-how-do-i-link-my-github-repository-to-zenodo
 - https://scholar.google.com/intl/en/scholar/inclusion.html
 - https://support.zenodo.org/help/en-gb/18-general/61-is-zenodo-indexed-by-google-scholar
+- https://osf.io/preprints/metaarxiv (MetaArXiv landing)
+- https://help.osf.io/article/230-preprint-faqs (OSF preprints と Google Scholar)
 
-### 1.1 Step 4 (Zenodo Article preprint) を残す根拠
+### 1.1 Step 4 を MetaArXiv にする根拠（Zenodo Article は不採用、2026-05-20 訂正）
 
-Zenodo の **GitHub 自動 deposit は software-type** で deposit される。Zenodo 公式 FAQ にて以下が明記されている:
+**Zenodo は upload_type に関わらず Google Scholar に拾われない**。Zenodo 公式 FAQ:
 
+> "Google Scholar relies on patterns in the URL to determine the resource type ... Zenodo allows users to edit and change the resource type after publishing, which would mean the URL of records in Zenodo would change if you edited the resource type."
 > "Google Scholar only indexes text content (articles) and thus other resource types in Zenodo is out of scope for Google Scholar."
 > ([source](https://support.zenodo.org/help/en-gb/18-general/61-is-zenodo-indexed-by-google-scholar))
 
-つまり GitHub-Zenodo 連携で発行される DOI は permanent citation の役には立つが、**Scholar での discoverability には寄与しない**。Scholar に拾わせたい場合は別途 publication-type の deposit （Article / Preprint）が必要。これが Step 4 を残す唯一の理由。
+これは `upload_type=publication, publication_type=article` でも `preprint` でも同様。Zenodo と Google は構造上 Scholar クロールが噛み合わない状態が続いており、Article として deposit しても Scholar に載らない。**当初の plan §6（"Zenodo Article として deposit すれば Scholar に拾われる"）は誤認で、2026-05-20 に MetaArXiv に切り替えた**。
+
+**代わりに MetaArXiv (OSF Preprints の meta-research / SR 方法論ブランチ) を採用する**:
+
+- `site:osf.io metaarxiv` で Google Scholar に200本超の preprint が index されている（2026-05 確認）
+- SR 方法論ツールの解説として直接同型の van den Akker 2020 [Inclusive systematic review registration form](https://scholar.google.com/scholar?q=%22Inclusive+systematic+review+registration+form%22+van+den+Akker) が MetaArXiv 経由で Scholar indexed
+- OSF Preprints は Highwire 形式の `citation_title` / `citation_author` / `citation_publication_date` / `citation_publisher` / `citation_public_url` を Googlebot 向けに pre-render する。`citation_doi` と `citation_pdf_url` の meta tag は欠けているが、実証的に indexing は機能している
+- scope: meta-research / SR methodology を明示的に扱う。プロトコルテンプレ解説は in-scope（precedent: van den Akker 2020）
+- 無料、CC BY 4.0 可、DOI = `10.31222/osf.io/<id>` (Crossref経由で OpenAIRE/Scholar に発見される)
+- 提出に moderator の scope 確認（数日）あり。peer-review ではない
+- 提出後の version 管理あり (`<id>_v2`, `_v3` ...)
+- 万一 MetaArXiv の moderator に scope outで弾かれた場合は **OSF Preprints の "Other" カテゴリ** にフォールバック（同じバックエンドで Scholar 挙動同一）
+
+**結論：2-DOI 体制**
+
+| 用途 | DOI | サービス | 自動化 |
+|---|---|---|---|
+| テンプレ本体の version DOI（「v3.0.0 を使った」を指す） | `10.5281/zenodo.<n>` | Zenodo (`software`, GitHub連携) | ✅ release 毎自動 |
+| 解説論文の Scholar 入口、テンプレの設計思想を citable に | `10.31222/osf.io/<id>` | MetaArXiv (`publication`, 手動) | ❌ 手動 deposit |
+
+Zenodo version DOI は Scholar には載らないが、permanent URL/引用識別子としては機能する（README/CITATION.cff/CHANGELOG に併記）。MetaArXiv DOI は Scholar 入口として機能する（テンプレ本体の Section 3.1 自己引用に併記）。
 
 ## 2. リポジトリ構成（現状）
 
@@ -48,23 +73,54 @@ protocol-templates/                     (local dir: protocol-srwspsg/)
 ├── LICENSE                    # CC BY 4.0
 ├── CHANGELOG.md               # バージョン履歴（リポジトリ全体で1つに統一）
 ├── CITATION.cff               # GitHubの "Cite this repository" ボタン用
-├── .zenodo.json               # Zenodo連携メタデータ（GitHub release時にZenodoが参照）
+├── .zenodo.json               # Zenodo連携メタデータ（GitHub release時にZenodoが参照、software type）
 ├── .gitignore
 ├── CLAUDE.md                  # Claude Code 用作業メモ（リポジトリ固有指示）
 ├── plan.md                    # この計画書
 ├── resources/                 # 歴史的参照（V.2 PDF, 元docx）。リポジトリには含めるが編集はしない
 │   ├── protocol_template_for_intervention_review.docx
 │   ├── protocol_template_for_intervention_review-onedrive.pdf
-│   └── protocol-template-for-intervention-review-protocolio.pdf
-└── templates/
-    └── intervention-review/                                  # ★ V.3 本体
-        ├── protocol_template_for_intervention_review.md     # 編集対象 Markdown
-        ├── references.bib                                   # BibTeX
-        ├── build.ps1                                        # Pandocビルドスクリプト
-        └── build/                                           # 生成物（gitignore）
+│   ├── protocol-template-for-intervention-review-protocolio.pdf
+│   ├── 2025-12-29スコーピングレビューのプロトコルテンプレ.docx
+│   └── 20200304_診断精度SRのプロトコルテンプレ.docx
+├── templates/
+│   ├── intervention-review/                                  # V.3 本体
+│   │   ├── protocol_template_for_intervention_review.md     # 編集対象 Markdown (en)
+│   │   ├── protocol_template_for_intervention_review.ja.md  # JA
+│   │   ├── references.bib                                   # BibTeX (intervention 専用)
+│   │   ├── comments.yaml                                    # Google Docs メンタリングコメント
+│   │   ├── build.ps1                                        # Pandocビルドスクリプト
+│   │   └── build/                                           # 生成物（gitignore）
+│   ├── scoping-review/                                       # v1.0
+│   │   ├── protocol_template_for_scoping_review.md
+│   │   ├── protocol_template_for_scoping_review.ja.md
+│   │   ├── references.bib                                   # BibTeX (scoping 専用、独立)
+│   │   ├── comments.yaml
+│   │   ├── media/scoping_concept_focus.png                  # JBI Terminology-vs-Concept 図
+│   │   ├── build.ps1
+│   │   └── build/
+│   └── dta-review/                                           # v1.0
+│       ├── protocol_template_for_dta_review.md
+│       ├── protocol_template_for_dta_review.ja.md
+│       ├── references.bib                                   # BibTeX (DTA 専用、独立)
+│       ├── build.ps1
+│       └── build/
+└── paper/                                                    # ★ NEW: Companion explanation paper (MetaArXiv 提出用)
+    ├── manuscript.md                                         # 本文 (en)
+    ├── manuscript.ja.md                                      # 本文 (ja, optional)
+    ├── references.bib                                        # paper 専用 bib (3 templates の bib から methodology 親引用を抽出)
+    ├── vancouver.csl
+    ├── filters/                                              # pandoc filters (intervention-review から流用)
+    ├── build.ps1                                             # pandoc → PDF
+    └── build/                                                # 生成物（gitignore）
+        └── manuscript.pdf                                    # MetaArXiv 提出用 PDF
 ```
 
-将来 `templates/scoping-review/`, `templates/dta-review/` などを追加する想定。
+**`paper/` の独立性に関する注意**：
+
+- `paper/` は templates と independent な「解説論文」リポジトリ subtree。バージョンサイクルが分離している（templates は SemVer で頻繁、paper は major bump 時のみ更新）
+- GitHub release 時 `paper/build/manuscript.pdf` は **release asset から除外**（Zenodo software deposit に paper PDF が混入するのを防ぐ）
+- `paper/references.bib` は templates 各 bib から DOI-verified なエントリを抜粋して新規作成（cross-contamination 回避のため、templates の bib を直接 import しない）
 
 ## 3. Step 1: テンプレート本体の Markdown 化（完了）
 
@@ -151,36 +207,96 @@ Zenodoは2種類のDOIを発行する:
 
 テンプレ内の自己引用は **version DOI** を SR 著者が選んで埋める前提。READMEは **concept DOI** で十分。
 
-## 6. Step 4: Zenodo Article（テンプレ解説論文）
+## 6. Step 4: MetaArXiv preprint（テンプレ解説論文）
 
-**目的**: Google Scholar に拾わせる。GitHub-Zenodo の自動 deposit は software-type で出るため Scholar 対象外（[§1.1](#11-step-4-zenodo-article-preprint-を残す根拠)）。Scholar に載るためにはpublication-type の deposit が必要なので、**解説文献を Zenodo Article として別途出す**。
+**目的**: Google Scholar に確実に拾われ、citable な解説 preprint として機能させる。Zenodo Article は Scholar 対象外のため不採用（[§1.1](#11-step-4-を-metaarxiv-にする根拠zenodo-article-は不採用2026-05-20-訂正)）。**MetaArXiv (OSF Preprints の meta-research / SR 方法論ブランチ) に手動 deposit する**。
 
-### 6.1 内容構成（案）
+### 6.1 提出先と判断根拠
 
-- Background: 既存のSR protocol templateの状況、なぜ独自テンプレートを作ったか
-- Design principles: PRISMA 2020 + Cochrane Handbook ベース、SRWS-PSG メンタリング flow での使用想定
-- Section-by-section guide: テンプレ各セクションの意図と典型的な書き方
-- How to cite: version DOI を使う運用の説明
-- Versioning policy: SemVerの解釈、breaking change の定義
-- Acknowledgements / Funding / COI
+| | 第一候補 | フォールバック |
+|---|---|---|
+| サービス | **MetaArXiv** | OSF Preprints "Other" |
+| URL | <https://osf.io/preprints/metaarxiv> | <https://osf.io/preprints> |
+| DOI 例 | `10.31222/osf.io/<id>` | `10.31219/osf.io/<id>` |
+| scope | meta-research / SR methodology | 学術全般 |
+| moderation | あり（数日、scope確認） | あり（scope確認） |
+| Scholar indexing | 200+ preprint で実証済み | 同一バックエンドで挙動同等 |
+| 費用 | 無料 | 無料 |
+| license | CC BY 4.0 可 | CC BY 4.0 可 |
 
-### 6.2 制作フロー
+scope の precedent: van den Akker 2020 "Inclusive systematic review registration form" が MetaArXiv で publishされ Scholar indexed。本テンプレ解説論文は直接同型。
 
-1. `article/` ディレクトリを新設、Markdownで原稿執筆
-2. 同じ pandoc + BibTeX 構成でPDFに変換
-3. Zenodo に **upload_type=publication, publication_type=article** で手動デポジット（GitHub連携経由ではなく手動 upload）
-4. 解説論文側はテンプレ本体の concept DOI を引用、テンプレ本体（READMEと CHANGELOG）から解説論文の DOI を相互参照
+### 6.2 内容構成（最小構成、≈1800-2500 words）
 
-### 6.3 メンテナンス方針
+PDF 1本に統合（intervention / scoping / DTA を別々ではなく1本にまとめる。moderation コストと cross-reference の容易さから）。
 
-- 解説論文は **頻繁な版上げは不要**。テンプレ本体は SemVer で v3.x.x → v4.x.x と進めるが、解説論文は構造的な大改変（major bump）のときだけ更新を検討する。
-- 細かな改訂は GitHub の README/CHANGELOG で吸収する。
+| セクション | 目安words | 必須要素 |
+|---|---:|---|
+| Title page | – | "SRWS-PSG protocol templates for systematic, scoping, and diagnostic test accuracy reviews"（仮）。24pt以上、ページ先頭 |
+| Authors + affiliations | – | Kataoka / So / Banno / Tsujimoto / SRWS-PSG Mentors、各 ORCID（取得済みの分）。16-23pt |
+| Abstract | 200 | Background → 3 templates 概要 → repository URL → preprint DOI |
+| 1. Background | 300 | 既存 SR protocol template の状況、protocols.io V.2 → GitHub+Zenodo+MetaArXiv 移行の理由 |
+| 2. Design principles | 250 | PRISMA 系列準拠、Markdown + pandoc + BibTeX、SRWS-PSG メンタリング flow |
+| 3. Intervention review template | 300 | PICO、Cochrane Handbook v6.5、PMA tools、PRISMA 2020、PRISMA-P 2015 |
+| 4. Scoping review template | 300 | PCC、JBI 5-stage、PRISMA-ScR、Peters 2022、OSF 登録 |
+| 5. DTA review template | 350 | PIRT、Cochrane DTA Handbook v2、QUADAS-3、PRISMA-DTA、MetaDTA |
+| 6. Usage and citation | 200 | GitHub clone、release tag 指定、preprint DOI 引用、version DOI 引用 |
+| 7. Versioning policy | 100 | SemVer 解釈、major/minor/patch の定義 |
+| 8. Availability | 50 | GitHub URL、license、preprint DOI、Zenodo concept DOI |
+| References | – | Vancouver、必須セクション、Scholar が "References" を識別できる体裁 |
 
-### 6.4 ユーザー側で実施
+Google Scholar の inclusion 要件（[公式](https://scholar.google.com/intl/en/scholar/inclusion.html)）を満たす：
 
-- 筆頭著者の確定（推奨: 片岡先生）
-- 共著者リストの確定（テンプレ本体と同じ Kataoka / So / Banno / Tsujimoto / SRWS-PSG Mentors でよい想定）
-- 執筆開始のタイミング（Step 3 完了後、concept DOI が確定してから書き出すのが楽）
+- searchable-text PDF（pandoc標準で OK）、≤ 5 MB、no Type 3 fonts
+- Title in largest font (≥ 24 pt) at top; authors below in 16–23 pt
+- 識別可能な "References" / "Bibliography" セクション
+- 5 MB 以下
+
+OSF 側が Highwire 形式の `citation_*` meta tag を Googlebot 向けに pre-render するため、PDF 内 meta tag の埋め込みは不要（あれば bonus）。
+
+### 6.3 制作フロー（リポジトリ内）
+
+1. `paper/` ディレクトリを新設（§2 参照）
+2. `paper/manuscript.md` を pandoc + BibTeX + Vancouver CSL で執筆（templates の build pipeline と同じスタック）
+3. `paper/build.ps1` で `paper/build/manuscript.pdf` を生成
+4. PDF を MetaArXiv に **手動 upload**（GitHub連携 ❌、これは Zenodo software deposit と完全分離）
+5. moderation 通過後、`10.31222/osf.io/<id>` を取得
+6. 発行された DOI を以下に反映 commit：
+   - `paper/manuscript.md` の self-citation
+   - `README.md`「Companion paper (Scholar-indexed)」セクション
+   - `CITATION.cff` の identifiers
+   - `templates/intervention-review/protocol_template_for_intervention_review.md` Section 3.1 自己引用
+   - `templates/scoping-review/protocol_template_for_scoping_review.md` 同位置
+   - `templates/dta-review/protocol_template_for_dta_review.md` 同位置
+
+### 6.4 提出時メタデータ
+
+| フィールド | 値 |
+|---|---|
+| Title | "SRWS-PSG protocol templates for systematic, scoping, and diagnostic test accuracy reviews"（仮） |
+| Authors | Kataoka / So / Banno / Tsujimoto / SRWS-PSG Mentors（順序確定要） |
+| Abstract | manuscript.md の Abstract |
+| Subjects | Medicine, Library and Information Science |
+| Keywords | systematic review, protocol template, intervention review, scoping review, diagnostic test accuracy, PRISMA 2020, PRISMA-ScR, PRISMA-DTA, Cochrane Handbook, QUADAS-3, SRWS-PSG |
+| License | CC BY 4.0 |
+| Conflict of interest | テンプレ著者間に開示すべき COI なし（テンプレ運用の SRWS-PSG メンタリングのみ） |
+| Funding | テンプレ運用は SRWS-PSG 内部運営、外部funding なし（要確認） |
+
+### 6.5 メンテナンス方針
+
+- preprint は **頻繁な版上げ不要**。テンプレ本体は SemVer で v3.x.x → v4.x.x と進めるが、preprint は構造的な大改変（テンプレの methodology framework 変更など）のときだけ MetaArXiv の version 機能（`<id>_v2`）で更新
+- 細かな改訂は GitHub の README/CHANGELOG で吸収する
+- preprint version は MetaArXiv 上で永続URL `<id>_v1`, `<id>_v2` ... と切り分けて発見可能
+
+### 6.6 ユーザー側で実施
+
+1. **著者リストと順序の確定**（推奨: Kataoka / So / Banno / Tsujimoto / SRWS-PSG Mentors、テンプレ本体と同一順）
+2. **各著者の ORCID iD 取得・確認**（提出時メタデータに必須ではないが Scholar 著者プロファイル紐付けに有用）
+3. **OSF account 作成**（<https://osf.io/register>、ORCID 連携推奨）
+4. paper ドラフト確定後、OSF "Add a Preprint" → "MetaArXiv" service 選択 → メタデータ + PDF upload
+5. moderation 待ち（通常数日、最大1週間）→ accept されれば DOI 即時発行
+6. **scope outで reject された場合のフォールバック**：OSF Preprints の "Other" カテゴリに再提出（同じ PDF とメタデータで OK、DOI prefix が `10.31219/...` に変わる）
+7. DOI 反映 commit を main に push
 
 ## 7. Step 5: protocols.io V.2 への redirect 追記
 
@@ -200,16 +316,25 @@ Zenodoは2種類のDOIを発行する:
 
 ## 8. ユーザー側で残っているタスク（一覧）
 
-優先度順:
+優先度順（DOI 取得順を意識）:
 
-1. **V.3 ドラフトのレビュー** ([§3.3](#33-v3-ドラフトに対するレビュー依頼))
-2. **scoping-review v1.0 ドラフトのレビュー** ([§9](#9-step-6-scoping-review-template-v10))
-3. **git init + GitHub push** ([§4.1](#41-ユーザー側で実施)) — repo は `SRWS-PSG/protocol-templates` で確定
-4. **ORCID を CITATION.cff に追記** ([§4.1](#41-ユーザー側で実施))
-5. **Zenodo GitHub 連携 + v3.0.0 release** ([§5.1](#51-ユーザー側で実施))
-6. **DOI が確定したら scaffolding ファイル内の `<TBD>` を置換** ([§5.1-5](#51-ユーザー側で実施))
-7. **解説論文の執筆方針確定** ([§6.4](#64-ユーザー側で実施))
-8. **protocols.io V.2 への redirect 追記** ([§7.1](#71-ユーザー側で実施))
+1. **テンプレ 3 本のドラフトレビュー**
+   - intervention-review V.3 ([§3.3](#33-v3-ドラフトに対するレビュー依頼))
+   - scoping-review v1.0 ([§9.4](#94-ユーザー側で実施))
+   - dta-review v1.0 ([§10.5](#105-ユーザー側で実施))
+2. **paper/ ドラフトのレビュー**（Claude が Phase B-C で生成、確認は本ステップ）
+3. **著者順序の確定と各著者 ORCID iD 取得**（[§6.6](#66-ユーザー側で実施)、CITATION.cff にも反映）
+4. **git init + GitHub push** ([§4.1](#41-ユーザー側で実施)) — repo は `SRWS-PSG/protocol-templates` で確定
+5. **MetaArXiv に paper を手動 deposit** ([§6.6](#66-ユーザー側で実施))
+   - OSF account 作成 → "Add a Preprint" → MetaArXiv → PDF + metadata upload
+   - moderation 通過 → DOI 取得 (`10.31222/osf.io/<id>`)
+6. **MetaArXiv DOI を反映 commit** ([§6.3 step 6](#63-制作フローリポジトリ内))
+   - README.md / CITATION.cff / paper/manuscript.md / templates/*/protocol_template_*.md Section 3.1
+7. **Zenodo GitHub 連携を enable** ([§5.1](#51-ユーザー側で実施))
+8. **GitHub v3.0.0 release 作成**（**paper/build/manuscript.pdf は release asset から除外**、Zenodo software deposit への混入回避）
+9. **Zenodo concept/version DOI 自動発行を確認** → README / CITATION.cff / CHANGELOG に反映 commit ([§5.1-5](#51-ユーザー側で実施))
+10. **protocols.io V.2 への redirect 追記**（GitHub URL + MetaArXiv DOI）([§7.1](#71-ユーザー側で実施))
+11. **Scholar index 確認**（提出 2-6 週後、MetaArXiv preprint title で検索）— されない場合は OSF support 経由で metadata 確認 or [Scholar inclusion request](https://scholar.google.com/intl/en/scholar/inclusion.html)
 
 ---
 
