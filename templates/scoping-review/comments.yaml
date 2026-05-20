@@ -189,15 +189,6 @@ comments:
       https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221xiXk7Zidc9bEyN__EPPIN3AbgpVRWo5A%22%5D,%22action%22:%22open%22,%22userId%22:%22107122855205791560725%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing
     audience: [author]
 
-  # --- Appendix 7: Peters 2022 checklist -------------------------------
-  - id: c-appendix7-peters2022
-    anchor:
-      ja: "## Appendix 7: Scoping review protocol checklist (Peters 2022 Table 1)"
-      en: "## Appendix 7: Scoping review protocol checklist (Peters 2022 Table 1)"
-    body: |
-      本表は Peters MDJ et al. *JBI Evid Synth*. 2022;20(4):953-968 (DOI: 10.11124/JBIES-21-00242) の Table 1 を再構成したものです。投稿前に各項目が本プロトコル内のどこで満たされているかを確認してください。
-    audience: [author, reference]
-
   # --- References -------------------------------------------------------
   - id: c-references-bib-github
     anchor:

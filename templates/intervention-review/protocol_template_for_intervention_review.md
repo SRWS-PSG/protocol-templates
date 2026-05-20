@@ -18,7 +18,6 @@ csl: vancouver.csl
 link-citations: true
 notes-after-punctuation: true
 ---
-
 > このテンプレートの使い方
 >
 > この文書は介入レビューの SR プロトコルテンプレートです。`[English label / 日本語ラベル: 記入する内容]` で示した箇所を、自分たちのレビュー内容に置き換えてください。
@@ -26,7 +25,7 @@ notes-after-punctuation: true
 > まず `2. Research question` で PICO を決め、次に `3.2 Inclusion criteria`、`3.3 Type of outcomes`、`Appendices` の検索式、`3.7` 以降の解析計画を埋めると進めやすいです。固定文は原則そのまま使えますが、研究疑問や組み入れる研究デザインに合わない場合はメンターに確認して修正してください。
 >
 > Note は作成中の補助説明です。提出版や登録版では、必要に応じて削除してください。
-メンターの所属は `https://docs.google.com/document/d/1v3R5iXCcbCAtpSlzbRUL09VJAFqseUaaiO61AQdxugA/edit?usp=sharing` を参照してください。
+> メンターの所属は `https://docs.google.com/document/d/1v3R5iXCcbCAtpSlzbRUL09VJAFqseUaaiO61AQdxugA/edit?usp=sharing` を参照してください。
 
 \newpage
 
@@ -35,7 +34,6 @@ notes-after-punctuation: true
 Title: [review title / レビュータイトル: 対象者、介入、比較対照、主要アウトカムが分かる短い英語表現]: a systematic review and meta-analysis protocol
 
 > Note: 介入のレビューで RCT のみを組み入れる場合は、タイトルに *efficacy* を使ってください（理由: [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC351867/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC351867/)）。
-
 
 ## Authors:
 
@@ -50,6 +48,9 @@ E-mail: [e-mail / 連絡著者の連絡先メールアドレス]
 Author contributions:
 
 [guarantor initials / 連絡責任者のイニシャル] is the guarantor. [drafting author initials / 原稿ドラフト担当者のイニシャル] drafted the manuscript. All authors contributed to the development of the selection criteria, the risk of bias assessment strategy and data extraction criteria. [search strategy author initials / 検索式担当者のイニシャル] developed the search strategy. [statistics author initials / 統計担当者のイニシャル] provided statistical expertise. [content expert initials / 臨床・方法論の専門家のイニシャル] provided expertise on [expertise area / 専門領域: 対象疾患、介入、方法論など]. All authors read, provided feedback and approved the final manuscript.
+
+
+\newpage
 
 
 > *Note*: プロトコルであるため、Abstract は必須ではありません。もし書きたい場合は、PRISMA 2020 [@page2021prisma] の Abstract 項目（PRISMA 2020 abstract checklist）を参考に、必要に応じて以下の見出しを修正して使用してください。
@@ -77,6 +78,7 @@ Author contributions:
 >
 > 第一パラグラフ — P（対象疾患）について 4–5 文。
 > 例:
+>
 > 1. P の疾患は世界的な問題である
 > 2. P の疾患の頻度・治療を要する患者数
 > 3. P の疾患の標準的な治療法の説明
@@ -84,6 +86,7 @@ Author contributions:
 >
 > 第二パラグラフ — I（介入）について 4–5 文。
 > 例:
+>
 > 1. I が有用であるという報告がいくつかある
 > 2. 臨床現場で P に対して I を使っている割合は xx くらいあると報告がある
 >    3–4. I は yy という機序で改善する可能性が示唆されている
@@ -272,7 +275,6 @@ We will undertake the following sensitivity analyses for the primary outcomes to
 
 Two reviewers ([GRADE reviewers / GRADE 評価担当者のイニシャル、一人はメンター: initials of two reviewers, including one mentor if applicable]) will evaluate the certainty of evidence based on the GRADE (Grading of Recommendations Assessment, Development and Evaluation) approach [@Guyatt2011-qq]. Disagreements between the two reviewers will be discussed, and if this fails, a third reviewer ([third reviewer / 第三レビュアーのイニシャル: initials]) will be acting as an arbiter, if necessary. The Summary of Findings table will be made for the following outcome based on the Cochrane Handbook [@higgins2024cochrane]: [outcomes for Summary of Findings table / SoF テーブルに含めるアウトカム: 主要アウトカムと重要な副次アウトカム].
 
-
 # 5. Conflict of Interest
 
 The authors declare no conflicts of interest.
@@ -347,7 +349,6 @@ S33 EMB.EXACT.EXACT('animal experiment') NOT (EMB.EXACT.EXACT('human experiment'
 S34 S21 OR S22 OR S23 OR S24 OR S25 OR S26 OR S27 OR S28 OR S29 OR S30 OR S31 OR S32 OR S33
 S35 S20 NOT S34
 ```
-
 
 ## Appendix 4: ICTRP search strategy
 

@@ -271,33 +271,3 @@ The table below is an example based on the basic draft extraction tool proposed 
 | [author1 year / 例: Smith 2020] | [country / 国] | [population / 対象者の特徴] | [concept / 該当する用語・概念] | [context / セッティング・期間] | [methodology / デザイン] | [key findings / 主要な知見] |
 
 Priority of data items: required = [required items / 必須項目: e.g. author, year, country, population, concept, context, study design]; optional = [optional items / 任意項目: e.g. sample size, funding source, language].
-
-## Appendix 7: Scoping review protocol checklist (Peters 2022 Table 1)
-
-Mapping of where this protocol addresses each item of the Peters et al. best-practice checklist [@peters2022bestpractice]. Use this as a self-check before submission.
-
-| Item No | Section and topic | Where in this protocol |
-|---|---|---|
-| 1a | Title — Identification (states this is a scoping review protocol) | # Title |
-| 1b | Title — Update (whether this is an update of a previous review) | # Title Note + YAML `is-update` |
-| 2 | Title — Registration (registry and registration number) | ## 3.1 Protocol (OSF publication mentioned) |
-| 3a | Authors — Contact (name, affiliation, e-mail, address) | ## Authors (Corresponding author, Address, E-mail) |
-| 3b | Authors — Contributions (includes guarantor) | ## Authors (Author contributions) |
-| 4 | Amendments (amendment plan and history) | ## Amendments |
-| 5a | Support — Sources of support | # 5. Funding |
-| 5b | Support — Funder/Sponsor name | # 5. Funding (in Note) |
-| 5c | Support — Role of funder/sponsor | # 5. Funding (in Note) |
-| 6 | Rationale (review rationale, including rationale for choosing scoping) | # 1. Introduction |
-| 7 | Objectives (review questions using PCC) | # 2. Research question |
-| 8 | Eligibility criteria (PCC + study designs + report characteristics) | ## 3.3 Stage 2 (3.3.1–3.3.6) |
-| 9 | Information sources (databases, registries, grey literature, search date range) | ## 3.3.5 Search method |
-| 10 | Search strategy (draft for at least one database) | Appendices 1–5 |
-| 11a | Study records — Data management | ## 3.4 Stage 3 (record management via Tiab Review plugin) |
-| 11b | Study records — Selection process | ## 3.4 Stage 3 |
-| 11c | Study records — Data collection process | ## 3.5 Stage 4 |
-| 12 | Data items (charting items) | ## 3.5 Stage 4 + Appendix 6 |
-| 13 | Outcomes and prioritization (described as prioritisation of data items for scoping) | ## 3.5 Stage 4 Note + Appendix 6 |
-| 14 | Risk of bias in individual studies (optional) | ## 3.5 Stage 4 trailing Note |
-| 15a–d | Data synthesis / presentation (tables, figures, evidence gap map, etc.) | ## 3.6 Stage 5 |
-| 16 | Meta-bias(es) (optional) | ## 3.6 Stage 5 trailing Note |
-| 17 | Confidence in cumulative evidence (optional) | ## 3.6 Stage 5 trailing Note |

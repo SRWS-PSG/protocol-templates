@@ -26,7 +26,7 @@ notes-after-punctuation: true
 > まず `2. Research question` で PICO を決め、次に `3.2 Inclusion criteria`、`3.3 Type of outcomes`、`Appendices` の検索式、`3.7` 以降の解析計画を埋めると進めやすいです。固定文は原則そのまま使えますが、研究疑問や組み入れる研究デザインに合わない場合はメンターに確認して修正してください。
 >
 > Note は作成中の補助説明です。提出版や登録版では、必要に応じて削除してください。
-メンターの所属は `https://docs.google.com/document/d/1v3R5iXCcbCAtpSlzbRUL09VJAFqseUaaiO61AQdxugA/edit?usp=sharing` を参照してください。
+> メンターの所属は `https://docs.google.com/document/d/1v3R5iXCcbCAtpSlzbRUL09VJAFqseUaaiO61AQdxugA/edit?usp=sharing` を参照してください。
 
 \newpage
 
@@ -49,6 +49,10 @@ E-mail: [e-mail / 連絡著者の連絡先メールアドレス]
 Author contributions:
 
 [guarantor initials / 連絡責任者のイニシャル] が本研究の保証人 (guarantor) を務めた。[drafting author initials / 原稿ドラフト担当者のイニシャル] が原稿を執筆した。すべての著者が組み入れ基準、バイアスリスク評価戦略、データ抽出基準の策定に貢献した。[search strategy author initials / 検索式担当者のイニシャル] が検索式を作成した。[statistics author initials / 統計担当者のイニシャル] が統計的助言を提供した。[content expert initials / 臨床・方法論の専門家のイニシャル] が [expertise area / 専門領域: 対象疾患、介入、方法論など] についての専門的助言を提供した。すべての著者が最終原稿を読み、フィードバックを行い、承認した。
+
+
+\newpage
+
 
 > *Note*: プロトコルであるため、Abstract は必須ではありません。もし書きたい場合は、PRISMA 2020 [@page2021prisma] の Abstract 項目（PRISMA 2020 abstract checklist）を参考に、必要に応じて以下の見出しを修正して使用してください。
 >
@@ -299,6 +303,7 @@ Author contributions:
 :::
 
 \newpage
+
 # Appendices
 
 ## Appendix 1: MEDLINE (PubMed) search strategy

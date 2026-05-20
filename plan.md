@@ -227,7 +227,6 @@ intervention-review との重要な相違点:
 - **Risk of bias / Meta-bias / GRADE は optional**（行う場合のみ書く `> Note:` を当該位置に配置）
 - **登録先は OSF**（PROSPERO は scoping を受け付けないため [@peters2022bestpractice]）
 - **新規 Appendix 6**: Peters 2022 Table 2 ベースの charting form 例（Author/Year/Country/Population/Concept/Context/Methodology/Key findings）
-- **新規 Appendix 7**: Peters 2022 Table 1 全 17 項目のセルフチェックチェックリスト
 
 ### 9.2 成果物（リポジトリ内）
 
@@ -235,7 +234,7 @@ intervention-review との重要な相違点:
 - ソース (en): [templates/scoping-review/protocol_template_for_scoping_review.md](templates/scoping-review/protocol_template_for_scoping_review.md)
 - 文献データ: [templates/scoping-review/references.bib](templates/scoping-review/references.bib) — **intervention 版とは独立した別ファイル**。各エントリは PubMed/DOI 起点で検証済み。
 - ビルドスクリプト: [templates/scoping-review/build.ps1](templates/scoping-review/build.ps1)
-- Google Docs 投入用コメント定義: [templates/scoping-review/comments.yaml](templates/scoping-review/comments.yaml) — 元 docx の 15 件の Word コメントを section heading に再アンカリングし、新規スコーピング特有のコメント 2 件を追加（計 17 件）
+- Google Docs 投入用コメント定義: [templates/scoping-review/comments.yaml](templates/scoping-review/comments.yaml) — 元 docx 由来の Word コメントを section heading に再アンカリングし、新規スコーピング特有のコメントを追加（計 17 件）
 - CONCEPT FOCUS 図: [templates/scoping-review/media/scoping_concept_focus.png](templates/scoping-review/media/scoping_concept_focus.png)
 - 生成 docx 例: `templates/scoping-review/build/protocol_template_for_scoping_review.{ja,}.with-comments.docx` （gitignore、`pwsh templates/scoping-review/build.ps1` または `python tools/build_gdoc.py --template scoping-review --lang ja --dry-run` で再生成）
 
@@ -247,7 +246,6 @@ intervention-review との重要な相違点:
 
 1. 生成 docx を Word で開いて以下を確認:
    - CONCEPT FOCUS 図が §3.3.2 Concept 直下に表示されているか
-   - Appendix 7 のチェックリスト表が崩れていないか
    - 17 件の Word コメントが期待した見出し位置に付いているか
 2. 必要なら `comments.yaml` のアンカー文字列を修正
 3. Google Docs にアップロードしてレビュー: `python tools/build_gdoc.py --template scoping-review --lang ja`
@@ -280,7 +278,7 @@ intervention-review / scoping-review との重要な相違点:
 - **登録先**: PROSPERO は DTA レビューを受け付ける（intervention 版と同様）。`§3.1 Protocol` で PROSPERO 登録予定とする
 - **解析ソフト**: **MetaDTA** [@patel2021metadta] をデフォルトとする。bivariate モデルのフィット・forest plot・SROC・感度分析がブラウザ上で完結し、R/Stata のセットアップが不要なため SRWS-PSG メンティの初学者にも導入しやすい。HSROC が必要な場合は R `mada` 等の併用を Note で言及。Cochrane DTA Handbook v2 [@deeks2023dtahandbook] でも MetaDTA は推奨ツールとして掲載されている
 - **新規 Appendix 6**: 2×2 表 + 研究特性チャーティング例（Author/Year/Country/Population/Setting/Index test/Reference standard/Target condition/TP/FP/FN/TN/Threshold/QUADAS-3 ratings）
-- **新規 Appendix 7**: PRISMA-DTA + QUADAS-3 セルフチェックチェックリスト（scoping 版 Appendix 7 と同形式。本プロトコルの各項目がどの見出しで満たされているかを示す）
+- セルフチェック表は付けない: scoping 版の Appendix 7 (Peters 2022 17 項目チェックリスト) に相当する PRISMA-DTA + QUADAS-3 マッピング表は **採用しない**。テンプレ本体の見出し構造に従って書けば PRISMA-DTA / QUADAS-3 の主要項目は自動的にカバーされるため、自己チェック表は冗長と判断した
 
 ### 10.2 成果物（リポジトリ内）
 

@@ -349,33 +349,3 @@ Summary of Findings テーブルは Cochrane DTA Handbook v2 [@deeks2023dtahandb
 | [author1 year / 例: Smith 2020] | [country / 国] | [setting/design / 例: tertiary, prospective cohort] | [population / 対象者の特徴] | [n]         | [index test / Index test、閾値]       | [reference / Reference] | [target / 状態]  | [n] | [n] | [n] | [n] | [sens (CI)]          | [spec (CI)]          | [ratings]                                          |
 
 抽出項目の優先順位: 必須項目 = author, year, country, design, population, sample size, index test, reference standard, target condition, TP/FP/FN/TN, threshold, QUADAS-3 ratings。任意項目 = [optional items / 任意項目: 例) funding source, conflict of interest, language, time interval between index test and reference standard]。
-
-## Appendix 7: DTA protocol self-check (PRISMA-DTA + QUADAS-3 mapping)
-
-本プロトコルが PRISMA-DTA [@mcinnes2018prismadta;@salameh2020prismadtaee] および QUADAS-3 [@whiting2026quadas3] の主要項目をどこで満たしているかを示す。投稿前のセルフチェックに使用すること。
-
-| 項目分類            | 項目                                                                          | Where in this protocol                |
-| ------------------- | ----------------------------------------------------------------------------- | ------------------------------------- |
-| PRISMA-DTA / Title  | 報告ガイドライン (PRISMA-DTA) およびスタディタイプ (DTA SR&MA) の明示         | # Title                               |
-| PRISMA-DTA / Title  | 過去版の更新かどうか                                                          | # Title の Note + YAML `is-update`    |
-| PRISMA-DTA / Abstract | Structured summary (任意)                                                   | 著者欄下の Abstract Note               |
-| PRISMA-DTA / Intro  | Rationale (clinical pathway における Index test の位置付け)                   | # 1. Introduction                     |
-| PRISMA-DTA / Intro  | Objectives (PIRT に基づくリサーチクエッション)                                | # 2. Research question                |
-| PRISMA-DTA / Methods | Protocol and registration (PROSPERO 登録予定)                                | ## 3.1 Protocol                       |
-| PRISMA-DTA / Methods | Eligibility criteria (Participants/Index test/Comparator/Reference/Target)   | ## 3.2 Inclusion criteria             |
-| PRISMA-DTA / Methods | Information sources                                                          | ## 3.4 Search method                  |
-| PRISMA-DTA / Methods | Search strategy (少なくとも 1 DB のドラフト)                                  | Appendix 1–5                          |
-| PRISMA-DTA / Methods | Study selection                                                              | ## 3.6.1 Data extraction（screening を含む明示は 3.5.x で補完すること） |
-| PRISMA-DTA / Methods | Data collection process                                                      | ## 3.6.1 Data extraction              |
-| PRISMA-DTA / Methods | Definitions for data extraction (2×2 表のセル定義、閾値の扱い)               | ## 3.3 Outcomes + Appendix 6          |
-| PRISMA-DTA / Methods | Risk of bias of individual studies (QUADAS-3 / QUADAS-C / QUADAS-AI)         | ## 3.5 Risk of bias assessment        |
-| PRISMA-DTA / Methods | Diagnostic accuracy measures (sens/spec を primary、LR/PPV/NPV を secondary) | ## 3.3 Outcomes                       |
-| PRISMA-DTA / Methods | Synthesis of results (bivariate / HSROC / MetaDTA)                           | ## 3.6.2 Meta-analysis                |
-| PRISMA-DTA / Methods | Risk of bias across studies (出版バイアス: 統計検定なし)                      | ## 3.9 Reporting bias                 |
-| PRISMA-DTA / Methods | Additional analyses (subgroup, sensitivity)                                  | ## 3.7 Heterogeneity + ## 3.8 Sensitivity analysis |
-| QUADAS-3 / Domain 1 | Patient selection (RoB + Applicability)                                      | ## 3.5 + Appendix 6 列                |
-| QUADAS-3 / Domain 2 | Index test (RoB + Applicability)                                             | ## 3.5 + ## 3.2.3 + Appendix 6 列     |
-| QUADAS-3 / Domain 3 | Reference standard (RoB + Applicability)                                     | ## 3.5 + ## 3.2.5 + Appendix 6 列     |
-| QUADAS-3 / Domain 4 | Flow and timing (RoB)                                                        | ## 3.5 + ## 3.2.5 Note + Appendix 6 列|
-| GRADE for DTA       | Certainty of evidence (GRADE 21 part 1 & 2)                                  | # 4. Summary of findings table        |
-| Reporting           | Funding / Conflict of interest                                               | # 5. Conflict of Interest + # 6. Funding |
