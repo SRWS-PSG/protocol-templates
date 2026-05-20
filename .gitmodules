@@ -1,0 +1,3 @@
+[submodule "tools/citation-checker"]
+	path = tools/citation-checker
+	url = https://github.com/SRWS-PSG/citation-checker.git
