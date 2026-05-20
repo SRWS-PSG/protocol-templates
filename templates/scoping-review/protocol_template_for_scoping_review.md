@@ -28,6 +28,8 @@ notes-after-punctuation: true
 >
 > Note は作成中の補助説明です。提出版や登録版では、必要に応じて削除してください。
 > メンターの所属は `https://docs.google.com/document/d/1v3R5iXCcbCAtpSlzbRUL09VJAFqseUaaiO61AQdxugA/edit?usp=sharing` を参照してください。
+>
+> ライセンス: 本テンプレートは [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) で公開されています。出典として Zenodo DOI を明記すれば、利用・改変・再配布が可能です。
 
 \newpage
 
@@ -35,11 +37,11 @@ notes-after-punctuation: true
 
 Title: [review title / レビュータイトル: 対象者 (Population)、コンセプト (Concept)、コンテクスト (Context) が分かる短い英語表現]: a scoping review protocol
 
-> Note: If this protocol is an update of a previously published scoping review, append "(update)" to the title and set `is-update: true` in the YAML front-matter.
+> Note: 過去版の更新としてプロトコルを公開する場合は、本タイトル末尾に "(update)" を付け、YAML front-matter の `is-update` を `true` に変更してください。
 
 ## Authors:
 
-> Do not forget to include mentor names.
+> メンターの名前もお忘れなく
 
 Corresponding author: [corresponding author / 連絡著者（メンティー）: full name]
 
@@ -55,31 +57,31 @@ Author contributions:
 
 # 1. Introduction
 
-> Note: Writing the background
+> Note: 背景の書き方
 >
-> Add a reference to every statement. A three-paragraph structure is recommended.
+> すべての記述にリファレンスを付けてください。3 パラグラフ構成を推奨します。
 >
-> First paragraph — about the topic (Population), 4–5 sentences. Example:
+> 第一パラグラフ — テーマ (Population) について 4–5 文。例:
 >
-> 1. Clinical and social importance of the topic
-> 2. Size and impact of the target population
-> 3. Standard approaches currently used
-> 4. Existing gaps or limitations in current knowledge
+> 1. テーマの臨床的・社会的重要性
+> 2. 対象集団の規模と影響
+> 3. これまでに知られている標準的アプローチ
+> 4. 現状の課題・知識のギャップ
 >
-> Second paragraph — about the Concept, 4–5 sentences. Example:
+> 第二パラグラフ — Concept について 4–5 文。例:
 >
-> 1. Description of the concept of interest (intervention, assessment, outcome, definition, etc.)
-> 2. Current heterogeneity in how the concept is reported or defined in the literature
-> 3. Aspects of the concept that this review aims to map
+> 1. 関心のあるコンセプト (介入、アセスメント、アウトカム、定義など) の説明
+> 2. このコンセプトに関する報告のばらつきや用語の不統一の現状
+> 3. レビューで明らかにしたい範囲・側面
 >
-> Third paragraph — why a scoping review, 3–4 sentences. Example:
+> 第三パラグラフ — なぜスコーピングレビューを行うのか 3–4 文。例:
 >
-> 1. Results of a preliminary search for existing systematic reviews / scoping reviews on this topic (state "none found", or, if any exist, explain in one sentence how this review differs)
-> 2. Why mapping the breadth (scope) of the available evidence is necessary
-> 3. Therefore, we will conduct a scoping review on this topic
+> 1. このテーマに関する既存の systematic review / scoping review の検索結果（無ければ「未発見」、有れば本レビューがどう違うかを 1 文）
+> 2. 文献の幅 (scope) や利用可能なエビデンスの広がりを把握することが必要な理由
+> 3. そのため本研究ではこのテーマにおけるスコーピングレビューを行う
 >
-> GPTs that helps draft a background interactively: [https://chatgpt.com/g/g-YF7pcAKdG-background-editor](https://chatgpt.com/g/g-YF7pcAKdG-background-editor)
-> Add a reference to every statement as needed.
+> 背景を対話で指導してくれる GPTs: [https://chatgpt.com/g/g-YF7pcAKdG-background-editor](https://chatgpt.com/g/g-YF7pcAKdG-background-editor)
+> すべての記述に必要に応じてリファレンスを付ける
 
 # 2. Research question
 
@@ -97,7 +99,7 @@ Review questions:
 
 ## Keywords
 
-> Note: List up to 5 keywords, in alphabetical order, separated by semicolons and a space. Ideally these should differ from words appearing in the title or abstract.
+> Note: アルファベット順に 5 つまで、セミコロンとスペースで区切って記載する（タイトルやアブストラクトに現れる語と異なることが理想的）。
 
 [keywords / キーワード: e.g. concept; intervention; population; scoping review; setting]
 
@@ -143,13 +145,11 @@ Exclusion criteria: [context exclusion criteria / コンテクストの除外基
 
 [study designs / 組み入れる研究デザイン: e.g. quantitative studies (RCT, non-RCT, before-after, cohort, case-control, cross-sectional, case series, case reports), qualitative studies, systematic reviews, grey literature — list whichever fits the research question]
 
-> Note: Conference abstracts are often excluded because they carry limited information. If you plan to include or exclude them, discuss the rationale with your mentor and state it explicitly.
+> Note: 学会抄録は情報量が少ないため除外することも多いです。組み入れる/除外する場合は理由をメンターに相談のうえ明示してください。
 
 ### 3.3.5 Search method
 
-> Note: When drafting the protocol for the first time, complete only the MEDLINE search strategy; defer CENTRAL, Embase, and the trial-registry searches until later (after mentor review of the form submission).
-
-Search date range: [search date range / 検索対象期間: e.g. inception to YYYY-MM-DD]
+> Note: 初回プロトコル作成時は、まず MEDLINE のみを完成させ、CENTRAL・Embase・各レジストリの検索式は後回しにして構いません（プロトコルのほかのパートが完成後、メンターの確認を経てから他データベース・レジストリの検索式を整えます）。
 
 #### 3.3.5.1 Electronic search
 
@@ -184,19 +184,19 @@ We will limit included documents by the following report characteristics.
 
 Two independent reviewers ([screening reviewers / スクリーニング担当者のイニシャル: initials of two reviewers]) will screen titles and abstracts using the Tiab Review plugin [@Kataoka2026-tb]. All records flagged by either reviewer will proceed to full-text review, after which the two reviewers will independently assess eligibility based on the full text. We will contact original authors when eligibility cannot be determined (e.g. when only an abstract is available). Disagreements between the two reviewers will be resolved by discussion, with a third reviewer ([third reviewer / 第三レビュアーのイニシャル: initials]) consulted as needed. The search results and inclusion process will be reported in the final scoping review using a PRISMA-ScR flow diagram [@tricco2018prismascr].
 
-> Note: If screening is done by more than two reviewers, write "two of three independent reviewers..." instead.
+> Note: 3 人以上で screening を行う場合は "two of three independent reviewers..." と記載してください。
 
 ## 3.5 Stage 4: Charting the data
 
 Two reviewers ([data extraction reviewers / データ抽出担当者のイニシャル: initials of two reviewers]) will independently extract data from the included studies. The extracted data will include specific details about participants, concept, context, study methods, and key findings relevant to the review questions. The data-charting form (see Appendix 6) will be pilot-tested in advance on 10 randomly selected studies.
 
-> Note: Scoping reviews do not typically extract individual study outcomes for quantitative synthesis [@peters2022bestpractice]. Instead, specify the **data items** required to answer the review questions in the Appendix 6 charting form, and prioritize them as required vs. optional items.
+> Note: スコーピングレビューでは個別研究のアウトカム値を抽出して統合することは通常行いません [@peters2022bestpractice]。代わりに、レビュー設問に答えるために必要な「データ項目 (data items)」を Appendix 6 のチャーティングフォームに明示し、その優先順位 (必須項目 / 任意項目) を決めておきます。
 
 Disagreements will be resolved by discussion, with a third reviewer ([third reviewer / 第三レビュアーのイニシャル: initials]) consulted as needed. We will contact original authors to request additional information when needed.
 
 For efficiency, AI may be used to assist data extraction as appropriate [@Gartlehner2025-cm;@Kataoka2025-kq]. The actual use of AI will be reported in accordance with the Position Statement on Artificial Intelligence (AI) Use in Evidence Synthesis Across Cochrane, the Campbell Collaboration, JBI, and the Collaboration for Environmental Evidence 2025 [@Flemyng2025-ru].
 
-> Note (Risk of bias, optional): Scoping reviews do not typically include a critical appraisal (risk of bias) of individual studies [@peters2022bestpractice]. If you judge it necessary for your review question, describe the unit of assessment (study level / outcome level / both), the tool used, and how the appraisal results will be handled in the synthesis: [risk of bias plan / バイアスリスク評価計画: tool, level, treatment in synthesis].
+> Note (Risk of bias, optional): スコーピングレビューでは通常、個別研究のバイアスリスク評価 (critical appraisal) は実施しません [@peters2022bestpractice]。レビュー設問上必要と判断する場合は、評価する単位 (個別研究レベル / アウトカムレベル / 両方)、使用するツール、および評価結果を結果の統合でどう扱うかを以下に記載してください: [risk of bias plan / バイアスリスク評価計画: ツール名、評価レベル、結果の扱い方]。
 
 ## 3.6 Stage 5: Collating, summarizing, and reporting the results
 
@@ -206,9 +206,9 @@ We will synthesize the extracted data qualitatively, presenting results in a for
 2. A characteristics table of included studies (columns for Author / Year / Country / Population / Concept / Context / Methodology / Key findings; see Appendix 6)
 3. [planned visualisations / 提示予定の図表: e.g. evidence gap map, bubble plot, matrix map, timeline, narrative summary — choose the visualisation that fits the topic, using Table 3 in Fredlund et al. [@fredlund2024egm] and the worked example by South et al. [@south2023visualisation] as references]
 
-> Note (Meta-bias, optional): Scoping reviews do not typically assess meta-bias (e.g. publication bias) [@peters2022bestpractice]. If you will do so, describe the method here: [meta-bias plan / メタバイアス評価計画].
+> Note (Meta-bias, optional): スコーピングレビューでは通常、出版バイアス等のメタバイアス評価は実施しません [@peters2022bestpractice]。実施する場合はその方法を以下に記載してください: [meta-bias plan / メタバイアス評価計画]。
 
-> Note (Confidence in cumulative evidence, optional): There is no established GRADE adaptation for scoping reviews [@peters2022bestpractice].
+> Note (Confidence in cumulative evidence, optional): スコーピングレビュー用に確立された GRADE はまだ存在しません [@peters2022bestpractice]。
 
 # 4. Conflict of Interest
 
@@ -218,7 +218,7 @@ There is no conflict of interest in this project.
 
 This work was self-funded.
 
-> Note: In addition to monetary support (English-editing fees, database licences, analytic support), record any in-kind support (e.g. librarian help with search strategies, AI tools provided, institutional support). If there is a funder or sponsor, also record the funder name and whether and how the funder was involved in the study design, data collection, analysis, interpretation, or publication decision [@peters2022bestpractice]. If none, leave "This work was self-funded." as is.
+> Note: 金銭的支援（英文校正費・データベース利用料・解析支援費など）に加え、人手の支援（例: 司書による検索式作成支援、AI ツールの提供、所属機関のサポート等）があれば記載してください。資金提供者やスポンサーがいる場合は、その名称と、本研究のデザイン・データ収集・解析・結果解釈・出版判断のいずれに関与/不関与かも併記してください [@peters2022bestpractice]。いずれもなければ「自己資金。」のままで構いません。
 
 # References
 
@@ -230,16 +230,16 @@ This work was self-funded.
 
 ## Appendix 1: MEDLINE (PubMed) search strategy
 
-> For unresolved search strategy issues, fill in the form and share the URL with your mentor on Slack.
+> 03_06、03_07 の検索式の課題については、フォームに入力し、その旨を URL とともに Slack でメンターに伝えてください。
 
-> Note: Steps for building a search strategy
+> Note: 検索式作成のステップ
 >
-> 1. Decide on the search blocks (e.g. population, concept, context, study design)
-> 2. Decide on the controlled vocabulary (e.g. MeSH) for each block
-> 3. Expand each block with free-text terms and controlled vocabulary
-> 4. Combine blocks with AND
+> 1. どういう検索ブロック（例: population、concept、context、study design など）に分けるかを決める
+> 2. 各ブロックの統制語（MeSH 等）として何を使うかを考える
+> 3. 各ブロックを自由語と統制語で展開する
+> 4. ブロックを AND で組み合わせる
 >
-> A drafting tool (requires a free Google account): paste your eligibility criteria and it generates a draft search strategy. [https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221xiXk7Zidc9bEyN__EPPIN3AbgpVRWo5A%22%5D,%22action%22:%22open%22,%22userId%22:%22107122855205791560725%22,%22resourceKeys%22:%7B%7D%7D&amp;usp=sharing](https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221xiXk7Zidc9bEyN__EPPIN3AbgpVRWo5A%22%5D,%22action%22:%22open%22,%22userId%22:%22107122855205791560725%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing)
+> 下書き支援ツール（要 Google アカウントの無料登録）。組み入れ基準を入力すると検索式の下書きを生成してくれます: [https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221xiXk7Zidc9bEyN__EPPIN3AbgpVRWo5A%22%5D,%22action%22:%22open%22,%22userId%22:%22107122855205791560725%22,%22resourceKeys%22:%7B%7D%7D&amp;usp=sharing](https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221xiXk7Zidc9bEyN__EPPIN3AbgpVRWo5A%22%5D,%22action%22:%22open%22,%22userId%22:%22107122855205791560725%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing)
 
 [MEDLINE search strategy / MEDLINE の検索式: terms for population, concept (and context), MeSH, and the combined query. Do not add an RCT filter for scoping reviews.]
 
@@ -249,7 +249,7 @@ This work was self-funded.
 
 ## Appendix 3: Embase (Dialog) search strategy
 
-> Note: When drafting the protocol for the first time, leave this Appendix empty. Build it after the MEDLINE strategy is finalised by substituting the corresponding Emtree and free-text terms.
+> Note: 初回プロトコル作成時はこの Appendix は空欄のままで構いません。MEDLINE の検索式が確定してから、対応する Emtree と自由語に置き換えて作成します。
 
 [Embase search strategy / Embase の検索式: terms for population and concept, Emtree, and the combined query]
 

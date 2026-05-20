@@ -4,6 +4,7 @@ author:
   - SRWS-PSG Mentors
 date: 2026-05-20
 version: 1.0.0 (draft)
+lang: en
 keywords:
   - diagnostic test accuracy
   - systematic review protocol
@@ -25,10 +26,12 @@ notes-after-punctuation: true
 >
 > この文書は診断精度 (diagnostic test accuracy; DTA) の系統的レビュー (SR) プロトコルテンプレートです。`[English label / 日本語ラベル: 記入する内容]` で示した箇所を、自分たちのレビュー内容に置き換えてください。
 >
-> まず `2. Research question` で Participants / Index test / Comparator (任意) / Reference standard / Target condition を決め、次に `3.2 Inclusion criteria` の各サブセクション、`Appendices` の検索式、`3.6 Synthesis` の解析方針を埋めると進めやすいです。固定文は原則そのまま使えますが、検査の種類（単一 vs 比較、人 vs AI など）に合わせて `> Note:` の分岐に従って調整してください。
+> まず `2. Research question` で Participants / Index test / Comparator (任意) / Reference standard / Target condition を決め、次に `3.2 Inclusion criteria` の各サブセクション、`Appendices` の検索式、`3.7 Synthesis` の解析方針を埋めると進めやすいです。固定文は原則そのまま使えますが、検査の種類（単一 vs 比較、人 vs AI など）に合わせて `> Note:` の分岐に従って調整してください。
 >
 > Note は作成中の補助説明です。提出版や登録版では、必要に応じて削除してください。
 > メンターの所属は `https://docs.google.com/document/d/1v3R5iXCcbCAtpSlzbRUL09VJAFqseUaaiO61AQdxugA/edit?usp=sharing` を参照してください。
+>
+> ライセンス: 本テンプレートは [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) で公開されています。出典として Zenodo DOI を明記すれば、利用・改変・再配布が可能です。
 
 \newpage
 
@@ -36,11 +39,11 @@ notes-after-punctuation: true
 
 Title: [review title / レビュータイトル: Index test、Target condition、対象集団が分かる短い英語表現]: a systematic review and meta-analysis of diagnostic test accuracy protocol
 
-> Note: If this protocol is an update of a previously published DTA review, append "(update)" to the title and set `is-update: true` in the YAML front-matter.
+> Note: 過去版の更新としてプロトコルを公開する場合は、本タイトル末尾に "(update)" を付け、YAML front-matter の `is-update` を `true` に変更してください。
 
 ## Authors:
 
-> Do not forget to include mentor names.
+> メンターの名前もお忘れなく
 
 Corresponding author: [corresponding author / 連絡著者（メンティー）: full name]
 
@@ -50,9 +53,13 @@ E-mail: [e-mail / 連絡著者の連絡先メールアドレス]
 
 Author contributions:
 
-[guarantor initials / 連絡責任者のイニシャル] is the guarantor. [drafting author initials / 原稿ドラフト担当者のイニシャル] drafted the manuscript. All authors contributed to developing the inclusion criteria, QUADAS-3 assessment strategy, and data extraction criteria. [search strategy author initials / 検索式担当者のイニシャル] developed the search strategy. [statistics author initials / 統計担当者のイニシャル] provided statistical advice on DTA meta-analysis (bivariate / HSROC models). [content expert initials / 臨床・方法論の専門家のイニシャル] provided expertise on [expertise area / 専門領域: target condition, index test, reference standard, methodology, etc.]. All authors read, provided feedback and approved the final manuscript.
+[guarantor initials / 連絡責任者のイニシャル] is the guarantor of this review. [drafting author initials / 原稿ドラフト担当者のイニシャル] drafted the manuscript. [search strategy author initials / 検索式担当者のイニシャル] developed the search strategy. [statistics author initials / 統計担当者のイニシャル] provided statistical advice on DTA meta-analysis (bivariate / HSROC models). [content expert initials / 臨床・方法論の専門家のイニシャル] provided expertise on [expertise area / 専門領域: target condition, index test, reference standard, methodology, etc.]. All authors read, provided feedback and approved the final manuscript.
 
-> *Note*: Since this is a protocol, an abstract is not mandatory. If you wish to include one, follow the PRISMA-DTA [@mcinnes2018prismadta] abstract items and adjust the headings below as needed.
+
+\newpage
+
+
+> *Note*: プロトコルであるため、Abstract は必須ではありません。もし書きたい場合は、PRISMA-DTA [@mcinnes2018prismadta] の Abstract 項目 を参考に、必要に応じて以下の見出しを修正して使用してください。
 >
 > # Abstract
 >
@@ -70,36 +77,47 @@ Author contributions:
 
 # 1. Introduction
 
-> Note: Writing the background
+> Note: 背景の書き方
 >
-> Add a reference to every statement. A three-paragraph structure is recommended. Make the clinical pathway explicit.
+> すべての記述にリファレンスを付けてください。3 パラグラフ構成を推奨します。Clinical pathway を明確にしてください。
 >
-> First paragraph — about the Target condition, 4–5 sentences. Example:
+> Introduction で必ず明示すべき要素 
 >
-> 1. Clinical and social importance of the condition
-> 2. Frequency of the condition and number of patients needing diagnosis
-> 3. Description of the current standard diagnostic approach (including the reference standard)
-> 4. Limitations of the standard approach (invasiveness, cost, availability, diagnostic delay, etc.)
+> - Target condition being diagnosed / 対象とする状態
+> - Index test(s) / 評価対象の検査
+> - Clinical pathway / 臨床診療パス
+>     - Prior test(s) / Index test より前に行われる検査
+>     - Role of index test(s) / Index test の位置付け (triage / replacement / add-on, rule-in / rule-out)
+>     - Alternative test(s) / 代替となりうる検査
+> - Rationale / 本 DTA SR を行う根拠
 >
-> Second paragraph — about the role of the Index test, 4–5 sentences. Example:
+> 第一パラグラフ — 対象疾患 (Target condition) について 4–5 文。例:
 >
-> 1. The principle of the Index test and its clinical position (rule-in / rule-out, triage, replacement, or add-on)
-> 2. Summary of diagnostic accuracy reported in prior studies and its variability
-> 3. Expected changes to the clinical pathway if the Index test is adopted
-> 4. Potential harms from false-positive / false-negative results
+> 1. 疾患の臨床的・社会的重要性
+> 2. 疾患の頻度・診断を要する患者数
+> 3. 現在の標準的な診断アプローチ (Reference standard を含む) の説明
+> 4. 標準的な診断アプローチの限界（侵襲性、コスト、入手性、診断遅延など）
 >
-> Third paragraph — why a DTA SR is needed, 3–4 sentences. Example:
+> 第二パラグラフ — Index test の役割について 4–5 文。例:
 >
-> 1. Existing DTA SRs on this topic are absent, outdated, or narrowly scoped
-> 2. Pooled estimates of sensitivity / specificity and a certainty-of-evidence assessment are needed to inform clinical decision-making
-> 3. Therefore, we will conduct a DTA SR and meta-analysis on this topic
+> 1. Index test の原理と臨床での位置付け (rule-in / rule-out、triage、replacement、add-on のいずれか)
+> 2. 既存の研究で報告されている診断精度の概要とそのばらつき
+> 3. Index test を導入することで期待される clinical pathway の変化
+> 4. 一方で、Index test の偽陽性・偽陰性によって生じうる害
 >
-> A GPTs that guides you through the background interactively: [https://chatgpt.com/g/g-YF7pcAKdG-background-editor](https://chatgpt.com/g/g-YF7pcAKdG-background-editor)
-> Add references where needed for every statement.
+> 第三パラグラフ — なぜ DTA SR を行うべきか 3–4 文。例:
+>
+> 1. このトピックに関する既存の DTA SR が無い、または古い・対象が限定的である
+> 2. 臨床現場での意思決定のため、感度・特異度の統合推定とエビデンスの確実性評価が必要である
+> 3. そのため本研究ではこのトピックにおける DTA SR & meta-analysis を行う
+>
+> 背景を対話で指導してくれる GPTs: [https://chatgpt.com/g/g-YF7pcAKdG-background-editor](https://chatgpt.com/g/g-YF7pcAKdG-background-editor)
+>
+> すべての記述に必要に応じてリファレンスを付ける
 
 # 2. Research question
 
-DTA reviews do not use PICO; we follow the Cochrane DTA Handbook v2 framework [@deeks2023dtahandbook] and define Participants / Index test / (Comparator) / Reference standard / Target condition.
+> Note: DTA レビューでは PICO ではなく、Cochrane DTA Handbook v2 [@deeks2023dtahandbook] の枠組みに従って Participants / Index test / (Comparator) / Reference standard / Target condition を定義する。
 
 - P (Participants): [participants / 対象者: 疾患疑い・症状・スクリーニング集団など、Index test を適用する集団]
 - I (Index test): [index test / Index test: 評価対象の検査名、機器・モデル名、判定者の資格、閾値の扱い]
@@ -114,7 +132,7 @@ Review questions:
 
 ## Keywords
 
-> Note: List up to 5 keywords in alphabetical order, separated by "; ". Ideally use terms not appearing in the title or abstract.
+> Note: アルファベット順に 5 つまで、セミコロンとスペースで区切って記載する（タイトルやアブストラクトに現れる語と異なることが理想的）。
 
 [keywords / キーワード: 例) diagnostic accuracy; index test; reference standard; sensitivity and specificity; target condition]
 
@@ -122,39 +140,54 @@ Review questions:
 
 ## 3.1 Protocol
 
-This review uses the diagnostic test accuracy review protocol template maintained by SRWS-PSG (repository: [https://github.com/SRWS-PSG/protocol-templates](https://github.com/SRWS-PSG/protocol-templates); Zenodo concept DOI: 10.5281/zenodo.&lt;TBD&gt;). The protocol and conduct of this review follow the Cochrane Handbook for Systematic Reviews of Diagnostic Test Accuracy v2.0 [@deeks2023dtahandbook]. Reporting follows the PRISMA-DTA statement [@mcinnes2018prismadta] and its explanation and elaboration [@salameh2020prismadtaee]. This protocol will be registered with PROSPERO ([https://www.crd.york.ac.uk/prospero/](https://www.crd.york.ac.uk/prospero/)).
+This review uses the diagnostic test accuracy review protocol template maintained by SRWS-PSG (repository: [https://github.com/SRWS-PSG/protocol-templates](https://github.com/SRWS-PSG/protocol-templates); Zenodo concept DOI: 10.5281/zenodo.&lt;TBD&gt;). In preparing this protocol we referred to the Cochrane Handbook for Systematic Reviews of Diagnostic Test Accuracy v2.0 [@deeks2023dtahandbook] and the PRISMA-DTA statement [@mcinnes2018prismadta]. This protocol will be registered on OSF ([https://osf.io/](https://osf.io/)).
 
 ## 3.2 Inclusion criteria of the studies for the review
 
 ### 3.2.1 Type of studies
 
-We will include studies that evaluated [participants and index/target / 対象者・Index test・Target condition: 例, the diagnostic accuracy of [index test] for [target condition] in [participants]] using the following designs:
+We will include all cohort studies, secondary analyses of RCTs, and case-control studies that evaluated the diagnostic accuracy of the Index test for the Target condition.
 
-- Cross-sectional cohort studies (prospective or retrospective) in which all participants are assessed by both the index test and the reference standard
-- Secondary analyses of randomized controlled trials (RCTs) reporting diagnostic accuracy
-- Case-control (two-gate / diagnostic case-control) studies
+There will be no restriction on publication status (published, unpublished, conference abstracts, and letters are all eligible).
 
-Only studies that report — or from which it is possible to reconstruct — the 2×2 counts (true positives [TP], false positives [FP], false negatives [FN], true negatives [TN]) of the Index test against the Reference standard will be included.
+There will be no restriction on language or country in which the study was conducted.
 
-There will be no restriction on language or country of origin. Published, unpublished, conference abstracts, and letters will be eligible. Case series and case reports will be excluded. No restriction will be placed on observation period or year of publication.
+Case series and case reports will be excluded.
 
-> Note (for comparative accuracy reviews): If you include paired comparative accuracy studies (multiple index tests applied to the same participants) or randomized comparative accuracy studies (participants randomized to different index tests), assess risk of bias with QUADAS-C [@yang2021quadasc] in addition to QUADAS-3 in §3.5.
+Studies will be included if they present data from which the true positive, false positive, true negative, and false negative counts of the Index test against the Reference standard can be derived.
+
+No restriction will be placed on the observation period.
+
+> Note (比較精度レビューの場合): 同一被験者に複数の Index test を適用した paired comparative accuracy study、または対象者を Index test 群にランダム化した randomized comparative accuracy study を組み入れる場合は、§3.6 のバイアスリスク評価で QUADAS-C [@yang2021quadasc] を併用してください。
 
 ### 3.2.2 Participants
 
 [participants overview / 対象者の概要: 疾患・状態の疑い、年齢層、診療場面、Index test を適用する臨床的タイミングなどを文章で記入]
 
-Inclusion criteria: [participant inclusion criteria / 対象者の組入基準: suspected condition, age, sex, setting (primary/secondary/tertiary care, screening), symptoms]
+- Inclusion criteria (all must be met): [participant inclusion criteria / 対象者の組入基準: suspected condition, age, sex, setting (primary/secondary/tertiary care, screening), symptoms]
+- Exclusion criteria (any of which apply): [participant exclusion criteria / 対象者の除外基準: comorbidities, prior treatments, specific populations to exclude]
 
-Exclusion criteria: [participant exclusion criteria / 対象者の除外基準: comorbidities, prior treatments, specific populations to exclude]
+As required by QUADAS-3 phase 2 (ideal test accuracy trial / D1 signaling questions), the "ideal" participant profile for this review is prespecified here. These statements anchor the operationalization of the D1 signaling questions in §3.6.
+
+- Intended-use population: [intended-use population / 想定使用集団: e.g., adults presenting to primary care with [symptom]. Specify the age, sex, symptom status, and comorbidity range of the population to which the index test would actually be applied in practice]
+- Role of the index test within the clinical pathway: [role of index test / Index test の役割: one of triage / replacement / add-on / parallel testing. State the assumed prior tests (e.g., history and physical only; or after a separate test)]
 
 ### 3.2.3 Index test
 
-[index test details / Index test の詳細: 検査名、機器・試薬・モデル (AI/ML の場合はバージョン)、実施手順、判定者の資格、判定の盲検化、使用する閾値 (cutoff)・閾値設定方針]
+[index test details / Index test の詳細: 検査名、機器・試薬・モデル (AI/ML の場合はバージョン)、sample type (specimen, imaging target, etc.)、実施手順]
 
-> Note: Whether you fix the threshold at a single value or allow multiple thresholds directly affects the synthesis plan (§3.6). State this clearly here. If you accept "the post-hoc optimal threshold of each study", an HSROC model is the default.
+Operators and readers: [operator and reader / 判定者・実施者: training and qualifications required to conduct and interpret the test (e.g., board-certified radiologist, laboratory technician, clinician, standalone AI model). Specify the level of expertise consistent with the intended-use population in §3.2.2]
+
+As required by QUADAS-3 phase 2 (ideal test accuracy trial / D2 signaling questions 2.1–2.4), the "ideal" conditions for conducting and interpreting the index test in this review are prespecified here.
+
+- Recommended instructions / standardized protocol: [recommended instructions / 推奨手順: manufacturer instructions, guideline-recommended SOP, etc. State concretely what counts as "appropriate conduct" and what kind of deviation will lead to signaling question 2.1 being judged "N"]
+- **Clinical information that would be available in routine practice** when interpreting the index test: [available clinical information / 通常臨床で利用できる情報: e.g., participant age, sex, presenting symptoms, vital signs, prior test results that would already be on hand at the moment the index test is interpreted. This anchors signaling question 2.3 ("interpreted with the same information as would be available when the test is used in practice")]
+- Information that must **not** be available at the time of index test interpretation: [prohibited information / 利用不可情報: reference standard results, the final target-condition diagnosis, results of tests that lie downstream of the index test in the clinical pathway. Anchors signaling question 2.2]
+- Prespecified threshold: [prespecified threshold / 事前指定された閾値: e.g., the manufacturer-recommended cutoff X, or guideline-recommended cutoff Y. Studies that use a data-driven, post-hoc-selected threshold will be judged "N" on signaling question 2.4]
+
+> Note: 閾値 (cutoff) を1つに固定するか、複数の閾値を許容するかは、解析方針（§3.7）と密接に関わるため、ここで明示してください。閾値を「研究ごとに事後選択された最適閾値」とする場合、HSROC モデルでの解析が前提となります。
 >
-> Note (for AI/ML-based index tests): Specify model name, version, training dataset, input preprocessing, and degree of automation (fully automated / semi-automated / human-in-the-loop). For risk of bias, refer to QUADAS-AI (in development) [@guni2024quadasai;@sounderajah2021quadasaiposition] and report primary-study quality with STARD-AI [@sounderajah2025stardai]. If QUADAS-AI has not yet been finalized, add AI-specific signaling questions to each QUADAS-3 domain.
+> Note: 「通常の臨床で利用できる情報」を Index test 判定時に故意に隠した (blind した) 研究は、現実の運用と乖離するため signaling question 2.3 で "N" となり得ます。逆に、Index test 判定時に Reference standard 結果まで開示している研究は signaling question 2.2 で "N" となります。両者を取り違えないよう、ここで「利用できる情報」と「利用してはならない情報」を別行に分けて明記してください。
 
 ### 3.2.4 Comparator (optional)
 
@@ -162,21 +195,45 @@ Exclusion criteria: [participant exclusion criteria / 対象者の除外基準: 
 
 ### 3.2.5 Reference standard
 
-[reference standard / Reference standard: 真の Target condition の有無を判定する基準（clinical diagnosis、histology、long-term follow-up、composite reference standard など）、判定タイミング、判定者の盲検化]
+As required by QUADAS-3 phase 2 (ideal test accuracy trial / D3 signaling questions 3.1–3.8), the "ideal" conditions for the reference standard in this review are prespecified here.
 
-> Note: If the interval between the Index test and the Reference standard is too long, disease progression bias can arise. State a clinically reasonable upper bound (e.g., same day, within 1 week, within 4 weeks).
+- Hierarchy of acceptable reference standards: [reference standard hierarchy / Reference standard の階層: 1) most preferred (e.g., histology); 2) second-best (e.g., imaging plus ≥6-month clinical follow-up); 3) lowest acceptable (e.g., discharge clinical diagnosis). State the cutoff below which a study will not be included]
+- Single reference standard applied to all participants: [single reference standard policy / 単一 reference standard 方針: state whether the same reference standard must be applied to all participants, or whether different reference standards (e.g., histology for index-test positives, follow-up for negatives) are acceptable. Anchors signaling question 3.3]
+- Reference standard threshold: [reference threshold / Reference standard 閾値: e.g., histology Marsh score ≥ 3a, culture CFU/mL cutoff, specific imaging criteria. Data-driven post-hoc thresholds will be judged "N" on signaling question 3.7]
+- Independence of reference standard and index test: [independence from index test / Index test との独立性: the reference standard must be interpreted **blinded to** index test results (signaling question 3.6), and the index test must not form part of a composite reference standard (signaling question 3.4 = incorporation bias)]
+- Appropriate time interval: [appropriate interval / 適切な実施間隔: e.g., same day, within 1 week, within 4 weeks — the upper bound during which the disease status is assumed not to change. For long-term follow-up reference standards, state the minimum follow-up period (e.g., ≥6 months). Anchors signaling question 3.8]
+- Handling of indeterminate reference standard results: [indeterminate reference / 判定不能 Reference standard の扱い: whether participants with indeterminate reference standard results will be excluded from the analysis or handled via composite adjudication, in a way that reflects clinical management]
+
+> Note: Index test と Reference standard の間隔が長すぎると disease progression bias が生じ得ます。臨床的に妥当な上限 (例) 同日・1 週間以内・4 週間以内) を明示してください。
 >
-> Note: If the Reference standard is imperfect (no gold standard), or different reference standards are used for different participants, this will be captured by the QUADAS-3 "Reference standard" and "Flow and timing" domains as partial verification / differential verification bias.
+> Note: Reference standard が imperfect (no gold standard) であったり、被験者によって異なる Reference standard が適用される場合は、QUADAS-3 の "Target condition" / "Analysis" ドメインで partial verification bias / differential verification bias として評価されます。事前規定した階層があれば、各研究をどの層の Reference standard で判定されたかで分類できます。
 
 ### 3.2.6 Target condition
 
 [target condition / Target condition: 診断対象の疾患・状態の clinical definition、stage/severity range、excluded subtypes]
+
+Alignment between the target condition and the reference standard (QUADAS-3 phase 2):
+
+- Target condition sub-category (if applicable): [target subcategory / Target condition のサブカテゴリ: e.g., not "malignancy in general" but "localized stage I–II colorectal cancer". State that studies evaluating a broader or narrower sub-category will be judged High concern for D3 applicability]
+- Acceptable variability in reference standard thresholds: [acceptable threshold variability / Reference standard 閾値差の許容: e.g., a 10² CFU/mL difference is tolerable but 10⁴ is considered a different target condition — consistent with §3.2.5]
 
 ## 3.3 Outcomes
 
 ### 3.3.1 Primary outcomes
 
 The primary outcomes are the **sensitivity and specificity** of the Index test against the Reference standard, with 95% confidence intervals (CI). For each study we will extract the 2×2 counts (TP / FP / FN / TN) of the Index test and compute sensitivity and specificity.
+
+The unit of analysis is [unit of analysis / 解析単位: e.g., per participant, per sample, per lesion, per scan, per organ. Align with the clinical unit of decision making].
+
+For each study, 95% CIs will be taken from the original report or, when needed, recomputed from the 2×2 table using the **Wilson method or the Jeffreys Bayesian credible interval** [@whiting2026quadas3] (which behave well even at boundary values such as 0/N or N/N).
+
+Following QUADAS-3 Phase 4 [@whiting2026quadas3], for each included study we will identify the accuracy estimates to be carried forward to Phase 5 (risk of bias assessment). A single study may report multiple paired sensitivity/specificity estimates (i.e., multiple 2×2 tables) corresponding to different thresholds, subgroups, reference standards, target-condition definitions, or units of analysis. Only paired estimates linked to the synthesis question(s) prespecified in §2 will be carried forward to Phase 5. The selection rules for this review are:
+
+- Handling of multiple reported thresholds: [phase 4 threshold rule / Phase 4 閾値ルール: e.g., only the 2×2 table at the threshold prespecified in §3.2.3 will be carried forward to Phase 5 / every reported threshold will be treated as a separate estimate and carried forward to Phase 5 / the single threshold closest to the prespecified one will be carried forward to Phase 5]
+- Handling of subgroup-stratified estimates: [phase 4 subgroup rule / Phase 4 サブグループルール: e.g., only paired sens/spec for subgroup analyses prespecified in §3.7.x will be treated as separate estimates and carried forward to Phase 5; subgroup-stratified estimates not prespecified in this protocol will not be carried forward]
+- Unit of analysis: only 2×2 tables matching the unit of analysis prespecified in §3.3.1 will be carried forward to Phase 5.
+
+> Note: 1 つの研究から複数の候補ペアが上記ルールに同等に整合する場合、どれを Phase 5 評価対象とするかは case-by-case の判断となる。判断要素としては precision (95% CI 幅)、reference standard の risk of bias、target condition 定義の臨床的整合性、unit of analysis の妥当性などがある（QUADAS-3 [@whiting2026quadas3] は順位付けを規定していない）。複数候補がある場合はメンターと協議のうえ決定し、選択した推定値と判断根拠を記録する。
 
 ### 3.3.2 Secondary outcomes
 
@@ -189,11 +246,9 @@ The primary outcomes are the **sensitivity and specificity** of the Index test a
 
 ## 3.4 Search method
 
-> Note: For the first version of the protocol, you may complete only MEDLINE and leave CENTRAL, EMBASE, and the registry searches for later (finish them after a mentor has reviewed the rest of the protocol).
+> Note: 初回プロトコル作成時は、まず MEDLINE のみを完成させ、CENTRAL・EMBASE・各レジストリの検索式は後回しにして構いません（プロトコルのほかのパートが完成後、メンターの確認を経てから他データベース・レジストリの検索式を整えます）。
 >
-> Note: For DTA reviews, the published diagnostic-study search filters for MEDLINE / EMBASE have inadequate sensitivity, and the Cochrane DTA Handbook v2 [@deeks2023dtahandbook] recommends against using them. We therefore use no diagnostic filter — searches combine the Participants (or Target condition) block and the Index test block with AND.
-
-Search period: [search date range / 検索対象期間: 例) inception to YYYY-MM-DD]
+> Note: DTA レビューでは、MEDLINE/EMBASE 向けに公開されている 診断研究フィルター (diagnostic filter) は感度が不十分とされており、Cochrane DTA Handbook v2 [@deeks2023dtahandbook] は使用しないことを推奨しています。したがって本レビューでは検索フィルターを使わず、Participants（または Target condition）と Index test のブロックを AND で組み合わせる検索式とします。
 
 ### 3.4.1 Electronic search
 
@@ -216,49 +271,52 @@ See Appendices 4 and 5 for the search strategies.
 
 We will check the reference lists of included studies, international clinical guidelines ([guideline names or organizations / 確認する診療ガイドライン名・作成組織]), and the reference lists of papers citing included studies. We will contact original authors for unpublished data or additional data (in particular, missing 2×2 cell counts).
 
-## 3.5 Risk of bias assessment
+## 3.5 Selection of studies
+
+Two independent reviewers ([screening reviewers / スクリーニング担当者のイニシャル: initials of two reviewers]) will perform title and abstract screening using the Tiab Review plugin [@Kataoka2026-tb], followed by full-text eligibility assessment. We will contact original authors when relevant data are missing. Disagreements between the two reviewers will be resolved by discussion, and if needed a third reviewer ([third reviewer / 第三レビュアーのイニシャル: initials]) will arbitrate.
+
+> note: 3 人以上で screening を行う場合は "two of three independent reviewers..." と記載してください。
+
+## 3.6 Risk of bias assessment
 
 Two reviewers ([risk of bias reviewers / RoB 評価担当者: initials of two reviewers]) will independently assess risk of bias and applicability using QUADAS-3 [@whiting2026quadas3]. Disagreements will be resolved by discussion, and if needed a third reviewer ([third reviewer / 第三レビュアー: initials]) will arbitrate.
 
-> Note: QUADAS-2 [@whiting2011quadas2] was superseded by QUADAS-3 [@whiting2026quadas3] in February 2026. DTA SRs initiated from 2026 onward should default to QUADAS-3. Reviews already using QUADAS-2 may continue with it but should state so explicitly here.
+QUADAS-3 is structured around six phases. In this protocol:
+
+- **Phase 1 (synthesis questions)** is specified in §2,
+- **Phase 2 (ideal test accuracy trial)** elements are prespecified across §3.2.2 (Participants), §3.2.3 (Index test), §3.2.5 (Reference standard), §3.2.6 (Target condition), and §3.3.1 (unit of analysis).
+
+Reviewers will perform phases 3 (flow diagram check), 4 (identifying the accuracy estimates to assess), 5 (signaling question and domain-level judgments), and 6 (overall judgment per accuracy estimate).
+
+Domain-level judgments (Low / High / Insufficient information) are made on the basis of whether deviations from the §3.2 "ideal" conditions are **likely to over- or under-estimate sensitivity or specificity in a clinically meaningful manner**. A single "PN" or "N" signaling-question answer does not automatically force a domain-level High judgment (QUADAS-3 phase 5 guidance [@whiting2026quadas3]).
+
+> Note (比較精度レビュー): 同一被験者に複数の Index test を適用した、もしくは Index test 群にランダム化された比較精度デザインを組み入れる場合は、QUADAS-3 に加え QUADAS-C [@yang2021quadasc] を用いて pair 単位での比較バイアスを評価してください。
 >
-> Note (comparative accuracy review): If you include paired or randomized comparative accuracy designs, use QUADAS-C [@yang2021quadasc] alongside QUADAS-3 to assess pair-level comparative bias.
->
-> Note (AI-based index test): If the Index test is an AI/ML model, refer to QUADAS-AI (in development; Sounderajah 2021 position [@sounderajah2021quadasaiposition], Guni 2024 protocol [@guni2024quadasai]) for risk-of-bias assessment, and check primary-study reporting against STARD-AI [@sounderajah2025stardai].
+> Note (AI ベース Index test): Index test が AI/ML モデルの場合、QUADAS-AI（開発中、Sounderajah 2021 [@sounderajah2021quadasaiposition]、Guni 2024 [@guni2024quadasai]）、STARD-AI [@sounderajah2025stardai] の枠組みを参照しつつsignaling questionの更新を検討してください。
 
-## 3.6 Synthesis of results
+## 3.7 Synthesis of results
 
-### 3.6.1 Data extraction
+### 3.7.1 Data extraction
 
-For studies meeting the inclusion criteria, two reviewers ([data extraction reviewers / データ抽出担当者: initials of two reviewers]) will independently extract participant demographics, sample size, Index test details, Reference standard details, threshold, 2×2 counts (TP / FP / FN / TN), and QUADAS-3 domain-level ratings. The data extraction form (see Appendix 6) will be pilot-tested using ten randomly selected studies before full extraction.
-
-For studies that report multiple 2×2 tables across different thresholds, we will extract all of them.
-
-Primary-study reporting will be checked against STARD 2015 [@bossuyt2015stard]; we will contact original authors when essential information is missing.
-
+For studies meeting the inclusion criteria, two reviewers ([data extraction reviewers / データ抽出担当者: initials of two reviewers]) will independently extract participant demographics, sample size, Index test details, Reference standard details, threshold, 2×2 counts (TP / FP / FN / TN), and QUADAS-3 domain-level ratings.
 Disagreements will be resolved by discussion, and if needed a third reviewer ([third reviewer / 第三レビュアー: initials]) will arbitrate.
-
 To improve efficiency, AI may be used to assist data extraction [@Gartlehner2025-cm;@Kataoka2025-kq]. The actual use of AI will be reported following the Position Statement on Artificial Intelligence (AI) Use in Evidence Synthesis Across Cochrane, the Campbell Collaboration, JBI, and the Collaboration for Environmental Evidence 2025 [@Flemyng2025-ru].
 
-### 3.6.2 Meta-analysis
+### 3.7.2 Meta-analysis
 
 Synthesis follows the recommendations of the Cochrane DTA Handbook v2 [@deeks2023dtahandbook].
 
-For each study we will compute sensitivity and specificity with 95% CI from the 2×2 table and present them in a **paired forest plot** (sensitivity and specificity side by side). We will also plot study-level pairs on the **SROC plane** and describe their distribution.
+For each study we will compute sensitivity and specificity with 95% CI from the 2×2 table and present them in a paired forest plot (sensitivity and specificity side by side). We will also plot study-level sensitivity/specificity pairs on the SROC plane and describe their distribution.
+A hierarchical model will be used to pool primary-study results.
+When the included studies are considered to use a common threshold, we will use a bivariate model and present a summary point with 95% confidence and 95% prediction regions on the ROC plane.
+When the included studies are not considered to use a common threshold, we will use an HSROC model and present the pooled result on the ROC plane.
+All analyses will be performed in MetaDTA [@patel2021metadta] ([https://crsu-metadta.le.ac.uk/MetaDTA/](https://crsu-metadta.le.ac.uk/MetaDTA/)).
 
-The synthesis approach is selected as follows:
-
-1. **≥ 4 included studies and a common threshold**: use a **bivariate model** [@reitsma2005bivariate] and present the summary point with 95% confidence and 95% prediction regions on the SROC plane.
-2. **≥ 4 included studies with varying thresholds**: use the **HSROC model** [@rutter2001hsroc] and present the SROC curve.
-3. **< 4 included studies**: do not perform statistical pooling; present study-level sensitivity and specificity descriptively in a table and a paired forest plot.
-
-All analyses will be performed in **MetaDTA** [@patel2021metadta] ([https://crsu-metadta.le.ac.uk/MetaDTA/](https://crsu-metadta.le.ac.uk/MetaDTA/)), a free browser-based Shiny application maintained by the University of Leicester CRSU. MetaDTA fits the bivariate model and produces paired forest plots, SROC plots, and summary ROC graphs without requiring registration or local R/Stata installation.
-
-> Note: MetaDTA primarily implements the bivariate model. For threshold-heterogeneous datasets where HSROC is required and MetaDTA's features are insufficient, consider using the R `mada` package (CRAN) or Stata `metandi` / `metadta`. If you do so, record the software name and version in §3.6.2.
+> Note: MetaDTA は bivariate モデルを主に実装しています。HSROC を必要とする閾値混在ケースで MetaDTA の機能で不十分な場合は、R `mada` パッケージ (CRAN) または Stata `metandi` / `metadta` の併用を検討してください。その場合、使用ソフトウェアとバージョンを §3.7.2 に追記してください。
 
 Adverse events will be summarized narratively per study definition; we will not perform meta-analysis of adverse events.
 
-## 3.7 Heterogeneity
+## 3.8 Heterogeneity
 
 Between-study variability in sensitivity and specificity will be assessed visually on the SROC plane and the paired forest plot, and by the width of the prediction region from the bivariate / HSROC model. The `I²` statistic and its cutoff values are not recommended for DTA meta-analysis [@deeks2023dtahandbook] and will not be used.
 
@@ -269,22 +327,20 @@ When substantial heterogeneity is observed, we will explore the following pre-sp
 3. [reference standard subgroup / Reference standard サブグループ: 例, single vs composite reference standard, follow-up duration]
 4. [methodological subgroup / 方法論的サブグループ: 例, QUADAS-3 low-risk-only studies vs all studies, prospective vs retrospective]
 
-## 3.8 Sensitivity analysis
+## 3.9 Sensitivity analysis
 
 For the primary outcome, we will assess the robustness of results to review-process decisions with the following sensitivity analyses:
 
 1. Excluding studies rated High risk on one or more QUADAS-3 domains (especially [most influential domain / 最も結果に影響しそうな QUADAS-3 ドメイン番号: 例, Patient selection (D1)])
 2. [other sensitivity analysis / その他の感度分析: 例, excluding conference-abstract-only studies, excluding studies with imputed cell counts, excluding the largest study]
 
-## 3.9 Reporting bias
+## 3.10 Reporting bias
 
 We will search trial registries (ClinicalTrials.gov and ICTRP) for completed but unpublished studies. Following the Cochrane DTA Handbook v2 [@deeks2023dtahandbook], we will not perform statistical tests for publication bias (such as funnel plots or Egger's test), because their validity in DTA meta-analysis is not established.
 
 # 4. Summary of findings table
 
-Two reviewers ([GRADE reviewers / GRADE 評価担当者のイニシャル、一人はメンター: initials of two reviewers, including one mentor if applicable]) will rate the certainty of evidence using GRADE for DTA [@schunemann2020grade21p1;@schunemann2020grade21p2]. Disagreements will be resolved by discussion, and if needed a third reviewer ([third reviewer / 第三レビュアーのイニシャル: initials]) will arbitrate.
-
-The Summary of Findings table will be constructed following the Cochrane DTA Handbook v2 [@deeks2023dtahandbook] and GRADE 21 part 2 [@schunemann2020grade21p2], presenting the expected TP / FP / FN / TN per 1,000 participants at an assumed typical prevalence for the following outcomes: [outcomes for SoF table / SoF テーブルに含めるアウトカム: 例, sensitivity, specificity, TP/FP/FN/TN per 1,000 at assumed prevalence, estimated patient impact].
+The Summary of Findings table will be constructed following the Cochrane DTA Handbook v2 [@deeks2023dtahandbook] for the following outcomes: [outcomes for SoF table / SoF テーブルに含めるアウトカム: 例, sensitivity and specificity, TP/FP/FN/TN per 1,000 at an assumed prevalence, estimated patient impact].
 
 # 5. Conflict of Interest
 
@@ -294,7 +350,7 @@ The authors declare that they have no conflicts of interest.
 
 Self-funded.
 
-> Note: Mention monetary support (English-editing fees, database fees, analytic support) as well as in-kind support (e.g., librarian support for the search strategy, AI tool provision, institutional support). If a funder or sponsor exists, state whether they had any role in the design, data collection, analysis, interpretation, or publication decision. Otherwise, "Self-funded." is fine.
+> Note: 金銭的支援（英文校正費・データベース利用料・解析支援費など）に加え、人手の支援（例: 司書による検索式作成支援、AI ツールの提供、所属機関のサポート等）があれば記載してください。資金提供者やスポンサーがいる場合は、その名称と、本研究のデザイン・データ収集・解析・結果解釈・出版判断のいずれに関与/不関与かも併記してください。いずれもなければ「自己資金。」のままで構いません。
 
 # References
 
@@ -309,15 +365,15 @@ Self-funded.
 
 > 03_06、03_07 の検索式の課題については、フォームに入力し、その旨を URL とともに Slack でメンターに伝えてください。
 
-> Note: Building the DTA search strategy
+> Note: DTA レビューの検索式作成のステップ
 >
-> 1. Decide the search blocks (typically: Participants or Target condition, and Index test)
-> 2. Identify controlled vocabulary (MeSH etc.) for each block
-> 3. Expand each block with free text + controlled vocabulary
-> 4. Combine the blocks with AND
-> 5. **Do not add a diagnostic-study filter** (sensitivity is insufficient; the Cochrane DTA Handbook v2 [@deeks2023dtahandbook] recommends against it)
+> 1. 検索ブロックを決める（典型: Participants または Target condition、Index test）
+> 2. 各ブロックの統制語（MeSH 等）として何を使うかを考える
+> 3. 各ブロックを自由語と統制語で展開する
+> 4. ブロックを AND で組み合わせる
+> 5. 診断研究フィルター (diagnostic filter) は使用しない（感度不足のため、Cochrane DTA Handbook v2 [@deeks2023dtahandbook] が非推奨）
 >
-> Drafting helper tool (requires a free Google account): [https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221xiXk7Zidc9bEyN__EPPIN3AbgpVRWo5A%22%5D,%22action%22:%22open%22,%22userId%22:%22107122855205791560725%22,%22resourceKeys%22:%7B%7D%7D&amp;usp=sharing](https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221xiXk7Zidc9bEyN__EPPIN3AbgpVRWo5A%22%5D,%22action%22:%22open%22,%22userId%22:%22107122855205791560725%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing)
+> 下書き支援ツール（要 Google アカウントの無料登録）: [https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221xiXk7Zidc9bEyN__EPPIN3AbgpVRWo5A%22%5D,%22action%22:%22open%22,%22userId%22:%22107122855205791560725%22,%22resourceKeys%22:%7B%7D%7D&amp;usp=sharing](https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221xiXk7Zidc9bEyN__EPPIN3AbgpVRWo5A%22%5D,%22action%22:%22open%22,%22userId%22:%22107122855205791560725%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing)
 
 [MEDLINE search strategy / MEDLINE の検索式: Participants (または Target condition) と Index test の検索語、MeSH、組み合わせ式を記入。診断研究フィルターは付けない]
 
@@ -327,7 +383,7 @@ Self-funded.
 
 ## Appendix 3: EMBASE (Dialog) search strategy
 
-> Note: You may leave this appendix blank when first drafting the protocol; fill it in after the MEDLINE strategy is finalized, translating MeSH to Emtree and free-text variants as needed. Do not add a diagnostic-study filter.
+> Note: 初回プロトコル作成時はこの Appendix は空欄のままで構いません。MEDLINE の検索式が確定してから、対応する Emtree と自由語に置き換えて作成します。診断研究フィルターは付けません。
 
 [EMBASE search strategy / EMBASE の検索式: Participants (または Target condition) と Index test の検索語、Emtree、組み合わせ式を記入]
 
@@ -339,13 +395,3 @@ Self-funded.
 
 - Condition or disease: [condition or disease / 対象状態: ClinicalTrials.gov に入力する Target condition 名や類義語]
 - Intervention / Other terms: [index test terms / Index test 関連語: ClinicalTrials.gov に入力する Index test 名や類義語]
-
-## Appendix 6: Data extraction form (2×2 table + study characteristics)
-
-Below is a minimum data-extraction form. Add or remove columns according to the review question. For studies reporting multiple 2×2 tables at different thresholds, extract them on separate rows.
-
-| Author (Year)                   | Country        | Setting / Design                                    | Population                  | Sample size | Index test (model/version, threshold) | Reference standard      | Target condition | TP  | FP  | FN  | TN  | Sensitivity (95% CI) | Specificity (95% CI) | QUADAS-3 ratings (D1/D2/D3/D4 RoB & Applicability) |
-| ------------------------------- | -------------- | --------------------------------------------------- | --------------------------- | ----------- | ------------------------------------- | ----------------------- | ---------------- | --- | --- | --- | --- | -------------------- | -------------------- | -------------------------------------------------- |
-| [author1 year / 例: Smith 2020] | [country / 国] | [setting/design / 例: tertiary, prospective cohort] | [population / 対象者の特徴] | [n]         | [index test / Index test、閾値]       | [reference / Reference] | [target / 状態]  | [n] | [n] | [n] | [n] | [sens (CI)]          | [spec (CI)]          | [ratings]                                          |
-
-Item priorities: Required = author, year, country, design, population, sample size, index test, reference standard, target condition, TP/FP/FN/TN, threshold, QUADAS-3 ratings. Optional = [optional items / 任意項目: 例) funding source, conflict of interest, language, time interval between index test and reference standard].

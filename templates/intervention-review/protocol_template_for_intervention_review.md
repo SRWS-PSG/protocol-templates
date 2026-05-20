@@ -26,6 +26,8 @@ notes-after-punctuation: true
 >
 > Note は作成中の補助説明です。提出版や登録版では、必要に応じて削除してください。
 > メンターの所属は `https://docs.google.com/document/d/1v3R5iXCcbCAtpSlzbRUL09VJAFqseUaaiO61AQdxugA/edit?usp=sharing` を参照してください。
+>
+> ライセンス: 本テンプレートは [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) で公開されています。出典として Zenodo DOI を明記すれば、利用・改変・再配布が可能です。
 
 \newpage
 
