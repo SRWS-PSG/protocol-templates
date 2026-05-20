@@ -1,0 +1,30 @@
+/* Base typography: Times New Roman for Latin, MS Mincho for Japanese,
+   1.5 line spacing. Mirrors the reference.docx defaults. */
+html, body {
+  font-family: "Times New Roman", "MS Mincho", "ＭＳ 明朝", serif;
+  line-height: 1.5;
+}
+
+/* Editing aids — both notes and [ ... ] placeholders render in light blue,
+   matching the legacy Google Doc convention. */
+:root {
+  --editing-aid-color: #4FC3F7; /* light cyan-blue */
+}
+
+.note,
+.note p,
+.note li,
+.placeholder {
+  color: var(--editing-aid-color);
+}
+
+.note {
+  border-left: 3px solid var(--editing-aid-color);
+  padding: 0.4em 0.8em;
+  margin: 0.6em 0;
+  background: rgba(79, 195, 247, 0.06);
+}
+
+.placeholder {
+  font-weight: 600;
+}

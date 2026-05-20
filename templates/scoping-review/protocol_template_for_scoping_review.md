@@ -27,21 +27,15 @@ notes-after-punctuation: true
 > まず `2. Research question` で PCC (Population / Concept / Context) を決め、次に `3.3 Eligibility criteria` の各サブセクション、`Appendices` の検索式、`3.5 Charting the data` の抽出項目を埋めると進めやすいです。固定文は原則そのまま使えますが、レビュー内容に合わない場合はメンターに確認して修正してください。
 >
 > Note は作成中の補助説明です。提出版や登録版では、必要に応じて削除してください。
-メンターの所属は `https://docs.google.com/document/d/1v3R5iXCcbCAtpSlzbRUL09VJAFqseUaaiO61AQdxugA/edit?usp=sharing` を参照してください。
+> メンターの所属は `https://docs.google.com/document/d/1v3R5iXCcbCAtpSlzbRUL09VJAFqseUaaiO61AQdxugA/edit?usp=sharing` を参照してください。
 
+\newpage
 
 # Title
 
-Title: [review title / レビュータイトル: 対象者 (Population)、コンセプト (Concept)、文脈 (Context) が分かる短い英語表現]: a scoping review protocol
+Title: [review title / レビュータイトル: 対象者 (Population)、コンセプト (Concept)、コンテクスト (Context) が分かる短い英語表現]: a scoping review protocol
 
 > Note: If this protocol is an update of a previously published scoping review, append "(update)" to the title and set `is-update: true` in the YAML front-matter.
-
-## Registration
-
-Registration: [OSF registration / OSF 登録: e.g. osf.io/xxxxx]
-
-> Note: Register the scoping review protocol on the Open Science Framework (OSF, [https://osf.io/](https://osf.io/)). PROSPERO does not accept scoping review protocols [@peters2022bestpractice].
-
 
 ## Authors:
 
@@ -55,7 +49,7 @@ E-mail: [e-mail / 連絡著者の連絡先メールアドレス]
 
 Author contributions:
 
-[guarantor initials / 連絡責任者のイニシャル] is the guarantor. [drafting author initials / 原稿ドラフト担当者のイニシャル] drafted the manuscript. All authors contributed to the development of the eligibility (PCC) criteria and the data-charting items. [search strategy author initials / 検索式担当者のイニシャル] developed the search strategy. [content expert initials / 臨床・方法論の専門家のイニシャル] provided expertise on [expertise area / 専門領域: target population, concept, methodology, etc.]. All authors read, provided feedback and approved the final manuscript.
+[guarantor initials / 連絡責任者のイニシャル] is the guarantor. [drafting author initials / 原稿ドラフト担当者のイニシャル] drafted the manuscript. [search strategy author initials / 検索式担当者のイニシャル] developed the search strategy. [content expert initials / 臨床・方法論の専門家のイニシャル] provided expertise on [expertise area / 専門領域: target population, concept, methodology, etc.]. All authors read, provided feedback and approved the final manuscript.
 
 \newpage
 
@@ -85,6 +79,7 @@ Author contributions:
 > 3. Therefore, we will conduct a scoping review on this topic
 >
 > GPTs that helps draft a background interactively: [https://chatgpt.com/g/g-YF7pcAKdG-background-editor](https://chatgpt.com/g/g-YF7pcAKdG-background-editor)
+> Add a reference to every statement as needed.
 
 # 2. Research question
 
@@ -92,7 +87,7 @@ Using the PCC (Population, Concept, Context) framework, we state the questions t
 
 - P (Population): [participants / 対象者: disease, condition, age range, care setting, etc.]
 - C (Concept): [concept / コンセプト: the core concept the review will map — intervention, assessment, phenomenon, experience, etc. Specify whether the concept is defined by a fixed **terminology** or by a broader **concept**]
-- C (Context): [context / 文脈: setting, region, time period, cultural background, etc. that bound the question]
+- C (Context): [context / コンテクスト: setting, region, time period, cultural background, etc. that bound the question]
 
 Review questions:
 
@@ -102,7 +97,7 @@ Review questions:
 
 ## Keywords
 
-List up to 5 keywords, in alphabetical order, separated by semicolons and a space. Ideally these should differ from words appearing in the title or abstract.
+> Note: List up to 5 keywords, in alphabetical order, separated by semicolons and a space. Ideally these should differ from words appearing in the title or abstract.
 
 [keywords / キーワード: e.g. concept; intervention; population; scoping review; setting]
 
@@ -110,13 +105,13 @@ List up to 5 keywords, in alphabetical order, separated by semicolons and a spac
 
 ## 3.1 Protocol
 
-This review follows the best-practice guidance for scoping review protocols by Peters et al. [@peters2022bestpractice] and the JBI methodological guidance for the conduct of scoping reviews [@peters2020jbi;@peters2020jbimanual]. Reporting of the eventual review will follow the PRISMA Extension for Scoping Reviews (PRISMA-ScR) [@tricco2018prismascr]. This protocol uses the scoping review protocol template maintained by SRWS-PSG (repository: [https://github.com/SRWS-PSG/protocol-templates](https://github.com/SRWS-PSG/protocol-templates); Zenodo concept DOI: 10.5281/zenodo.&lt;TBD&gt;). The protocol will be made publicly available on OSF.io ([https://osf.io/](https://osf.io/)).
+This protocol was prepared with reference to the best-practice guidance for scoping review protocols by Peters et al. [@peters2022bestpractice], the JBI methodological guidance for the conduct of scoping reviews [@peters2020jbi;@peters2020jbimanual], and the PRISMA Extension for Scoping Reviews (PRISMA-ScR) [@tricco2018prismascr]. This protocol uses the scoping review protocol template maintained by SRWS-PSG (repository: [https://github.com/SRWS-PSG/protocol-templates](https://github.com/SRWS-PSG/protocol-templates); Zenodo concept DOI: 10.5281/zenodo.&lt;TBD&gt;). The protocol will be made publicly available on OSF.io ([https://osf.io/](https://osf.io/)).
 
-We adopt the JBI five-stage framework (Stage 1: identifying the research question / Stage 2: identifying relevant studies / Stage 3: study selection / Stage 4: charting the data / Stage 5: collating, summarizing, and reporting the results) [@peters2020jbi;@arksey2005scoping;@levac2010scoping].
+We adopt the JBI five-stage framework (Stage 1: identifying the research question / Stage 2: identifying relevant studies / Stage 3: study selection / Stage 4: charting the data / Stage 5: collating, summarizing, and reporting the results) [@peters2020jbimanual].
 
 ## 3.2 Stage 1: Identifying the research question
 
-Stage 1 corresponds to the PCC-based research questions stated in §2. See §2 for details.
+See §2 for the research questions.
 
 ## 3.3 Stage 2: Identifying relevant studies (eligibility criteria)
 
@@ -132,23 +127,17 @@ Exclusion criteria: [participant exclusion criteria / 対象者の除外基準: 
 
 ### 3.3.2 Concept
 
-[concept overview / コンセプトの概要: describe the core concept of the review in prose]
-
-![Defining the concept in a scoping review: at Stage 2, decide explicitly whether the concept is defined by a narrow **terminology** (e.g. the word "tree / 木") or by a broader **concept** (e.g. forest, woodland, forestry).](media/scoping_concept_focus.png){#fig:concept-focus width=100%}
-
-> Note: As shown above, state clearly whether you are defining the Concept by a narrow **terminology** or by a broader **concept** that includes related and derived terms. This decision drives the breadth of the search strategy and the inclusion judgement.
-
 Inclusion criteria: [concept inclusion criteria / コンセプトの組入基準: the range of terms or related concepts that will be included]
 
 Exclusion criteria: [concept exclusion criteria / コンセプトの除外基準: terms or related concepts that will be excluded]
 
 ### 3.3.3 Context
 
-[context overview / 文脈の概要: setting, region, time period, cultural background, etc.]
+[context overview / コンテクストの概要: setting, region, time period, cultural background, etc.]
 
-Inclusion criteria: [context inclusion criteria / 文脈の組入基準: e.g. acute-care hospitals, home setting, high-income countries, specific health-care systems]
+Inclusion criteria: [context inclusion criteria / コンテクストの組入基準: e.g. acute-care hospitals, home setting, high-income countries, specific health-care systems]
 
-Exclusion criteria: [context exclusion criteria / 文脈の除外基準: e.g. animal experiments, exclusion of specific cultural settings]
+Exclusion criteria: [context exclusion criteria / コンテクストの除外基準: e.g. animal experiments, exclusion of specific cultural settings]
 
 ### 3.3.4 Types of sources
 
@@ -167,7 +156,7 @@ Search date range: [search date range / 検索対象期間: e.g. inception to YY
 We will search the following databases.
 
 1. MEDLINE (PubMed)
-2. the Cochrane Central Register of Controlled Trials (Cochrane Library)
+2. the Cochrane Central Register of Controlled Trials (CENTRAL)
 3. Embase (Dialog)
 
 See Appendices 1, 2, and 3 for the search strategies.
@@ -193,17 +182,17 @@ We will limit included documents by the following report characteristics.
 
 ## 3.4 Stage 3: Study selection
 
-Two independent reviewers ([screening reviewers / スクリーニング担当者のイニシャル: initials of two reviewers]) will screen titles and abstracts using the Tiab Review plugin [@Kataoka2026-tb], followed by full-text assessment for eligibility. We will contact original authors when key information needed for eligibility decisions is missing (e.g. only an abstract is available). Disagreements between the two reviewers will be resolved by discussion, with a third reviewer ([third reviewer / 第三レビュアーのイニシャル: initials]) acting as arbitrator if discussion does not resolve them. The search results and inclusion process will be reported in the final scoping review using a PRISMA-ScR flow diagram [@tricco2018prismascr].
+Two independent reviewers ([screening reviewers / スクリーニング担当者のイニシャル: initials of two reviewers]) will screen titles and abstracts using the Tiab Review plugin [@Kataoka2026-tb]. All records flagged by either reviewer will proceed to full-text review, after which the two reviewers will independently assess eligibility based on the full text. We will contact original authors when eligibility cannot be determined (e.g. when only an abstract is available). Disagreements between the two reviewers will be resolved by discussion, with a third reviewer ([third reviewer / 第三レビュアーのイニシャル: initials]) consulted as needed. The search results and inclusion process will be reported in the final scoping review using a PRISMA-ScR flow diagram [@tricco2018prismascr].
 
 > Note: If screening is done by more than two reviewers, write "two of three independent reviewers..." instead.
 
 ## 3.5 Stage 4: Charting the data
 
-Two reviewers ([data extraction reviewers / データ抽出担当者のイニシャル: initials of two reviewers]) will independently extract data from the included studies using a standardized data-charting form (see Appendix 6). The draft form will be pilot-tested on 10 randomly selected studies, and revised as needed.
+Two reviewers ([data extraction reviewers / データ抽出担当者のイニシャル: initials of two reviewers]) will independently extract data from the included studies. The extracted data will include specific details about participants, concept, context, study methods, and key findings relevant to the review questions. The data-charting form (see Appendix 6) will be pilot-tested in advance on 10 randomly selected studies.
 
 > Note: Scoping reviews do not typically extract individual study outcomes for quantitative synthesis [@peters2022bestpractice]. Instead, specify the **data items** required to answer the review questions in the Appendix 6 charting form, and prioritize them as required vs. optional items.
 
-Disagreements will be resolved by discussion, with a third reviewer ([third reviewer / 第三レビュアーのイニシャル: initials]) acting as arbitrator if needed. We will contact original authors to request additional information when needed.
+Disagreements will be resolved by discussion, with a third reviewer ([third reviewer / 第三レビュアーのイニシャル: initials]) consulted as needed. We will contact original authors to request additional information when needed.
 
 For efficiency, AI may be used to assist data extraction as appropriate [@Gartlehner2025-cm;@Kataoka2025-kq]. The actual use of AI will be reported in accordance with the Position Statement on Artificial Intelligence (AI) Use in Evidence Synthesis Across Cochrane, the Campbell Collaboration, JBI, and the Collaboration for Environmental Evidence 2025 [@Flemyng2025-ru].
 
@@ -215,11 +204,11 @@ We will synthesize the extracted data qualitatively, presenting results in a for
 
 1. A PRISMA-ScR flow diagram (inclusion process)
 2. A characteristics table of included studies (columns for Author / Year / Country / Population / Concept / Context / Methodology / Key findings; see Appendix 6)
-3. [planned visualisations / 提示予定の図表: e.g. evidence gap map, bubble plot, matrix map, timeline, narrative summary — choose the visualisation that fits the topic, using `cesm.12096` Table 3 [@fredlund2024egm] and the worked example in `s13643-023-02309-y` [@south2023visualisation] as references]
+3. [planned visualisations / 提示予定の図表: e.g. evidence gap map, bubble plot, matrix map, timeline, narrative summary — choose the visualisation that fits the topic, using Table 3 in Fredlund et al. [@fredlund2024egm] and the worked example by South et al. [@south2023visualisation] as references]
 
 > Note (Meta-bias, optional): Scoping reviews do not typically assess meta-bias (e.g. publication bias) [@peters2022bestpractice]. If you will do so, describe the method here: [meta-bias plan / メタバイアス評価計画].
 
-> Note (Confidence in cumulative evidence, optional): There is no established GRADE adaptation for scoping reviews [@peters2022bestpractice]. If you will assess the confidence in the cumulative evidence, describe the method and justification: [confidence assessment plan / 確実性評価計画].
+> Note (Confidence in cumulative evidence, optional): There is no established GRADE adaptation for scoping reviews [@peters2022bestpractice].
 
 # 4. Conflict of Interest
 
@@ -235,8 +224,6 @@ This work was self-funded.
 
 ::: {#refs}
 :::
-
-&nbsp;
 
 \newpage
 # Appendices
@@ -293,7 +280,7 @@ Mapping of where this protocol addresses each item of the Peters et al. best-pra
 |---|---|---|
 | 1a | Title — Identification (states this is a scoping review protocol) | # Title |
 | 1b | Title — Update (whether this is an update of a previous review) | # Title Note + YAML `is-update` |
-| 2 | Title — Registration (registry and registration number) | ## Registration |
+| 2 | Title — Registration (registry and registration number) | ## 3.1 Protocol (OSF publication mentioned) |
 | 3a | Authors — Contact (name, affiliation, e-mail, address) | ## Authors (Corresponding author, Address, E-mail) |
 | 3b | Authors — Contributions (includes guarantor) | ## Authors (Author contributions) |
 | 4 | Amendments (amendment plan and history) | ## Amendments |

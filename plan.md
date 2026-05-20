@@ -254,6 +254,94 @@ intervention-review との重要な相違点:
 
 ---
 
+## 10. Step 7: Diagnostic test accuracy (DTA) review template (v1.0)
+
+### 10.1 スコープ
+
+診断精度 (Diagnostic Test Accuracy; DTA) 系統的レビュー用プロトコルテンプレートを新規追加。元 docx は [resources/20200304_診断精度SRのプロトコルテンプレ.docx](resources/20200304_診断精度SRのプロトコルテンプレ.docx)（2020-03-04 版、A4 で約 4 ページの簡易テンプレ）。当該 docx は当時の旧版で、以下が古いまたは欠落している:
+
+- 方法論引用が **Cochrane DTA Handbook v1.0 (2013)** で止まっている → v2.0 (2023, Deeks/Bossuyt/Leeflang/Takwoingi 編 [@deeks2023dtahandbook]) に更新
+- バイアスリスク評価が **QUADAS-2 (2011)** のみ → 2026 年 2 月公開の **QUADAS-3** [@whiting2026quadas3]（および比較精度レビュー用 **QUADAS-C** [@yang2021quadasc]、AI 検査用 **QUADAS-AI** development [@guni2024quadasai]）に拡張
+- **PRISMA-DTA** [@mcinnes2018prismadta] および E&E [@salameh2020prismadtaee] への準拠が明示されていない
+- **GRADE for DTA** が "SoF テーブルを作る" としか書かれておらず、GRADE 21 part 1/2 (2020) [@schunemann2020grade21p1;@schunemann2020grade21p2] への参照がない
+- 解析ソフトが **RevMan 5.1 + Stata 16.1** で止まっている → **MetaDTA** ([https://crsu-metadta.le.ac.uk/MetaDTA/](https://crsu-metadta.le.ac.uk/MetaDTA/)) [@patel2021metadta] に変更。University of Leicester CRSU が提供する無料のブラウザ Shiny アプリで、bivariate モデルによる pooled sensitivity/specificity、SROC、forest plot、対話的な感度分析を生成できる。R/Stata のインストール不要
+- イントロ・著者欄・付録の体裁が intervention/scoping 版と揃っていない（YAML front-matter、`[English label / 日本語ラベル: ...]` プレースホルダ、`> Note:` 構造などが存在しない）
+
+intervention-review / scoping-review との重要な相違点:
+
+- **フレームワーク**: PICO ではなく **Participants / Index test / (Comparator) / Reference standard / Target condition** (DTA Handbook v2 ch.4)。`§2 Research question` および `§3.2 Inclusion criteria` のサブセクション構成をこれに合わせる。元 docx の "PICOT" 表記は廃止
+- **アウトカム**: 2×2 セル数 (TP / FP / TN / FN) から導かれる **感度・特異度** が primary。有害事象は intervention 版同様 secondary として残す。
+- **研究デザイン**: コホート研究、RCT の二次解析、case-control 研究を組み入れる（case series / case report は除外）。**paired vs unpaired comparative design** の扱いを `> Note:` で明示（QUADAS-C の前提）
+- **検索戦略**: MEDLINE での **DTA フィルター不採用**（感度が低く Cochrane DTA Handbook v2 ch.6 で非推奨）。代わりに condition + index test ブロックの AND 検索のみ。RCT フィルターは付けない（介入版 Appendix 3 の Dialog RCT filter ブロックも DTA 版では削除）
+- **バイアスリスク評価**: 既定で **QUADAS-3**（2026-02 公開、QUADAS-2 を置換）。Comparative accuracy review の場合は **QUADAS-C** を併用する `> Note:` を §3.5 に置く。Index test が AI/ML モデルの場合は **QUADAS-AI**（development) + STARD-AI 2025 [@sounderajah2025stardai] を併用する `> Note:` を追記
+- **合成方法**: フォレストプロット（感度・特異度ペア表示）、SROC、**bivariate model** [@reitsma2005bivariate] / **HSROC model** [@rutter2001hsroc] を併記。同一閾値とみなせる場合は bivariate、閾値ばらつく場合は HSROC、研究数が少なすぎる（典型的に < 4）場合は記述統合のみ、という分岐を `> Note:` で明示
+- **異質性評価**: SROC・forest plot 目視 + メタ回帰（閾値、対象集団、index test バージョンなど）。`I²` の数値カットオフは DTA では推奨されていないため、intervention 版 §3.10 の "I² 0–40%..." 文言は使わない
+- **出版バイアス**: ファンネル非対称検定 (Egger 等) は DTA では非推奨 [@deeks2023dtahandbook]。臨床試験登録 / レジストリ検索 + 未出版データへの著者問い合わせのみ
+- **登録先**: PROSPERO は DTA レビューを受け付ける（intervention 版と同様）。`§3.1 Protocol` で PROSPERO 登録予定とする
+- **解析ソフト**: **MetaDTA** [@patel2021metadta] をデフォルトとする。bivariate モデルのフィット・forest plot・SROC・感度分析がブラウザ上で完結し、R/Stata のセットアップが不要なため SRWS-PSG メンティの初学者にも導入しやすい。HSROC が必要な場合は R `mada` 等の併用を Note で言及。Cochrane DTA Handbook v2 [@deeks2023dtahandbook] でも MetaDTA は推奨ツールとして掲載されている
+- **新規 Appendix 6**: 2×2 表 + 研究特性チャーティング例（Author/Year/Country/Population/Setting/Index test/Reference standard/Target condition/TP/FP/FN/TN/Threshold/QUADAS-3 ratings）
+- **新規 Appendix 7**: PRISMA-DTA + QUADAS-3 セルフチェックチェックリスト（scoping 版 Appendix 7 と同形式。本プロトコルの各項目がどの見出しで満たされているかを示す）
+
+### 10.2 成果物（リポジトリ内）
+
+v1.0 ドラフトの 1 周目を生成済み（2026-05-20）。`pwsh ./templates/dta-review/build.ps1` で ja/en の docx + html が再生成できることを確認済み（citeproc warning なし）。
+
+- ソース (ja): [templates/dta-review/protocol_template_for_dta_review.ja.md](templates/dta-review/protocol_template_for_dta_review.ja.md)
+- ソース (en): [templates/dta-review/protocol_template_for_dta_review.md](templates/dta-review/protocol_template_for_dta_review.md)
+- 文献データ: [templates/dta-review/references.bib](templates/dta-review/references.bib) — **intervention / scoping 版とは独立した別ファイル**。`[§9.2](#92-成果物リポジトリ内)` のポリシーに従い、各エントリは PubMed/DOI 起点で検証済み（§10.4 のリスト参照）
+- ビルドスクリプト: [templates/dta-review/build.ps1](templates/dta-review/build.ps1) — scoping 版をコピーし、`$sources` のパスを差し替えた（reference.docx は intervention 版を共有）
+- フィルター: [templates/dta-review/filters/highlight.lua](templates/dta-review/filters/highlight.lua), [templates/dta-review/filters/style.css](templates/dta-review/filters/style.css) — scoping 版から流用
+- Vancouver CSL: [templates/dta-review/vancouver.csl](templates/dta-review/vancouver.csl) — scoping 版からコピー
+- 生成 docx 例: `templates/dta-review/build/protocol_template_for_dta_review.{ja,}.docx`（gitignore、`pwsh templates/dta-review/build.ps1` で再生成）
+
+未着手（次回タスク）:
+
+- Google Docs 投入用コメント定義: `templates/dta-review/comments.yaml` — 元 docx の青字コメント（"絶対に直接編集しないこと！" などのテンプレ運用注記、`03_05` 等のメンタリングセッション番号アンカー）はほとんどがレビュー運用上の注意事項で、本テンプレでは `> Note:` ブロックに吸収済み。DTA 特有の Google Docs コメント（"QUADAS-3 のドメイン別判定をどこに書くか" "閾値が混在する場合の解析方針の選び方" "MetaDTA でのデータ入力フォーマット" など 3–5 件）を新規に書き起こす予定
+- [tools/build_gdoc.py](tools/build_gdoc.py) の `--template` 選択肢に `dta-review` を追加（§10.3 参照、コメント YAML 完成後）
+
+### 10.3 共通ツールの追従
+
+[tools/build_gdoc.py](tools/build_gdoc.py) の `--template` 選択肢に `dta-review` を追加。`§9.3` で導入済みの `<template>:<lang>` キー方式にそのまま乗る（追加マイグレーションは不要）。
+
+### 10.4 references.bib の主要エントリ（投入予定、Web で検証済み — 2026-05-20 時点）
+
+> Note: いずれも DTA テンプレに必須。`@page2021prisma`, `@Kataoka2026-tb`, `@Kataoka2025-kq`, `@Gartlehner2025-cm`, `@Flemyng2025-ru` は intervention/scoping 版 bib からそのまま再録する。
+
+| BibTeX key | 引用 | 用途 |
+|---|---|---|
+| `deeks2023dtahandbook` | Deeks JJ, Bossuyt PM, Leeflang MM, Takwoingi Y (eds). *Cochrane Handbook for Systematic Reviews of Diagnostic Test Accuracy* v2.0 (Jul 2023). [training.cochrane.org/handbook-diagnostic-test-accuracy](https://training.cochrane.org/handbook-diagnostic-test-accuracy) | §3.1 Protocol, §3.6 解析, §3.12 出版バイアス |
+| `mcinnes2018prismadta` | McInnes MDF et al. JAMA 2018;319(4):388-396. doi:10.1001/jama.2017.19163. PMID 29362800 | §3.1 Protocol（報告ガイドライン）、§3.4 PRISMA-DTA フロー図 |
+| `salameh2020prismadtaee` | Salameh JP et al. BMJ 2020;370:m2632. doi:10.1136/bmj.m2632 | §3.1 Protocol（PRISMA-DTA E&E）|
+| `whiting2011quadas2` | Whiting PF et al. Ann Intern Med 2011;155(8):529-36. doi:10.7326/0003-4819-155-8-201110180-00009. PMID 22007046 | §3.5 RoB（移行期の参照）|
+| `whiting2026quadas3` | Whiting PF et al. Ann Intern Med 2026;179(4):548-555. doi:10.7326/ANNALS-25-02104 | §3.5 RoB（既定ツール）|
+| `yang2021quadasc` | Yang B et al. Ann Intern Med 2021;174(11):1592-1599. doi:10.7326/M21-2234. PMID 34698503 | §3.5 RoB（比較精度レビュー用 Note）|
+| `guni2024quadasai` | Guni A, Sounderajah V, Whiting P, et al. JMIR Res Protoc 2024;13:e58202. doi:10.2196/58202. PMID 39293047 | §3.5 RoB（AI 検査用 Note、development protocol）|
+| `sounderajah2021quadasaiposition` | Sounderajah V et al. Nat Med 2021;27(10):1663-1665. doi:10.1038/s41591-021-01517-0. PMID 34635854 | §3.5 RoB（AI 検査用 Note、position statement）|
+| `bossuyt2015stard` | Bossuyt PM et al. BMJ 2015;351:h5527. doi:10.1136/bmj.h5527. PMID 26511519 | §3.4.2 データ抽出（一次研究の reporting 基準として）|
+| `sounderajah2025stardai` | Sounderajah V et al. STARD-AI. Nat Med 2025. doi:10.1038/s41591-025-03953-8 | §3.5 RoB（AI 検査用 Note）|
+| `reitsma2005bivariate` | Reitsma JB et al. J Clin Epidemiol 2005;58(10):982-990. doi:10.1016/j.jclinepi.2005.02.022. PMID 16168343 | §3.6 解析（同一閾値時）|
+| `rutter2001hsroc` | Rutter CM, Gatsonis CA. Stat Med 2001;20(19):2865-2884. doi:10.1002/sim.942. PMID 11568945 | §3.6 解析（閾値ばらつき時）|
+| `schunemann2020grade21p1` | Schünemann HJ et al. J Clin Epidemiol 2020;122:129-141. doi:10.1016/j.jclinepi.2019.12.020. PMID 32058070 | §4 Summary of findings（GRADE 21 part 1）|
+| `schunemann2020grade21p2` | Schünemann HJ et al. J Clin Epidemiol 2020;122:142-152. doi:10.1016/j.jclinepi.2019.12.021. PMID 32058069 | §4 Summary of findings（GRADE 21 part 2）|
+| `patel2021metadta` | Patel A, Cooper N, Freeman S, Sutton A. *Res Synth Methods* 2021;12(1):34-44. doi:10.1002/jrsm.1439. PMID 32706182 | §3.12 解析ソフト（MetaDTA、bivariate モデルの web 実装）|
+
+QUADAS-AI は 2026-05-20 時点で正式版コンセンサスステートメントは未公開。テンプレでは "in development" と注記し、Sounderajah 2021 position + Guni 2024 protocol の 2 本を併記する。
+
+### 10.5 ユーザー側で実施
+
+1. 上記の方針で良いか確認（特に §10.1 の「QUADAS-3 を既定に、QUADAS-2 は移行期参照のみ」「DTA フィルター不採用」「出版バイアス検定なし」の 3 点）
+2. 上記決定が固まったら Claude にテンプレ本体（`.ja.md` / `.md` / `references.bib` / `build.ps1` / `comments.yaml` / `filters/`）の生成を依頼
+3. 生成 docx を Word で開いて以下を確認:
+   - QUADAS-3 のドメイン構造に関する `> Note:` が §3.5 に収まっているか
+   - Appendix 6 の 2×2 表テンプレが崩れていないか
+   - Appendix 7 のチェックリスト表が崩れていないか
+   - 移植したコメントが期待した見出し位置に付いているか
+4. 必要なら `comments.yaml` のアンカー文字列を修正
+5. Google Docs にアップロードしてレビュー: `python tools/build_gdoc.py --template dta-review --lang ja`
+6. レビュー完了後、CHANGELOG.md に `dta-review v1.0` の項目を追加
+
+---
+
 ## 付録 A: V.2 メタデータ（凍結アーカイブ）
 
 protocols.io V.2 のPDFバックアップから抽出（[resources/protocol-template-for-intervention-review-protocolio.pdf](resources/protocol-template-for-intervention-review-protocolio.pdf)）。今後も resolvable。

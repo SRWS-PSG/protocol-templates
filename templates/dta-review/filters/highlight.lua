@@ -66,9 +66,9 @@ end
 
 -- Walk inline lists and wrap [ ... ] placeholders in a Span.
 -- A placeholder is detected as a balanced bracket pair that contains
--- a "/" (matches both "[english / 日本語: 内容]" and the short form
--- "[english / 日本語]"), so we don't accidentally wrap citation keys
--- like [@page2021prisma] or generic bracketed text.
+-- both a "/" and a ":" (matches "[english / 日本語: 内容]"), so we don't
+-- accidentally wrap citation keys like [@page2021prisma] or generic
+-- bracketed text.
 local function wrap_placeholders(inlines)
   local out = pandoc.List({})
   local i, n = 1, #inlines
@@ -114,7 +114,7 @@ local function wrap_placeholders(inlines)
 
         if found_close then
           local inner_text = pandoc.utils.stringify(collected)
-          if inner_text:find("/") then
+          if inner_text:find("/") and inner_text:find(":") then
             out:insert(pandoc.Span(collected,
               pandoc.Attr("", {"placeholder"}, {["custom-style"] = "Placeholder"})))
           else

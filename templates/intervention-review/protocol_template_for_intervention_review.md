@@ -28,6 +28,8 @@ notes-after-punctuation: true
 > Note は作成中の補助説明です。提出版や登録版では、必要に応じて削除してください。
 メンターの所属は `https://docs.google.com/document/d/1v3R5iXCcbCAtpSlzbRUL09VJAFqseUaaiO61AQdxugA/edit?usp=sharing` を参照してください。
 
+\newpage
+
 # Title
 
 Title: [review title / レビュータイトル: 対象者、介入、比較対照、主要アウトカムが分かる短い英語表現]: a systematic review and meta-analysis protocol
