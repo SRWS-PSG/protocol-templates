@@ -1,0 +1,32 @@
+# Comments to be attached to the rendered Google Doc for the dta-review
+# (diagnostic test accuracy review) protocol template.
+#
+# One body (Japanese) is attached to BOTH the ja and en Google Docs, using
+# language-specific anchor strings to locate the insertion point in each master.
+#
+# Schema (one entry per comment):
+#   - id:          stable identifier (kebab-case). Required.
+#     anchor:      text the comment is anchored to. Must appear verbatim in the body.
+#       ja:        Japanese anchor string (matched against the ja master).
+#       en:        English anchor string (matched against the en master). Omit to
+#                  attach the comment only to the ja Doc.
+#     occurrence:  (optional, default 1) which occurrence of the anchor string to attach to.
+#     body: |
+#       Japanese comment text shown in both ja and en Google Docs.
+#     audience:    (optional) free-form tags, e.g. [author, mentor, reference].
+#
+# Notes:
+#   - Anchors target SECTION HEADINGS (which are in English in both ja and en
+#     masters) so that ja_anchor == en_anchor for most entries.
+
+comments:
+  # --- References -------------------------------------------------------
+  - id: c-references-bib-github
+    anchor:
+      ja: "# References"
+      en: "# References"
+    body: |
+      参考文献の BibTeX ソース (GitHub):
+      https://github.com/SRWS-PSG/protocol-templates/blob/main/templates/dta-review/references.bib
+      引用文献を追加・修正するときはこのファイルを利用してください。
+    audience: [author, reference]

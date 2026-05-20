@@ -69,6 +69,10 @@ TEMPLATES: dict[str, dict[str, str]] = {
         "subdir": "scoping-review",
         "master_stem": "protocol_template_for_scoping_review",
     },
+    "dta-review": {
+        "subdir": "dta-review",
+        "master_stem": "protocol_template_for_dta_review",
+    },
 }
 
 

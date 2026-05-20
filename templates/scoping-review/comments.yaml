@@ -197,3 +197,14 @@ comments:
     body: |
       本表は Peters MDJ et al. *JBI Evid Synth*. 2022;20(4):953-968 (DOI: 10.11124/JBIES-21-00242) の Table 1 を再構成したものです。投稿前に各項目が本プロトコル内のどこで満たされているかを確認してください。
     audience: [author, reference]
+
+  # --- References -------------------------------------------------------
+  - id: c-references-bib-github
+    anchor:
+      ja: "# References"
+      en: "# References"
+    body: |
+      参考文献の BibTeX ソース (GitHub):
+      https://github.com/SRWS-PSG/protocol-templates/blob/main/templates/scoping-review/references.bib
+      引用文献を追加・修正するときはこのファイルを利用してください。
+    audience: [author, reference]

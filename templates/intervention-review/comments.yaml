@@ -294,3 +294,14 @@ comments:
       https://www.facebook.com/groups/339218557733680/permalink/345693490419520/
       https://www.facebook.com/groups/339218557733680/permalink/345693750419494/
     audience: [reference]
+
+  # --- References -------------------------------------------------------
+  - id: c-references-bib-github
+    anchor:
+      ja: "# References"
+      en: "# References"
+    body: |
+      参考文献の BibTeX ソース (GitHub):
+      https://github.com/SRWS-PSG/protocol-templates/blob/main/templates/intervention-review/references.bib
+      引用文献を追加・修正するときはこのファイルを利用してください。
+    audience: [author, reference]
