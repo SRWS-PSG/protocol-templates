@@ -26,7 +26,7 @@ abstract: |
   Systematic-review (SR) teams need protocol templates that combine current
   reporting guidelines with practical scaffolding for mentoring. We describe
   the SRWS-PSG protocol templates: a Markdown-based, version-controlled
-  collection covering three SR types[: ]intervention reviews (V.3, successor
+  collection covering three SR types: intervention reviews (V.3, successor
   to a protocols.io V.2 template), scoping reviews (v2.0, structured around
   the JBI five-stage methodology and the Peters et al. 2022 best-practice
   checklist), and diagnostic test accuracy (DTA) reviews (v2.0, aligned with
@@ -44,6 +44,7 @@ csl: vancouver.csl
 link-citations: true
 notes-after-punctuation: true
 ---
+
 # 1. Background
 
 Systematic-review (SR) protocols document the planned methods of a review
@@ -61,11 +62,16 @@ Cochrane DTA Handbook v2.0 [@deeks2023dtahandbook]).
 
 For SR teams new to protocol writing, blank document templates and
 chapter-length guidance documents are a high barrier. The Scientific Research
-WorkS Peer Support Group (SRWS-PSG) is a fully online, SR
-mentoring community, operating since 2019 on a self-sustaining fee-funded
-model, that supports health-care professionals through the full SR workflow from protocol development to manuscript preparation. [@kataoka2025jmir]. SRWS-PSG had previously maintained three protocol templates—for
-intervention, scoping, and DTA reviews
-[@kataoka2022protocolsio]. We migrated them to GitHub to (i) update the content to current methodological standards (e.g., QUADAS-3 [@whiting2026quadas3] for DTA reviews); (ii) make the templates citable through a stable reference; and (iii) enable granular, git-based version control.
+WorkS Peer Support Group (SRWS-PSG) is a fully online, SR mentoring
+community, operating since 2019 on a self-sustaining fee-funded model, that
+supports health-care professionals through the full SR workflow from
+protocol development to manuscript preparation [@kataoka2025jmir]. SRWS-PSG
+had previously maintained three protocol templates—for intervention,
+scoping, and DTA reviews [@kataoka2022protocolsio]. We migrated them to
+GitHub to (i) update the content to current methodological standards (e.g.,
+QUADAS-3 [@whiting2026quadas3] for DTA reviews); (ii) make the templates
+citable through a stable reference; and (iii) enable granular, git-based
+version control.
 
 This article describes the resulting templates—for intervention,
 scoping, and diagnostic test accuracy reviews—released as a single
@@ -105,9 +111,9 @@ templates are released under CC BY 4.0.
 
 # 3. Intervention review template
 
-The intervention review template [(V.3) succeeds the protocols.io V.2 deposit
+The intervention review template (V.3) succeeds the protocols.io V.2 deposit
 [@kataoka2022protocolsio]; it has been restructured to Markdown and updated
-to current intervention-review methodology.]
+to current intervention-review methodology.
 
 The framework is PICO (Population / Intervention / Comparator / Outcomes)
 [@shamseer2015]. The protocol-stage reporting guideline is PRISMA-P 2015
@@ -149,11 +155,13 @@ provided in Appendix 6.
 
 # 5. Diagnostic test accuracy (DTA) review template
 
-The DTA review template (v2.0) succeeds an unreleased  SRWS-PSG DTA Google Docs template that referenced the Cochrane DTA Handbook v1.0 and QUADAS-2 only; it has been rewritten in Markdown and
-updated to current DTA-review methodology.
+The DTA review template (v2.0) succeeds an unreleased SRWS-PSG DTA Google
+Docs template that referenced the Cochrane DTA Handbook v1.0 and QUADAS-2
+only; it has been rewritten in Markdown and updated to current DTA-review
+methodology.
 
-The eligibility framework is PIRT [(Participants, Index test, [Comparator],
-Reference standard, Target condition)] [@deeks2023dtahandbook ch. 4], not
+The eligibility framework is PIRT (Participants, Index test, [Comparator],
+Reference standard, Target condition) [@deeks2023dtahandbook ch. 4], not
 PICO. The methodological reference is the Cochrane Handbook for
 Systematic Reviews of Diagnostic Test Accuracy, version 2.0 (July 2023)
 [@deeks2023dtahandbook]. Reporting is to PRISMA-DTA [@mcinnes2018prismadta]
