@@ -67,25 +67,20 @@ model, that supports health-care professionals through the full SR workflow from
 intervention, scoping, and DTA reviews
 [@kataoka2022protocolsio]. We migrated them to GitHub to (i) update the content to current methodological standards (e.g., QUADAS-3 [@whiting2026quadas3] for DTA reviews); (ii) make the templates citable through a stable reference; and (iii) enable granular, git-based version control.
 
-This article describes the resulting family of SRWS-PSG protocol
-templates [(intervention, scoping, and diagnostic test accuracy)] released
-as a single Markdown-based, version-controlled, CC BY-licensed
-collection on GitHub. The V.3 release consolidates two updates: (i) mentoring-practice feedback accumulated since the protocols.io V.2 template,
-including the recurring need for scoping- and DTA-review scaffolding
-identified above, and (ii) the most current methodological references at
-the time of writing[:] Cochrane Handbook v6.5 (August 2024)
-[@higgins2024cochrane] for intervention reviews, the Peters et al. 2022
-best-practice checklist [@peters2022bestpractice] and JBI methodology
-[@peters2020jbi; @peters2020jbimanual] for scoping reviews, and the Cochrane
-DTA Handbook v2.0 [@deeks2023dtahandbook] together with QUADAS-3
-[@whiting2026quadas3] for DTA reviews.
+This article describes the resulting templates—for intervention,
+scoping, and diagnostic test accuracy reviews—released as a single
+Markdown-based, version-controlled, CC BY-licensed collection on
+GitHub. The templates are aligned with current methodological
+references: Cochrane Handbook v6.5 (August 2024)
+[@higgins2024cochrane] for intervention reviews; the Peters et al.
+2022 scoping review best-practice checklist [@peters2022bestpractice] and JBI
+methodology [@peters2020jbi; @peters2020jbimanual] for scoping
+reviews; and the Cochrane DTA Handbook v2.0 [@deeks2023dtahandbook]
+together with QUADAS-3 [@whiting2026quadas3] for DTA reviews.
 
 # 2. Design principles
 
 The three templates share a common technical and editorial backbone.
-[Throughout this article, "V.2 / V.3" preserves the protocols.io lineage
-notation for the intervention template, whereas "v1.0" follows Semantic
-Versioning for newly introduced templates.]
 
 **Source format.** Each template is authored in Markdown with a BibTeX
 bibliography. Output to docx, HTML, and PDF is generated with pandoc using a
@@ -94,8 +89,7 @@ reusable, and the output suitable for both team review (docx with comments)
 and final submission (PDF).
 
 **Independent bibliographies.** Each template owns its own `references.bib`.
-This prevents silent cross-contamination[. An] update to a citation in one
-template never changes citations in another.
+This prevents silent cross-contamination. An update to a citation in one template never changes citations in another.
 
 **Placeholder convention.** Parameters that the SR team must fill in are
 marked `[English label / 日本語ラベル: ...]`, signalling both the field and
@@ -126,22 +120,17 @@ The framework is PICO (Population / Intervention / Comparator / Outcomes)
 match the PRISMA 2020 abstract checklist (Item 2) [@page2021prisma].
 
 The methodological reference is the Cochrane Handbook for Systematic Reviews
-of Interventions, version 6.5 (August 2024) [@higgins2024cochrane],
-upgraded from the v6.0 (2019) reference in the V.2 template. Risk of bias
-for randomized trials uses RoB 2 [@sterne2019rob2]; non-randomized studies
-use ROBINS-I or an equivalent tool.
+of Interventions, version 6.5 (August 2024) [@higgins2024cochrane]. Risk of
+bias for randomized trials uses RoB 2 [@sterne2019rob2]; non-randomized
+studies use ROBINS-I or an equivalent tool.
 
 For pairwise meta-analysis, the template recommends PMA tools
 [@furukawa_pmatools], a browser-based pairwise meta-analysis web
-application that requires no R or Stata installation. This replaces the V.2
-reference to RevMan 5.4.2 and is offered as a low-friction alternative for
-SRWS-PSG trainees who do not have a statistical software workflow set up.
+application that requires no R or Stata installation.
 
-Author affiliations are not baked into the template metadata, because they
-go stale. The template instructs the user to fill in their own. The default
-author list reflects the SRWS-PSG mentoring authorship convention, in which
-the project lead serves as the corresponding author and the assigned
-mentors are co-authors.
+The default author list reflects the SRWS-PSG mentoring authorship
+convention, in which the project lead serves as the corresponding author
+and the assigned mentors are co-authors.
 
 # 4. Scoping review template
 
@@ -155,15 +144,10 @@ framework [@peters2020jbi; @peters2020jbimanual], building on the original
 Arksey & O'Malley framework [@arksey2005scoping] and Levac et al.'s
 methodological refinements [@levac2010scoping]. The protocol structure is
 aligned with the Peters et al. 2022 best-practice 17-item checklist
-[@peters2022bestpractice]; items that were missing from earlier SRWS-PSG
-scoping drafts [(registration, author contributions, amendments table,
-funder role, report characteristics)] have been added.
+[@peters2022bestpractice].
 
 A figure illustrating the JBI "terminology versus concept" decision is
-embedded at the Concept sub-section as a permanent template asset. Because
-the figure carries the methodological substance of the PCC framework and is
-relevant to every scoping protocol that uses the template, it is included in
-the template body rather than as a removable appendix.
+embedded at the Concept sub-section as a permanent template asset.
 
 Stage 5 of the JBI methodology is qualitative synthesis and visualization,
 so risk-of-bias assessment, meta-bias, and GRADE rating are flagged as
@@ -182,8 +166,7 @@ it has been rewritten to current DTA-review methodology.]
 
 The eligibility framework is PIRT [(Participants, Index test, [Comparator],
 Reference standard, Target condition)] [@deeks2023dtahandbook ch. 4], not
-PICO. The "PICOT" terminology used in the original SRWS-PSG DTA docx has
-been retired. The methodological reference is the Cochrane Handbook for
+PICO. The methodological reference is the Cochrane Handbook for
 Systematic Reviews of Diagnostic Test Accuracy, version 2.0 (July 2023)
 [@deeks2023dtahandbook]. Reporting is to PRISMA-DTA [@mcinnes2018prismadta]
 and its Explanation & Elaboration document [@salameh2020prismadtaee].
@@ -241,15 +224,8 @@ as a methodology resource.
 
 # 7. Versioning policy
 
-The repository follows Semantic Versioning 2.0. For a template collection,
-the version components are interpreted as follows. A **major** bump signals
-a structural or citation-breaking change[:] for example, replacing a
-reporting guideline with its successor, switching a methodological framework
-(such as PICO to PIRT), or removing a section. A **minor** bump introduces a
-new section, a new template (as in the addition of the scoping template), or
-substantive new guidance. A **patch** bump covers typos, citation
-corrections, and formatting adjustments. This preprint is updated only when
-the template repository undergoes a major bump.
+The repository follows Semantic Versioning 2.0. This preprint is updated
+only when the template repository undergoes a major bump.
 
 # 8. Availability and license
 
