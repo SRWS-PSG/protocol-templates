@@ -51,7 +51,7 @@ before data collection and analysis. Prospective registration improves
 transparency, reduces the risk of post-hoc methodological changes that
 introduce bias, and aids replication [@page2021prisma; @shamseer2015]. The
 PRISMA-P 2015 statement specifies 17 essential reporting items for SR
-protocols [@shamseer2015], and the Cochrane Handbook 
+protocols [@shamseer2015], and the Cochrane Handbook
 [@higgins2024cochrane] remains the canonical methodological reference for
 intervention reviews. Parallel reporting and methodology guidance exists for
 scoping reviews (PRISMA-ScR [@tricco2018prismascr] and the JBI methodology
@@ -93,15 +93,11 @@ This prevents silent cross-contamination. An update to a citation in one templat
 
 **Placeholder convention.** Parameters that the SR team must fill in are
 marked `[English label / 日本語ラベル: ...]`, signalling both the field and
-its intent in both languages. Search-period placeholders such as "inception
-to YYYY-MM-DD" are intentionally omitted, because protocol registration
-precedes the search and the end date is not yet known.
+its intent in both languages.
 
 **Reporting-guideline alignment.** Each template's section structure is
 designed so that completing it naturally produces a protocol that satisfies
-the relevant reporting guideline. A separate self-check appendix mapping
-PRISMA / PRISMA-ScR / PRISMA-DTA items to template sections is not provided;
-the section structure itself enforces compliance.
+the relevant reporting guideline.
 
 **Versioning and license.** The repository follows semantic versioning, with
 each GitHub release deposited to Zenodo and assigned a version DOI. All
@@ -128,26 +124,19 @@ For pairwise meta-analysis, the template recommends PMA tools
 [@furukawa_pmatools], a browser-based pairwise meta-analysis web
 application that requires no R or Stata installation.
 
-The default author list reflects the SRWS-PSG mentoring authorship
-convention, in which the project lead serves as the corresponding author
-and the assigned mentors are co-authors.
-
 # 4. Scoping review template
 
-The scoping review template (v1.0) [has no SRWS-PSG predecessor; it has been
-written from scratch to current scoping-review methodology.]
+The scoping review template (v2.0) succeeds an unreleased SRWS-PSG Google
+Docs scoping review template.
 
 The eligibility framework is PCC (Population / Concept / Context)
-[@peters2022bestpractice], not PICO. The reporting guideline is PRISMA-ScR
+[@peters2022bestpractice]. The reporting guideline is PRISMA-ScR
 [@tricco2018prismascr]. The conduct methodology is the JBI five-stage
 framework [@peters2020jbi; @peters2020jbimanual], building on the original
 Arksey & O'Malley framework [@arksey2005scoping] and Levac et al.'s
 methodological refinements [@levac2010scoping]. The protocol structure is
-aligned with the Peters et al. 2022 best-practice 17-item checklist
+partially aligned with the Peters et al. 2022 best-practice 17-item checklist
 [@peters2022bestpractice].
-
-A figure illustrating the JBI "terminology versus concept" decision is
-embedded at the Concept sub-section as a permanent template asset.
 
 Stage 5 of the JBI methodology is qualitative synthesis and visualization,
 so risk-of-bias assessment, meta-bias, and GRADE rating are flagged as
@@ -160,9 +149,8 @@ provided in Appendix 6.
 
 # 5. Diagnostic test accuracy (DTA) review template
 
-The DTA review template (v1.0) [succeeds an unreleased 2020-vintage SRWS-PSG
-DTA docx that referenced the Cochrane DTA Handbook v1.0 and QUADAS-2 only;
-it has been rewritten to current DTA-review methodology.]
+The DTA review template (v2.0) succeeds an unreleased  SRWS-PSG DTA Google Docs template that referenced the Cochrane DTA Handbook v1.0 and QUADAS-2 only; it has been rewritten in Markdown and
+updated to current DTA-review methodology.
 
 The eligibility framework is PIRT [(Participants, Index test, [Comparator],
 Reference standard, Target condition)] [@deeks2023dtahandbook ch. 4], not
@@ -188,14 +176,6 @@ of Leicester CRSU that fits bivariate models and produces forest plots and
 SROCs without requiring an R or Stata installation. The Cochrane DTA
 Handbook v2 lists MetaDTA among its recommended tools
 [@deeks2023dtahandbook].
-
-A DTA search filter is not used in MEDLINE, because the Cochrane DTA
-Handbook v2 considers existing filters insufficiently sensitive for DTA
-reviews [@deeks2023dtahandbook]. Funnel-plot asymmetry tests are not used
-to assess publication bias, again following the Cochrane DTA Handbook v2;
-trial-registry searches and direct author contact for unpublished data take
-their place. Certainty of evidence is rated with the GRADE-DTA guidance
-[@schunemann2020grade21p1].
 
 # 6. Usage and citation
 
@@ -254,6 +234,5 @@ The authors declare no conflicts of interest related to this work.
 
 This work received no external funding. SRWS-PSG operates as a peer-support
 community for SR methodology mentoring.
-
 
 # References
