@@ -129,6 +129,12 @@ Exclusion criteria: [participant exclusion criteria / 対象者の除外基準: 
 
 ### 3.3.2 Concept
 
+[concept overview / コンセプトの概要: レビューの中核概念を文章で説明]
+
+![図: 参考用。あとで削除する](media/scoping_concept_focus.png){#fig:concept-focus width=100%}
+
+> Note: 上図のように、Concept を狭く特定の 用語 (terminology) で定義するのか、関連する語や派生語を含む広い 概念 (concept) として定義するのかを明示してください（これが検索式・組み入れ判断の幅を決めます）。
+
 Inclusion criteria: [concept inclusion criteria / コンセプトの組入基準: the range of terms or related concepts that will be included]
 
 Exclusion criteria: [concept exclusion criteria / コンセプトの除外基準: terms or related concepts that will be excluded]
@@ -221,6 +227,8 @@ This work was self-funded.
 > Note: 金銭的支援（英文校正費・データベース利用料・解析支援費など）に加え、人手の支援（例: 司書による検索式作成支援、AI ツールの提供、所属機関のサポート等）があれば記載してください。資金提供者やスポンサーがいる場合は、その名称と、本研究のデザイン・データ収集・解析・結果解釈・出版判断のいずれに関与/不関与かも併記してください [@peters2022bestpractice]。いずれもなければ「自己資金。」のままで構いません。
 
 # References
+
+> Note: References（引用文献リスト）は AI に作成・挿入させないでください。AI は実在しない文献・誤った著者名・巻号・DOI を生成することがあります。引用を入れ終えたら、提出前に必ず <https://citation-checker-three.vercel.app/> ですべての citation をチェックしてください。誤った citation は投稿時に機械的にチェックされ、それが原因でリジェクトされた事例があります。
 
 ::: {#refs}
 :::
