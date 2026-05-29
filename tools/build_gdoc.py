@@ -26,13 +26,18 @@ Usage:
   python tools/build_gdoc.py --lang en --folder-id <Drive folder id>
   python tools/build_gdoc.py --lang ja --dry-run     # build docx only, skip upload
   python tools/build_gdoc.py --lang ja --share-with someone@example.com
+  python tools/build_gdoc.py --lang ja --in-place    # update cached Doc in place
   python tools/build_gdoc.py --lang ja --new         # force new Doc (ignore saved ID)
   python tools/build_gdoc.py --lang ja --doc-id <id> # overwrite a specific Doc
 
-By default, the document ID returned by the first upload is cached in
-tools/.gcp/upload_state.json keyed by language, and subsequent runs
-overwrite the same Doc (preserving its URL/ID). Use --new to force a
-fresh document, or --doc-id to target an explicit existing Doc.
+By default the script DELETE-AND-RECREATES: it creates a fresh Doc in the folder
+(inheriting the folder's sharing) and trashes the old cached Doc, so comments
+never accumulate across rebuilds. The trade-off is that the file ID/URL changes
+each run -- share the Drive FOLDER, not per-file links. The new ID is cached in
+tools/.gcp/upload_state.json keyed by template:language. Pass --in-place to keep
+the old behavior (overwrite the same Doc, preserving its URL/ID but accumulating
+comments). Use --new to skip trashing any cached Doc, or --doc-id to target an
+explicit existing Doc.
 """
 
 from __future__ import annotations
@@ -391,6 +396,59 @@ def upload_to_drive(creds, docx: Path, name: str, folder_id: str | None) -> str:
     raise RuntimeError(f"upload failed after retries: {last_err}")
 
 
+def _delete_all_comments(drive, file_id: str) -> int:
+    """Best-effort: delete every comment on a Doc, return how many were removed.
+
+    files().update() reconverts the docx and imports ITS comments as new Doc
+    comments, but it does NOT remove comments already present on the Doc. Without
+    clearing first, every rebuild leaves the previous run's comments behind, so
+    duplicates pile up (e.g. the References comment appearing once per build).
+
+    Caveat: the Drive API only lets the *author* of a comment delete it. Comments
+    imported from a docx are authored by the docx comment author (e.g. "SRWS-PSG"),
+    not the authenticated user, so deletion returns 403. We swallow those and warn
+    rather than crash, so the content update still goes through. Removing such
+    stale comments requires the Google Docs UI (the file owner can delete any
+    comment there) or recreating the Doc.
+    """
+    from googleapiclient.errors import HttpError
+
+    deleted = 0
+    skipped = 0
+    page_token = None
+    while True:
+        resp = (
+            drive.comments()
+            .list(
+                fileId=file_id,
+                fields="nextPageToken,comments(id)",
+                pageSize=100,
+                pageToken=page_token,
+            )
+            .execute()
+        )
+        for c in resp.get("comments", []):
+            try:
+                drive.comments().delete(fileId=file_id, commentId=c["id"]).execute()
+                deleted += 1
+            except HttpError as e:
+                if getattr(e.resp, "status", None) == 403:
+                    skipped += 1
+                    continue
+                raise
+        page_token = resp.get("nextPageToken")
+        if not page_token:
+            break
+    if deleted:
+        print(f"  cleared {deleted} existing comment(s) before update")
+    if skipped:
+        print(
+            f"  WARN could not delete {skipped} pre-existing comment(s) (authored by "
+            f"another user; remove them via the Google Docs UI if duplicated)"
+        )
+    return deleted
+
+
 def update_drive(creds, docx: Path, document_id: str, name: str | None) -> str:
     """Overwrite the content of an existing Google Doc with a new docx.
 
@@ -404,6 +462,8 @@ def update_drive(creds, docx: Path, document_id: str, name: str | None) -> str:
     from googleapiclient.http import MediaFileUpload
 
     drive = _build_drive(creds)
+    # Clear stale comments first so rebuilds don't accumulate duplicates.
+    _delete_all_comments(drive, document_id)
     body: dict = {"mimeType": "application/vnd.google-apps.document"}
     if name:
         body["name"] = name
@@ -431,6 +491,12 @@ def update_drive(creds, docx: Path, document_id: str, name: str | None) -> str:
                 continue
             raise
     raise RuntimeError(f"update failed after retries: {last_err}")
+
+
+def trash_drive(creds, document_id: str) -> None:
+    """Move a Doc to the trash (recoverable for ~30 days)."""
+    drive = _build_drive(creds)
+    drive.files().update(fileId=document_id, body={"trashed": True}).execute()
 
 
 def share_with(creds, document_id: str, email: str) -> None:
@@ -478,6 +544,18 @@ def main() -> int:
         help="Force creating a new Doc and overwrite the cached ID for this lang",
     )
     p.add_argument(
+        "--in-place",
+        action="store_true",
+        help=(
+            "Opt out of the default delete-and-recreate flow and instead UPDATE "
+            "the cached Doc in place (keeps the file ID/URL but accumulates "
+            "comments across rebuilds). By default the script creates a fresh Doc "
+            "in the folder (inheriting folder sharing) and trashes the old one, "
+            "which avoids comment accumulation but changes the file ID/URL each "
+            "run -- so share the Drive FOLDER rather than per-file links."
+        ),
+    )
+    p.add_argument(
         "--no-save-id",
         action="store_true",
         help="Do not write the resulting Doc ID to tools/.gcp/upload_state.json",
@@ -522,7 +600,32 @@ def main() -> int:
         target_id = state.get(state_key)
 
     document_id: str
-    if target_id:
+    if not args.in_place:
+        # Default: delete-and-recreate. A fresh Doc has only this build's comments
+        # (no accumulation), and a new file created inside the shared folder
+        # inherits the folder's sharing so collaborators keep access. The trade-off
+        # is a new file ID/URL each run -> share the folder, not per-file links.
+        # Pass --in-place to keep the old overwrite behavior instead.
+        if not args.folder_id:
+            print(
+                "delete-and-recreate (default) requires a folder so the new Doc "
+                "inherits folder sharing; set --folder-id or DRIVE_FOLDER_ID in "
+                "tools/.env, or pass --in-place to update the existing Doc",
+                file=sys.stderr,
+            )
+            return 2
+        old_id = target_id
+        print(f"replace mode: creating a fresh Doc {name!r} in folder {args.folder_id} ...")
+        document_id = upload_to_drive(
+            creds, annotated_docx, name=name, folder_id=args.folder_id
+        )
+        if old_id and old_id != document_id:
+            try:
+                trash_drive(creds, old_id)
+                print(f"  trashed old Doc {old_id} (recoverable from Trash ~30 days)")
+            except Exception as e:
+                print(f"  WARN could not trash old Doc {old_id}: {e}")
+    elif target_id:
         print(f"updating existing Doc {target_id} ({name!r}) ...")
         try:
             document_id = update_drive(creds, annotated_docx, target_id, name=name)
