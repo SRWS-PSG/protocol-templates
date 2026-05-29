@@ -6,6 +6,9 @@
 #
 # Schema (one entry per comment):
 #   - id:          stable identifier (kebab-case). Required.
+#     legacy_id:   (optional) numeric id of the corresponding comment in the
+#                  2020-03-04 legacy DTA Doc
+#                  (resources/20200304_診断精度SRのプロトコルテンプレ.docx).
 #     anchor:      text the comment is anchored to. Must appear verbatim in the body.
 #       ja:        Japanese anchor string (matched against the ja master).
 #       en:        English anchor string (matched against the en master). Omit to
@@ -20,6 +23,79 @@
 #     masters) so that ja_anchor == en_anchor for most entries.
 
 comments:
+  # --- 1. Introduction --------------------------------------------------
+  - id: c-introduction-clinical-pathway-ref
+    legacy_id: 0
+    anchor:
+      ja: "# 1. Introduction"
+      en: "# 1. Introduction"
+    body: |
+      https://www.facebook.com/groups/339218557733680/posts/347107986944737
+    audience: [reference]
+
+  # --- 3.2 Inclusion criteria ------------------------------------------
+  - id: c-inclusion-ref
+    legacy_id: 1
+    anchor:
+      ja: "## 3.2 Inclusion criteria of the studies for the review"
+      en: "## 3.2 Inclusion criteria of the studies for the review"
+    body: |
+      https://www.facebook.com/groups/339218557733680/posts/345690497086486
+      （介入とは若干異なる）
+    audience: [reference]
+
+  # --- 3.3 Outcomes -----------------------------------------------------
+  - id: c-outcomes-ref
+    legacy_id: 2
+    anchor:
+      ja: "## 3.3 Outcomes"
+      en: "## 3.3 Outcomes"
+    body: |
+      https://www.facebook.com/groups/339218557733680/posts/347109793611223/
+    audience: [reference]
+
+  # --- 3.4 Search method ------------------------------------------------
+  - id: c-search-ref
+    legacy_id: 3
+    anchor:
+      ja: "## 3.4 Search method"
+      en: "## 3.4 Search method"
+    body: |
+      https://www.facebook.com/groups/339218557733680/posts/345691060419763/
+      https://www.facebook.com/groups/339218557733680/posts/345693490419520
+    audience: [reference]
+
+  # --- 3.6 Risk of bias assessment -------------------------------------
+  - id: c-rob-ref
+    legacy_id: 4
+    anchor:
+      ja: "## 3.6 Risk of bias assessment"
+      en: "## 3.6 Risk of bias assessment"
+    body: |
+      https://www.facebook.com/groups/339218557733680/posts/347106020278267
+      https://www.facebook.com/groups/339218557733680/posts/347106956944840
+    audience: [reference]
+
+  # --- 3.7 Synthesis of results ----------------------------------------
+  - id: c-synthesis-ref
+    legacy_id: 5
+    anchor:
+      ja: "## 3.7 Synthesis of results"
+      en: "## 3.7 Synthesis of results"
+    body: |
+      https://www.facebook.com/groups/339218557733680/posts/347102736945262/
+    audience: [reference]
+
+  # --- 4. Summary of findings -------------------------------------------
+  - id: c-sof-ref
+    legacy_id: 6
+    anchor:
+      ja: "# 4. Summary of findings table"
+      en: "# 4. Summary of findings table"
+    body: |
+      https://www.facebook.com/groups/339218557733680/posts/347104846945051
+    audience: [reference]
+
   # --- References -------------------------------------------------------
   - id: c-references-bib-github
     anchor:
