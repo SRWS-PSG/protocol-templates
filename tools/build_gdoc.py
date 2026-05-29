@@ -83,6 +83,16 @@ def _template_paths(template: str) -> dict[str, Path]:
         )
     cfg = TEMPLATES[template]
     tdir = ROOT / "templates" / cfg["subdir"]
+    # The reference.docx defines the custom styles (Placeholder, Note,
+    # NoteListParagraph) that color editing aids cyan. Some templates (e.g.
+    # dta-review) don't ship their own and reuse intervention-review's, which
+    # is patched by intervention-review/filters/_patch_reference_docx.py. Fall
+    # back to it so build_gdoc.py matches build.ps1's shared-reference behavior.
+    reference_docx = tdir / "filters" / "reference.docx"
+    if not reference_docx.exists():
+        reference_docx = (
+            ROOT / "templates" / "intervention-review" / "filters" / "reference.docx"
+        )
     return {
         "template_dir": tdir,
         "comments_yaml": tdir / "comments.yaml",
@@ -90,7 +100,7 @@ def _template_paths(template: str) -> dict[str, Path]:
         "csl": tdir / "vancouver.csl",
         "build_dir": tdir / "build",
         "lua_filter": tdir / "filters" / "highlight.lua",
-        "reference_docx": tdir / "filters" / "reference.docx",
+        "reference_docx": reference_docx,
         "master_stem": cfg["master_stem"],
     }
 
