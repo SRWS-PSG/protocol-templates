@@ -140,14 +140,14 @@ current methodological standards.
 The framework is PICO (Population / Intervention / Comparator / Outcomes)
 [@shamseer2015]. The protocol-stage reporting guideline is PRISMA-P 2015
 [@shamseer2015]; the completed review is reported against PRISMA 2020
-[@page2021prisma]. The Abstract section of the template is structured to
-match the PRISMA 2020 abstract checklist (Item 2) [@page2021prisma].
+[@page2021prisma]. The template provides optional Abstract guidance
+structured to match the PRISMA 2020 abstract checklist (Item 2)
+[@page2021prisma].
 
 The methodological reference is the Cochrane Handbook for Systematic Reviews
 of Interventions, version 6.5 (August 2024) [@higgins2024cochrane],
 upgraded from the v6.0 (2019) reference in the V.2 template. Risk of bias
-for randomized trials uses RoB 2 [@sterne2019rob2]; non-randomized studies
-use ROBINS-I or an equivalent tool.
+for randomized trials uses RoB 2 [@sterne2019rob2].
 
 For pairwise meta-analysis, the template recommends PMA tools
 [@furukawa_pmatools], a browser-based pairwise meta-analysis web
@@ -174,14 +174,8 @@ Arksey & O'Malley framework [@arksey2005scoping] and Levac et al.'s
 methodological refinements [@levac2010scoping]. The protocol structure is
 aligned with the Peters et al. 2022 best-practice 17-item checklist
 [@peters2022bestpractice]; items that were missing from earlier SRWS-PSG
-scoping drafts — registration, author contributions, amendments table,
-funder role, report characteristics — have been added.
-
-A figure illustrating the JBI "terminology versus concept" decision is
-embedded at the Concept sub-section as a permanent template asset. Because
-the figure carries the methodological substance of the PCC framework and is
-relevant to every scoping protocol that uses the template, it is included in
-the template body rather than as a removable appendix.
+scoping drafts — registration, author contributions, funder role, report
+characteristics — have been added.
 
 Stage 5 of the JBI methodology is qualitative synthesis and visualization,
 so risk-of-bias assessment, meta-bias, and GRADE rating are flagged as
@@ -189,8 +183,8 @@ optional. A `> Note:` block at the relevant section guides users on when to
 include them. Registration is to the Open Science Framework (OSF), because
 PROSPERO does not accept scoping reviews. A charting form example (Author /
 Year / Country / Population / Concept / Context / Methodology / Key
-findings), based on Peters 2022 Table 2 [@peters2022bestpractice], is
-provided in Appendix 6.
+findings), based on the basic draft extraction tool proposed by Peters et
+al. [@peters2022bestpractice], is provided in Appendix 6.
 
 # 5. Diagnostic test accuracy (DTA) review template
 
@@ -217,10 +211,10 @@ AI-centred index tests to QUADAS-AI (currently in development
 
 For synthesis, the template specifies forest plots of paired
 sensitivity/specificity, summary ROC (SROC) curves, the bivariate model
-[@reitsma2005bivariate] when threshold heterogeneity is small, the HSROC
-model [@rutter2001hsroc] when it is large, and descriptive synthesis when
-the number of studies is below four. The recommended software is MetaDTA
-[@patel2021metadta], a browser-based Shiny application from the University
+[@reitsma2005bivariate] when threshold heterogeneity is small, and the
+HSROC model [@rutter2001hsroc] when it is large. The recommended software is
+MetaDTA [@patel2021metadta], a browser-based Shiny application from the
+University
 of Leicester CRSU that fits bivariate models and produces forest plots and
 SROCs without requiring an R or Stata installation. The Cochrane DTA
 Handbook v2 lists MetaDTA among its recommended tools
@@ -231,8 +225,7 @@ Handbook v2 considers existing filters insufficiently sensitive for DTA
 reviews [@deeks2023dtahandbook]. Funnel-plot asymmetry tests are not used
 to assess publication bias, again following the Cochrane DTA Handbook v2;
 trial-registry searches and direct author contact for unpublished data take
-their place. Certainty of evidence is rated with the GRADE-DTA guidance
-[@schunemann2020grade21p1].
+their place.
 
 # 6. Usage and citation
 
