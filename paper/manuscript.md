@@ -9,7 +9,7 @@ author:
 author-note: |
   Author affiliations are maintained as a single living roster at
   <https://docs.google.com/document/d/1v3R5iXCcbCAtpSlzbRUL09VJAFqseUaaiO61AQdxugA/edit?usp=sharing>.
-date: 2026-05-20
+date: 2026-06-05
 keywords:
   - systematic review
   - protocol template
@@ -26,10 +26,9 @@ abstract: |
   Systematic-review (SR) teams need protocol templates that combine current
   reporting guidelines with practical scaffolding for mentoring. We describe
   the SRWS-PSG protocol templates: a Markdown-based, version-controlled
-  collection covering three SR types: intervention reviews (V.3, successor
-  to a protocols.io V.2 template), scoping reviews (v2.0, structured around
+  collection covering three SR types: intervention reviews, scoping reviews (structured around
   the JBI five-stage methodology and the Peters et al. 2022 best-practice
-  checklist), and diagnostic test accuracy (DTA) reviews (v2.0, aligned with
+  checklist), and diagnostic test accuracy (DTA) reviews (aligned with
   the Cochrane DTA Handbook v2.0 and QUADAS-3). Each template is reproducible
   (pandoc + BibTeX), citable (released on GitHub with version DOIs minted via
   Zenodo), and reusable (CC BY 4.0). Templates are maintained at
@@ -75,13 +74,7 @@ version control.
 This article describes the resulting templates—for intervention,
 scoping, and diagnostic test accuracy reviews—released as a single
 Markdown-based, version-controlled, CC BY-licensed collection on
-GitHub. The templates are aligned with current methodological
-references: Cochrane Handbook v6.5 (August 2024)
-[@higgins2024cochrane] for intervention reviews; the Peters et al.
-2022 scoping review best-practice checklist [@peters2022bestpractice] and JBI
-methodology [@peters2020jbi; @peters2020jbimanual] for scoping
-reviews; and the Cochrane DTA Handbook v2.0 [@deeks2023dtahandbook]
-together with QUADAS-3 [@whiting2026quadas3] for DTA reviews.
+GitHub.
 
 # 2. Design principles
 
@@ -108,6 +101,18 @@ designed so that completing it naturally produces a protocol that satisfies
 the relevant reporting guideline. A separate self-check appendix mapping
 PRISMA / PRISMA-ScR / PRISMA-DTA items to template sections is not provided;
 the section structure itself enforces compliance.
+
+**AI-assisted screening, extraction, and disclosure.** All three templates
+embed a common stance on artificial intelligence (AI). Title-and-abstract
+screening is performed with the TiAb Review plugin, a no-code, serverless
+browser extension that combines large-language-model batch screening with
+machine-learning active learning [@Kataoka2026-tb]. AI may also be used to
+assist data extraction, where it can match human-only accuracy while reducing
+time on task [@Gartlehner2025-cm; @Kataoka2025-kq]. In every case, the actual
+use of AI is reported in accordance with the joint position statement on AI use
+in evidence synthesis across Cochrane, the Campbell Collaboration, JBI, and the
+Collaboration for Environmental Evidence [@Flemyng2025-ru], so that the role of
+AI in each review remains transparent and reproducible.
 
 **Versioning and license.** The repository follows semantic versioning, with
 each GitHub release deposited to Zenodo and assigned a version DOI. All
@@ -177,8 +182,7 @@ methodology.
 
 The eligibility framework is PIRT — Participants / Index test / (Comparator) /
 Reference standard / Target condition [@deeks2023dtahandbook ch. 4] — not
-PICO. The "PICOT" terminology used in the original SRWS-PSG DTA docx has
-been retired. The methodological reference is the Cochrane Handbook for
+PICO. The methodological reference is the Cochrane Handbook for
 Systematic Reviews of Diagnostic Test Accuracy, version 2.0 (July 2023)
 [@deeks2023dtahandbook]. Reporting is to PRISMA-DTA [@mcinnes2018prismadta]
 and its Explanation & Elaboration document [@salameh2020prismadtaee].
@@ -201,7 +205,7 @@ SROCs without requiring an R or Stata installation. The Cochrane DTA
 Handbook v2 lists MetaDTA among its recommended tools
 [@deeks2023dtahandbook].
 
-A DTA search filter is not used in MEDLINE, because the Cochrane DTA
+A DTA search filter is not used because the Cochrane DTA
 Handbook v2 considers existing filters insufficiently sensitive for DTA
 reviews [@deeks2023dtahandbook]. Funnel-plot asymmetry tests are not used
 to assess publication bias, again following the Cochrane DTA Handbook v2;
@@ -260,7 +264,6 @@ Contributions are described using the CRediT (Contributor Roles Taxonomy).
 **Yuki Kataoka**: Conceptualization; Methodology; Writing – original draft;
 Project administration. **Ryuhei So, Masahiro Banno, Yasushi Tsujimoto, and
 SRWS-PSG Mentors**: Conceptualization (ideas and scope of each template);
-Validation (trial use of the templates during SRWS-PSG mentoring sessions);
 Writing – review & editing. All authors read and approved the final
 manuscript.
 
