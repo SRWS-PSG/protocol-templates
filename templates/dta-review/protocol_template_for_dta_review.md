@@ -3,7 +3,7 @@ title: "Protocol template for diagnostic test accuracy review"
 author:
   - SRWS-PSG Mentors
 date: 2026-05-20
-version: 1.0.0 (draft)
+version: 2.0.0 (draft)
 lang: en
 keywords:
   - diagnostic test accuracy

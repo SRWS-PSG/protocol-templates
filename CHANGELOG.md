@@ -8,7 +8,7 @@ The format is loosely based on [Keep a Changelog](https://keepachangelog.com/en/
 
 ### Added (scoping-review template, planned for v3.1.0)
 
-New `templates/scoping-review/` template (v1.0.0 draft). Mirrors the intervention-review build pipeline (Markdown + BibTeX + Pandoc + Google Docs upload with anchored comments) but is fully independent.
+New `templates/scoping-review/` template (v2.0.0 draft). Mirrors the intervention-review build pipeline (Markdown + BibTeX + Pandoc + Google Docs upload with anchored comments) but is fully independent.
 
 - Source: 2025-12-29 docx ([resources/2025-12-29スコーピングレビューのプロトコルテンプレ.docx](resources/2025-12-29スコーピングレビューのプロトコルテンプレ.docx)), restructured to match the intervention-review section ordering while preserving the JBI five-stage methodology.
 - Reporting guideline: **PRISMA-ScR** [Tricco et al. Ann Intern Med 2018;169:467-473](https://doi.org/10.7326/M18-0850).

@@ -26,10 +26,10 @@ abstract: |
   Systematic-review (SR) teams need protocol templates that combine current
   reporting guidelines with practical scaffolding for mentoring. We describe
   the SRWS-PSG protocol templates: a Markdown-based, version-controlled
-  collection covering three SR types — intervention reviews (V.3, successor
-  to a protocols.io V.2 template), scoping reviews (v1.0, structured around
+  collection covering three SR types: intervention reviews (V.3, successor
+  to a protocols.io V.2 template), scoping reviews (v2.0, structured around
   the JBI five-stage methodology and the Peters et al. 2022 best-practice
-  checklist), and diagnostic test accuracy (DTA) reviews (v1.0, aligned with
+  checklist), and diagnostic test accuracy (DTA) reviews (v2.0, aligned with
   the Cochrane DTA Handbook v2.0 and QUADAS-3). Each template is reproducible
   (pandoc + BibTeX), citable (released on GitHub with version DOIs minted via
   Zenodo), and reusable (CC BY 4.0). Templates are maintained at
@@ -51,55 +51,37 @@ before data collection and analysis. Prospective registration improves
 transparency, reduces the risk of post-hoc methodological changes that
 introduce bias, and aids replication [@page2021prisma; @shamseer2015]. The
 PRISMA-P 2015 statement specifies 17 essential reporting items for SR
-protocols [@shamseer2015], and the Cochrane Handbook — now in version 6.5
-[@higgins2024cochrane] — remains the canonical methodological reference for
+protocols [@shamseer2015], and the Cochrane Handbook
+[@higgins2024cochrane] remains the canonical methodological reference for
 intervention reviews. Parallel reporting and methodology guidance exists for
 scoping reviews (PRISMA-ScR [@tricco2018prismascr] and the JBI methodology
 [@peters2020jbi; @peters2020jbimanual]) and for diagnostic test accuracy (DTA)
 reviews (PRISMA-DTA [@mcinnes2018prismadta; @salameh2020prismadtaee] and the
 Cochrane DTA Handbook v2.0 [@deeks2023dtahandbook]).
 
-For SR teams new to protocol writing, however, blank document templates and
+For SR teams new to protocol writing, blank document templates and
 chapter-length guidance documents are a high barrier. The Scientific Research
-WorkS Peer Support Group (SRWS-PSG) is a fully online, Japan-based SR
-mentoring community, operating since 2019 on a self-sustaining fee-funded
-model, that supports health-care professionals — about half of whom work
-outside university-affiliated institutions — through the full SR workflow
-from protocol development to manuscript preparation. A retrospective cohort
-analysis of 85 mentees enrolled through January 2025 reported that 60% had
-submitted a peer-reviewed SR manuscript during a median follow-up of 10
-months, with a cumulative submission incidence of 75% at the end of
-follow-up and a median mentor response time of 0.8 hours
-[@kataoka2025jmir]. SRWS-PSG maintained a Markdown / docx protocol template
-on protocols.io from 2022 [@kataoka2022protocolsio]. That template (V.2)
-addressed only intervention reviews and was difficult to version at the
-granularity SRWS-PSG mentors needed.
+WorkS Peer Support Group (SRWS-PSG) is a fully online, SR mentoring
+community, operating since 2019 on a self-sustaining fee-funded model, that
+supports health-care professionals through the full SR workflow from
+protocol development to manuscript preparation [@kataoka2025jmir]. SRWS-PSG
+had previously maintained three protocol templates—for intervention,
+scoping, and DTA reviews [@kataoka2022protocolsio]. We migrated them to
+GitHub to (i) update the content to current methodological standards (e.g.,
+QUADAS-3 [@whiting2026quadas3] for DTA reviews); (ii) make the templates
+citable through a stable reference; and (iii) enable granular, git-based
+version control.
 
-Three needs emerged from this mentoring practice. First, **version
-control**: protocols.io versioning is awkward for granular edits; a
-git-based source-of-truth was preferred. Second, **coverage**: of the 51
-manuscripts submitted by SRWS-PSG mentees through January 2025, 7 were
-scoping reviews and 2 were diagnostic test accuracy (DTA) reviews
-[@kataoka2025jmir] — roughly one in five of all completed projects —
-demonstrating that scoping and DTA reviews needed parallel templates
-structured around their own methodological frameworks (PCC and PIRT,
-respectively) and reporting standards (PRISMA-ScR and PRISMA-DTA). Third,
-**citability**: SR teams using the templates wanted a stable reference that
-Google Scholar would discover.
-
-This article describes the resulting V.3 family of SRWS-PSG protocol
-templates — **intervention**, **scoping**, and **diagnostic test accuracy** —
-released as a single Markdown-based, version-controlled, CC BY-licensed
-collection on GitHub. The V.3 release consolidates two updates: (i)
-mentoring-practice feedback accumulated since the protocols.io V.2 template,
-including the recurring need for scoping- and DTA-review scaffolding
-identified above, and (ii) the most current methodological references at
-the time of writing — Cochrane Handbook v6.5 (August 2024)
-[@higgins2024cochrane] for intervention reviews, the Peters et al. 2022
-best-practice checklist [@peters2022bestpractice] and JBI methodology
-[@peters2020jbi; @peters2020jbimanual] for scoping reviews, and the Cochrane
-DTA Handbook v2.0 [@deeks2023dtahandbook] together with QUADAS-3
-[@whiting2026quadas3] for DTA reviews.
+This article describes the resulting templates—for intervention,
+scoping, and diagnostic test accuracy reviews—released as a single
+Markdown-based, version-controlled, CC BY-licensed collection on
+GitHub. The templates are aligned with current methodological
+references: Cochrane Handbook v6.5 (August 2024)
+[@higgins2024cochrane] for intervention reviews; the Peters et al.
+2022 scoping review best-practice checklist [@peters2022bestpractice] and JBI
+methodology [@peters2020jbi; @peters2020jbimanual] for scoping
+reviews; and the Cochrane DTA Handbook v2.0 [@deeks2023dtahandbook]
+together with QUADAS-3 [@whiting2026quadas3] for DTA reviews.
 
 # 2. Design principles
 
@@ -133,9 +115,9 @@ templates are released under CC BY 4.0.
 
 # 3. Intervention review template
 
-The intervention review template is V.3 in lineage from the protocols.io V.2
-deposit [@kataoka2022protocolsio], restructured to Markdown and updated to
-current methodological standards.
+The intervention review template (V.3) succeeds the protocols.io V.2 deposit
+[@kataoka2022protocolsio]; it has been restructured to Markdown and updated
+to current intervention-review methodology.
 
 The framework is PICO (Population / Intervention / Comparator / Outcomes)
 [@shamseer2015]. The protocol-stage reporting guideline is PRISMA-P 2015
@@ -163,8 +145,8 @@ mentors are co-authors.
 
 # 4. Scoping review template
 
-The scoping review template (v1.0) is a new addition to the SRWS-PSG family,
-written from scratch to current scoping-review methodology.
+The scoping review template (v2.0) succeeds an unreleased SRWS-PSG Google
+Docs scoping review template.
 
 The eligibility framework is PCC (Population / Concept / Context)
 [@peters2022bestpractice], not PICO. The reporting guideline is PRISMA-ScR
@@ -188,11 +170,10 @@ al. [@peters2022bestpractice], is provided in Appendix 6.
 
 # 5. Diagnostic test accuracy (DTA) review template
 
-The DTA review template (v1.0) is the most recently added member of the
-family, written to current 2026 methodological standards. The closest
-predecessor in the SRWS-PSG corpus was a 2020-vintage docx that referenced
-the Cochrane DTA Handbook v1.0 and QUADAS-2 only; the v1.0 template rewrites
-that scaffold to current guidance.
+The DTA review template (v2.0) succeeds an unreleased SRWS-PSG DTA Google
+Docs template that referenced the Cochrane DTA Handbook v1.0 and QUADAS-2
+only; it has been rewritten in Markdown and updated to current DTA-review
+methodology.
 
 The eligibility framework is PIRT — Participants / Index test / (Comparator) /
 Reference standard / Target condition [@deeks2023dtahandbook ch. 4] — not
