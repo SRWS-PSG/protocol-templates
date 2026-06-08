@@ -14,7 +14,7 @@ keywords:
 license: CC BY 4.0
 repository: https://github.com/SRWS-PSG/protocol-templates
 template-path: templates/dta-review
-zenodo-concept-doi: 10.5281/zenodo.<TBD>
+zenodo-concept-doi: 10.5281/zenodo.20586625
 is-update: false
 bibliography: references.bib
 csl: vancouver.csl
@@ -139,7 +139,7 @@ Author contributions:
 
 ## 3.1 Protocol
 
-本レビューでは、SRWS-PSG が管理する診断精度レビュー プロトコルテンプレート（リポジトリ: [https://github.com/SRWS-PSG/protocol-templates](https://github.com/SRWS-PSG/protocol-templates)、Zenodo concept DOI: 10.5281/zenodo.&lt;TBD&gt;）を使用した。本プロトコルの作成にあたっては Cochrane Handbook for Systematic Reviews of Diagnostic Test Accuracy v2.0 [@deeks2023dtahandbook] 、PRISMA-DTA 声明 [@mcinnes2018prismadta] を参照した。本プロトコルは OSF ([https://osf.io/](https://osf.io/)) に登録する予定である。
+本レビューでは、SRWS-PSG が管理する診断精度レビュー プロトコルテンプレート（リポジトリ: [https://github.com/SRWS-PSG/protocol-templates](https://github.com/SRWS-PSG/protocol-templates)、Zenodo concept DOI: 10.5281/zenodo.20586625）を使用した。本プロトコルの作成にあたっては Cochrane Handbook for Systematic Reviews of Diagnostic Test Accuracy v2.0 [@deeks2023dtahandbook] 、PRISMA-DTA 声明 [@mcinnes2018prismadta] を参照した。本プロトコルは OSF ([https://osf.io/](https://osf.io/)) に登録する予定である。
 
 ## 3.2 Inclusion criteria of the studies for the review
 

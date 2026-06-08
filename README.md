@@ -19,7 +19,7 @@ The templates are designed to be:
 
 Use the DOI of the **release** you actually downloaded. The "concept DOI" below always resolves to the latest version.
 
-- Concept DOI (always points to the latest release): `10.5281/zenodo.<TBD>` *(to be assigned at first Zenodo release)*
+- Concept DOI (always points to the latest release): [`10.5281/zenodo.20586625`](https://doi.org/10.5281/zenodo.20586625)
 - Version DOIs are listed in [CHANGELOG.md](CHANGELOG.md) once minted.
 
 For the rationale and design of each template, see the companion explanation article on Zenodo *(to be published as part of [Step 4 of the publication plan](plan.md))*.

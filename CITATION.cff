@@ -35,5 +35,5 @@ repository-code: "https://github.com/SRWS-PSG/protocol-templates"
 url: "https://github.com/SRWS-PSG/protocol-templates"
 identifiers:
   - type: doi
-    value: "10.5281/zenodo.<TBD>"   # concept DOI from Zenodo (fill after first release)
+    value: "10.5281/zenodo.20586625"   # concept DOI from Zenodo
     description: "Concept DOI (always resolves to the latest version)"

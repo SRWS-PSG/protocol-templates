@@ -12,7 +12,7 @@ keywords:
 license: CC BY 4.0
 repository: https://github.com/SRWS-PSG/protocol-templates
 template-path: templates/intervention-review
-zenodo-concept-doi: 10.5281/zenodo.<TBD>
+zenodo-concept-doi: 10.5281/zenodo.20586625
 bibliography: references.bib
 csl: vancouver.csl
 link-citations: true
@@ -114,7 +114,7 @@ Author contributions:
 
 ## 3.1 Protocol
 
-We used a systematic review protocol template maintained by SRWS-PSG (repository: [https://github.com/SRWS-PSG/protocol-templates](https://github.com/SRWS-PSG/protocol-templates), Zenodo concept DOI: 10.5281/zenodo.&lt;TBD&gt;). We followed the Preferred Reporting Items for Systematic Reviews and Meta-Analyses 2020 (PRISMA 2020) statement [@page2021prisma], and PRISMA-P 2015 [@shamseer2015] for preparing this protocol. We will publish this protocol on OSF.io ([https://osf.io/](https://osf.io/)).
+We used a systematic review protocol template maintained by SRWS-PSG (repository: [https://github.com/SRWS-PSG/protocol-templates](https://github.com/SRWS-PSG/protocol-templates), Zenodo concept DOI: 10.5281/zenodo.20586625). We followed the Preferred Reporting Items for Systematic Reviews and Meta-Analyses 2020 (PRISMA 2020) statement [@page2021prisma], and PRISMA-P 2015 [@shamseer2015] for preparing this protocol. We will publish this protocol on OSF.io ([https://osf.io/](https://osf.io/)).
 
 ## 3.2 Inclusion criteria of the articles for the review
 

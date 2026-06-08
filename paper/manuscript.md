@@ -297,7 +297,7 @@ the template repository undergoes a major bump.
 
 - Source repository: [https://github.com/SRWS-PSG/protocol-templates](https://github.com/SRWS-PSG/protocol-templates)
 - License: Creative Commons Attribution 4.0 International (CC BY 4.0)
-- Zenodo concept DOI (always latest release): `10.5281/zenodo.<TBD>`
+- Zenodo concept DOI (always latest release): `10.5281/zenodo.20586625`
 - This article (MetaArXiv preprint): `10.31222/osf.io/<TBD>`
 - Predecessor intervention-review template (protocols.io V.2, frozen):
   `10.17504/protocols.io.81wgbpb41vpk/v2` [@kataoka2022protocolsio]

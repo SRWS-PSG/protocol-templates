@@ -10,7 +10,7 @@ _Nothing yet._
 
 ## [3.1.0] – 2026-06-08
 
-- Version DOI: `10.5281/zenodo.<TBD>` _(minted automatically on Zenodo release; the always-latest concept DOI is recorded in [CITATION.cff](CITATION.cff))_
+- Version DOI: `10.5281/zenodo.20586626` _(minted automatically on Zenodo release; the always-latest concept DOI is recorded in [CITATION.cff](CITATION.cff))_
 
 ### Added
 
