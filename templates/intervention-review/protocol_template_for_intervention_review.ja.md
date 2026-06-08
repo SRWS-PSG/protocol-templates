@@ -112,7 +112,7 @@ Author contributions:
 
 ## 3.1 Protocol
 
-本レビューでは、SRWS-PSG が管理するシステマティック・レビュー プロトコルテンプレート（リポジトリ: [https://github.com/SRWS-PSG/protocol-templates](https://github.com/SRWS-PSG/protocol-templates)、Zenodo concept DOI: 10.5281/zenodo.20586625、テンプレートの設計思想は companion paper [@Kataoka2026-cj] に記述）を使用した。本プロトコルの作成にあたっては Preferred Reporting Items for Systematic Reviews and Meta-Analyses 2020 (PRISMA 2020) 声明 [@page2021prisma] および PRISMA-P 2015 [@shamseer2015] に従った。本プロトコルは OSF.io ([https://osf.io/](https://osf.io/)) に公開する予定である。
+本レビューでは、SRWS-PSG が管理するシステマティック・レビュー プロトコルテンプレート [@Kataoka2026-cj] を使用した。本プロトコルの作成にあたっては Preferred Reporting Items for Systematic Reviews and Meta-Analyses 2020 (PRISMA 2020) 声明 [@page2021prisma] および PRISMA-P 2015 [@shamseer2015] に従った。本プロトコルは OSF.io ([https://osf.io/](https://osf.io/)) に公開する予定である。
 
 ## 3.2 Inclusion criteria of the articles for the review
 

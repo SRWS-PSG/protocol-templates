@@ -140,7 +140,7 @@ Review questions:
 
 ## 3.1 Protocol
 
-This review uses the diagnostic test accuracy review protocol template maintained by SRWS-PSG (repository: [https://github.com/SRWS-PSG/protocol-templates](https://github.com/SRWS-PSG/protocol-templates); Zenodo concept DOI: 10.5281/zenodo.20586625; the design rationale for these templates is described in the companion paper [@Kataoka2026-cj]). In preparing this protocol we referred to the Cochrane Handbook for Systematic Reviews of Diagnostic Test Accuracy v2.0 [@deeks2023dtahandbook], the PRISMA-DTA statement [@mcinnes2018prismadta], and its Explanation and Elaboration document [@salameh2020prismadtaee]. This protocol will be registered on OSF ([https://osf.io/](https://osf.io/)).
+This review uses the diagnostic test accuracy review protocol template maintained by SRWS-PSG [@Kataoka2026-cj]. In preparing this protocol we referred to the Cochrane Handbook for Systematic Reviews of Diagnostic Test Accuracy v2.0 [@deeks2023dtahandbook], the PRISMA-DTA statement [@mcinnes2018prismadta], and its Explanation and Elaboration document [@salameh2020prismadtaee]. This protocol will be registered on OSF ([https://osf.io/](https://osf.io/)).
 
 ## 3.2 Inclusion criteria of the studies for the review
 

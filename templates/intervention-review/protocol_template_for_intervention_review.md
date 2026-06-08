@@ -114,7 +114,7 @@ Author contributions:
 
 ## 3.1 Protocol
 
-We used a systematic review protocol template maintained by SRWS-PSG (repository: [https://github.com/SRWS-PSG/protocol-templates](https://github.com/SRWS-PSG/protocol-templates), Zenodo concept DOI: 10.5281/zenodo.20586625; the design rationale for these templates is described in the companion paper [@Kataoka2026-cj]). We followed the Preferred Reporting Items for Systematic Reviews and Meta-Analyses 2020 (PRISMA 2020) statement [@page2021prisma], and PRISMA-P 2015 [@shamseer2015] for preparing this protocol. We will publish this protocol on OSF.io ([https://osf.io/](https://osf.io/)).
+We used a systematic review protocol template maintained by SRWS-PSG [@Kataoka2026-cj]. We followed the Preferred Reporting Items for Systematic Reviews and Meta-Analyses 2020 (PRISMA 2020) statement [@page2021prisma], and PRISMA-P 2015 [@shamseer2015] for preparing this protocol. We will publish this protocol on OSF.io ([https://osf.io/](https://osf.io/)).
 
 ## 3.2 Inclusion criteria of the articles for the review
 

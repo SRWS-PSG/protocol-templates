@@ -69,14 +69,17 @@ TEMPLATES: dict[str, dict[str, str]] = {
     "intervention-review": {
         "subdir": "intervention-review",
         "master_stem": "protocol_template_for_intervention_review",
+        "folder_env": "DRIVE_FOLDER_ID_INTERVENTION_REVIEW",
     },
     "scoping-review": {
         "subdir": "scoping-review",
         "master_stem": "protocol_template_for_scoping_review",
+        "folder_env": "DRIVE_FOLDER_ID_SCOPING_REVIEW",
     },
     "dta-review": {
         "subdir": "dta-review",
         "master_stem": "protocol_template_for_dta_review",
+        "folder_env": "DRIVE_FOLDER_ID_DTA_REVIEW",
     },
 }
 
@@ -526,8 +529,12 @@ def main() -> int:
     p.add_argument("--lang", required=True, choices=["ja", "en"])
     p.add_argument(
         "--folder-id",
-        default=os.environ.get("DRIVE_FOLDER_ID"),
-        help="Drive folder to place the Doc in (defaults to $DRIVE_FOLDER_ID from .env)",
+        default=None,
+        help=(
+            "Drive folder to place the Doc in. Overrides the per-template folder. "
+            "If omitted, the folder is read from the template's env var "
+            "(e.g. $DRIVE_FOLDER_ID_SCOPING_REVIEW) in tools/.env."
+        ),
     )
     p.add_argument("--name", default=None, help="Doc title (defaults to filename)")
     p.add_argument("--share-with", default=None, help="Grant writer access to this email")
@@ -561,6 +568,22 @@ def main() -> int:
         help="Do not write the resulting Doc ID to tools/.gcp/upload_state.json",
     )
     args = p.parse_args()
+
+    # Resolve the destination folder: an explicit --folder-id wins; otherwise
+    # each template uploads to its own folder, configured via that template's
+    # env var (e.g. DRIVE_FOLDER_ID_SCOPING_REVIEW) in tools/.env. There is no
+    # shared fallback -- a missing per-template folder is a hard error so a Doc
+    # never lands in the wrong place silently.
+    if not args.folder_id:
+        folder_env = TEMPLATES[args.template]["folder_env"]
+        args.folder_id = os.environ.get(folder_env)
+        if not args.folder_id and not args.dry_run:
+            print(
+                f"no Drive folder for template {args.template!r}: set {folder_env} "
+                f"in tools/.env, or pass --folder-id explicitly",
+                file=sys.stderr,
+            )
+            return 2
 
     paths = _template_paths(args.template)
     src = master_path(paths, args.lang)

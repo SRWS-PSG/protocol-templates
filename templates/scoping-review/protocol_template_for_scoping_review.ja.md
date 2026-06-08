@@ -106,7 +106,7 @@ PCC (Population, Concept, Context) フレームワークを用いて、本スコ
 
 ## 3.1 Protocol
 
-本レビューは Peters らが示したスコーピングレビュープロトコルの best practice ガイダンス [@peters2022bestpractice] 、Joanna Briggs Institute (JBI) の scoping review 実施ガイダンス [@peters2020jbi;@peters2020jbimanual] 、PRISMA Extension for Scoping Reviews (PRISMA-ScR) [@tricco2018prismascr] を参考にプロトコルの準備を行った。本プロトコルは SRWS-PSG が管理するスコーピングレビュー プロトコルテンプレート（リポジトリ: [https://github.com/SRWS-PSG/protocol-templates](https://github.com/SRWS-PSG/protocol-templates)、Zenodo concept DOI: 10.5281/zenodo.20586625、テンプレートの設計思想は companion paper [@Kataoka2026-cj] に記述）を使用した。本プロトコルは OSF.io ([https://osf.io/](https://osf.io/)) に公開する予定である。
+本レビューは Peters らが示したスコーピングレビュープロトコルの best practice ガイダンス [@peters2022bestpractice] 、Joanna Briggs Institute (JBI) の scoping review 実施ガイダンス [@peters2020jbi;@peters2020jbimanual] 、PRISMA Extension for Scoping Reviews (PRISMA-ScR) [@tricco2018prismascr] を参考にプロトコルの準備を行った。本プロトコルは SRWS-PSG が管理するスコーピングレビュー プロトコルテンプレート [@Kataoka2026-cj] を使用した。本プロトコルは OSF.io ([https://osf.io/](https://osf.io/)) に公開する予定である。
 
 JBI の 5 ステージフレームワーク (Stage 1: リサーチクエスチョンの特定 / Stage 2: 関連する研究の特定 / Stage 3: 研究の選定 / Stage 4: データのチャーティング / Stage 5: 結果の照合・要約・報告) を採用する [@peters2020jbimanual]。
 
