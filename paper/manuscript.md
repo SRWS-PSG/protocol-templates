@@ -41,7 +41,7 @@ abstract: |
   protocols without consulting a separate checklist.
 license: CC BY 4.0
 repository: https://github.com/SRWS-PSG/protocol-templates
-preprint-doi: 10.31222/osf.io/<TBD>
+preprint-doi: 10.31222/osf.io/wj52n
 bibliography: references.bib
 csl: vancouver.csl
 link-citations: true
@@ -280,7 +280,7 @@ cite the Zenodo version DOI of the GitHub release you downloaded (listed in
 resolves to the latest release, is suitable for general references to "the
 SRWS-PSG protocol templates" when no specific version is needed. **To cite
 the design and methodological rationale of the templates**, cite this
-article (MetaArXiv preprint DOI `10.31222/osf.io/<TBD>`), which reports the
+article (MetaArXiv preprint DOI `10.31222/osf.io/wj52n`), which reports the
 design principles, methodological choices, and development process of the
 templates.
 
@@ -301,7 +301,7 @@ the template repository undergoes a major bump.
 - Source repository: [https://github.com/SRWS-PSG/protocol-templates](https://github.com/SRWS-PSG/protocol-templates)
 - License: Creative Commons Attribution 4.0 International (CC BY 4.0)
 - Zenodo concept DOI (always latest release): `10.5281/zenodo.20586625`
-- This article (MetaArXiv preprint): `10.31222/osf.io/<TBD>`
+- This article (MetaArXiv preprint): `10.31222/osf.io/wj52n`
 - Predecessor intervention-review template (protocols.io V.2, frozen):
   `10.17504/protocols.io.81wgbpb41vpk/v2` [@kataoka2022protocolsio]
 
