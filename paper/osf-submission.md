@@ -10,8 +10,12 @@
 > これは plan.md §6 の元々の第一候補であり、van den Akker 2020
 > "Inclusive systematic review registration form" という同型の前例が Scholar 収録済み。
 
-投稿先: **MetaArXiv** <https://osf.io/preprints/metaarxiv>
+投稿先: **MetaArXiv** [https://osf.io/preprints/metaarxiv](https://osf.io/preprints/metaarxiv)
 DOI prefix: `10.31222/osf.io/<id>`
+
+> **投稿済み（2026-06-08）**: [https://osf.io/preprints/metaarxiv/wj52n_v1](https://osf.io/preprints/metaarxiv/wj52n_v1)
+> moderation 待ち。承認されると DOI `10.31222/osf.io/wj52n`（version: `10.31222/osf.io/wj52n_v1`）が発行される見込み。
+> 承認後に §3 の各箇所へ DOI を反映 → PDF 再生成 → MetaArXiv に新バージョン差し替え。
 
 提出ファイル: [build/manuscript.pdf](build/manuscript.pdf)（pandoc → LibreOffice、約 241 KB、searchable、< 5 MB）
 
@@ -22,11 +26,11 @@ DOI prefix: `10.31222/osf.io/<id>`
 - [X] **GitHub リポジトリ `SRWS-PSG/protocol-templates` が Public になっている**
   （原稿が repo URL を本文・Abstract で引用するため必須。Private のままだとリンク切れになる）
 - [X] `build/manuscript.pdf` を最新ソースから再生成済み（`pwsh ./paper/build.ps1 -Target pdf`）
-- [ ] PDF をブラウザ/Acrobat で開き、テキスト選択できる（スキャン画像でない）ことを目視確認
-- [ ] PDF に **affiliations（上付き番号 1–11）と corresponding author の email** が表示されている
-- [ ] PDF 末尾に **Appendix S1（SRWS-PSG Mentors 名簿）** がある（4 named author を含まない）
-- [ ] OSF アカウント作成済み（ORCID 連携推奨: [https://osf.io/register](https://osf.io/register)）
-- [ ] 著者順序の最終確認: Kataoka / So / Banno / Tsujimoto / SRWS-PSG Mentors
+- [X] PDF をブラウザ/Acrobat で開き、テキスト選択できる（スキャン画像でない）ことを目視確認
+- [X] PDF に **affiliations（上付き番号 1–11）と corresponding author の email** が表示されている
+- [X] PDF 末尾に **Appendix S1（SRWS-PSG Mentors 名簿）** がある（4 named author を含まない）
+- [X] OSF アカウント作成済み（ORCID 連携推奨: [https://osf.io/register](https://osf.io/register)）
+- [X] 著者順序の最終確認: Kataoka / So / Banno / Tsujimoto / SRWS-PSG Mentors
 
 ---
 
@@ -148,4 +152,4 @@ This work received no external funding. SRWS-PSG operates as a peer-support comm
 - 2–6 週後に Google Scholar で preprint タイトル検索し index を確認
 - されない場合は OSF support 経由で metadata 確認、または Scholar inclusion request
   ([https://scholar.google.com/intl/en/scholar/inclusion.html](https://scholar.google.com/intl/en/scholar/inclusion.html))
-</content>
+  `</content>`
