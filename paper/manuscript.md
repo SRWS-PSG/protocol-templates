@@ -35,7 +35,10 @@ abstract: |
   (CC BY 4.0). Templates are maintained at
   <https://github.com/SRWS-PSG/protocol-templates>. We report the design
   principles, the methodological choices made for each review type, and the
-  process by which the templates were developed.
+  process by which the templates were developed. By organizing each template's
+  sections around the required items of its reporting guideline, the collection
+  enables SR teams to produce transparent, reproducible, and version-controlled
+  protocols without consulting a separate checklist.
 license: CC BY 4.0
 repository: https://github.com/SRWS-PSG/protocol-templates
 preprint-doi: 10.31222/osf.io/<TBD>
@@ -84,7 +87,7 @@ WorkS Peer Support Group (SRWS-PSG) is a fully online, SR mentoring
 community, operating since 2019 on a self-sustaining fee-funded model, that
 supports health-care professionals through the full SR workflow from
 protocol development to manuscript preparation [@kataoka2025jmir]. SRWS-PSG
-had previously maintained three protocol templates—for intervention,
+had previously maintained three protocol templates for intervention,
 scoping, and DTA reviews [@kataoka2022protocolsio]. We migrated them to
 GitHub to (i) update the content to current methodological standards (e.g.,
 QUADAS-3 [@whiting2026quadas3] for DTA reviews); (ii) make the templates
@@ -131,7 +134,7 @@ reusable, and the output suitable for both team review (docx with comments)
 and final submission (PDF).
 
 **Independent bibliographies.** Each template owns its own `references.bib`.
-This prevents silent cross-contamination — an update to a citation in one
+This prevents silent cross-contamination: an update to a citation in one
 template never changes citations in another.
 
 **Placeholder convention.** Parameters that the SR team must fill in are
@@ -205,8 +208,8 @@ Arksey & O'Malley framework [@arksey2005scoping] and Levac et al.'s
 methodological refinements [@levac2010scoping]. The protocol structure is
 aligned with the Peters et al. 2022 best-practice 17-item checklist
 [@peters2022bestpractice]; items that were missing from earlier SRWS-PSG
-scoping drafts — registration, author contributions, funder role, report
-characteristics — have been added.
+scoping drafts (registration, author contributions, funder role, report
+characteristics) have been added.
 
 Stage 5 of the JBI methodology is qualitative synthesis and visualization,
 so risk-of-bias assessment, meta-bias, and GRADE rating are flagged as
@@ -224,8 +227,8 @@ Docs template that referenced the Cochrane DTA Handbook v1.0 and QUADAS-2
 only; it has been rewritten in Markdown and updated to current DTA-review
 methodology.
 
-The eligibility framework is PIRT — Participants / Index test / (Comparator) /
-Reference standard / Target condition [@deeks2023dtahandbook ch. 4] — not
+The eligibility framework is PIRT (Participants / Index test / [Comparator] /
+Reference standard / Target condition) [@deeks2023dtahandbook ch. 4], not
 PICO. The methodological reference is the Cochrane Handbook for
 Systematic Reviews of Diagnostic Test Accuracy, version 2.0 (July 2023)
 [@deeks2023dtahandbook]. Reporting is to PRISMA-DTA [@mcinnes2018prismadta]
@@ -285,7 +288,7 @@ templates.
 
 The repository follows Semantic Versioning 2.0. For a template collection,
 the version components are interpreted as follows. A **major** bump signals
-a structural or citation-breaking change — for example, replacing a
+a structural or citation-breaking change, for example replacing a
 reporting guideline with its successor, switching a methodological framework
 (such as PICO to PIRT), or removing a section. A **minor** bump introduces a
 new section, a new template (as in the addition of the scoping template), or
@@ -301,6 +304,20 @@ the template repository undergoes a major bump.
 - This article (MetaArXiv preprint): `10.31222/osf.io/<TBD>`
 - Predecessor intervention-review template (protocols.io V.2, frozen):
   `10.17504/protocols.io.81wgbpb41vpk/v2` [@kataoka2022protocolsio]
+
+# 10. Conclusion
+
+We present three protocol templates whose section structure is organized around
+the required items of the corresponding reporting guideline (PRISMA-P 2015 and
+PRISMA 2020 for intervention reviews, PRISMA-ScR and the Peters et al. 2022
+best-practice checklist for scoping reviews, and PRISMA-DTA for DTA reviews), so
+that completing a template yields a protocol that addresses each item without a
+separate self-check step. Combined with single-source reproducible builds
+(pandoc + BibTeX), DOI-versioned releases, and an explicit AI-use disclosure
+stance, the templates lower the barrier to writing transparent, reproducible,
+and citable SR protocols. Because the collection is openly licensed (CC BY 4.0)
+and version-controlled, other SR teams and methodologists can evaluate, reuse,
+and adapt it; planned piloting with mentees will inform future versions.
 
 # Author contributions
 
