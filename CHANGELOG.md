@@ -6,9 +6,15 @@ The format is loosely based on [Keep a Changelog](https://keepachangelog.com/en/
 
 ## [Unreleased]
 
-### Added (scoping-review template, planned for v3.1.0)
+_Nothing yet._
 
-New `templates/scoping-review/` template (v2.0.0 draft). Mirrors the intervention-review build pipeline (Markdown + BibTeX + Pandoc + Google Docs upload with anchored comments) but is fully independent.
+## [3.1.0] – 2026-06-08
+
+- Version DOI: `10.5281/zenodo.<TBD>` _(minted automatically on Zenodo release; the always-latest concept DOI is recorded in [CITATION.cff](CITATION.cff))_
+
+### Added
+
+New `templates/scoping-review/` template (v2.0.0). Mirrors the intervention-review build pipeline (Markdown + BibTeX + Pandoc + Google Docs upload with anchored comments) but is fully independent.
 
 - Source: 2025-12-29 docx ([resources/2025-12-29スコーピングレビューのプロトコルテンプレ.docx](resources/2025-12-29スコーピングレビューのプロトコルテンプレ.docx)), restructured to match the intervention-review section ordering while preserving the JBI five-stage methodology.
 - Reporting guideline: **PRISMA-ScR** [Tricco et al. Ann Intern Med 2018;169:467-473](https://doi.org/10.7326/M18-0850).
@@ -18,7 +24,19 @@ New `templates/scoping-review/` template (v2.0.0 draft). Mirrors the interventio
 - Bibliography: **independent** `templates/scoping-review/references.bib` (DOI-verified at write time). Does NOT share a bib with intervention-review; each template owns its citations to prevent silent cross-contamination.
 - Tooling: `tools/build_gdoc.py` now takes `--template intervention-review|scoping-review`. Cached Doc IDs keyed as `<template>:<lang>` (legacy `ja`/`en` keys auto-migrated to `intervention-review:<lang>`).
 
-### Changed (planned for v3.0.0)
+New `templates/dta-review/` template (v2.0.0). Succeeds an unreleased SRWS-PSG DTA Google Docs template that referenced the Cochrane DTA Handbook v1.0 and QUADAS-2 only; rewritten in Markdown with an independent `references.bib`.
+
+- Eligibility framework: **PIRT** (Participants / Index test / (Comparator) / Reference standard / Target condition) instead of PICO.
+- Methodology: **Cochrane DTA Handbook v2.0 (July 2023)** ([10.1002/9781119756194](https://doi.org/10.1002/9781119756194)).
+- Reporting guideline: **PRISMA-DTA** ([10.1001/jama.2017.19163](https://doi.org/10.1001/jama.2017.19163)) and its E&E document.
+- Risk of bias: **QUADAS-3** (published Feb 2026), replacing QUADAS-2; `> Note:` blocks point comparative-accuracy reviews to QUADAS-C and AI index tests to QUADAS-AI.
+- Synthesis: paired forest plots, SROC, bivariate and HSROC models via **MetaDTA** (browser-based; no R/Stata).
+
+AI-use disclosure section ("Use of artificial intelligence in manuscript preparation") added to all three templates (EN + JA), with explicit guidance that AI must not be used to create or insert references.
+
+## [3.0.0] – 2026-06-08
+
+### Changed
 
 Successor to protocols.io V.2 ([10.17504/protocols.io.81wgbpb41vpk/v2](https://dx.doi.org/10.17504/protocols.io.81wgbpb41vpk/v2)). Maintenance has moved from protocols.io to GitHub + Zenodo. Major edits:
 

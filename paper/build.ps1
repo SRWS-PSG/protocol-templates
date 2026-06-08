@@ -68,9 +68,47 @@ if (Test-Path $refDocx) { $docxArgs += "--reference-doc=$refDocx" }
 $htmlArgs = @('--to=html5','--toc','--embed-resources')
 if (Test-Path $css) { $htmlArgs += "--css=$css" }
 
-# PDF is the submission target. xelatex required for CJK if JA build.
-# For en, the CJKmainfont arg is harmless if no CJK is used.
+# PDF is the submission target.
+# Primary engine is xelatex (needed for CJK in the JA build). If no LaTeX
+# engine is installed, fall back to: pandoc -> docx -> LibreOffice -> PDF.
+# The LibreOffice route yields a searchable, font-embedded PDF that meets
+# Google Scholar's inclusion requirements, and needs no TeX install.
 $pdfArgs = @('--pdf-engine=xelatex','-V','CJKmainfont=Yu Gothic','-V','geometry=margin=1in','-V','fontsize=11pt')
+
+function Resolve-Soffice {
+    foreach ($c in @('soffice',
+                     'C:/Program Files/LibreOffice/program/soffice.exe',
+                     'C:/Program Files (x86)/LibreOffice/program/soffice.exe')) {
+        $cmd = Get-Command $c -ErrorAction SilentlyContinue
+        if ($cmd) { return $cmd.Source }
+        if (Test-Path $c) { return $c }
+    }
+    return $null
+}
+
+function Invoke-PdfBuild {
+    param([string]$Src, [string]$Base)
+    $out = Join-Path $outdir "$Base.pdf"
+    $hasTex = Get-Command xelatex -ErrorAction SilentlyContinue
+    if ($hasTex) {
+        Invoke-Pandoc -Src $Src -ExtraArgs $pdfArgs -Out $out
+        return
+    }
+    $soffice = Resolve-Soffice
+    if (-not $soffice) {
+        throw "No PDF engine found. Install a LaTeX engine (xelatex) or LibreOffice (soffice)."
+    }
+    Write-Host "xelatex not found; using LibreOffice docx->PDF route."
+    $tmpDocx = Join-Path $outdir "$Base.docx"
+    Invoke-Pandoc -Src $Src -ExtraArgs $docxArgs -Out $tmpDocx
+    if (Test-Path $out) { Remove-Item $out -Force }
+    # soffice writes asynchronously and returns before the file is flushed.
+    & $soffice --headless --convert-to pdf --outdir $outdir $tmpDocx
+    $deadline = 30
+    while ($deadline -gt 0 -and -not (Test-Path $out)) { Start-Sleep -Milliseconds 500; $deadline-- }
+    if (-not (Test-Path $out)) { throw "LibreOffice failed to produce $out (is another LibreOffice instance running?)" }
+    Write-Host "PDF written: $out"
+}
 
 $langs = if ($Lang -eq 'all') { @('en','ja') } else { @($Lang) }
 
@@ -85,9 +123,9 @@ foreach ($lng in $langs) {
     switch ($Target) {
         'docx' { Invoke-Pandoc -Src $cfg.Src -ExtraArgs $docxArgs -Out (Join-Path $outdir "$base.docx") }
         'html' { Invoke-Pandoc -Src $cfg.Src -ExtraArgs $htmlArgs -Out (Join-Path $outdir "$base.html") }
-        'pdf'  { Invoke-Pandoc -Src $cfg.Src -ExtraArgs $pdfArgs  -Out (Join-Path $outdir "$base.pdf")  }
+        'pdf'  { Invoke-PdfBuild -Src $cfg.Src -Base $base }
         'all'  {
-            Invoke-Pandoc -Src $cfg.Src -ExtraArgs $pdfArgs  -Out (Join-Path $outdir "$base.pdf")
+            Invoke-PdfBuild -Src $cfg.Src -Base $base
             Invoke-Pandoc -Src $cfg.Src -ExtraArgs $docxArgs -Out (Join-Path $outdir "$base.docx")
             Invoke-Pandoc -Src $cfg.Src -ExtraArgs $htmlArgs -Out (Join-Path $outdir "$base.html")
         }
