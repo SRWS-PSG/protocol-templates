@@ -22,7 +22,7 @@ Use the DOI of the **release** you actually downloaded. The "concept DOI" below 
 - Concept DOI (always points to the latest release): [`10.5281/zenodo.20586625`](https://doi.org/10.5281/zenodo.20586625)
 - Version DOIs are listed in [CHANGELOG.md](CHANGELOG.md) once minted.
 
-For the rationale and design of each template, see the companion explanation article on Zenodo *(to be published as part of [Step 4 of the publication plan](plan.md))*.
+For the rationale and design of each template, see the companion paper (Scholar-indexed) on MetaArXiv: Kataoka Y, So R, Banno M, Tsujimoto Y. *Increasing the transparency and reproducibility of systematic-review protocols: structure-enforced, version-controlled templates for intervention, scoping, and diagnostic test accuracy reviews.* MetaArXiv; 2026. DOI [`10.31222/osf.io/wj52n`](https://doi.org/10.31222/osf.io/wj52n).
 
 > **Historical note (intervention-review template)**: Versions up to V.2 (2022-08-26) were published on protocols.io: <https://www.protocols.io/view/protocol-template-for-intervention-review-cft4tnqw> (DOI [10.17504/protocols.io.81wgbpb41vpk/v2](https://dx.doi.org/10.17504/protocols.io.81wgbpb41vpk/v2)). From v3.0.0 onward this template is maintained here on GitHub.
 

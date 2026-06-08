@@ -8,6 +8,15 @@ The format is loosely based on [Keep a Changelog](https://keepachangelog.com/en/
 
 _Nothing yet._
 
+## [3.2.0] – 2026-06-09
+
+- Version DOI: `??????` _(minted automatically on Zenodo release; the always-latest concept DOI is recorded in [CITATION.cff](CITATION.cff))_
+
+### Added
+
+- Companion paper published on **MetaArXiv** (Scholar-indexed): Kataoka Y, So R, Banno M, Tsujimoto Y. *Increasing the transparency and reproducibility of systematic-review protocols: structure-enforced, version-controlled templates for intervention, scoping, and diagnostic test accuracy reviews.* MetaArXiv; 2026. DOI [10.31222/osf.io/wj52n](https://doi.org/10.31222/osf.io/wj52n).
+- The companion paper DOI is now cited from the Section 3.1 self-reference of all three templates (EN + JA) as a managed citation (`@Kataoka2026-cj`, added to each template's independent `references.bib`), and recorded in [README.md](README.md) and [CITATION.cff](CITATION.cff) `identifiers`.
+
 ## [3.1.0] – 2026-06-08
 
 - Version DOI: `10.5281/zenodo.20586626` _(minted automatically on Zenodo release; the always-latest concept DOI is recorded in [CITATION.cff](CITATION.cff))_

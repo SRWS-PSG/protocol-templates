@@ -139,7 +139,7 @@ Author contributions:
 
 ## 3.1 Protocol
 
-本レビューでは、SRWS-PSG が管理する診断精度レビュー プロトコルテンプレート（リポジトリ: [https://github.com/SRWS-PSG/protocol-templates](https://github.com/SRWS-PSG/protocol-templates)、Zenodo concept DOI: 10.5281/zenodo.20586625）を使用した。本プロトコルの作成にあたっては Cochrane Handbook for Systematic Reviews of Diagnostic Test Accuracy v2.0 [@deeks2023dtahandbook] 、PRISMA-DTA 声明 [@mcinnes2018prismadta] を参照した。本プロトコルは OSF ([https://osf.io/](https://osf.io/)) に登録する予定である。
+本レビューでは、SRWS-PSG が管理する診断精度レビュー プロトコルテンプレート（リポジトリ: [https://github.com/SRWS-PSG/protocol-templates](https://github.com/SRWS-PSG/protocol-templates)、Zenodo concept DOI: 10.5281/zenodo.20586625、テンプレートの設計思想は companion paper [@Kataoka2026-cj] に記述）を使用した。本プロトコルの作成にあたっては Cochrane Handbook for Systematic Reviews of Diagnostic Test Accuracy v2.0 [@deeks2023dtahandbook] 、PRISMA-DTA 声明 [@mcinnes2018prismadta] を参照した。本プロトコルは OSF ([https://osf.io/](https://osf.io/)) に登録する予定である。
 
 ## 3.2 Inclusion criteria of the studies for the review
 
