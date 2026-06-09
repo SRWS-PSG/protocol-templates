@@ -15,6 +15,16 @@ New `templates/NMA/` template (v1.0.0), **English only** (no JA master). Moderni
 - Bibliography: **independent** `templates/NMA/references.bib`; new NMA-only references `@hutton2015`, `@nikolakopoulou2020cinema`, `@owen2019metainsight`, `@rucker2015ranking`.
 - Tooling: `tools/build_gdoc.py` now accepts `--template nma-review` (subdir `NMA`); rendered Google Docs upload to the NMA Drive folder via `DRIVE_FOLDER_ID_NMA_REVIEW`.
 
+### Changed
+
+Companion paper (MetaArXiv preprint, DOI [10.31222/osf.io/wj52n](https://doi.org/10.31222/osf.io/wj52n)) revised to cover the NMA template:
+
+- New **Section 7 "Network meta-analysis (NMA) review template"** added; subsequent sections renumbered (Usage 7→8, Versioning 8→9, Availability 9→10, Conclusion 10→11).
+- Title, abstract, keywords, and Background/Development/Design sections updated from **three to four SR types** (the three migrated templates are still referred to as "three" where the migration history is described).
+- Four NMA references added to the independent `paper/references.bib` (`@hutton2015`, `@nikolakopoulou2020cinema`, `@owen2019metainsight`, `@rucker2015ranking`); verified with citeguard (all `found`).
+- Versioning policy (now Section 9) clarified: a preprint revision is triggered by a **major bump or the addition of a new template type**, not by routine minor/patch changes.
+- Action required at release: deposit the revised PDF to MetaArXiv as a **new version under the same DOI** (`10.31222/osf.io/wj52n`); the DOI does not change across OSF preprint versions, so README/CITATION need no DOI edits.
+
 ## [3.2.0] – 2026-06-09
 
 - Version DOI: `??????` _(minted automatically on Zenodo release; the always-latest concept DOI is recorded in [CITATION.cff](CITATION.cff))_
