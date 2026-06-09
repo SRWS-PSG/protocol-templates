@@ -1,23 +1,26 @@
 ---
-title: "Increasing the transparency and reproducibility of systematic-review protocols: structure-enforced, version-controlled templates for intervention, scoping, and diagnostic test accuracy reviews"
+title: "Increasing the transparency and reproducibility of systematic-review protocols: structure-enforced, version-controlled templates for intervention, scoping, diagnostic test accuracy, and network meta-analysis reviews"
 author:
   - "Yuki Kataoka^1,2,3,4,5,6^, MD, MPH, DrPH"
   - "Ryuhei So^1,7,8^, MD, MPH, DrPH"
   - "Masahiro Banno^1,9^, MD, PhD"
   - "Yasushi Tsujimoto^1,10,11^, MD, MPH, DrPH"
   - "SRWS-PSG Mentors^1^"
-date: 2026-06-05
+date: 2026-06-09
 keywords:
   - systematic review
   - protocol template
   - intervention review
   - scoping review
   - diagnostic test accuracy
+  - network meta-analysis
   - PRISMA 2020
   - PRISMA-ScR
   - PRISMA-DTA
+  - PRISMA-NMA
   - Cochrane Handbook
   - QUADAS-3
+  - CINeMA
   - SRWS-PSG
   - reproducibility
   - research transparency
@@ -26,11 +29,13 @@ abstract: |
   barrier for systematic-review (SR) teams new to protocol writing. We describe
   the SRWS-PSG protocol templates, designed so that completing the section
   structure itself produces a protocol compliant with the relevant reporting
-  guideline. The Markdown-based, version-controlled collection covers three SR
+  guideline. The Markdown-based, version-controlled collection covers four SR
   types: intervention reviews, scoping reviews (structured around the JBI
   five-stage methodology and the Peters et al. 2022 best-practice checklist),
-  and diagnostic test accuracy (DTA) reviews (aligned with the Cochrane DTA
-  Handbook v2.0 and QUADAS-3). Each template is reproducible (pandoc + BibTeX),
+  diagnostic test accuracy (DTA) reviews (aligned with the Cochrane DTA
+  Handbook v2.0 and QUADAS-3), and network meta-analysis (NMA) reviews (aligned
+  with PRISMA-NMA, with confidence in the evidence rated via CINeMA). Each
+  template is reproducible (pandoc + BibTeX),
   citable (released on GitHub with version DOIs minted via Zenodo), and reusable
   (CC BY 4.0). Templates are maintained at
   <https://github.com/SRWS-PSG/protocol-templates>. We report the design
@@ -77,9 +82,10 @@ protocols [@shamseer2015], and the Cochrane Handbook
 [@higgins2024cochrane] remains the canonical methodological reference for
 intervention reviews. Parallel reporting and methodology guidance exists for
 scoping reviews (PRISMA-ScR [@tricco2018prismascr] and the JBI methodology
-[@peters2020jbi; @peters2020jbimanual]) and for diagnostic test accuracy (DTA)
+[@peters2020jbi; @peters2020jbimanual]), for diagnostic test accuracy (DTA)
 reviews (PRISMA-DTA [@mcinnes2018prismadta; @salameh2020prismadtaee] and the
-Cochrane DTA Handbook v2.0 [@deeks2023dtahandbook]).
+Cochrane DTA Handbook v2.0 [@deeks2023dtahandbook]), and for network
+meta-analysis (NMA) reviews (PRISMA-NMA [@hutton2015]).
 
 For SR teams new to protocol writing, blank document templates and
 chapter-length guidance documents are a high barrier. The Scientific Research
@@ -117,6 +123,13 @@ from v1.0 to v2.0 [@deeks2023dtahandbook], and the DTA risk-of-bias tool from
 QUADAS-2 to QUADAS-3 [@whiting2026quadas3]. Reporting guidelines and tools that
 postdated a predecessor were added where relevant.
 
+A fourth template, for network meta-analysis (NMA) reviews, was added after the
+initial three (v1.0.0). It was derived from the intervention-review template and
+modernized from a legacy internal SRWS-PSG NMA protocol (last updated 2022),
+grafting NMA-specific content (treatment network, transitivity, inconsistency,
+and confidence rating) onto the shared house style. It is currently provided in
+English only.
+
 Drafting followed the SRWS-PSG mentoring authorship convention: the first
 author prepared each draft, which the remaining mentor authors reviewed and
 revised. Systematic piloting of the templates with mentees, and incorporation
@@ -125,7 +138,7 @@ those versions are released.
 
 # 3. Design principles
 
-The three templates share a common technical and editorial backbone.
+The four templates share a common technical and editorial backbone.
 
 **Source format.** Each template is authored in Markdown with a BibTeX
 bibliography. Output to docx, HTML, and PDF is generated with pandoc using a
@@ -149,7 +162,7 @@ the relevant reporting guideline. A separate self-check appendix mapping
 PRISMA / PRISMA-ScR / PRISMA-DTA items to template sections is not provided;
 the section structure itself enforces compliance.
 
-**AI-assisted screening, extraction, and disclosure.** All three templates
+**AI-assisted screening, extraction, and disclosure.** All four templates
 embed a common stance on artificial intelligence (AI). Title-and-abstract
 screening is performed with the TiAb Review plugin, a no-code, serverless
 browser extension that combines large-language-model batch screening with
@@ -259,18 +272,64 @@ to assess publication bias, again following the Cochrane DTA Handbook v2;
 trial-registry searches and direct author contact for unpublished data take
 their place.
 
-# 7. Usage and citation
+# 7. Network meta-analysis (NMA) review template
+
+The NMA review template (v1.0.0) is a new addition: it was derived from the
+intervention-review template and modernized from a legacy internal SRWS-PSG NMA
+protocol (last updated 2022).
+
+The eligibility framework is PICO [@shamseer2015], and eligible studies are
+restricted to randomized controlled trials. The protocol-stage reporting
+guidelines are PRISMA-P 2015 [@shamseer2015] and PRISMA 2020 [@page2021prisma],
+extended for network analyses by PRISMA-NMA [@hutton2015]. The methodological
+reference is the Cochrane Handbook v6.5 [@higgins2024cochrane], and risk of bias
+for randomized trials uses RoB 2 [@sterne2019rob2], as in the intervention-review
+template.
+
+The NMA-specific content distinguishes this template. The eligible interventions
+are organized into a treatment network, presented as nodes (interventions) and
+edges (direct comparisons), with the criteria for grouping interventions into
+nodes specified in advance. The network is described as a decision set (the
+interventions whose relative effects the review is designed to establish) and a
+supplementary set (additional nodes such as placebo or usual care, included to
+connect the network and enable indirect comparison). Synthesis uses a
+random-effects network meta-analysis model that combines direct and indirect
+evidence, with the correlations induced by multi-arm trials handled through
+multivariate distributions and a common heterogeneity variance (τ²) assumed
+across comparisons. The template requires the transitivity assumption to be
+assessed by examining the distribution of potential effect modifiers across
+comparisons, and inconsistency (incoherence) to be assessed locally by
+node-splitting and globally by the design-by-treatment interaction model.
+
+Confidence in the evidence is rated with CINeMA (Confidence In Network
+Meta-Analysis) [@nikolakopoulou2020cinema] across its six domains (within-study
+bias, across-studies bias, indirectness, imprecision, heterogeneity, and
+incoherence). Interventions are ranked using P-scores or the surface under the
+cumulative ranking curve (SUCRA) [@rucker2015ranking], with explicit guidance
+that rankings summarize relative position under uncertainty and must not be read
+as identifying a single best intervention.
+
+The recommended software is MetaInsight [@owen2019metainsight], a browser-based
+Shiny application (built on the R netmeta package) that fits network
+meta-analysis models and produces network plots, forest plots, and rankings
+without requiring an R or Stata installation, consistent with the low-friction
+tooling chosen for the other templates (PMA tools, MetaDTA). Registration is to
+the Open Science Framework (OSF). The template is currently provided in English
+only.
+
+# 8. Usage and citation
 
 The templates live at [https://github.com/SRWS-PSG/protocol-templates](https://github.com/SRWS-PSG/protocol-templates). To
 use:
 
 1. Clone the repository or download a release zip.
 2. Choose the appropriate template subdirectory
-   (`templates/intervention-review/`, `templates/scoping-review/`, or
-   `templates/dta-review/`).
-3. Edit `protocol_template_for_<type>.md` (English) or its `.ja.md`
-   counterpart (Japanese) in any Markdown editor; replace each
-   `[English label / 日本語ラベル: ...]` placeholder with your own SR plan.
+   (`templates/intervention-review/`, `templates/scoping-review/`,
+   `templates/dta-review/`, or `templates/NMA/`).
+3. Edit `protocol_template_for_<type>.md` (English) or, where available, its
+   `.ja.md` counterpart (Japanese) in any Markdown editor; replace each
+   `[English label / 日本語ラベル: ...]` placeholder with your own SR plan. The
+   NMA template is currently provided in English only.
 4. Build the docx, HTML, or PDF output with
    `pwsh ./templates/<type>/build.ps1 -Target docx` (requires pandoc).
 
@@ -284,19 +343,20 @@ article (MetaArXiv preprint DOI `10.31222/osf.io/wj52n`), which reports the
 design principles, methodological choices, and development process of the
 templates.
 
-# 8. Versioning policy
+# 9. Versioning policy
 
 The repository follows Semantic Versioning 2.0. For a template collection,
 the version components are interpreted as follows. A **major** bump signals
 a structural or citation-breaking change, for example replacing a
 reporting guideline with its successor, switching a methodological framework
 (such as PICO to PIRT), or removing a section. A **minor** bump introduces a
-new section, a new template (as in the addition of the scoping template), or
-substantive new guidance. A **patch** bump covers typos, citation
-corrections, and formatting adjustments. This preprint is updated only when
-the template repository undergoes a major bump.
+new section, a new template (as in the addition of the scoping and NMA
+templates), or substantive new guidance. A **patch** bump covers typos,
+citation corrections, and formatting adjustments. This preprint is revised
+when the template repository undergoes a major bump or adds a new template
+type; routine minor and patch changes do not trigger a preprint revision.
 
-# 9. Availability and license
+# 10. Availability and license
 
 - Source repository: [https://github.com/SRWS-PSG/protocol-templates](https://github.com/SRWS-PSG/protocol-templates)
 - License: Creative Commons Attribution 4.0 International (CC BY 4.0)
@@ -305,14 +365,14 @@ the template repository undergoes a major bump.
 - Predecessor intervention-review template (protocols.io V.2, frozen):
   `10.17504/protocols.io.81wgbpb41vpk/v2` [@kataoka2022protocolsio]
 
-# 10. Conclusion
+# 11. Conclusion
 
-We present three protocol templates whose section structure is organized around
+We present four protocol templates whose section structure is organized around
 the required items of the corresponding reporting guideline (PRISMA-P 2015 and
 PRISMA 2020 for intervention reviews, PRISMA-ScR and the Peters et al. 2022
-best-practice checklist for scoping reviews, and PRISMA-DTA for DTA reviews), so
-that completing a template yields a protocol that addresses each item without a
-separate self-check step. Combined with single-source reproducible builds
+best-practice checklist for scoping reviews, PRISMA-DTA for DTA reviews, and
+PRISMA-NMA for network meta-analysis reviews), so that completing a template
+yields a protocol that addresses each item without a separate self-check step. Combined with single-source reproducible builds
 (pandoc + BibTeX), DOI-versioned releases, and an explicit AI-use disclosure
 stance, the templates lower the barrier to writing transparent, reproducible,
 and citable SR protocols. Because the collection is openly licensed (CC BY 4.0)
