@@ -1,0 +1,165 @@
+# Comments to be attached to the rendered Google Doc.
+#
+# This template is English-only (no .ja master), so each comment provides an
+# `en:` anchor only. Comment bodies stay in Japanese (the mentoring language).
+#
+# Schema (one entry per comment):
+#   - id:          stable identifier (kebab-case). Required.
+#     anchor:      text the comment is anchored to. Must appear verbatim in the body.
+#       en:        English anchor string (matched against the en master).
+#     occurrence:  (optional, default 1) which occurrence of the anchor string to attach to.
+#     body: |
+#       Japanese comment text shown in the en Google Doc.
+#     audience:    (optional) free-form tags, e.g. [author, mentor, reference].
+#
+# Notes:
+#   - Keep anchor strings short and unique within a section to minimise mis-matches.
+#   - Anchors target SECTION HEADINGS rather than inline mentoring-session codes.
+
+comments:
+  # --- Title ------------------------------------------------------------
+  - id: c-title-efficacy
+    anchor:
+      en: "*efficacy*"
+    body: |
+      複数の介入を RCT のみで比較する NMA の場合は "efficacy" をタイトルで使ってください。
+      理由:
+      https://www.ncbi.nlm.nih.gov/pmc/articles/PMC351867/
+    audience: [author]
+
+  # --- 1. Introduction --------------------------------------------------
+  - id: c-background-ref-3-04
+    anchor:
+      en: "# 1. Introduction"
+    body: |
+      https://www.facebook.com/groups/339218557733680/posts/345687800420089/
+    audience: [reference]
+
+  - id: c-background-ref-14
+    anchor:
+      en: "# 1. Introduction"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345764713745731/
+    audience: [reference]
+
+  # --- 2. Research question --------------------------------------------
+  - id: c-rq-ref-01-03
+    anchor:
+      en: "# 2. Research question"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/339349757720560/
+    audience: [reference]
+
+  - id: c-rq-ref-03-03
+    anchor:
+      en: "# 2. Research question"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345686130420256/
+    audience: [reference]
+
+  # --- 3.2 Inclusion criteria ------------------------------------------
+  - id: c-inclusion-ref-03-05
+    anchor:
+      en: "## 3.2 Inclusion criteria of the articles for the review"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345690497086486/
+    audience: [reference]
+
+  # --- 3.2.3 Types of interventions (network) ---------------------------
+  - id: c-network-decision-supplementary
+    anchor:
+      en: "### 3.2.3 Types of interventions"
+    body: |
+      ネットワークのノード設計（どの介入を 1 つにまとめ、どれを分けるか）を最初に決めてください。
+      Decision set（意思決定の中心となる介入）と Supplementary set（ネットワークを連結するための
+      共通比較対照など）を切り分け、ネットワーク図（Figure 1）に反映させてください。
+    audience: [author]
+
+  # --- 3.4 Search method ------------------------------------------------
+  - id: c-search-ref-03-06
+    anchor:
+      en: "## 3.4 Search method"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345691060419763/
+    audience: [reference]
+
+  - id: c-search-medline-only-first
+    anchor:
+      en: "## 3.4 Search method"
+    body: |
+      最初、プロトコルを書くとき、MEDLINE 以外はとばしてください。
+    audience: [author]
+
+  # --- 3.5 Data collection and analysis --------------------------------
+  - id: c-data-collection-ref-03-05
+    anchor:
+      en: "## 3.5 Data collection and analysis"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345690497086486/
+    audience: [reference]
+
+  # --- 3.6 Risk of bias -------------------------------------------------
+  - id: c-rob-ref-03-09
+    anchor:
+      en: "## 3.6 Assessment of risk of bias in included studies"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345693927086143/
+      https://www.facebook.com/groups/339218557733680/permalink/345696600419209/
+    audience: [reference]
+
+  # --- 3.11 Network meta-analysis ---------------------------------------
+  - id: c-nma-model
+    anchor:
+      en: "## 3.11 Network meta-analysis"
+    body: |
+      効果指標（OR/RR/MD/SMD）、固定/変量効果、頻度論/ベイズ、使用ソフト（MetaInsight 等）、
+      多腕試験の相関の扱いを、解析を始める前に確定させてください。
+      MetaInsight: https://crsu.shinyapps.io/MetaInsight/
+    audience: [author]
+
+  # --- 3.12 Transitivity ------------------------------------------------
+  - id: c-transitivity
+    anchor:
+      en: "## 3.12 Assessment of the transitivity assumption"
+    body: |
+      効果修飾因子（effect modifier）を事前に列挙し、比較ごとの分布を確認する計画にしてください。
+      推移性が崩れていると判断される場合は NMA を行わず pairwise MA にとどめる、という方針を
+      明記しておくと安全です。
+    audience: [author]
+
+  # --- 4. Confidence in the evidence (CINeMA) ---------------------------
+  - id: c-cinema
+    anchor:
+      en: "# 4. Confidence in the evidence"
+    body: |
+      確実性評価は NMA では CINeMA を用います（6 ドメイン: within-study bias, across-studies bias,
+      indirectness, imprecision, heterogeneity, incoherence）。
+      順位指標（P-score / SUCRA）は不確実性を伴う要約であり、順位だけで結論づけないでください。
+    audience: [author, reference]
+
+  # --- Appendix 2: CENTRAL ----------------------------------------------
+  - id: c-appendix2-central-no-rct-filter
+    anchor:
+      en: "## Appendix 2: CENTRAL (Cochrane Library) search strategy"
+    body: |
+      CENTRAL は RCT フィルター不要です。
+    audience: [author]
+
+  # --- Appendix 3: EMBASE -----------------------------------------------
+  - id: c-appendix3-ref-03-07
+    anchor:
+      en: "## Appendix 3: EMBASE (Dialog) search strategy"
+    body: |
+      https://www.facebook.com/groups/339218557733680/permalink/345693490419520/
+      https://www.facebook.com/groups/339218557733680/permalink/345693750419494/
+    audience: [reference]
+
+  # --- References -------------------------------------------------------
+  - id: c-references-bib-github
+    anchor:
+      en: "# References"
+    body: |
+      参考文献の BibTeX ソース (GitHub):
+      https://github.com/SRWS-PSG/protocol-templates/blob/main/templates/NMA/references.bib
+      引用文献を追加・修正するときはこのファイルを利用してください。
+    audience: [author, reference]

@@ -81,6 +81,11 @@ TEMPLATES: dict[str, dict[str, str]] = {
         "master_stem": "protocol_template_for_dta_review",
         "folder_env": "DRIVE_FOLDER_ID_DTA_REVIEW",
     },
+    "nma-review": {
+        "subdir": "NMA",
+        "master_stem": "protocol_template_for_nma_review",
+        "folder_env": "DRIVE_FOLDER_ID_NMA_REVIEW",
+    },
 }
 
 

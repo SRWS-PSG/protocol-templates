@@ -6,7 +6,14 @@ The format is loosely based on [Keep a Changelog](https://keepachangelog.com/en/
 
 ## [Unreleased]
 
-_Nothing yet._
+### Added
+
+New `templates/NMA/` template (v1.0.0), **English only** (no JA master). Modernizes the legacy NMA protocol ([resources/legacy_protocol_template_for_NMA_review.docx](resources/legacy_protocol_template_for_NMA_review.docx), last updated 2022-02-27) into the v3 house style, derived from the intervention-review template and grafted with NMA-specific content.
+
+- Reporting guideline: **PRISMA-NMA** ([Hutton et al. Ann Intern Med 2015;162(11):777-784](https://doi.org/10.7326/M14-2385)) added to Section 3.1 alongside PRISMA 2020 and PRISMA-P.
+- New NMA sections: treatment network with decision/supplementary sets (3.2.3), network meta-analysis model and MetaInsight (3.11), transitivity assessment (3.12), inconsistency/coherence (3.13), and confidence rating via **CINeMA** with P-score/SUCRA ranking (Section 4).
+- Bibliography: **independent** `templates/NMA/references.bib`; new NMA-only references `@hutton2015`, `@nikolakopoulou2020cinema`, `@owen2019metainsight`, `@rucker2015ranking`.
+- Tooling: `tools/build_gdoc.py` now accepts `--template nma-review` (subdir `NMA`); rendered Google Docs upload to the NMA Drive folder via `DRIVE_FOLDER_ID_NMA_REVIEW`.
 
 ## [3.2.0] – 2026-06-09
 
