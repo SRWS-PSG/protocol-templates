@@ -153,6 +153,12 @@ Exclusion criteria: [context exclusion criteria / コンテクストの除外基
 
 > Note: 学会抄録は情報量が少ないため除外することも多いです。組み入れる/除外する場合は理由をメンターに相談のうえ明示してください。
 
+We will further limit included documents by the following report characteristics.
+
+- Language: [language / 言語: e.g. English and Japanese, or no language restriction]
+- Years considered: [years considered / 検索対象年: e.g. 2000 onward, or no year restriction]
+- Publication status: [publication status / 出版状態: state how peer-reviewed articles, preprints, and conference abstracts will be handled]
+
 ### 3.3.5 Search method
 
 > Note: 初回プロトコル作成時は、まず MEDLINE のみを完成させ、CENTRAL・Embase・各レジストリの検索式は後回しにして構いません（プロトコルのほかのパートが完成後、メンターの確認を経てから他データベース・レジストリの検索式を整えます）。
@@ -177,14 +183,6 @@ We will search the following registries for ongoing or unpublished studies.
 See Appendices 4 and 5 for the search strategies.
 
 We will also check the reference lists of included studies, as well as the reference lists of articles that cite the included studies. We will contact original authors to request any unpublished or additional data. If grey literature (government reports, theses, white papers from organizations, etc.) will be included, list the information sources here: [grey literature sources / 灰色文献の情報源: e.g. WHO database, OpenGrey, thesis databases].
-
-### 3.3.6 Report characteristics
-
-We will limit included documents by the following report characteristics.
-
-- Language: [language / 言語: e.g. English and Japanese, or no language restriction]
-- Years considered: [years considered / 検索対象年: e.g. 2000 onward, or no year restriction]
-- Publication status: [publication status / 出版状態: state how peer-reviewed articles, preprints, and conference abstracts will be handled]
 
 ## 3.4 Stage 3: Study selection
 
