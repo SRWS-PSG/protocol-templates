@@ -85,14 +85,6 @@ Author contributions:
 
 # 2. Research question
 
-Using the PCC (Population, Concept, Context) framework, we state the questions this scoping review will address as follows.
-
-- P (Population): [participants / 対象者: disease, condition, age range, care setting, etc.]
-- C (Concept): [concept / コンセプト: the core concept the review will map — intervention, assessment, phenomenon, experience, etc. Specify whether the concept is defined by a fixed **terminology** or by a broader **concept**]
-- C (Context): [context / コンテクスト: setting, region, time period, cultural background, etc. that bound the question]
-
-Review questions:
-
 1. [research question 1 / リサーチクエスチョン 1: a specific question phrased using PCC]
 2. [research question 2 / リサーチクエスチョン 2: list more questions if needed]
 3. [research question 3 / リサーチクエスチョン 3: add as needed]

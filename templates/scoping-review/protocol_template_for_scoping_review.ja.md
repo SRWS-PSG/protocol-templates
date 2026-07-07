@@ -84,14 +84,6 @@ Author contributions:
 
 # 2. Research question
 
-PCC (Population, Concept, Context) フレームワークを用いて、本スコーピングレビューが答えようとする疑問を以下のように記述する。
-
-- P (Population): [participants / 対象者: 疾患、状態、年齢層、診療場面など]
-- C (Concept): [concept / コンセプト: 介入・アセスメント・現象・経験など、レビューで網羅したい中核概念。用語 (terminology) で定義するか、概念 (concept) で定義するかを明確に]
-- C (Context): [context / コンテクスト: セッティング、地域、期間、文化的背景など、関心を限定するコンテクスト]
-
-レビュークエスチョン:
-
 1. [research question 1 / リサーチクエスチョン 1: PCC を用いた具体的な疑問文]
 2. [research question 2 / リサーチクエスチョン 2: 必要に応じて複数列挙]
 3. [research question 3 / リサーチクエスチョン 3: 必要に応じて追加]
