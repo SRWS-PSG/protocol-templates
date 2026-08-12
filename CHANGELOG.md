@@ -25,6 +25,10 @@ Companion paper (MetaArXiv preprint, DOI [10.31222/osf.io/wj52n](https://doi.org
 - Versioning policy (now Section 9) clarified: a preprint revision is triggered by a **major bump or the addition of a new template type**, not by routine minor/patch changes.
 - Action required at release: deposit the revised PDF to MetaArXiv as a **new version under the same DOI** (`10.31222/osf.io/wj52n`); the DOI does not change across OSF preprint versions, so README/CITATION need no DOI edits.
 
+### Fixed
+
+- `templates/dta-review`: JA master (§3.1) now also cites the PRISMA-DTA Explanation and Elaboration document (`@salameh2020prismadtaee`), matching the EN master and resolving a `check_structure_parity.py` citation-key mismatch.
+
 ## [3.2.0] – 2026-06-09
 
 - Version DOI: `??????` _(minted automatically on Zenodo release; the always-latest concept DOI is recorded in [CITATION.cff](CITATION.cff))_
