@@ -94,7 +94,7 @@ python tools/check_structure_parity.py templates/intervention-review/protocol_te
 
 Takes the EN and JA master paths as positional args and fails (exit 1) if they've diverged on heading-level sequence, bilingual placeholder count, fenced-code-block count, citation key set, frontmatter keys, or comment-anchor resolution (via the sibling `comments.yaml`). Only applies to templates with a JA master (not `NMA`).
 
-Known baseline failure, not to be "fixed" incidentally: `dta-review`'s check currently fails on citation key `salameh2020prismadtaee` (present in EN, not JA). Pre-existing; leave it unless specifically asked to fix it. `intervention-review` and `scoping-review` must stay green.
+All three bilingual templates (`intervention-review`, `scoping-review`, `dta-review`) are expected to pass. Treat any failure as a real divergence to fix, not as background noise.
 
 ### Other `tools/` scripts
 
