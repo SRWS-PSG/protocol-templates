@@ -15,6 +15,13 @@ New `templates/NMA/` template (v1.0.0), **English only** (no JA master). Moderni
 - Bibliography: **independent** `templates/NMA/references.bib`; new NMA-only references `@hutton2015`, `@nikolakopoulou2020cinema`, `@owen2019metainsight`, `@rucker2015ranking`.
 - Tooling: `tools/build_gdoc.py` now accepts `--template nma-review` (subdir `NMA`); rendered Google Docs upload to the NMA Drive folder via `DRIVE_FOLDER_ID_NMA_REVIEW`.
 
+Training-lesson reference tooling, replacing the (private, stale) SRWS-PSG Facebook group as the destination for mentor "related training" links:
+
+- `tools/training_lessons.py` (new): shared resolver, imported by both `build_gdoc.py` and the sync script below rather than duplicated. Loads `resources/training_lessons.json`, resolves a `comments.yaml` `lessons:` entry (a `serial` prefix, segment-boundary matched; `=<serial>` for an exact-serial match with no prefix descent; or `key:<lesson_key>` for an exact-key match) to lesson records, filters to `released == "yes"` (since `serial` is not unique in the sheet: a lesson can be re-recorded under a new `lesson_key` while keeping its old serial), and renders the Japanese "related training" comment-body block (category + serial + title per lesson, pointing to Slack `/training`; never `course_id`, never the lesson body text, which is Slack-workspace-only).
+- `tools/sync_training_lessons.py` (new): fetches range `A:M` (never column N, `body`; the header is checked at fetch time and the fetch fails if `body` shows up in it or the last column isn't `exported_at`, so an upstream column deletion can't silently widen the fetch into lesson bodies) of the SRWS-PSG Slack training curriculum Google Sheet and writes `resources/training_lessons.json`. Reuses `build_gdoc.py`'s OAuth plumbing (`get_credentials`/`load_env`). `--check` offline-verifies every `comments.yaml` `lessons:` reference resolves to at least one released lesson (no network); `--check --remote` additionally fetches the live sheet and reports drift from the committed snapshot, including title changes (matched by `(serial, course_id)` since `lesson_key` embeds the title and so can't be diffed directly).
+- `resources/training_lessons.json` (new, committed): the synced snapshot. `.gitignore`'s `resources/` rule narrowed to `resources/*` with `!resources/training_lessons.json`, since a wholesale directory ignore can't be selectively re-included.
+- `tools/build_gdoc.py`'s `get_credentials()`: a `tools/.gcp/token.json` minted before `SCOPES` grew (see below) is now detected up front and treated as stale (renamed to `token.json.stale-<timestamp>`, then re-consented via the browser flow) instead of crashing with `RefreshError: Not all requested scopes were granted`.
+
 ### Changed
 
 Companion paper (MetaArXiv preprint, DOI [10.31222/osf.io/wj52n](https://doi.org/10.31222/osf.io/wj52n)) revised to cover the NMA template:
@@ -24,6 +31,13 @@ Companion paper (MetaArXiv preprint, DOI [10.31222/osf.io/wj52n](https://doi.org
 - Four NMA references added to the independent `paper/references.bib` (`@hutton2015`, `@nikolakopoulou2020cinema`, `@owen2019metainsight`, `@rucker2015ranking`); verified with citeguard (all `found`).
 - Versioning policy (now Section 9) clarified: a preprint revision is triggered by a **major bump or the addition of a new template type**, not by routine minor/patch changes.
 - Action required at release: deposit the revised PDF to MetaArXiv as a **new version under the same DOI** (`10.31222/osf.io/wj52n`); the DOI does not change across OSF preprint versions, so README/CITATION need no DOI edits.
+
+All four `templates/*/comments.yaml` files: migrated every SRWS-PSG Facebook-group post reference (66 URLs total, across all four templates) to Slack training-lesson references, since the Facebook group is private and its posts are stale while training now lives on Slack (`/training`).
+
+- New optional `lessons:` (array of training-lesson references: a `serial` prefix, `=<serial>` for an exact match, or `key:<lesson_key>`, e.g. `["03_07"]`) and `legacy_urls:` (the original Facebook URLs, kept for provenance, never rendered into the comment body) fields; full schema documented in each `comments.yaml`'s header comment block.
+- `tools/build_gdoc.py`: `load_comments()` now resolves `lessons:` against `resources/training_lessons.json` and renders a "related training" block in place of the old Facebook links (generated first, then a blank line, then any hand-written `body:`, used by exactly one entry, dta-review's `c-inclusion-ref`). A ref that resolves to zero lessons, or whose matches are all unreleased, fails the build with an error naming the comment id and ref. New `--snapshot` flag to point at an alternate snapshot; `SCOPES` gained `https://www.googleapis.com/auth/spreadsheets.readonly`.
+- The old inline mentoring-session codes (`03_04`, `14`, ...) that pre-v3 Docs anchored comments to directly are no longer anchors, but live on as `lessons:` refs matching the Slack training curriculum's `serial` column.
+- dta-review's `c-rob-ref` remapped from the QUADAS-2 lessons (`10_02_02`/`10_02_03`, both unreleased in the live curriculum) to QUADAS-3/QUADAS-C (`10_02_08`/`10_02_07`), matching §3.6's QUADAS-3 methodology. `c-sof-ref` uses `=10_02_06` (exact-serial) rather than a `10_02_06` prefix, since the prefix would also pull in the sibling `10_02_06_02` guideline-authoring lesson, which doesn't belong on an SR protocol template.
 
 ## [3.2.0] – 2026-06-09
 
