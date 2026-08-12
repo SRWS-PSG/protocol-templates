@@ -15,6 +15,10 @@ tools/.gcp/
 .env
 tools/.env
 
+# Python bytecode cache (tools/*.py)
+__pycache__/
+*.pyc
+
 # Extracted reference artifacts
 resources/legacy_comments_extracted.json
 
