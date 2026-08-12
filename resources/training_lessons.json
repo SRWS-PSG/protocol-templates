@@ -1,0 +1,1399 @@
+{
+  "source_spreadsheet_id": "1CGMC7-vhoTX7qB5FZknlr3exvG2xSOVzE9V8WGuicus",
+  "source_range": "A:M",
+  "feed_exported_at": "2026-08-12 04:00:08",
+  "lessons": [
+    {
+      "lesson_key": "オリエンテーション|01_01|オリエンテーション",
+      "serial": "01_01",
+      "title": "オリエンテーション",
+      "category": "オリエンテーション",
+      "course_id": "orientation",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "オリエンテーション|01_02|環境設定",
+      "serial": "01_02",
+      "title": "環境設定",
+      "category": "オリエンテーション",
+      "course_id": "orientation",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "オリエンテーション|01_03|臨床疑問の構造化：何からやればいいか分からない人へ",
+      "serial": "01_03",
+      "title": "臨床疑問の構造化：何からやればいいか分からない人へ",
+      "category": "オリエンテーション",
+      "course_id": "orientation",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "オリエンテーション|01_04|Google documentを使ったコメントと編集ルール",
+      "serial": "01_04",
+      "title": "Google documentを使ったコメントと編集ルール",
+      "category": "オリエンテーション",
+      "course_id": "orientation",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "オリエンテーション|01_05|（番外編）研究記録をつけよう",
+      "serial": "01_05",
+      "title": "（番外編）研究記録をつけよう",
+      "category": "オリエンテーション",
+      "course_id": "orientation",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "オリエンテーション|01_06|生涯学習としての情報収集のコツ",
+      "serial": "01_06",
+      "title": "生涯学習としての情報収集のコツ",
+      "category": "オリエンテーション",
+      "course_id": "orientation",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "オリエンテーション|01_07|「臨床メインで働く子育て中の主婦がRCTを実現した時間管理術」",
+      "serial": "01_07",
+      "title": "「臨床メインで働く子育て中の主婦がRCTを実現した時間管理術」",
+      "category": "オリエンテーション",
+      "course_id": "orientation",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "オリエンテーション|01_08|先延ばしの要因と対策",
+      "serial": "01_08",
+      "title": "先延ばしの要因と対策",
+      "category": "オリエンテーション",
+      "course_id": "orientation",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "オリエンテーション|01_09|介入のレビューにおける結論の書き方について",
+      "serial": "01_09",
+      "title": "介入のレビューにおける結論の書き方について",
+      "category": "オリエンテーション",
+      "course_id": "orientation",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "レターの書き方|02_01|レターの書き方",
+      "serial": "02_01",
+      "title": "レターの書き方",
+      "category": "レターの書き方",
+      "course_id": "letter",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "レターの書き方|02_02|レターへのレター",
+      "serial": "02_02",
+      "title": "レターへのレター",
+      "category": "レターの書き方",
+      "course_id": "letter",
+      "released": "no"
+    },
+    {
+      "lesson_key": "レターの書き方|02_03|リジェクトされたときの対応",
+      "serial": "02_03",
+      "title": "リジェクトされたときの対応",
+      "category": "レターの書き方",
+      "course_id": "letter",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "レターの書き方|02_04|カバーレターの作成",
+      "serial": "02_04",
+      "title": "カバーレターの作成",
+      "category": "レターの書き方",
+      "course_id": "letter",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "レターの書き方|02_05|レター候補の探し方",
+      "serial": "02_05",
+      "title": "レター候補の探し方",
+      "category": "レターの書き方",
+      "course_id": "letter",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "レターの書き方|02_06|レターの書き方のtips",
+      "serial": "02_06",
+      "title": "レターの書き方のtips",
+      "category": "レターの書き方",
+      "course_id": "letter",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_01|SRでできること",
+      "serial": "03_01",
+      "title": "SRでできること",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_02|研究事例",
+      "serial": "03_02",
+      "title": "研究事例",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_03|先行レビューの検索",
+      "serial": "03_03",
+      "title": "先行レビューの検索",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_03_1|介入以外のレビューをやりたいメンティーへ（現時点でRQの決まっていないメンティーへ）",
+      "serial": "03_03_1",
+      "title": "介入以外のレビューをやりたいメンティーへ（現時点でRQの決まっていないメンティーへ）",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_04|文献管理ソフトの使い方",
+      "serial": "03_04",
+      "title": "文献管理ソフトの使い方",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_04_02|ENDNOTEユーザー向けのSRで使う操作",
+      "serial": "03_04_02",
+      "title": "ENDNOTEユーザー向けのSRで使う操作",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_05|組入・除外基準",
+      "serial": "03_05",
+      "title": "組入・除外基準",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_06|PubMedの検索式その1",
+      "serial": "03_06",
+      "title": "PubMedの検索式その1",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_06|PubMedの検索式その1課題のやり方",
+      "serial": "03_06",
+      "title": "PubMedの検索式その1課題のやり方",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "no"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_07_01|PubMedの検索式その2",
+      "serial": "03_07_01",
+      "title": "PubMedの検索式その2",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_07_02|PubMedの検索式その2課題のやり方",
+      "serial": "03_07_02",
+      "title": "PubMedの検索式その2課題のやり方",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_08|その他のデータベースの検索式 (CINHAL, Embase via ProQuest, ICTRP, Clinical Trials, PsycInfo, ERIC)",
+      "serial": "03_08",
+      "title": "その他のデータベースの検索式 (CINHAL, Embase via ProQuest, ICTRP, Clinical Trials, PsycInfo, ERIC)",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "no"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_09_01|個々の研究の質評価 準備編",
+      "serial": "03_09_01",
+      "title": "個々の研究の質評価 準備編",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_09_02|個々の研究の質評価 実践編",
+      "serial": "03_09_02",
+      "title": "個々の研究の質評価 実践編",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_09_03|RoB2.0のトレーニング_難易度高いバージョン",
+      "serial": "03_09_03",
+      "title": "RoB2.0のトレーニング_難易度高いバージョン",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_10|メタアナリシス：存在、発生、効果の指標",
+      "serial": "03_10",
+      "title": "メタアナリシス：存在、発生、効果の指標",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_11|メタアナリシス：異質性と出版バイアス",
+      "serial": "03_11",
+      "title": "メタアナリシス：異質性と出版バイアス",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_11_1|連続変数のメタアナリシス",
+      "serial": "03_11_1",
+      "title": "連続変数のメタアナリシス",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_12|質的統合層別_感度分析の検討欠測への対処",
+      "serial": "03_12",
+      "title": "質的統合層別_感度分析の検討欠測への対処",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_12_01|サブグループ分析の実際",
+      "serial": "03_12_01",
+      "title": "サブグループ分析の実際",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_13_1|SoF GRADE PROSPERO登録 PRISMA",
+      "serial": "03_13_1",
+      "title": "SoF GRADE PROSPERO登録 PRISMA",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_13_2|SoF GRADE PROSPERO登録 PRISMA",
+      "serial": "03_13_2",
+      "title": "SoF GRADE PROSPERO登録 PRISMA",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_13_3|SoF GRADE PROSPERO登録 PRISMA その3",
+      "serial": "03_13_3",
+      "title": "SoF GRADE PROSPERO登録 PRISMA その3",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_13_5|GRADEアプローチにおけるimprecisionの閾値の説明資料",
+      "serial": "03_13_5",
+      "title": "GRADEアプローチにおけるimprecisionの閾値の説明資料",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_14|SRの背景の書き方",
+      "serial": "03_14",
+      "title": "SRの背景の書き方",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_14_1|パラグラフ・ライティング",
+      "serial": "03_14_1",
+      "title": "パラグラフ・ライティング",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_15|その他のデータベースの検索式",
+      "serial": "03_15",
+      "title": "その他のデータベースの検索式",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_15_2|PRISMA-S",
+      "serial": "03_15_2",
+      "title": "PRISMA-S",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_16|OSFでのSRプロトコル登録",
+      "serial": "03_16",
+      "title": "OSFでのSRプロトコル登録",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSプロトコル登録まで|03_17|質的統合の解説",
+      "serial": "03_17",
+      "title": "質的統合の解説",
+      "category": "SRWSプロトコル登録まで",
+      "course_id": "sr-protocol",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWS結果まで|04_01|プロトコルから結果へ",
+      "serial": "04_01",
+      "title": "プロトコルから結果へ",
+      "category": "SRWS結果まで",
+      "course_id": "sr-results",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWS結果まで|04_02|フルテキストスクリーニングの準備と実践",
+      "serial": "04_02",
+      "title": "フルテキストスクリーニングの準備と実践",
+      "category": "SRWS結果まで",
+      "course_id": "sr-results",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWS結果まで|04_03|効率的な問い合わせ-Wordの差し込み印刷機能を使った問い合わせ",
+      "serial": "04_03",
+      "title": "効率的な問い合わせ-Wordの差し込み印刷機能を使った問い合わせ",
+      "category": "SRWS結果まで",
+      "course_id": "sr-results",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWS結果まで|04_04|臨床試験登録サイトのデータ加工",
+      "serial": "04_04",
+      "title": "臨床試験登録サイトのデータ加工",
+      "category": "SRWS結果まで",
+      "course_id": "sr-results",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWS結果まで|04_05|GRADEpro GDTの使い方",
+      "serial": "04_05",
+      "title": "GRADEpro GDTの使い方",
+      "category": "SRWS結果まで",
+      "course_id": "sr-results",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWS結果まで|04_06|Rob2 マクロフォームの使い方",
+      "serial": "04_06",
+      "title": "Rob2 マクロフォームの使い方",
+      "category": "SRWS結果まで",
+      "course_id": "sr-results",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWS結果まで|04_07|PRISMAフローチャートを作る前に",
+      "serial": "04_07",
+      "title": "PRISMAフローチャートを作る前に",
+      "category": "SRWS結果まで",
+      "course_id": "sr-results",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWS結果まで|04_08|検索結果の重複削除",
+      "serial": "04_08",
+      "title": "検索結果の重複削除",
+      "category": "SRWS結果まで",
+      "course_id": "sr-results",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWS結果まで|04_09|データ抽出（Data extraction）について",
+      "serial": "04_09",
+      "title": "データ抽出（Data extraction）について",
+      "category": "SRWS結果まで",
+      "course_id": "sr-results",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWS結果まで|04_10|検索のアップデート",
+      "serial": "04_10",
+      "title": "検索のアップデート",
+      "category": "SRWS結果まで",
+      "course_id": "sr-results",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWS結果まで|04_11|Embase検索式の作成",
+      "serial": "04_11",
+      "title": "Embase検索式の作成",
+      "category": "SRWS結果まで",
+      "course_id": "sr-results",
+      "released": "no"
+    },
+    {
+      "lesson_key": "SRWS結果まで|04_12|Title and abstract screeningのやり方",
+      "serial": "04_12",
+      "title": "Title and abstract screeningのやり方",
+      "category": "SRWS結果まで",
+      "course_id": "sr-results",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWS結果から投稿へ|05_01|結果から投稿へ",
+      "serial": "05_01",
+      "title": "結果から投稿へ",
+      "category": "SRWS結果から投稿へ",
+      "course_id": "sr-submission",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWS結果から投稿へ|05_02|WordファイルをOneDriveを使って共有",
+      "serial": "05_02",
+      "title": "WordファイルをOneDriveを使って共有",
+      "category": "SRWS結果から投稿へ",
+      "course_id": "sr-submission",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWS結果から投稿へ|05_03|PRISMA 2020 statement (初学者用)",
+      "serial": "05_03",
+      "title": "PRISMA 2020 statement (初学者用)",
+      "category": "SRWS結果から投稿へ",
+      "course_id": "sr-submission",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "SRWSリバイスが返ってきたら|06_01|リバイスが返ってきたら",
+      "serial": "06_01",
+      "title": "リバイスが返ってきたら",
+      "category": "SRWSリバイスが返ってきたら",
+      "course_id": "sr-revision",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "その他レクチャー|09_01|新しいPubMedの検索方法",
+      "serial": "09_01",
+      "title": "新しいPubMedの検索方法",
+      "category": "その他レクチャー",
+      "course_id": "other-lectures",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "その他レクチャー|09_02|SPH writing seminar",
+      "serial": "09_02",
+      "title": "SPH writing seminar",
+      "category": "その他レクチャー",
+      "course_id": "other-lectures",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_01|予後のSRのマニュアル",
+      "serial": "10_01",
+      "title": "予後のSRのマニュアル",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_01_02|予後研究の質評価_QUIPS",
+      "serial": "10_01_02",
+      "title": "予後研究の質評価_QUIPS",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_01_03|予後因子のエビデンスを評価するためのGRADEアプローチ(non-contextualized)",
+      "serial": "10_01_03",
+      "title": "予後因子のエビデンスを評価するためのGRADEアプローチ(non-contextualized)",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_01_04|全体の予後のエビデンスを評価するためのGRADEアプローチ",
+      "serial": "10_01_04",
+      "title": "全体の予後のエビデンスを評価するためのGRADEアプローチ",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_02_00|【コラム】診断精度研究の解釈における落とし穴",
+      "serial": "10_02_00",
+      "title": "【コラム】診断精度研究の解釈における落とし穴",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_02_01|診断精度の系統的レビューの基礎",
+      "serial": "10_02_01",
+      "title": "診断精度の系統的レビューの基礎",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_02_02|診断精度研究の質の評価_QUADAS-2_総論",
+      "serial": "10_02_02",
+      "title": "診断精度研究の質の評価_QUADAS-2_総論",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "no"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_02_03|診断精度研究の質の評価_QUADAS-2_各論",
+      "serial": "10_02_03",
+      "title": "診断精度研究の質の評価_QUADAS-2_各論",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "no"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_02_04|DTASRにおけるMA_第１部_DTASRの結果の記述",
+      "serial": "10_02_04",
+      "title": "DTASRにおけるMA_第１部_DTASRの結果の記述",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_02_05|DTASRにおけるMA_第２部_階層モデル",
+      "serial": "10_02_05",
+      "title": "DTASRにおけるMA_第２部_階層モデル",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_02_06|DTASR結果のまとめ方(SR用)",
+      "serial": "10_02_06",
+      "title": "DTASR結果のまとめ方(SR用)",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_02_06_02|DTASR結果のまとめ方(ガイドライン作成用)",
+      "serial": "10_02_06_02",
+      "title": "DTASR結果のまとめ方(ガイドライン作成用)",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_02_07|QUADAS-C",
+      "serial": "10_02_07",
+      "title": "QUADAS-C",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_02_08|診断精度研究の質の評価_QUADAS-3",
+      "serial": "10_02_08",
+      "title": "診断精度研究の質の評価_QUADAS-3",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_03_01|非ランダム化研究を組み入れるSRの基礎",
+      "serial": "10_03_01",
+      "title": "非ランダム化研究を組み入れるSRの基礎",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_03_02|非ランダム化研究のバイアス評価_ROBINS-I_準備編",
+      "serial": "10_03_02",
+      "title": "非ランダム化研究のバイアス評価_ROBINS-I_準備編",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_03_03|非ランダム化研究のバイアス評価_ROBINS-I_実践編",
+      "serial": "10_03_03",
+      "title": "非ランダム化研究のバイアス評価_ROBINS-I_実践編",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_03_04|非ランダム化研究を組み入れるSRマニュアル",
+      "serial": "10_03_04",
+      "title": "非ランダム化研究を組み入れるSRマニュアル",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_03_05|ROBINS-I 非公式マクロ",
+      "serial": "10_03_05",
+      "title": "ROBINS-I 非公式マクロ",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_05|個別の患者データを用いたメタ・アナリシスの基礎",
+      "serial": "10_05",
+      "title": "個別の患者データを用いたメタ・アナリシスの基礎",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_06|Scoping review",
+      "serial": "10_06",
+      "title": "Scoping review",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_07|Randomized cross-over trialを組み入れたMeta-Analysisの方法",
+      "serial": "10_07",
+      "title": "Randomized cross-over trialを組み入れたMeta-Analysisの方法",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_08|PrevalenceのSR",
+      "serial": "10_08",
+      "title": "PrevalenceのSR",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_10_00|診療ガイドラインの総論",
+      "serial": "10_10_00",
+      "title": "診療ガイドラインの総論",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_10_01|診療ガイドライン版GRADE 個々のアウトカムの確実性評価",
+      "serial": "10_10_01",
+      "title": "診療ガイドライン版GRADE 個々のアウトカムの確実性評価",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_10_02|GRADE: Net benefit approach （完全コンテクスト化アプローチ）の解説",
+      "serial": "10_10_02",
+      "title": "GRADE: Net benefit approach （完全コンテクスト化アプローチ）の解説",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_11_01|NMA理論編1",
+      "serial": "10_11_01",
+      "title": "NMA理論編1",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_11_02|NMA理論編2",
+      "serial": "10_11_02",
+      "title": "NMA理論編2",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_11_03|NMA実践編",
+      "serial": "10_11_03",
+      "title": "NMA実践編",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_11_04|ネットワーク・メタアナリシス トラブルシューティング編",
+      "serial": "10_11_04",
+      "title": "ネットワーク・メタアナリシス トラブルシューティング編",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_11_05|NMAのGRADE",
+      "serial": "10_11_05",
+      "title": "NMAのGRADE",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_12|DTA NMA",
+      "serial": "10_12",
+      "title": "DTA NMA",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "no"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_13|dose-response meta-analysis",
+      "serial": "10_13",
+      "title": "dose-response meta-analysis",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "アドバンストSRコース|10_14|PROBAST-AI",
+      "serial": "10_14",
+      "title": "PROBAST-AI",
+      "category": "アドバンストSRコース",
+      "course_id": "advanced-sr",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_00_01|先人に学ぶ_その1、その2",
+      "serial": "20_00_01",
+      "title": "先人に学ぶ_その1、その2",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_00_02|先人に学ぶ_その3",
+      "serial": "20_00_02",
+      "title": "先人に学ぶ_その3",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_00_03|疑問をモデル化する",
+      "serial": "20_00_03",
+      "title": "疑問をモデル化する",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_00_04|測定をデザイン",
+      "serial": "20_00_04",
+      "title": "測定をデザイン",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_00_05|研究の型を選ぶ",
+      "serial": "20_00_05",
+      "title": "研究の型を選ぶ",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_00_06|比較の質を高める",
+      "serial": "20_00_06",
+      "title": "比較の質を高める",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_00_07|倫理的配慮",
+      "serial": "20_00_07",
+      "title": "倫理的配慮",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_01|データクリーニングとTable1",
+      "serial": "20_01",
+      "title": "データクリーニングとTable1",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_02|質問紙票調査",
+      "serial": "20_02",
+      "title": "質問紙票調査",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_03|症例報告のやり方",
+      "serial": "20_03",
+      "title": "症例報告のやり方",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_03_01|どんな専攻医でも1年以内にアクセプトされる症例報告の進め方",
+      "serial": "20_03_01",
+      "title": "どんな専攻医でも1年以内にアクセプトされる症例報告の進め方",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_03_01|どんな専攻医でも1年以内にアクセプトされる症例報告の進め方",
+      "serial": "20_03_01",
+      "title": "どんな専攻医でも1年以内にアクセプトされる症例報告の進め方",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "no"
+    },
+    {
+      "lesson_key": "観察研究コース|20_04_01|オープンデータを使った生態学的研究",
+      "serial": "20_04_01",
+      "title": "オープンデータを使った生態学的研究",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_04_02|20_04_02 オープンデータを使って生態学的研究をやってみよう：その１",
+      "serial": "20_04_02",
+      "title": "20_04_02 オープンデータを使って生態学的研究をやってみよう：その１",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_04_02|オープンデータを使って生態学的研究をやってみよう：その１",
+      "serial": "20_04_02",
+      "title": "オープンデータを使って生態学的研究をやってみよう：その１",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "no"
+    },
+    {
+      "lesson_key": "観察研究コース|20_04_03|20_04_03 オープンデータを使って生態学的研究をやってみよう：その２",
+      "serial": "20_04_03",
+      "title": "20_04_03 オープンデータを使って生態学的研究をやってみよう：その２",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_04_03|オープンデータを使って生態学的研究をやってみよう：その２",
+      "serial": "20_04_03",
+      "title": "オープンデータを使って生態学的研究をやってみよう：その２",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "no"
+    },
+    {
+      "lesson_key": "観察研究コース|20_05_01|診断精度研究の枠組み",
+      "serial": "20_05_01",
+      "title": "診断精度研究の枠組み",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_05_02|診断精度研究のアウトカム計算法",
+      "serial": "20_05_02",
+      "title": "診断精度研究のアウトカム計算法",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_06|準実験法",
+      "serial": "20_06",
+      "title": "準実験法",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_07|DWHを使ってみよう",
+      "serial": "20_07",
+      "title": "DWHを使ってみよう",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_07_01|匿名化IDの作り方",
+      "serial": "20_07_01",
+      "title": "匿名化IDの作り方",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_08|予測指標を作ろう！",
+      "serial": "20_08",
+      "title": "予測指標を作ろう！",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_11|メタ疫学研究",
+      "serial": "20_11",
+      "title": "メタ疫学研究",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_12|メタエピで使う論文評価ツール（SR、CPG）",
+      "serial": "20_12",
+      "title": "メタエピで使う論文評価ツール（SR、CPG）",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_13|生態学的研究の研究計画書テンプレ",
+      "serial": "20_13",
+      "title": "生態学的研究の研究計画書テンプレ",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_14|AIを作ろう！",
+      "serial": "20_14",
+      "title": "AIを作ろう！",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_15|データベース研究のためのvalidation研究",
+      "serial": "20_15",
+      "title": "データベース研究のためのvalidation研究",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_15|図表の作り方",
+      "serial": "20_15",
+      "title": "図表の作り方",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_16|業績を登録する",
+      "serial": "20_16",
+      "title": "業績を登録する",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_17|先人に学んだ後で",
+      "serial": "20_17",
+      "title": "先人に学んだ後で",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_18|バイアス・交絡",
+      "serial": "20_18",
+      "title": "バイアス・交絡",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_19|倫理講習",
+      "serial": "20_19",
+      "title": "倫理講習",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "no"
+    },
+    {
+      "lesson_key": "観察研究コース|20_20|ビジュアルアブストラクトの作り方",
+      "serial": "20_20",
+      "title": "ビジュアルアブストラクトの作り方",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_20_1|観察研究コース ビジュアルアブストラクトの作り方・補足資料",
+      "serial": "20_20_1",
+      "title": "観察研究コース ビジュアルアブストラクトの作り方・補足資料",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_21|図書室がない施設での文献取り寄せ",
+      "serial": "20_21",
+      "title": "図書室がない施設での文献取り寄せ",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_22|自施設のレセプトを分析してみよう",
+      "serial": "20_22",
+      "title": "自施設のレセプトを分析してみよう",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_23|チャットでRを書いてみよう! Gemini CLIをPosit.cloudで使う方法",
+      "serial": "20_23",
+      "title": "チャットでRを書いてみよう! Gemini CLIをPosit.cloudで使う方法",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "観察研究コース|20_24|もうコードは書かない！臨床疫学のためのVibe Coding完全ガイド",
+      "serial": "20_24",
+      "title": "もうコードは書かない！臨床疫学のためのVibe Coding完全ガイド",
+      "category": "観察研究コース",
+      "course_id": "observational",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "ウェブセミナー|30|ウェブセミナーのまとめ",
+      "serial": "30",
+      "title": "ウェブセミナーのまとめ",
+      "category": "ウェブセミナー",
+      "course_id": "webinar",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "メンタリング|40_01|誰も教えてくれなかった研究メンタリング",
+      "serial": "40_01",
+      "title": "誰も教えてくれなかった研究メンタリング",
+      "category": "メンタリング",
+      "course_id": "mentoring",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "メンタリング|40_02|個別キャリアプラン",
+      "serial": "40_02",
+      "title": "個別キャリアプラン",
+      "category": "メンタリング",
+      "course_id": "mentoring",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "臨床研究の基礎問題集|50|臨床研究の基礎問題集",
+      "serial": "50",
+      "title": "臨床研究の基礎問題集",
+      "category": "臨床研究の基礎問題集",
+      "course_id": "study-quiz",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "その他TIPS|60_01|GASでアンケート研究を爆速化：ChatGPTの論文作成以外の活用法を探る",
+      "serial": "60_01",
+      "title": "GASでアンケート研究を爆速化：ChatGPTの論文作成以外の活用法を探る",
+      "category": "その他TIPS",
+      "course_id": "misc-tips",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "その他TIPS|60_02|Cureusへの投稿",
+      "serial": "60_02",
+      "title": "Cureusへの投稿",
+      "category": "その他TIPS",
+      "course_id": "misc-tips",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "その他TIPS|60_03|画像生成AI入門",
+      "serial": "60_03",
+      "title": "画像生成AI入門",
+      "category": "その他TIPS",
+      "course_id": "misc-tips",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "その他TIPS|60_04|ChatGPTとメンターを活用した医学英語論文の新しい書き方講座：誰でもできる効率的・良質な論文執筆法",
+      "serial": "60_04",
+      "title": "ChatGPTとメンターを活用した医学英語論文の新しい書き方講座：誰でもできる効率的・良質な論文執筆法",
+      "category": "その他TIPS",
+      "course_id": "misc-tips",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "ハンズオンカフェ|70|ハンズオンカフェ",
+      "serial": "70",
+      "title": "ハンズオンカフェ",
+      "category": "ハンズオンカフェ",
+      "course_id": "hands-on-cafe",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_01_01|このコースで何ができるようになるか",
+      "serial": "80_01_01",
+      "title": "このコースで何ができるようになるか",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_01_02|AIに渡していいもの・ダメなもの",
+      "serial": "80_01_02",
+      "title": "AIに渡していいもの・ダメなもの",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_01_03|使うAIを1つ決める",
+      "serial": "80_01_03",
+      "title": "使うAIを1つ決める",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_01_04|サンプル論文をAIに渡す",
+      "serial": "80_01_04",
+      "title": "サンプル論文をAIに渡す",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_01_05|解析計画書を書いてもらう",
+      "serial": "80_01_05",
+      "title": "解析計画書を書いてもらう",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_01_06|待ち時間に論文の概要をつかむ",
+      "serial": "80_01_06",
+      "title": "待ち時間に論文の概要をつかむ",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_01_07|出てきた計画書を読んで直す",
+      "serial": "80_01_07",
+      "title": "出てきた計画書を読んで直す",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_01_08|わからない所をその場で聞く",
+      "serial": "80_01_08",
+      "title": "わからない所をその場で聞く",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_01_09|コードを書かせて動かす",
+      "serial": "80_01_09",
+      "title": "コードを書かせて動かす",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_01_10|チェック① 対応表を作らせる",
+      "serial": "80_01_10",
+      "title": "チェック① 対応表を作らせる",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_01_11|チェック② 逆に書き起こさせる",
+      "serial": "80_01_11",
+      "title": "チェック② 逆に書き起こさせる",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_01_12|詰まったときの型",
+      "serial": "80_01_12",
+      "title": "詰まったときの型",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_01_13|自分の研究に持ち込む",
+      "serial": "80_01_13",
+      "title": "自分の研究に持ち込む",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_02_01|PCで動かす環境に進む",
+      "serial": "80_02_01",
+      "title": "PCで動かす環境に進む",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_02_02|Antigravityを起動する",
+      "serial": "80_02_02",
+      "title": "Antigravityを起動する",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_02_03|リポジトリをクローンする",
+      "serial": "80_02_03",
+      "title": "リポジトリをクローンする",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_02_04|README.mdで全体像をつかむ",
+      "serial": "80_02_04",
+      "title": "README.mdで全体像をつかむ",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_02_05|チャット画面を開く",
+      "serial": "80_02_05",
+      "title": "チャット画面を開く",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_02_06|練習用フォルダの中身を確認する",
+      "serial": "80_02_06",
+      "title": "練習用フォルダの中身を確認する",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_02_07|解析計画書を書いてもらう（実習1）",
+      "serial": "80_02_07",
+      "title": "解析計画書を書いてもらう（実習1）",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_02_08|実行許可を求められたら",
+      "serial": "80_02_08",
+      "title": "実行許可を求められたら",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_02_09|出てきた計画書をレビューする",
+      "serial": "80_02_09",
+      "title": "出てきた計画書をレビューする",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_02_10|計画書を確定させる",
+      "serial": "80_02_10",
+      "title": "計画書を確定させる",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_02_11|解析コードを書くプランを立てる（実習2）",
+      "serial": "80_02_11",
+      "title": "解析コードを書くプランを立てる（実習2）",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_02_12|コードを実行して仕上げる",
+      "serial": "80_02_12",
+      "title": "コードを実行して仕上げる",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_03_01|ブラウザだけでRを動かす",
+      "serial": "80_03_01",
+      "title": "ブラウザだけでRを動かす",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_03_02|ランタイムをRに切り替える",
+      "serial": "80_03_02",
+      "title": "ランタイムをRに切り替える",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_03_03|AIに書かせたコードを実行する",
+      "serial": "80_03_03",
+      "title": "AIに書かせたコードを実行する",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    },
+    {
+      "lesson_key": "Vibe Coding|80_03_04|ノートブックを保存・共有する",
+      "serial": "80_03_04",
+      "title": "ノートブックを保存・共有する",
+      "category": "Vibe Coding",
+      "course_id": "vibe-coding",
+      "released": "yes"
+    }
+  ]
+}

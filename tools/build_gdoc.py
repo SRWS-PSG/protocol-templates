@@ -15,7 +15,9 @@ First-time setup:
   1. pip install -r tools/requirements.txt
   2. Create an OAuth Desktop client at
        https://console.cloud.google.com/apis/credentials
-     (Enable Drive API + Docs API for the project first.)
+     (Enable Drive API + Docs API for the project first. Also enable Sheets
+     API if you'll run tools/sync_training_lessons.py, which shares this
+     script's OAuth plumbing and SCOPES.)
   3. Download the client secret JSON and save it to
        tools/.gcp/credentials.json
   4. Run `python tools/build_gdoc.py --lang ja` -- a browser window opens for
@@ -57,6 +59,12 @@ except ImportError:
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from docx_comments import inject_comments
+from training_lessons import (
+    LessonResolutionError,
+    load_lessons,
+    render_comment_body,
+    resolve_comment_lessons,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -174,6 +182,7 @@ def save_upload_state(state: dict) -> None:
 SCOPES = [
     "https://www.googleapis.com/auth/drive.file",
     "https://www.googleapis.com/auth/documents",
+    "https://www.googleapis.com/auth/spreadsheets.readonly",
 ]
 
 
@@ -190,27 +199,63 @@ def master_path(paths: dict[str, Path], lang: str) -> Path:
     return tdir / f"{stem}.{lang}.md"
 
 
-def load_comments(paths: dict[str, Path], lang: str) -> list[dict]:
+def load_comments(
+    paths: dict[str, Path], lang: str, snapshot: str | Path | None = None
+) -> list[dict]:
     """Load comments applicable to the given language as plain dicts.
 
     Returns dicts with keys: id, anchor (str), body (str), occurrence (int).
     The body is a single Japanese string shared across languages; only the
     anchor text differs per master file.
+
+    Each entry's body is assembled from two optional sources (see
+    tools/training_lessons.py and the schema comment atop comments.yaml):
+      - `lessons:` a list of training-lesson serial prefixes, resolved
+        against the synced snapshot (resources/training_lessons.json) and
+        rendered as a "related training" block.
+      - `body:` hand-written Japanese text.
+    An entry with `lessons:` and `body:` gets the generated block first, a
+    blank line, then the hand-written text. An entry with neither is skipped,
+    same as before `lessons:` existed.
+
+    `snapshot` overrides the training-lesson snapshot path (mainly for
+    testing against a fixture); see training_lessons.resolve_snapshot_path.
+
+    Raises training_lessons.LessonResolutionError -- naming the offending
+    comment `id` and `lessons:` entry -- if a prefix resolves to zero lessons
+    or to a lesson that isn't released yet. This is meant to fail the build
+    rather than publish a dead or premature training reference.
     """
     if yaml is None:
         raise RuntimeError("PyYAML is required: pip install -r tools/requirements.txt")
     data = yaml.safe_load(paths["comments_yaml"].read_text(encoding="utf-8"))
+    entries = data.get("comments", [])
+
+    # Only load the (network-free, but potentially large) snapshot if some
+    # entry actually needs it.
+    lessons = load_lessons(snapshot) if any(e.get("lessons") for e in entries) else []
+
     out: list[dict] = []
-    for entry in data.get("comments", []):
+    for entry in entries:
         anchor = (entry.get("anchor") or {}).get(lang)
-        body = entry.get("body")
-        if not anchor or not body:
+        if not anchor:
             continue
+
+        refs = entry.get("lessons") or []
+        hand_body = entry.get("body")
+        if refs:
+            resolved = resolve_comment_lessons(entry["id"], refs, lessons)
+            body = render_comment_body(resolved, hand_body)
+        elif hand_body:
+            body = hand_body.rstrip()
+        else:
+            continue
+
         out.append(
             {
                 "id": entry["id"],
                 "anchor": anchor,
-                "body": body.rstrip(),
+                "body": body,
                 "occurrence": int(entry.get("occurrence", 1)),
             }
         )
@@ -304,6 +349,23 @@ def _retag_note_list_items(docx_path: Path) -> int:
 # --------------------------------------------------------------------------- #
 
 
+def _rename_stale_token(reason: str) -> None:
+    """Move an unusable cached token out of the way and explain why.
+
+    This repo's existing convention for a dead tools/.gcp/token.json is to
+    rename it to "token.json.stale-<YYYYMMDDHHMMSS>" rather than delete it
+    (there are already such files from prior incidents), so the next
+    InstalledAppFlow consent isn't a silent surprise and the old token stays
+    around for forensics.
+    """
+    from datetime import datetime
+
+    stamp = datetime.now().strftime("%Y%m%d%H%M%S")
+    stale_path = TOKEN_FILE.with_name(f"{TOKEN_FILE.name}.stale-{stamp}")
+    TOKEN_FILE.rename(stale_path)
+    print(f"  {reason}; moved to {stale_path.name}, re-consenting via browser")
+
+
 def get_credentials():
     """Resolve credentials in this order:
 
@@ -311,26 +373,56 @@ def get_credentials():
     2. OAuth Desktop client secret at tools/.gcp/credentials.json -> browser consent.
     3. Application Default Credentials (gcloud auth application-default login).
 
-    For (3) to work, ADC must have been minted with the Drive.file + Docs scopes:
+    For (3) to work, ADC must have been minted with the Drive.file + Docs +
+    Sheets(readonly) scopes:
         gcloud auth application-default login \
             --scopes="https://www.googleapis.com/auth/drive.file,\
 https://www.googleapis.com/auth/documents,\
+https://www.googleapis.com/auth/spreadsheets.readonly,\
 https://www.googleapis.com/auth/cloud-platform"
 
     The narrower drive.file scope avoids Google's sensitive-scope verification
     block while still giving the script full control over files it creates.
+
+    A cached token minted before SCOPES grew (e.g. before spreadsheets.readonly
+    was added) is unusable: Google's refresh endpoint won't silently grant a
+    scope the user never consented to, and raises RefreshError ("Not all
+    requested scopes were granted") instead. Rather than let that propagate as
+    a stack trace, such a token -- detected either up front (its recorded
+    `scopes` don't cover the current SCOPES) or via a RefreshError from an
+    actual refresh attempt -- is treated as stale: renamed out of the way (see
+    `_rename_stale_token`) and re-consented via the InstalledAppFlow browser
+    flow below, same as a first-time run.
     """
+    from google.auth.exceptions import RefreshError
     from google.auth.transport.requests import Request
     from google.oauth2.credentials import Credentials
 
     if TOKEN_FILE.exists():
-        creds = Credentials.from_authorized_user_file(str(TOKEN_FILE), SCOPES)
-        if creds and creds.valid:
-            return creds
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-            TOKEN_FILE.write_text(creds.to_json())
-            return creds
+        try:
+            token_info = json.loads(TOKEN_FILE.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            token_info = {}
+        granted_scopes = set(token_info.get("scopes") or [])
+
+        if not set(SCOPES) <= granted_scopes:
+            _rename_stale_token(
+                f"cached token at {TOKEN_FILE} doesn't cover the current SCOPES "
+                f"(missing {sorted(set(SCOPES) - granted_scopes)})"
+            )
+        else:
+            creds = Credentials.from_authorized_user_file(str(TOKEN_FILE), SCOPES)
+            if creds and creds.valid:
+                return creds
+            if creds and creds.expired and creds.refresh_token:
+                try:
+                    creds.refresh(Request())
+                    TOKEN_FILE.write_text(creds.to_json())
+                    return creds
+                except RefreshError as e:
+                    _rename_stale_token(
+                        f"cached token at {TOKEN_FILE} failed to refresh ({e})"
+                    )
 
     if CREDENTIALS_FILE.exists():
         from google_auth_oauthlib.flow import InstalledAppFlow
@@ -352,6 +444,7 @@ https://www.googleapis.com/auth/cloud-platform"
             "  (a) gcloud auth application-default login \\\n"
             '        --scopes="https://www.googleapis.com/auth/drive.file,'
             "https://www.googleapis.com/auth/documents,"
+            "https://www.googleapis.com/auth/spreadsheets.readonly,"
             'https://www.googleapis.com/auth/cloud-platform"\n'
             "  (b) Place an OAuth Desktop client secret at " + str(CREDENTIALS_FILE) + "\n"
             f"Underlying error: {e}"
@@ -572,6 +665,16 @@ def main() -> int:
         action="store_true",
         help="Do not write the resulting Doc ID to tools/.gcp/upload_state.json",
     )
+    p.add_argument(
+        "--snapshot",
+        default=None,
+        help=(
+            "Override the training-lesson snapshot path used to resolve "
+            "`lessons:` entries in comments.yaml (default: "
+            "resources/training_lessons.json, or $TRAINING_LESSONS_SNAPSHOT). "
+            "Mainly useful for testing against a fixture."
+        ),
+    )
     args = p.parse_args()
 
     # Resolve the destination folder: an explicit --folder-id wins; otherwise
@@ -600,7 +703,11 @@ def main() -> int:
     plain_docx = build_dir / f"{src.stem}.docx"
     build_docx(paths, src, plain_docx)
 
-    comments = load_comments(paths, args.lang)
+    try:
+        comments = load_comments(paths, args.lang, snapshot=args.snapshot)
+    except LessonResolutionError as e:
+        print(f"ERROR: {e}", file=sys.stderr)
+        return 2
     print(f"loaded {len(comments)} comment(s) for template={args.template} lang={args.lang}")
 
     annotated_docx = build_dir / f"{src.stem}.with-comments.docx"

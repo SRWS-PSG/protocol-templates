@@ -12,8 +12,35 @@
 #       en:        English anchor string (matched against the en master). Omit to
 #                  attach the comment only to the ja Doc.
 #     occurrence:  (optional, default 1) which occurrence of the anchor string to attach to.
+#     lessons:     (optional) array of training-lesson references, resolved against
+#                  resources/training_lessons.json (synced from the SRWS-PSG Slack
+#                  training curriculum sheet via tools/sync_training_lessons.py).
+#                  Each element is one of:
+#                    - a serial prefix: matches any lesson whose serial is exactly
+#                      that prefix or starts with "<prefix>_" (segment-boundary
+#                      match, so "03_1" does NOT match "03_10").
+#                    - "=<serial>": exact serial match, no prefix descent (use when
+#                      a prefix would also pull in an unwanted sub-lesson).
+#                    - "key:<lesson_key>": exact lesson_key match (escape hatch,
+#                      unused so far).
+#                  At build time (tools/build_gdoc.py) each ref is resolved, then
+#                  filtered to released lessons only (serial is not unique in the
+#                  sheet -- a lesson can be re-recorded under a new lesson_key while
+#                  keeping its old serial -- so this is what disambiguates a
+#                  duplicated serial), and rendered as a "related training" block
+#                  listing category + serial + title, sorted by serial. The build
+#                  fails if a ref resolves to zero lessons, or to lessons that are
+#                  all unreleased.
+#     legacy_urls: (optional) the original Facebook-group post URL(s) this comment's
+#                  `lessons:` entries were migrated from. Kept for provenance only;
+#                  never rendered into the comment body. (The SRWS-PSG Facebook
+#                  group is private and its posts are stale; see `lessons:` for the
+#                  current, linkable equivalent.)
 #     body: |
-#       Japanese comment text shown in both ja and en Google Docs.
+#       Japanese comment text shown in both ja and en Google Docs. Optional when
+#       `lessons:` is present, since the block above is generated in full; if both
+#       are given, the generated lesson block is rendered first, then a blank line,
+#       then this hand-written text.
 #     audience:    (optional) free-form tags, e.g. [author, mentor, reference].
 #
 # Notes:
@@ -22,8 +49,10 @@
 #   - Multiple comments can share the same anchor; each becomes a separate thread
 #     in the Google Doc.
 #   - Anchors here target SECTION HEADINGS rather than the inline mentoring-session
-#     codes (e.g. 03_04, 14) that the 2022 Doc used, because those codes were
-#     removed in the v3 template.
+#     codes (e.g. 03_04, 14) that the 2022 Doc used. Those codes are no longer used
+#     as anchors, but they live on as `lessons:` prefixes: they match the `serial`
+#     column of the Slack training curriculum, so a mentoring-session code from the
+#     old Facebook thread now resolves to the corresponding Slack /training lesson.
 
 comments:
   # --- Title ------------------------------------------------------------
@@ -47,8 +76,9 @@ comments:
     anchor:
       ja: "# 1. Introduction"
       en: "# 1. Introduction"
-    body: |
-      https://www.facebook.com/groups/339218557733680/posts/345687800420089/
+    lessons: ["03_04"]
+    legacy_urls:
+      - https://www.facebook.com/groups/339218557733680/posts/345687800420089/
     audience: [reference]
 
   - id: c-background-ref-14
@@ -56,8 +86,9 @@ comments:
     anchor:
       ja: "# 1. Introduction"
       en: "# 1. Introduction"
-    body: |
-      https://www.facebook.com/groups/339218557733680/permalink/345764713745731/
+    lessons: ["03_14"]
+    legacy_urls:
+      - https://www.facebook.com/groups/339218557733680/permalink/345764713745731/
     audience: [reference]
 
   # --- 2. Research question --------------------------------------------
@@ -66,8 +97,9 @@ comments:
     anchor:
       ja: "# 2. Research question"
       en: "# 2. Research question"
-    body: |
-      https://www.facebook.com/groups/339218557733680/permalink/339349757720560/
+    lessons: ["01_03"]
+    legacy_urls:
+      - https://www.facebook.com/groups/339218557733680/permalink/339349757720560/
     audience: [reference]
 
   - id: c-rq-ref-03-03
@@ -75,8 +107,9 @@ comments:
     anchor:
       ja: "# 2. Research question"
       en: "# 2. Research question"
-    body: |
-      https://www.facebook.com/groups/339218557733680/permalink/345686130420256/
+    lessons: ["03_03"]
+    legacy_urls:
+      - https://www.facebook.com/groups/339218557733680/permalink/345686130420256/
     audience: [reference]
 
   # --- 3.2 Inclusion criteria ------------------------------------------
@@ -85,8 +118,9 @@ comments:
     anchor:
       ja: "## 3.2 Inclusion criteria of the articles for the review"
       en: "## 3.2 Inclusion criteria of the articles for the review"
-    body: |
-      https://www.facebook.com/groups/339218557733680/permalink/345690497086486/
+    lessons: ["03_05"]
+    legacy_urls:
+      - https://www.facebook.com/groups/339218557733680/permalink/345690497086486/
     audience: [reference]
 
   # --- 3.4 Search method ------------------------------------------------
@@ -95,8 +129,9 @@ comments:
     anchor:
       ja: "## 3.4 Search method"
       en: "## 3.4 Search method"
-    body: |
-      https://www.facebook.com/groups/339218557733680/permalink/345691060419763/
+    lessons: ["03_06"]
+    legacy_urls:
+      - https://www.facebook.com/groups/339218557733680/permalink/345691060419763/
     audience: [reference]
 
   - id: c-search-ref-07
@@ -104,9 +139,10 @@ comments:
     anchor:
       ja: "## 3.4 Search method"
       en: "## 3.4 Search method"
-    body: |
-      https://www.facebook.com/groups/339218557733680/permalink/345693490419520/
-      https://www.facebook.com/groups/339218557733680/permalink/345693750419494/
+    lessons: ["03_07"]
+    legacy_urls:
+      - https://www.facebook.com/groups/339218557733680/permalink/345693490419520/
+      - https://www.facebook.com/groups/339218557733680/permalink/345693750419494/
     audience: [reference]
 
   - id: c-search-medline-only-first
@@ -124,8 +160,9 @@ comments:
     anchor:
       ja: "## 3.5 Data collection and analysis"
       en: "## 3.5 Data collection and analysis"
-    body: |
-      https://www.facebook.com/groups/339218557733680/permalink/345690497086486/
+    lessons: ["03_05"]
+    legacy_urls:
+      - https://www.facebook.com/groups/339218557733680/permalink/345690497086486/
     audience: [reference]
 
   - id: c-data-collection-ref-07
@@ -133,9 +170,10 @@ comments:
     anchor:
       ja: "## 3.5 Data collection and analysis"
       en: "## 3.5 Data collection and analysis"
-    body: |
-      https://www.facebook.com/groups/339218557733680/permalink/345693490419520/
-      https://www.facebook.com/groups/339218557733680/permalink/345693750419494/
+    lessons: ["03_07"]
+    legacy_urls:
+      - https://www.facebook.com/groups/339218557733680/permalink/345693490419520/
+      - https://www.facebook.com/groups/339218557733680/permalink/345693750419494/
     audience: [reference]
 
   # --- 3.6 Risk of bias -------------------------------------------------
@@ -144,9 +182,10 @@ comments:
     anchor:
       ja: "## 3.6 Assessment of risk of bias in included studies"
       en: "## 3.6 Assessment of risk of bias in included studies"
-    body: |
-      https://www.facebook.com/groups/339218557733680/permalink/345693927086143/
-      https://www.facebook.com/groups/339218557733680/permalink/345696600419209/
+    lessons: ["03_09"]
+    legacy_urls:
+      - https://www.facebook.com/groups/339218557733680/permalink/345693927086143/
+      - https://www.facebook.com/groups/339218557733680/permalink/345696600419209/
     audience: [reference]
 
   # --- 3.7 Measures of treatment effects --------------------------------
@@ -155,8 +194,9 @@ comments:
     anchor:
       ja: "## 3.7 Measures of treatment effects"
       en: "## 3.7 Measures of treatment effects"
-    body: |
-      https://www.facebook.com/groups/339218557733680/permalink/345697577085778/
+    lessons: ["03_10"]
+    legacy_urls:
+      - https://www.facebook.com/groups/339218557733680/permalink/345697577085778/
     audience: [reference]
 
   # --- 3.8 Unit of analysis issues --------------------------------------
@@ -165,8 +205,9 @@ comments:
     anchor:
       ja: "## 3.8 Unit of analysis issues"
       en: "## 3.8 Unit of analysis issues"
-    body: |
-      https://www.facebook.com/groups/339218557733680/permalink/345690497086486/
+    lessons: ["03_05"]
+    legacy_urls:
+      - https://www.facebook.com/groups/339218557733680/permalink/345690497086486/
     audience: [reference]
 
   - id: c-unit-analysis-ref-10
@@ -174,8 +215,9 @@ comments:
     anchor:
       ja: "## 3.8 Unit of analysis issues"
       en: "## 3.8 Unit of analysis issues"
-    body: |
-      https://www.facebook.com/groups/339218557733680/permalink/345697577085778/
+    lessons: ["03_10"]
+    legacy_urls:
+      - https://www.facebook.com/groups/339218557733680/permalink/345697577085778/
     audience: [reference]
 
   # --- 3.9 Handling of missing data -------------------------------------
@@ -184,9 +226,10 @@ comments:
     anchor:
       ja: "## 3.9 Handling of missing data"
       en: "## 3.9 Handling of missing data"
-    body: |
-      https://www.facebook.com/groups/339218557733680/permalink/345698817085654/
-      https://www.facebook.com/groups/339218557733680/permalink/345756053746597/
+    lessons: ["03_12"]
+    legacy_urls:
+      - https://www.facebook.com/groups/339218557733680/permalink/345698817085654/
+      - https://www.facebook.com/groups/339218557733680/permalink/345756053746597/
     audience: [reference]
 
   # --- 3.10 Heterogeneity -----------------------------------------------
@@ -195,8 +238,9 @@ comments:
     anchor:
       ja: "## 3.10 Assessment of heterogeneity"
       en: "## 3.10 Assessment of heterogeneity"
-    body: |
-      https://www.facebook.com/groups/339218557733680/permalink/345698470419022/
+    lessons: ["03_11"]
+    legacy_urls:
+      - https://www.facebook.com/groups/339218557733680/permalink/345698470419022/
     audience: [reference]
 
   # --- 3.11 Reporting bias ----------------------------------------------
@@ -205,8 +249,9 @@ comments:
     anchor:
       ja: "## 3.11 Assessment of reporting bias"
       en: "## 3.11 Assessment of reporting bias"
-    body: |
-      https://www.facebook.com/groups/339218557733680/permalink/345698470419022/
+    lessons: ["03_11"]
+    legacy_urls:
+      - https://www.facebook.com/groups/339218557733680/permalink/345698470419022/
     audience: [reference]
 
   # --- 3.12 Meta-analysis -----------------------------------------------
@@ -215,8 +260,9 @@ comments:
     anchor:
       ja: "## 3.12 Meta-analysis"
       en: "## 3.12 Meta-analysis"
-    body: |
-      https://www.facebook.com/groups/339218557733680/permalink/345697577085778/
+    lessons: ["03_10"]
+    legacy_urls:
+      - https://www.facebook.com/groups/339218557733680/permalink/345697577085778/
     audience: [reference]
 
   # --- 3.13 Subgroup analysis -------------------------------------------
@@ -225,9 +271,10 @@ comments:
     anchor:
       ja: "## 3.13 Subgroup analysis"
       en: "## 3.13 Subgroup analysis"
-    body: |
-      https://www.facebook.com/groups/339218557733680/permalink/345698817085654/
-      https://www.facebook.com/groups/339218557733680/permalink/345756053746597/
+    lessons: ["03_12"]
+    legacy_urls:
+      - https://www.facebook.com/groups/339218557733680/permalink/345698817085654/
+      - https://www.facebook.com/groups/339218557733680/permalink/345756053746597/
     audience: [reference]
 
   # --- 3.14 Sensitivity analysis ----------------------------------------
@@ -236,9 +283,10 @@ comments:
     anchor:
       ja: "## 3.14 Sensitivity analysis"
       en: "## 3.14 Sensitivity analysis"
-    body: |
-      https://www.facebook.com/groups/339218557733680/permalink/345698817085654/
-      https://www.facebook.com/groups/339218557733680/permalink/345756053746597/
+    lessons: ["03_12"]
+    legacy_urls:
+      - https://www.facebook.com/groups/339218557733680/permalink/345698817085654/
+      - https://www.facebook.com/groups/339218557733680/permalink/345756053746597/
     audience: [reference]
 
   # --- 4. Summary of findings -------------------------------------------
@@ -247,10 +295,11 @@ comments:
     anchor:
       ja: "# 4. Summary of findings table"
       en: "# 4. Summary of findings table"
-    body: |
-      https://www.facebook.com/groups/339218557733680/permalink/345759547079581/
-      https://www.facebook.com/groups/339218557733680/permalink/345763087079227/
-      https://www.facebook.com/groups/339218557733680/permalink/345763773745825/
+    lessons: ["03_13"]
+    legacy_urls:
+      - https://www.facebook.com/groups/339218557733680/permalink/345759547079581/
+      - https://www.facebook.com/groups/339218557733680/permalink/345763087079227/
+      - https://www.facebook.com/groups/339218557733680/permalink/345763773745825/
     audience: [reference]
 
   # --- Appendix 1: MEDLINE ----------------------------------------------
@@ -259,8 +308,9 @@ comments:
     anchor:
       ja: "## Appendix 1: MEDLINE (PubMed) search strategy"
       en: "## Appendix 1: MEDLINE (PubMed) search strategy"
-    body: |
-      https://www.facebook.com/groups/339218557733680/permalink/345691060419763/
+    lessons: ["03_06"]
+    legacy_urls:
+      - https://www.facebook.com/groups/339218557733680/permalink/345691060419763/
     audience: [reference]
 
   - id: c-appendix1-gemini-app
@@ -290,9 +340,10 @@ comments:
     anchor:
       ja: "## Appendix 3: EMBASE (Dialog) search strategy"
       en: "## Appendix 3: EMBASE (Dialog) search strategy"
-    body: |
-      https://www.facebook.com/groups/339218557733680/permalink/345693490419520/
-      https://www.facebook.com/groups/339218557733680/permalink/345693750419494/
+    lessons: ["03_07"]
+    legacy_urls:
+      - https://www.facebook.com/groups/339218557733680/permalink/345693490419520/
+      - https://www.facebook.com/groups/339218557733680/permalink/345693750419494/
     audience: [reference]
 
   # --- References -------------------------------------------------------
