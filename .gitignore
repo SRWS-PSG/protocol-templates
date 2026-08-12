@@ -5,7 +5,8 @@ paper/build/
 templates/*/media/*
 !templates/scoping-review/media/scoping_concept_focus.png
 templates/*/_plan.md
-resources/
+resources/*
+!resources/training_lessons.json
 
 # Google API credentials (OAuth client + cached user token)
 tools/.gcp/
