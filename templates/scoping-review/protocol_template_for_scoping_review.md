@@ -101,7 +101,7 @@ Author contributions:
 
 This protocol was prepared with reference to the best-practice guidance for scoping review protocols by Peters et al. [@peters2022bestpractice], the JBI methodological guidance for the conduct of scoping reviews [@peters2020jbi;@peters2020jbimanual], and the PRISMA Extension for Scoping Reviews (PRISMA-ScR) [@tricco2018prismascr]. This protocol uses the scoping review protocol template maintained by SRWS-PSG [@Kataoka2026-cj]. The protocol will be made publicly available on OSF.io ([https://osf.io/](https://osf.io/)).
 
-We adopt the JBI five-stage framework (Stage 1: identifying the research question / Stage 2: identifying relevant studies / Stage 3: study selection / Stage 4: charting the data / Stage 5: collating, summarizing, and reporting the results) [@peters2020jbimanual].
+We apply the five-stage framework of Arksey and O'Malley [@arksey2005scoping], as refined by Levac et al. [@levac2010scoping] (Stage 1: identifying the research question / Stage 2: identifying relevant studies / Stage 3: study selection / Stage 4: charting the data / Stage 5: collating, summarizing, and reporting the results), in accordance with the JBI guidance [@peters2020jbi;@peters2020jbimanual].
 
 ## 3.2 Stage 1: Identifying the research question
 
