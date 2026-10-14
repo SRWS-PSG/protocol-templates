@@ -6,7 +6,14 @@ The format is loosely based on [Keep a Changelog](https://keepachangelog.com/en/
 
 ## [Unreleased]
 
+## [3.2.0] – 2026-10-14
+
+- Version DOI: `??????` _(minted automatically on Zenodo release; the always-latest concept DOI is recorded in [CITATION.cff](CITATION.cff))_
+
 ### Added
+
+- Companion paper published on **MetaArXiv** (Scholar-indexed): Kataoka Y, So R, Banno M, Tsujimoto Y. *Increasing the transparency and reproducibility of systematic-review protocols: structure-enforced, version-controlled templates for intervention, scoping, and diagnostic test accuracy reviews.* MetaArXiv; 2026. DOI [10.31222/osf.io/wj52n](https://doi.org/10.31222/osf.io/wj52n).
+- The companion paper DOI is now cited from the Section 3.1 self-reference of all three templates (EN + JA) as a managed citation (`@Kataoka2026-cj`, added to each template's independent `references.bib`), and recorded in [README.md](README.md) and [CITATION.cff](CITATION.cff) `identifiers`.
 
 New `templates/NMA/` template (v1.0.0), **English only** (no JA master). Modernizes the legacy NMA protocol ([resources/legacy_protocol_template_for_NMA_review.docx](resources/legacy_protocol_template_for_NMA_review.docx), last updated 2022-02-27) into the v3 house style, derived from the intervention-review template and grafted with NMA-specific content.
 
@@ -60,15 +67,6 @@ Methods sections of `intervention-review` (EN/JA) and `NMA`, following the templ
 - Assessment of reporting bias (intervention-review EN/JA, NMA): funnel plots and asymmetry tests only when a meta-analysis includes at least 10 studies (counted per meta-analysis) and the studies are not of similar size; Egger's test for mean differences and risk ratios, the Harbord or Peters test for odds ratios, and for SMDs a test based on a modified SE or a variance-stabilising transformation instead of the original Egger test; asymmetry is interpreted as possible small-study effects, not proof of publication bias (Cochrane Handbook section 13.3.4.4). New references `@harbord2006modified`, `@peters2006comparison`, `@pustejovsky2019smd` in intervention-review and NMA bibs.
 - AI position statement citation in all four templates' bibs: the `Flemyng2025-ru` entry (author misspelt "Norl-Storr, Anne", no volume, Cochrane Libr.) is replaced by `Flemyng2025-csr`, the Campbell Syst Rev version (2025;21(4):e70074, doi:10.1002/cl2.70074, PMID 41230118, author "Noel-Storr, Anna"); citation keys in all masters updated.
 - `Gartlehner2025-cm` in all four templates' bibs: final citation Ann Intern Med 2025;178(12):1763-1771, doi:10.7326/ANNALS-25-00739, PMID 41183336 (the DOI suffix was previously stored as the issue number in intervention-review and NMA).
-
-## [3.2.0] – 2026-06-09
-
-- Version DOI: `??????` _(minted automatically on Zenodo release; the always-latest concept DOI is recorded in [CITATION.cff](CITATION.cff))_
-
-### Added
-
-- Companion paper published on **MetaArXiv** (Scholar-indexed): Kataoka Y, So R, Banno M, Tsujimoto Y. *Increasing the transparency and reproducibility of systematic-review protocols: structure-enforced, version-controlled templates for intervention, scoping, and diagnostic test accuracy reviews.* MetaArXiv; 2026. DOI [10.31222/osf.io/wj52n](https://doi.org/10.31222/osf.io/wj52n).
-- The companion paper DOI is now cited from the Section 3.1 self-reference of all three templates (EN + JA) as a managed citation (`@Kataoka2026-cj`, added to each template's independent `references.bib`), and recorded in [README.md](README.md) and [CITATION.cff](CITATION.cff) `identifiers`.
 
 ## [3.1.1] – 2026-06-08
 
