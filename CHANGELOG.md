@@ -39,6 +39,11 @@ All four `templates/*/comments.yaml` files: migrated every SRWS-PSG Facebook-gro
 - The old inline mentoring-session codes (`03_04`, `14`, ...) that pre-v3 Docs anchored comments to directly are no longer anchors, but live on as `lessons:` refs matching the Slack training curriculum's `serial` column.
 - dta-review's `c-rob-ref` remapped from the QUADAS-2 lessons (`10_02_02`/`10_02_03`, both unreleased in the live curriculum) to QUADAS-3/QUADAS-C (`10_02_08`/`10_02_07`), matching §3.6's QUADAS-3 methodology. `c-sof-ref` uses `=10_02_06` (exact-serial) rather than a `10_02_06` prefix, since the prefix would also pull in the sibling `10_02_06_02` guideline-authoring lesson, which doesn't belong on an SR protocol template.
 
+Template version and date:
+
+- The `version:` and `date:` keys are removed from the YAML frontmatter of all seven template masters. Builds derive them from `git describe --tags` and the HEAD commit date through the shared `tools/template_version.py` (used by every `templates/*/build.ps1` and by `tools/build_gdoc.py`). In source zips without git, `tools/VERSION` supplies them via `export-subst` (`.gitattributes`). `tools/check_no_hardcoded_version.py` fails if either key reappears.
+- Per-template version numbers (scoping/DTA v2.0.0, NMA v1.0.0) are retired in favour of the single repository version, which matches the Zenodo version DOI.
+
 ## [3.2.0] – 2026-06-09
 
 - Version DOI: `??????` _(minted automatically on Zenodo release; the always-latest concept DOI is recorded in [CITATION.cff](CITATION.cff))_
@@ -47,6 +52,16 @@ All four `templates/*/comments.yaml` files: migrated every SRWS-PSG Facebook-gro
 
 - Companion paper published on **MetaArXiv** (Scholar-indexed): Kataoka Y, So R, Banno M, Tsujimoto Y. *Increasing the transparency and reproducibility of systematic-review protocols: structure-enforced, version-controlled templates for intervention, scoping, and diagnostic test accuracy reviews.* MetaArXiv; 2026. DOI [10.31222/osf.io/wj52n](https://doi.org/10.31222/osf.io/wj52n).
 - The companion paper DOI is now cited from the Section 3.1 self-reference of all three templates (EN + JA) as a managed citation (`@Kataoka2026-cj`, added to each template's independent `references.bib`), and recorded in [README.md](README.md) and [CITATION.cff](CITATION.cff) `identifiers`.
+
+## [3.1.1] – 2026-06-08
+
+### Changed
+
+- Zenodo version DOIs minted at the v3.1.0 release filled in.
+
+### Added
+
+- OSF/MetaArXiv submission and manuscript files for the systematic review protocol templates.
 
 ## [3.1.0] – 2026-06-08
 

@@ -43,6 +43,14 @@ if (-not (Test-Path $cslPath)) {
     Invoke-WebRequest -Uri 'https://www.zotero.org/styles/vancouver' -OutFile $cslPath
 }
 
+# Version and date are derived from git tags by the shared helper; they are not
+# written in the template YAML. Falls back to 'unknown' (never fails the build).
+$versionHelper = Join-Path $here '../../tools/template_version.py'
+$metaVersion   = (& python $versionHelper version) | Select-Object -First 1
+$metaTitleDate = (& python $versionHelper title-date) | Select-Object -First 1
+if (-not $metaVersion) { $metaVersion = 'unknown'; $metaTitleDate = 'unknown' }
+$metaArgs      = @('-M', "version=$metaVersion", '-M', "date=$metaTitleDate")
+
 function Invoke-Pandoc {
     param([string]$Src, [string[]]$ExtraArgs, [string]$Out)
     $commonArgs = @(
@@ -54,7 +62,7 @@ function Invoke-Pandoc {
         "--lua-filter=$luaFilt",
         '--standalone'
     )
-    $pandocArgs = $commonArgs + $ExtraArgs + @('-o', $Out)
+    $pandocArgs = $commonArgs + $metaArgs + $ExtraArgs + @('-o', $Out)
     Write-Host "pandoc $($pandocArgs -join ' ')"
     & pandoc @pandocArgs
 }

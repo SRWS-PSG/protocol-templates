@@ -2,8 +2,6 @@
 title: "介入レビュー プロトコルテンプレート"
 author:
   - SRWS-PSG Mentors
-date: 2026-05-16
-version: 3.0.0 (draft)
 lang: ja
 keywords:
   - systematic review protocol
