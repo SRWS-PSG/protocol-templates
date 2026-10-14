@@ -383,7 +383,7 @@ S19 TI(trial)
 S20 S1 OR S2 OR S3 OR S4 OR S5 OR S6 OR S7 OR S8 OR S9 OR S10 OR S11 OR S12 OR S13 OR S14 OR S15 OR S16 OR S17 OR S18 OR S19
 S21 TI(random* NEAR/1 sampl* NEAR/8 ("cross section*" OR questionnaire* OR survey OR surveys OR database OR databases)) OR AB(random* NEAR/1 sampl* NEAR/8 ("cross section*" OR questionnaire* OR survey OR surveys OR database OR databases)) NOT (EMB.EXACT.EXACT("comparative study") OR EMB.EXACT.EXACT("controlled study") OR TI(randomised controlled) OR TI(randomized controlled) OR TI(randomly assigned))
 S22 EMB.EXACT.EXACT("cross-sectional study") NOT (EMB.EXACT.EXPLODE("randomized controlled trial") OR EMB.EXACT.EXACT("controlled clinical study") OR EMB.EXACT.EXACT("controlled study") OR TI(randomised controlled) OR TI(randomized controlled) OR TI(control group) OR TI(control groups))
-S23 TI(case control*) OR AB(case control*) AND TI(random*) OR AB(random*) NOT (TI(randomised controlled) OR TI(randomized controlled))
+S23 (TI(case control*) OR AB(case control*)) AND (TI(random*) OR AB(random*)) NOT (TI(randomised controlled) OR TI(randomized controlled))
 S24 TI(systematic review) NOT (TI(trial) OR TI(study))
 S25 TI(nonrandom*) OR AB(nonrandom*) NOT TI(random*) OR AB(random*)
 S26 TI(random field*) OR AB(random field*)
