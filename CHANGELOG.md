@@ -6,7 +6,14 @@ The format is loosely based on [Keep a Changelog](https://keepachangelog.com/en/
 
 ## [Unreleased]
 
+## [3.2.0] – 2026-10-14
+
+- Version DOI: `??????` _(minted automatically on Zenodo release; the always-latest concept DOI is recorded in [CITATION.cff](CITATION.cff))_
+
 ### Added
+
+- Companion paper published on **MetaArXiv** (Scholar-indexed): Kataoka Y, So R, Banno M, Tsujimoto Y. *Increasing the transparency and reproducibility of systematic-review protocols: structure-enforced, version-controlled templates for intervention, scoping, and diagnostic test accuracy reviews.* MetaArXiv; 2026. DOI [10.31222/osf.io/wj52n](https://doi.org/10.31222/osf.io/wj52n).
+- The companion paper DOI is now cited from the Section 3.1 self-reference of all three templates (EN + JA) as a managed citation (`@Kataoka2026-cj`, added to each template's independent `references.bib`), and recorded in [README.md](README.md) and [CITATION.cff](CITATION.cff) `identifiers`.
 
 New `templates/NMA/` template (v1.0.0), **English only** (no JA master). Modernizes the legacy NMA protocol ([resources/legacy_protocol_template_for_NMA_review.docx](resources/legacy_protocol_template_for_NMA_review.docx), last updated 2022-02-27) into the v3 house style, derived from the intervention-review template and grafted with NMA-specific content.
 
@@ -39,6 +46,11 @@ All four `templates/*/comments.yaml` files: migrated every SRWS-PSG Facebook-gro
 - The old inline mentoring-session codes (`03_04`, `14`, ...) that pre-v3 Docs anchored comments to directly are no longer anchors, but live on as `lessons:` refs matching the Slack training curriculum's `serial` column.
 - dta-review's `c-rob-ref` remapped from the QUADAS-2 lessons (`10_02_02`/`10_02_03`, both unreleased in the live curriculum) to QUADAS-3/QUADAS-C (`10_02_08`/`10_02_07`), matching §3.6's QUADAS-3 methodology. `c-sof-ref` uses `=10_02_06` (exact-serial) rather than a `10_02_06` prefix, since the prefix would also pull in the sibling `10_02_06_02` guideline-authoring lesson, which doesn't belong on an SR protocol template.
 
+Template version and date:
+
+- The `version:` and `date:` keys are removed from the YAML frontmatter of all seven template masters. Builds derive them from `git describe --tags` and the HEAD commit date through the shared `tools/template_version.py` (used by every `templates/*/build.ps1` and by `tools/build_gdoc.py`). In source zips without git, `tools/VERSION` supplies them via `export-subst` (`.gitattributes`). `tools/check_no_hardcoded_version.py` fails if either key reappears.
+- Per-template version numbers (scoping/DTA v2.0.0, NMA v1.0.0) are retired in favour of the single repository version, which matches the Zenodo version DOI.
+
 Methods sections of `intervention-review` (EN/JA) and `NMA`, following the template mentor's review (2026-10-14):
 
 - Unit of analysis, cross-over trials: the existing default (first period; if unavailable, both periods as if parallel) is kept, but a `[cross-over approach / クロスオーバー試験の扱い: ...]` placeholder and a `> Note:` now make the author choose between (a) the default, (b) first-period data only, otherwise describe and exclude from meta-analysis (when carry-over is plausible), and (c) a paired analysis using the within-participant estimate and its SE (when carry-over is implausible; Cochrane Handbook chapter 23).
@@ -56,14 +68,15 @@ Methods sections of `intervention-review` (EN/JA) and `NMA`, following the templ
 - AI position statement citation in all four templates' bibs: the `Flemyng2025-ru` entry (author misspelt "Norl-Storr, Anne", no volume, Cochrane Libr.) is replaced by `Flemyng2025-csr`, the Campbell Syst Rev version (2025;21(4):e70074, doi:10.1002/cl2.70074, PMID 41230118, author "Noel-Storr, Anna"); citation keys in all masters updated.
 - `Gartlehner2025-cm` in all four templates' bibs: final citation Ann Intern Med 2025;178(12):1763-1771, doi:10.7326/ANNALS-25-00739, PMID 41183336 (the DOI suffix was previously stored as the issue number in intervention-review and NMA).
 
-## [3.2.0] – 2026-06-09
+## [3.1.1] – 2026-06-08
 
-- Version DOI: `??????` _(minted automatically on Zenodo release; the always-latest concept DOI is recorded in [CITATION.cff](CITATION.cff))_
+### Changed
+
+- Zenodo version DOIs minted at the v3.1.0 release filled in.
 
 ### Added
 
-- Companion paper published on **MetaArXiv** (Scholar-indexed): Kataoka Y, So R, Banno M, Tsujimoto Y. *Increasing the transparency and reproducibility of systematic-review protocols: structure-enforced, version-controlled templates for intervention, scoping, and diagnostic test accuracy reviews.* MetaArXiv; 2026. DOI [10.31222/osf.io/wj52n](https://doi.org/10.31222/osf.io/wj52n).
-- The companion paper DOI is now cited from the Section 3.1 self-reference of all three templates (EN + JA) as a managed citation (`@Kataoka2026-cj`, added to each template's independent `references.bib`), and recorded in [README.md](README.md) and [CITATION.cff](CITATION.cff) `identifiers`.
+- OSF/MetaArXiv submission and manuscript files for the systematic review protocol templates.
 
 ## [3.1.0] – 2026-06-08
 

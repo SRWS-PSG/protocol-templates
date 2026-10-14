@@ -2,8 +2,6 @@
 title: "診断精度レビュー プロトコルテンプレート"
 author:
   - SRWS-PSG Mentors
-date: 2026-05-20
-version: 2.0.0 (draft)
 lang: ja
 keywords:
   - diagnostic test accuracy

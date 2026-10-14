@@ -2,8 +2,6 @@
 title: "Protocol template for scoping review"
 author:
   - SRWS-PSG Mentors
-date: 2026-05-19
-version: 2.0.0 (draft)
 keywords:
   - scoping review protocol
   - PRISMA-ScR

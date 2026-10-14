@@ -96,6 +96,10 @@ Takes the EN and JA master paths as positional args and fails (exit 1) if they'v
 
 All three bilingual templates (`intervention-review`, `scoping-review`, `dta-review`) are expected to pass. Treat any failure as a real divergence to fix, not as background noise.
 
+### Version and date: derived from git tags
+
+The version shown in builds comes from git tags, not from the template YAML: `tools/template_version.py` (`git describe --tags --always --dirty`, plus the HEAD commit date) feeds Pandoc `-M version=... -M date=...` in every `templates/*/build.ps1` and in `tools/build_gdoc.py`. Source zips without git use `tools/VERSION`, substituted by `export-subst` (see `.gitattributes`); if neither works the version is `unknown` and the build still succeeds. To release, tag `vX.Y.Z` and publish a GitHub release (Zenodo mints the version DOI). Do not write `version:` or `date:` into a template master's YAML; `python tools/check_no_hardcoded_version.py` enforces it (exit 1 on violation).
+
 ### Other `tools/` scripts
 
 - `tools/docx_comments.py`: low-level docx comment injection (anchor matching + OOXML surgery), imported by `build_gdoc.py`.

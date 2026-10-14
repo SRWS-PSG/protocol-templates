@@ -2,8 +2,6 @@
 title: "スコーピングレビュー プロトコルテンプレート"
 author:
   - SRWS-PSG Mentors
-date: 2026-05-19
-version: 2.0.0 (draft)
 lang: ja
 keywords:
   - scoping review protocol

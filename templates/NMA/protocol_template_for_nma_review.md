@@ -2,8 +2,6 @@
 title: "Protocol template for network meta-analysis review"
 author:
   - SRWS-PSG Mentors
-date: 2026-06-09
-version: 1.0.0 (draft)
 keywords:
   - systematic review protocol
   - network meta-analysis

@@ -2,8 +2,6 @@
 title: "Protocol template for intervention review"
 author:
   - SRWS-PSG Mentors
-date: 2026-05-16
-version: 3.0.0 (draft)
 keywords:
   - systematic review protocol
   - intervention review

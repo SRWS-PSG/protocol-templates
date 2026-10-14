@@ -59,6 +59,7 @@ except ImportError:
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from docx_comments import inject_comments
+from template_version import pandoc_metadata_args
 from training_lessons import (
     LessonResolutionError,
     load_lessons,
@@ -280,6 +281,7 @@ def build_docx(paths: dict[str, Path], src: Path, out: Path) -> None:
     ]
     if paths["reference_docx"].exists():
         cmd.insert(-2, f"--reference-doc={paths['reference_docx']}")
+    cmd[-2:-2] = pandoc_metadata_args()
     print("$", " ".join(cmd))
     subprocess.run(cmd, check=True)
     _retag_note_list_items(out)
