@@ -213,7 +213,7 @@ Author contributions:
 > Note: ここは表を作るつもりで、すべての変数名を書いてください。
 
 不一致は議論により解決し、解決しない場合は第三のレビュアー ([third reviewer / 第三レビュアーのイニシャル: initials]) が裁定者として加わる。
-効率向上のため、必要に応じて AI をデータ抽出の補助に用いる [@Gartlehner2025-cm;@Kataoka2025-kq]。AI を実際にどう用いたかは、Position Statement on Artificial Intelligence (AI) Use in Evidence Synthesis Across Cochrane, the Campbell Collaboration, JBI, and the Collaboration for Environmental Evidence 2025 [@Flemyng2025-ru] に従って報告する。
+効率向上のため、必要に応じて AI をデータ抽出の補助に用いる [@Gartlehner2025-cm;@Kataoka2025-kq]。AI を実際にどう用いたかは、Position Statement on Artificial Intelligence (AI) Use in Evidence Synthesis Across Cochrane, the Campbell Collaboration, JBI, and the Collaboration for Environmental Evidence 2025 [@Flemyng2025-csr] に従って報告する。
 
 ## 3.6 Assessment of risk of bias in included studies
 
@@ -231,9 +231,9 @@ Author contributions:
 
 ## 3.8 Unit of analysis issues
 
-クラスターランダム化試験における登録単位でのクラスタリング。 クラスターRCT の二値データについては、Cochrane Handbook 16.3.5 章 [@higgins2024cochrane] に従い、ユニット内の級内相関係数 (intra-cluster correlation coefficient, ICC) と平均クラスターサイズを用いて design effect を適用し、実効サンプルサイズおよび実効イベント数を算出する。ICC が報告されていない場合は類似研究の ICC で代替する。連続データについてはサンプルサイズのみを縮小し、平均値と標準偏差はそのまま用いる [@higgins2024cochrane]。
+クラスターランダム化試験における登録単位でのクラスタリング。 クラスターRCT については、クラスタリングを正しく調整した効果推定値とその標準誤差 (SE)（例: マルチレベルモデルや一般化推定方程式による推定値）が報告されていれば、それを用いる。クラスタリングを考慮せずに解析された結果に限り、Cochrane Handbook 23.1.4 節 ("Approximate analyses of cluster-randomized trials for a meta-analysis: effective sample sizes") [@higgins2024cochrane] に従い、design effect (1 + (M - 1) × ICC。M は平均クラスターサイズ、ICC は級内相関係数 (intra-cluster correlation coefficient)) を適用して実効サンプルサイズ（二値データでは実効イベント数も）を算出する。連続データについてはサンプルサイズのみを縮小し、平均値と標準偏差はそのまま用いる。ICC は当該試験で報告された値を用い、報告されていない場合は同じアウトカムについての類似試験の ICC で代替し、感度分析で ICC の値を一定の範囲で変えて検討する。
 
-ランダム化クロスオーバー試験。 二値アウトカムについては、クロスオーバー試験の第 1 期のデータを使用する。利用できない場合は両期のデータを並行群試験として扱う。
+ランダム化クロスオーバー試験。 クロスオーバー試験は [cross-over approach / クロスオーバー試験の扱い: 例, 下記の既定（第 1 期、得られなければ両期を並行群として扱う）/ 第 1 期のデータのみ / 対応のある解析。Note 参照] により扱う。二値アウトカムについては、クロスオーバー試験の第 1 期のデータを使用する。利用できない場合は両期のデータを並行群試験として扱う。
 
 連続アウトカムについては以下の優先順位でデータを使用する。
 
@@ -241,6 +241,8 @@ Author contributions:
 2. 介入期と対照期の平均差およびその SD
 3. 上記 SD が得られない場合は、95% CI、t 統計量、または t 検定の p 値から計算する
 4. 上記いずれの統計量も得られない場合は、Cochrane Handbook 23.2.7 章に従い、介入期と対照期の平均差の SD を近似的に補完する
+
+> Note: クロスオーバー試験の扱いは次の 3 つから 1 つを選び、選んだものに合わせて上の文を残すか書き換えてください。(a) 既定（上の文のまま）: 第 1 期のデータを使い、得られなければ両期のデータを並行群試験として扱う。(b) 持ち越し効果 (carry-over) がありうる場合: 第 1 期のデータのみを使い、得られない試験は記述にとどめてメタアナリシスから除外する。(c) 持ち越し効果が考えにくい場合: 被験者内の推定値（介入期と対照期の差）とその SE を用いた対応のある解析 (paired analysis) を行う（Cochrane Handbook 23 章 [@higgins2024cochrane]）。
 
 複数群比較。 本レビューに関連するすべての介入群を組み入れる。
 
@@ -258,15 +260,17 @@ Author contributions:
 
 ## 3.10 Assessment of heterogeneity
 
-フォレストプロットの目視および *I*² 統計量により統計的異質性を評価する (*I*² 0–40%: 重要でない可能性; 30–60%: 中等度の異質性の可能性; 50–90%: 実質的な異質性の可能性; 75–100%: 大きな異質性)。実質的な異質性 (*I*² > 50%) が認められる場合は、その原因を検討する。*I*² 統計量に対しては Cochran χ² 検定 (Q 検定) を行い、P 値 0.10 未満を統計学的に有意とみなす。
+統合の前に、*I*² の値にかかわらず、組み入れ研究の介入・対象集団・アウトカム指標がメタアナリシスを臨床的に意味のあるものにするだけ類似しているかを判断する。フォレストプロットの目視および *I*² 統計量により統計的異質性を評価する (*I*² 0–40%: 重要でない可能性; 30–60%: 中等度の異質性の可能性; 50–90%: 実質的な異質性の可能性; 75–100%: 大きな異質性)。実質的な異質性 (*I*² > 50%) が認められる場合は、その原因を検討する。*I*² 統計量に対しては Cochran χ² 検定 (Q 検定) を行い、P 値 0.10 未満を統計学的に有意とみなす。
 
 ## 3.11 Assessment of reporting bias
 
-臨床試験登録 (ClinicalTrials.gov および ICTRP) を検索するとともに、未出版試験について広範な文献検索を行う。アウトカム報告バイアスを評価するため、試験プロトコルで定義されたアウトカムと出版物で報告されたアウトカムを比較する。出版バイアスはファンネルプロットの目視により評価する。Egger 検定により出版バイアスを評価する。組み入れ試験が 10 件未満、もしくはサンプルサイズの似た試験のみの場合は本検定を行わない。
+臨床試験登録 (ClinicalTrials.gov および ICTRP) を検索するとともに、未出版試験について広範な文献検索を行う。アウトカム報告バイアスを評価するため、試験プロトコルで定義されたアウトカムと出版物で報告されたアウトカムを比較する。ファンネルプロットとファンネルプロットの非対称性の検定は、メタアナリシスに 10 件以上の研究が含まれ（メタアナリシスごとに数える）、かつ研究の規模が似通っていない場合に限って用いる。平均差とリスク比には Egger 検定を用いる。オッズ比には Harbord 検定 [@harbord2006modified] または Peters 検定 [@peters2006comparison] を用いる。標準化平均差には元の Egger 検定を用いず、修正した標準誤差または分散安定化変換に基づく検定を用いる [@pustejovsky2019smd]。ファンネルプロットの非対称性は小規模研究効果 (small-study effects) の可能性を示すものと解釈し、出版バイアスの証明とはみなさない (Cochrane Handbook 13.3.4.4 節 [@higgins2024cochrane])。
 
 ## 3.12 Meta-analysis
 
-メタアナリシスは PMA tools ([https://yukifurukawa.jp/pmatools/](https://yukifurukawa.jp/pmatools/)) を用いて行う。ランダム効果モデルを用いる。
+メタアナリシスは PMA tools ([https://yukifurukawa.jp/pmatools/](https://yukifurukawa.jp/pmatools/)) を用いて行う。ランダム効果モデルを用いる。研究間分散は [between-study variance estimator / 研究間分散の推定法: 例, 制限付き最尤法 (REML)] で推定し、統合推定値の信頼区間は [confidence interval method / 統合推定値の信頼区間の算出法: 例, Hartung-Knapp-Sidik-Jonkman 法] で算出し、イベント数 0 の試験は [zero-event handling / ゼロイベント試験の扱い: 例, 適用する連続性補正と、両群ともイベント 0 の試験を含めるかどうか] により扱う。
+
+> Note: 研究間分散の推定法・信頼区間の算出法・ゼロイベント試験の扱いは、使用するソフトで実際に選べる設定を確かめたうえで明記してください。ソフトの既定値をそのまま使う場合も、その既定値が何であるかを確かめて書いてください。
 
 ## 3.13 Subgroup analysis
 
@@ -280,7 +284,7 @@ Author contributions:
 主要アウトカムについて、レビュー過程の判断に対する結果の頑健性を評価するため、以下の感度分析を行う。
 
 1. 補完された統計量を用いた研究の除外
-2. 欠測参加者: informative missingness odds ratio を求めて結果の頑健性を検証する [@furukawa2006imputing]
+2. 欠測参加者: 二値アウトカムでは、informative missingness odds ratio を用いて、欠測データについての仮定に対する結果の頑健性を検証する [@Higgins2008-oj]。連続アウトカムでは、RoB 2 のドメイン 3（アウトカムデータの欠測）でバイアスリスクが高いと判定された結果を除外する [@sterne2019rob2]
 3. 完全データで研究を完了した参加者のみによる解析
 
 # 4. Summary of findings table
@@ -299,9 +303,14 @@ Author contributions:
 
 # Use of artificial intelligence in manuscript preparation
 
-本プロトコルの文章の校正・推敲に [AI tool and version / 使用した生成 AI の名称とバージョン: 例, Claude Code (Anthropic), v2.1.168, model Claude Opus 4.8] を用いた。AI は参考文献の作成・選定、データの作成・解釈、方法論上の判断には使用していない。著者はすべての内容を確認・検証し、最終原稿に全責任を負う。
+生成 AI を以下の用途に用いる。
 
-> Note: 本プロトコルや本文の文章作成・校正に生成 AI を使った場合は、ツール名とバージョンを明記してください。使っていなければこのセクションは削除して構いません。References の作成・挿入に AI を使ってはいけません（# References の Note 参照）。
+1. 本プロトコルの文章作成・校正: [AI tool and version for writing / 文章作成・校正に使用した生成 AI の名称とバージョン: 例, Claude Code (Anthropic), v2.1.168, model Claude Opus 4.8] を [writing task / 文章での用途: 例, 本プロトコルの文章の校正・推敲] に用いた。
+2. レビューの実施: [AI tool and version for the review / レビュー実施に使用する AI の名称とバージョン: 例, §3.5.1 および §3.5.2 に記載したツールとモデル] を [review tasks / レビュー作業での用途: 例, タイトル・抄録のスクリーニング、データ抽出] の補助に用い、AI の出力はすべて人のレビュアーが確認する (§3.5 参照)。
+
+AI は参考文献の作成・選定、方法論上の判断には使用していない。著者はすべての内容を確認・検証し、最終原稿に全責任を負う。
+
+> Note: 生成 AI の用途ごとに、実際に使ったものだけを残してください。1 は本プロトコルの文章作成・校正、2 はレビューの実施（スクリーニング、データ抽出など）で、2 を残す場合は §3.5 の記載と一致させてください。どちらにも使っていなければこのセクションは削除して構いません。「AI は参考文献の作成・選定、方法論上の判断には使用していない。」の文は、それが事実である場合にのみ残してください。References の作成・挿入に AI を使ってはいけません（# References の Note 参照）。
 
 # References
 
@@ -366,7 +375,7 @@ S19 TI(trial)
 S20 S1 OR S2 OR S3 OR S4 OR S5 OR S6 OR S7 OR S8 OR S9 OR S10 OR S11 OR S12 OR S13 OR S14 OR S15 OR S16 OR S17 OR S18 OR S19
 S21 TI(random* NEAR/1 sampl* NEAR/8 ("cross section*" OR questionnaire* OR survey OR surveys OR database OR databases)) OR AB(random* NEAR/1 sampl* NEAR/8 ("cross section*" OR questionnaire* OR survey OR surveys OR database OR databases)) NOT (EMB.EXACT.EXACT("comparative study") OR EMB.EXACT.EXACT("controlled study") OR TI(randomised controlled) OR TI(randomized controlled) OR TI(randomly assigned))
 S22 EMB.EXACT.EXACT("cross-sectional study") NOT (EMB.EXACT.EXPLODE("randomized controlled trial") OR EMB.EXACT.EXACT("controlled clinical study") OR EMB.EXACT.EXACT("controlled study") OR TI(randomised controlled) OR TI(randomized controlled) OR TI(control group) OR TI(control groups))
-S23 TI(case control*) OR AB(case control*) AND TI(random*) OR AB(random*) NOT (TI(randomised controlled) OR TI(randomized controlled))
+S23 (TI(case control*) OR AB(case control*)) AND (TI(random*) OR AB(random*)) NOT (TI(randomised controlled) OR TI(randomized controlled))
 S24 TI(systematic review) NOT (TI(trial) OR TI(study))
 S25 TI(nonrandom*) OR AB(nonrandom*) NOT TI(random*) OR AB(random*)
 S26 TI(random field*) OR AB(random field*)

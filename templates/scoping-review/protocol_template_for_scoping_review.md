@@ -188,7 +188,7 @@ Two reviewers ([data extraction reviewers / データ抽出担当者のイニシ
 
 Disagreements will be resolved by discussion, with a third reviewer ([third reviewer / 第三レビュアーのイニシャル: initials]) consulted as needed. We will contact original authors to request additional information when needed.
 
-For efficiency, AI may be used to assist data extraction as appropriate [@Gartlehner2025-cm;@Kataoka2025-kq]. The actual use of AI will be reported in accordance with the Position Statement on Artificial Intelligence (AI) Use in Evidence Synthesis Across Cochrane, the Campbell Collaboration, JBI, and the Collaboration for Environmental Evidence 2025 [@Flemyng2025-ru].
+For efficiency, AI may be used to assist data extraction as appropriate [@Gartlehner2025-cm;@Kataoka2025-kq]. The actual use of AI will be reported in accordance with the Position Statement on Artificial Intelligence (AI) Use in Evidence Synthesis Across Cochrane, the Campbell Collaboration, JBI, and the Collaboration for Environmental Evidence 2025 [@Flemyng2025-csr].
 
 > Note (Risk of bias, optional): スコーピングレビューでは通常、個別研究のバイアスリスク評価 (critical appraisal) は実施しません [@peters2022bestpractice]。レビュー設問上必要と判断する場合は、評価する単位 (個別研究レベル / アウトカムレベル / 両方)、使用するツール、および評価結果を結果の統合でどう扱うかを以下に記載してください: [risk of bias plan / バイアスリスク評価計画: ツール名、評価レベル、結果の扱い方]。
 
@@ -216,9 +216,14 @@ This work was self-funded.
 
 # Use of artificial intelligence in manuscript preparation
 
-We used [AI tool and version / 使用した生成 AI の名称とバージョン: e.g., Claude Code (Anthropic), v2.1.168, model Claude Opus 4.8] to proofread and copy-edit the text of this protocol. AI was not used to generate or select references, to produce or interpret data, or to make methodological decisions. The authors reviewed and verified all content and take full responsibility for the final manuscript.
+We use generative AI for the following purposes:
 
-> Note: 本プロトコルや本文の文章作成・校正に生成 AI を使った場合は、ツール名とバージョンを明記してください。使っていなければこのセクションは削除して構いません。References の作成・挿入に AI を使ってはいけません（# References の Note 参照）。
+1. Drafting and proofreading the protocol text: we used [AI tool and version for writing / 文章作成・校正に使用した生成 AI の名称とバージョン: e.g., Claude Code (Anthropic), v2.1.168, model Claude Opus 4.8] to [writing task / 文章での用途: e.g., proofread and copy-edit the text of this protocol].
+2. Conducting the review: we will use [AI tool and version for the review / レビュー実施に使用する AI の名称とバージョン: e.g., the tool and model named in Sections 3.4 and 3.5] to assist with [review tasks / レビュー作業での用途: e.g., title and abstract screening, data extraction], and a human reviewer will verify all AI outputs (see Sections 3.4 and 3.5).
+
+AI was not used to generate or select references or to make methodological decisions. The authors reviewed and verified all content and take full responsibility for the final manuscript.
+
+> Note: 生成 AI の用途ごとに、実際に使ったものだけを残してください。1 は本プロトコルの文章作成・校正、2 はレビューの実施（スクリーニング、データ抽出など）で、2 を残す場合は §3.4 と §3.5 の記載と一致させてください。どちらにも使っていなければこのセクションは削除して構いません。「AI was not used to generate or select references or to make methodological decisions.」の文は、それが事実である場合にのみ残してください。References の作成・挿入に AI を使ってはいけません（# References の Note 参照）。
 
 # References
 

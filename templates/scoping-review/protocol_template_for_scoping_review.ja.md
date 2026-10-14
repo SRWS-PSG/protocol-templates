@@ -187,7 +187,7 @@ PCC フレームワーク [@peters2020jbi] に基づき、組み入れ基準を�
 
 不一致は議論して解決し、必要に応じて第三のレビュアー ([third reviewer / 第三レビュアーのイニシャル: initials]) と議論する。必要に応じて原著者に追加情報の提供を依頼する。
 
-効率向上のため、必要に応じて AI をデータ抽出の補助に用いる [@Gartlehner2025-cm;@Kataoka2025-kq]。AI を実際にどう用いたかは、Position Statement on Artificial Intelligence (AI) Use in Evidence Synthesis Across Cochrane, the Campbell Collaboration, JBI, and the Collaboration for Environmental Evidence 2025 [@Flemyng2025-ru] に従って報告する。
+効率向上のため、必要に応じて AI をデータ抽出の補助に用いる [@Gartlehner2025-cm;@Kataoka2025-kq]。AI を実際にどう用いたかは、Position Statement on Artificial Intelligence (AI) Use in Evidence Synthesis Across Cochrane, the Campbell Collaboration, JBI, and the Collaboration for Environmental Evidence 2025 [@Flemyng2025-csr] に従って報告する。
 
 > Note (Risk of bias, optional): スコーピングレビューでは通常、個別研究のバイアスリスク評価 (critical appraisal) は実施しません [@peters2022bestpractice]。レビュー設問上必要と判断する場合は、評価する単位 (個別研究レベル / アウトカムレベル / 両方)、使用するツール、および評価結果を結果の統合でどう扱うかを以下に記載してください: [risk of bias plan / バイアスリスク評価計画: ツール名、評価レベル、結果の扱い方]。
 
@@ -215,9 +215,14 @@ PCC フレームワーク [@peters2020jbi] に基づき、組み入れ基準を�
 
 # Use of artificial intelligence in manuscript preparation
 
-本プロトコルの文章の校正・推敲に [AI tool and version / 使用した生成 AI の名称とバージョン: 例, Claude Code (Anthropic), v2.1.168, model Claude Opus 4.8] を用いた。AI は参考文献の作成・選定、データの作成・解釈、方法論上の判断には使用していない。著者はすべての内容を確認・検証し、最終原稿に全責任を負う。
+生成 AI を以下の用途に用いる。
 
-> Note: 本プロトコルや本文の文章作成・校正に生成 AI を使った場合は、ツール名とバージョンを明記してください。使っていなければこのセクションは削除して構いません。References の作成・挿入に AI を使ってはいけません（# References の Note 参照）。
+1. 本プロトコルの文章作成・校正: [AI tool and version for writing / 文章作成・校正に使用した生成 AI の名称とバージョン: 例, Claude Code (Anthropic), v2.1.168, model Claude Opus 4.8] を [writing task / 文章での用途: 例, 本プロトコルの文章の校正・推敲] に用いた。
+2. レビューの実施: [AI tool and version for the review / レビュー実施に使用する AI の名称とバージョン: 例, §3.4 および §3.5 に記載したツールとモデル] を [review tasks / レビュー作業での用途: 例, タイトル・抄録のスクリーニング、データ抽出] の補助に用い、AI の出力はすべて人のレビュアーが確認する (§3.4 と §3.5 参照)。
+
+AI は参考文献の作成・選定、方法論上の判断には使用していない。著者はすべての内容を確認・検証し、最終原稿に全責任を負う。
+
+> Note: 生成 AI の用途ごとに、実際に使ったものだけを残してください。1 は本プロトコルの文章作成・校正、2 はレビューの実施（スクリーニング、データ抽出など）で、2 を残す場合は §3.4 と §3.5 の記載と一致させてください。どちらにも使っていなければこのセクションは削除して構いません。「AI は参考文献の作成・選定、方法論上の判断には使用していない。」の文は、それが事実である場合にのみ残してください。References の作成・挿入に AI を使ってはいけません（# References の Note 参照）。
 
 # References
 

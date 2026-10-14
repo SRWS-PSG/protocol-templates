@@ -201,7 +201,7 @@ The form will include the information on study design, study population, interve
 > Note: ここは表を作るつもりで、すべての変数名を書いてください。
 
 Any disagreements will be resolved by discussion, and if this fails, a third reviewer will act as an arbiter ([third reviewer / 第三レビュアーのイニシャル: initials]).
-To improve efficiency, we will use AI to assist with data extraction as needed [@Gartlehner2025-cm;@Kataoka2025-kq]. We will report how AI was actually used in accordance with the Position Statement on Artificial Intelligence (AI) Use in Evidence Synthesis Across Cochrane, the Campbell Collaboration, JBI, and the Collaboration for Environmental Evidence 2025 [@Flemyng2025-ru].
+To improve efficiency, we will use AI to assist with data extraction as needed [@Gartlehner2025-cm;@Kataoka2025-kq]. We will report how AI was actually used in accordance with the Position Statement on Artificial Intelligence (AI) Use in Evidence Synthesis Across Cochrane, the Campbell Collaboration, JBI, and the Collaboration for Environmental Evidence 2025 [@Flemyng2025-csr].
 
 ## 3.6 Assessment of risk of bias in included studies
 
@@ -219,9 +219,9 @@ We will summarize adverse events based on the definition by the original article
 
 ## 3.8 Unit of analysis issues
 
-Clustering at the level of the enrolled units in cluster randomised studies. In dealing with cluster-RCTs, for dichotomous data, we will apply the design effect and calculate effective sample size and number of events using the intra-cluster correlation coefficient (ICC) among each unit and the average cluster size, as described in Chapter 16.3.5 of the Cochrane Handbook [@higgins2024cochrane]. If the ICC has not been reported, we will use the ICC of a similar study as a substitute. For continuous data, only the sample size will be reduced; means and standard deviation will remain unchanged [@higgins2024cochrane].
+Clustering at the level of the enrolled units in cluster randomised studies. In dealing with cluster-RCTs, we will use an effect estimate and its standard error (SE) that have been correctly adjusted for clustering (e.g., from a multilevel model or generalized estimating equations) whenever the trial reports them. Only for results that were analysed without accounting for clustering, we will apply the design effect (1 + (M - 1) × ICC, where M is the average cluster size and ICC is the intra-cluster correlation coefficient) and calculate the effective sample size (and, for dichotomous data, the effective number of events), as described in section 23.1.4 of the Cochrane Handbook ("Approximate analyses of cluster-randomized trials for a meta-analysis: effective sample sizes") [@higgins2024cochrane]. For continuous data, only the sample size will be reduced; means and standard deviation will remain unchanged. We will use the ICC reported by the trial; if it has not been reported, we will use the ICC for the same outcome from a similar trial, and we will test a range of ICC values in a sensitivity analysis.
 
-Randomized cross-over studies. For dichotomous outcomes, we will use the data from the first period of the cross-over trial. If it is not available, we will deal with the data from both periods as if the trial is a parallel trial.
+Randomized cross-over studies. We will handle cross-over trials using [cross-over approach / クロスオーバー試験の扱い: e.g., the default below (first period; if unavailable, both periods as if parallel) / first-period data only / paired analysis; see the Note]. For dichotomous outcomes, we will use the data from the first period of the cross-over trial. If it is not available, we will deal with the data from both periods as if the trial is a parallel trial.
 
 For continuous outcomes we will use the data according to the following hierarchy:
 
@@ -229,6 +229,8 @@ For continuous outcomes we will use the data according to the following hierarch
 2. Mean difference between intervention and control periods, and its SD
 3. If the SD above is not available, we will use 95% CI, t-statistic, or p-value for the t-test to calculate it
 4. If none of the statistics above is available, we will perform approximate analyses to impute the SD of the mean difference between intervention and control periods according to the Cochrane Handbook Chapter 23.2.7
+
+> Note: クロスオーバー試験の扱いは次の 3 つから 1 つを選び、選んだものに合わせて上の文を残すか書き換えてください。(a) 既定（上の文のまま）: 第 1 期のデータを使い、得られなければ両期のデータを並行群試験として扱う。(b) 持ち越し効果 (carry-over) がありうる場合: 第 1 期のデータのみを使い、得られない試験は記述にとどめてメタアナリシスから除外する。(c) 持ち越し効果が考えにくい場合: 被験者内の推定値（介入期と対照期の差）とその SE を用いた対応のある解析 (paired analysis) を行う（Cochrane Handbook 23 章 [@higgins2024cochrane]）。
 
 Multiple comparisons. All intervention groups that are relevant to this review will be included.
 
@@ -246,15 +248,17 @@ When original studies only report standard error or p-value, we will calculate t
 
 ## 3.10 Assessment of heterogeneity
 
-We will evaluate statistical heterogeneity by visual inspection of the forest plots and by calculating the *I*² statistic (*I*² of 0–40%: might not be important; 30–60%: may represent moderate heterogeneity; 50–90%: may represent substantial heterogeneity; 75–100%: considerable heterogeneity). When there is substantial heterogeneity (*I*² > 50%), we will assess the source of the heterogeneity. The Cochran χ² test (Q-test) will be performed for the *I*² statistic, and a P value less than 0.10 will be defined as statistically significant.
+Before pooling, we will judge whether the included studies are sufficiently similar in interventions, populations, and outcome measures for a meta-analysis to be clinically meaningful, regardless of the *I*² value. We will evaluate statistical heterogeneity by visual inspection of the forest plots and by calculating the *I*² statistic (*I*² of 0–40%: might not be important; 30–60%: may represent moderate heterogeneity; 50–90%: may represent substantial heterogeneity; 75–100%: considerable heterogeneity). When there is substantial heterogeneity (*I*² > 50%), we will assess the source of the heterogeneity. The Cochran χ² test (Q-test) will be performed for the *I*² statistic, and a P value less than 0.10 will be defined as statistically significant.
 
 ## 3.11 Assessment of reporting bias
 
-We will search the clinical trial registry system (ClinicalTrials.gov and ICTRP) and perform an extensive literature search for unpublished trials. To assess outcome reporting bias, we will compare the outcomes defined in the trial protocols with the outcomes reported in the publications. We will assess potential publication bias by visual inspection of the funnel plot. We will conduct the Egger test to assess publication bias. We will not conduct the test when we find fewer than 10 trials or trials of similar sample size.
+We will search the clinical trial registry system (ClinicalTrials.gov and ICTRP) and perform an extensive literature search for unpublished trials. To assess outcome reporting bias, we will compare the outcomes defined in the trial protocols with the outcomes reported in the publications. We will use funnel plots and tests for funnel plot asymmetry only when a meta-analysis includes at least 10 studies (counted separately for each meta-analysis) and the studies are not of similar size. We will use Egger's test for mean differences and risk ratios; for odds ratios, we will use the Harbord test [@harbord2006modified] or the Peters test [@peters2006comparison]; for standardized mean differences, we will not use the original Egger test but a test based on a modified standard error or a variance-stabilising transformation [@pustejovsky2019smd]. We will interpret funnel plot asymmetry as a possible sign of small-study effects, not as proof of publication bias (Cochrane Handbook section 13.3.4.4 [@higgins2024cochrane]).
 
 ## 3.12 Meta-analysis
 
-Meta-analysis will be performed using PMA tools ([https://yukifurukawa.jp/pmatools/](https://yukifurukawa.jp/pmatools/)). We will use a random-effects model.
+Meta-analysis will be performed using PMA tools ([https://yukifurukawa.jp/pmatools/](https://yukifurukawa.jp/pmatools/)). We will use a random-effects model. We will estimate the between-study variance using [between-study variance estimator / 研究間分散の推定法: e.g., restricted maximum likelihood (REML)], calculate the confidence interval of the pooled estimate using [confidence interval method / 統合推定値の信頼区間の算出法: e.g., the Hartung-Knapp-Sidik-Jonkman method], and handle trials with zero events using [zero-event handling / ゼロイベント試験の扱い: e.g., the continuity correction applied, and whether trials with zero events in both arms are included].
+
+> Note: 研究間分散の推定法・信頼区間の算出法・ゼロイベント試験の扱いは、使用するソフトで実際に選べる設定を確かめたうえで明記してください。ソフトの既定値をそのまま使う場合も、その既定値が何であるかを確かめて書いてください。
 
 ## 3.13 Subgroup analysis
 
@@ -268,7 +272,7 @@ To elucidate the influence of effect modifiers on results, we will evaluate the 
 We will undertake the following sensitivity analyses for the primary outcomes to assess whether the results of the review are robust to the decisions made during the review process.
 
 1. Exclusion of studies using imputed statistics.
-2. Missing participants: verify the robustness of the results by seeking informative missingness odds ratios [@furukawa2006imputing].
+2. Missing participants: for dichotomous outcomes, we will examine the robustness of the results to assumptions about missing outcome data using informative missingness odds ratios [@Higgins2008-oj]; for continuous outcomes, we will exclude results judged at high risk of bias in RoB 2 domain 3 (missing outcome data) [@sterne2019rob2].
 3. Only the participants who complete the study with complete data.
 
 # 4. Summary of findings table
@@ -287,9 +291,14 @@ Self-funding.
 
 # Use of artificial intelligence in manuscript preparation
 
-We used [AI tool and version / 使用した生成 AI の名称とバージョン: e.g., Claude Code (Anthropic), v2.1.168, model Claude Opus 4.8] to proofread and copy-edit the text of this protocol. AI was not used to generate or select references, to produce or interpret data, or to make methodological decisions. The authors reviewed and verified all content and take full responsibility for the final manuscript.
+We use generative AI for the following purposes:
 
-> Note: 本プロトコルや本文の文章作成・校正に生成 AI を使った場合は、ツール名とバージョンを明記してください。使っていなければこのセクションは削除して構いません。References の作成・挿入に AI を使ってはいけません（# References の Note 参照）。
+1. Drafting and proofreading the protocol text: we used [AI tool and version for writing / 文章作成・校正に使用した生成 AI の名称とバージョン: e.g., Claude Code (Anthropic), v2.1.168, model Claude Opus 4.8] to [writing task / 文章での用途: e.g., proofread and copy-edit the text of this protocol].
+2. Conducting the review: we will use [AI tool and version for the review / レビュー実施に使用する AI の名称とバージョン: e.g., the tool and model named in Sections 3.5.1 and 3.5.2] to assist with [review tasks / レビュー作業での用途: e.g., title and abstract screening, data extraction], and a human reviewer will verify all AI outputs (see Section 3.5).
+
+AI was not used to generate or select references or to make methodological decisions. The authors reviewed and verified all content and take full responsibility for the final manuscript.
+
+> Note: 生成 AI の用途ごとに、実際に使ったものだけを残してください。1 は本プロトコルの文章作成・校正、2 はレビューの実施（スクリーニング、データ抽出など）で、2 を残す場合は §3.5 の記載と一致させてください。どちらにも使っていなければこのセクションは削除して構いません。「AI was not used to generate or select references or to make methodological decisions.」の文は、それが事実である場合にのみ残してください。References の作成・挿入に AI を使ってはいけません（# References の Note 参照）。
 
 # References
 
@@ -343,7 +352,7 @@ S19 TI(trial)
 S20 S1 OR S2 OR S3 OR S4 OR S5 OR S6 OR S7 OR S8 OR S9 OR S10 OR S11 OR S12 OR S13 OR S14 OR S15 OR S16 OR S17 OR S18 OR S19
 S21 TI(random* NEAR/1 sampl* NEAR/8 ("cross section*" OR questionnaire* OR survey OR surveys OR database OR databases)) OR AB(random* NEAR/1 sampl* NEAR/8 ("cross section*" OR questionnaire* OR survey OR surveys OR database OR databases)) NOT (EMB.EXACT.EXACT("comparative study") OR EMB.EXACT.EXACT("controlled study") OR TI(randomised controlled) OR TI(randomized controlled) OR TI(randomly assigned))
 S22 EMB.EXACT.EXACT("cross-sectional study") NOT (EMB.EXACT.EXPLODE("randomized controlled trial") OR EMB.EXACT.EXACT("controlled clinical study") OR EMB.EXACT.EXACT("controlled study") OR TI(randomised controlled) OR TI(randomized controlled) OR TI(control group) OR TI(control groups))
-S23 TI(case control*) OR AB(case control*) AND TI(random*) OR AB(random*) NOT (TI(randomised controlled) OR TI(randomized controlled))
+S23 (TI(case control*) OR AB(case control*)) AND (TI(random*) OR AB(random*)) NOT (TI(randomised controlled) OR TI(randomized controlled))
 S24 TI(systematic review) NOT (TI(trial) OR TI(study))
 S25 TI(nonrandom*) OR AB(nonrandom*) NOT TI(random*) OR AB(random*)
 S26 TI(random field*) OR AB(random field*)
