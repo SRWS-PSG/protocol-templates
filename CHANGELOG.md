@@ -39,6 +39,10 @@ All four `templates/*/comments.yaml` files: migrated every SRWS-PSG Facebook-gro
 - The old inline mentoring-session codes (`03_04`, `14`, ...) that pre-v3 Docs anchored comments to directly are no longer anchors, but live on as `lessons:` refs matching the Slack training curriculum's `serial` column.
 - dta-review's `c-rob-ref` remapped from the QUADAS-2 lessons (`10_02_02`/`10_02_03`, both unreleased in the live curriculum) to QUADAS-3/QUADAS-C (`10_02_08`/`10_02_07`), matching §3.6's QUADAS-3 methodology. `c-sof-ref` uses `=10_02_06` (exact-serial) rather than a `10_02_06` prefix, since the prefix would also pull in the sibling `10_02_06_02` guideline-authoring lesson, which doesn't belong on an SR protocol template.
 
+### Fixed
+
+Embase (Dialog) RCT filter, line S23, in the intervention-review (EN/JA) and NMA templates: added the missing parentheses around the two `OR` groups. Dialog applies `AND` before `OR`, so the unparenthesised line put every record with `random*` in the abstract into the exclusion set, and S35 (`S20 NOT S34`) removed genuine randomised trials. The line now reads `(TI(case control*) OR AB(case control*)) AND (TI(random*) OR AB(random*)) NOT (TI(randomised controlled) OR TI(randomized controlled))`.
+
 ## [3.2.0] – 2026-06-09
 
 - Version DOI: `??????` _(minted automatically on Zenodo release; the always-latest concept DOI is recorded in [CITATION.cff](CITATION.cff))_
