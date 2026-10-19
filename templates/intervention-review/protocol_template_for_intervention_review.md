@@ -248,7 +248,7 @@ When original studies only report standard error or p-value, we will calculate t
 
 ## 3.10 Assessment of heterogeneity
 
-Before pooling, we will judge whether the included studies are sufficiently similar in interventions, populations, and outcome measures for a meta-analysis to be clinically meaningful, regardless of the *I*² value. We will evaluate statistical heterogeneity by visual inspection of the forest plots and by calculating the *I*² statistic (*I*² of 0–40%: might not be important; 30–60%: may represent moderate heterogeneity; 50–90%: may represent substantial heterogeneity; 75–100%: considerable heterogeneity). When there is substantial heterogeneity (*I*² > 50%), we will assess the source of the heterogeneity. The Cochran χ² test (Q-test) will be performed for the *I*² statistic, and a P value less than 0.10 will be defined as statistically significant.
+Before pooling, we will judge whether the included studies are sufficiently similar in interventions, populations, and outcome measures for a meta-analysis to be clinically meaningful, regardless of the *I*² value. We will evaluate statistical heterogeneity by visual inspection of the forest plots and by calculating the *I*² statistic (*I*² of 0–40%: might not be important; 30–60%: may represent moderate heterogeneity; 50–90%: may represent substantial heterogeneity; 75–100%: considerable heterogeneity). When there is substantial heterogeneity, we will assess the source of the heterogeneity. The Cochran χ² test (Q-test) will be performed for the *I*² statistic, and a P value less than 0.10 will be defined as statistically significant.
 
 ## 3.11 Assessment of reporting bias
 
